@@ -16,6 +16,7 @@
 #define CLR_REG(Reg)						(Reg&=0)
 #define TGL_REG(Reg)						(Reg=~Reg)
 #define TGL_NO_ASSIGN(Reg,Bit)              ((Reg^(1<<Bit)))
+#define WRITE_BIT(reg,bit,value) (reg=reg&~(1<<bit)|(value<<bit))
 
 
 #define CONC(B7,B6,B5,B4,B3,B2,B1,B0)        CONC_HELP(B7,B6,B5,B4,B3,B2,B1,B0)
