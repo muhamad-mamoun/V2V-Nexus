@@ -1,0 +1,36 @@
+#ifndef PWM_CFG_H
+#define PWM_CFG_H
+
+
+
+
+
+
+
+
+#define F_CLK      16000000UL
+#define PRESCALLER 8
+#define ARR_VALUE  1000 
+
+/*
+  PWM_MODE OPTIONS :
+	1-PWM_MODE_1
+	2-PWM_MODE_2
+*/
+
+#define PWM_MODE_SELECTED   PWM_MODE_1
+
+
+/*
+  PWM_MODE OPTIONS :
+	1-PWM_CENTER_ALIGNED
+	2-PWM_EDGE_ALIGNED
+*/
+
+#define PWM_ALIGNED_SELECTED   PWM_EDGE_ALIGNED
+
+
+
+
+
+#endif
