@@ -25,19 +25,19 @@ void ICU_voidInitTimer(u8 Copy_u8Channel, u8 Copy_u8Timer)
 	switch(Copy_u8Channel)
 	{
 		case CH1:
-			Timer[Copy_u8Timer]->CCMR1 = ((Timer[Copy_u8Timer]->CCMR1&0xFFFFFF00)|0x00000011);
+			Timer[Copy_u8Timer]->CCMR1 = ((Timer[Copy_u8Timer]->CCMR1&0xFFFFFF00)|0x00000001);
 			SET_BIT(Timer[Copy_u8Timer]->CCER, 0);
 			break;
 		case CH2:
-			Timer[Copy_u8Timer]->CCMR1 = ((Timer[Copy_u8Timer]->CCMR1&0xFFFF00FF)|0x00001100);
+			Timer[Copy_u8Timer]->CCMR1 = ((Timer[Copy_u8Timer]->CCMR1&0xFFFF00FF)|0x00000100);
 			SET_BIT(Timer[Copy_u8Timer]->CCER, 4);
 			break;
 		case CH3:
-			Timer[Copy_u8Timer]->CCMR2 = ((Timer[Copy_u8Timer]->CCMR2&0xFFFFFF00)|0x00000011);
+			Timer[Copy_u8Timer]->CCMR2 = ((Timer[Copy_u8Timer]->CCMR2&0xFFFFFF00)|0x00000001);
 			SET_BIT(Timer[Copy_u8Timer]->CCER, 8);
 			break;
 		case CH4:
-			Timer[Copy_u8Timer]->CCMR2 = ((Timer[Copy_u8Timer]->CCMR2&0xFFFF00FF)|0x00001100);
+			Timer[Copy_u8Timer]->CCMR2 = ((Timer[Copy_u8Timer]->CCMR2&0xFFFF00FF)|0x00000100);
 			SET_BIT(Timer[Copy_u8Timer]->CCER, 12);
 			break;
 	}
@@ -72,25 +72,31 @@ void ICU_voidEnableTimer(u8 Copy_u8Timer)
 }
 void ICU_voidGetICU_Count(u8 Copy_u8Channel, u8 Copy_u8Timer, u32* Ptr_ICU_Count)
 {
+	u32 Local_count;
 	switch(Copy_u8Channel)
 	{
 		case CH1:
-			*Ptr_ICU_Count = Timer[Copy_u8Timer]->CCR1;
+			Local_count = Timer[Copy_u8Timer]->CCR1;
 			break;
 		case CH2:
-			*Ptr_ICU_Count = Timer[Copy_u8Timer]->CCR2;
+			Local_count = Timer[Copy_u8Timer]->CCR2;
 			break;
 		case CH3:
-			*Ptr_ICU_Count = Timer[Copy_u8Timer]->CCR3;
+			Local_count = Timer[Copy_u8Timer]->CCR3;
 			break;
 		case CH4:
-			*Ptr_ICU_Count = Timer[Copy_u8Timer]->CCR4;
+			Local_count = Timer[Copy_u8Timer]->CCR4;
 			break;
 	}
+	*Ptr_ICU_Count = Local_count;
 }
 void ICU_voidGetTimerOvStatus(u8 Copy_u8Timer, u8* Ptr_OvStauts)
 {
 	*Ptr_OvStauts = GET_BIT(Timer[Copy_u8Timer]->SR,UIF);
+}
+void ICU_voidClrTimerOvFlag(u8 Copy_u8Timer)
+{
+	CLEAR_BIT(Timer[Copy_u8Timer]->SR,UIF);
 }
 void ICU_voidGetTimerIcuStatus(u8 Copy_u8Channel, u8 Copy_u8Timer, u8* Ptr_IcuStauts)
 {
@@ -99,4 +105,8 @@ void ICU_voidGetTimerIcuStatus(u8 Copy_u8Channel, u8 Copy_u8Timer, u8* Ptr_IcuSt
 void ICU_voidSetArrTime(u8 Copy_u8Timer, u32 Copy_u32ArrTime)
 {
 	Timer[Copy_u8Timer]->ARR = Copy_u32ArrTime;
+}
+void ICU_voidClrTimerIcuFlag(u8 Copy_u8Channel, u8 Copy_u8Timer)
+{
+	CLEAR_BIT(Timer[Copy_u8Timer]->SR,(CC1IF + Copy_u8Channel));
 }

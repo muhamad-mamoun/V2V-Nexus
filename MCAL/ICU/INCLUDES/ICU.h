@@ -25,6 +25,9 @@ void ICU_voidGetICU_Count(u8 Copy_u8Channel, u8 Copy_u8Timer, u32* Ptr_ICU_Count
 void ICU_voidGetTimerOvStatus(u8 Copy_u8Timer, u8* Ptr_OvStauts);
 void ICU_voidGetTimerIcuStatus(u8 Copy_u8Channel, u8 Copy_u8Timer, u8* Ptr_IcuStauts);
 void ICU_voidSetArrTime(u8 Copy_u8Timer, u32 Copy_u32ArrTime);
+void ICU_voidClrTimerOvFlag(u8 Copy_u8Timer);
+void ICU_voidClrTimerIcuFlag(u8 Copy_u8Channel, u8 Copy_u8Timer);
+void US_voidSetTrigger(void);
 
 
 
