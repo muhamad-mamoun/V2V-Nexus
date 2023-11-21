@@ -8,6 +8,11 @@ initialize DCmotor by passing channel and timer IDs to the PWM init
 */
 void DCmotor_Init(PWM_enu_TIMx_t timer_num,PWM_enu_Channelx_t chan_num)
 {
+	GPIO_configurePin(&input1PinBack);
+	GPIO_configurePin(&input2PinBack);
+	GPIO_configurePin(&input1PinFront);
+	GPIO_configurePin(&input2PinFront);
+
 	PWM_enu_Init(timer_num,chan_num);
 }
 

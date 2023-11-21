@@ -31,6 +31,16 @@ typedef enum
 	DcMotor_stop,DcMotor_ACW,DcMotor_CW
 }DcMotor_State;
 
+/////////////////////////////////////H-bridge pins initialization///////////////////////////////////////////////////////////
+
+GPIO_configurationsType input1PinBack = {H_BRIDGE_INPUT1_PORT,H_BRIDGE_INPUT1_PIN_HIGH,GPIO_OUTPUT_OPEN_DRAIN_MODE,GPIO_LOW_SPEED};
+GPIO_configurationsType input2PinBack = {H_BRIDGE_INPUT1_PORT,H_BRIDGE_INPUT1_PIN_LOW,GPIO_OUTPUT_OPEN_DRAIN_MODE,GPIO_LOW_SPEED};
+GPIO_configurationsType input1PinFront = {H_BRIDGE_INPUT2_PORT,H_BRIDGE_INPUT2_PIN_HIGH,GPIO_OUTPUT_OPEN_DRAIN_MODE,GPIO_LOW_SPEED};
+GPIO_configurationsType input2PinFront = {H_BRIDGE_INPUT2_PORT,H_BRIDGE_INPUT2_PIN_LOW,GPIO_OUTPUT_OPEN_DRAIN_MODE,GPIO_LOW_SPEED};
+
+//GPIO_configurationsType input1EnablePin = {H_BRIDGE_BACK_ENABLE_PORT,H_BRIDGE1_BACK_ENABLE_PIN,GPIO_OUTPUT_OPEN_DRAIN_MODE,GPIO_LOW_SPEED};
+//GPIO_configurationsType input2EnablePin = {H_BRIDGE_FRONT_ENABLE_PORT,H_BRIDGE_FRONT_ENABLE_PIN,GPIO_OUTPUT_OPEN_DRAIN_MODE,GPIO_LOW_SPEED};
+
 /////////////////////////////////////////////////////functions prototypes////////////////////////////////////////////////////////////////////////////////
 /*
 pins and ports setting
