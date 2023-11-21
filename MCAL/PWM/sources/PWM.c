@@ -6,7 +6,7 @@
 #include "PWM_cfg.h"
 #include "PWM.h"
 
-
+GPIO_configurationsType test  =  {GPIO_PORTA_ID,GPIO_PIN00_ID,GPIO_ALTERNATE_PUSH_PULL_MODE,GPIO_HIGH_SPEED};
 
 /*
   NAME         : PWM_enu_Init
@@ -68,8 +68,10 @@ PWM_enu_Error_t PWM_enu_Init(PWM_enu_TIMx_t Copy_enu_TIMx,PWM_enu_Channelx_t Cop
 				// CASE TIM2 
 				if ( Copy_enu_TIMx == TIM_2)
 				{
+					GPIO_configurePin(&test);
 					// Configure PIN and Send Alternate function corresponding to pin.
 					GPIO_setPinFuction(GPIO_PORTA_ID, GPIO_PIN00_ID,GPIO_AF01);
+					
 				}
 				// CASE TIM3 
 				else if ( Copy_enu_TIMx == TIM_3)

@@ -99,7 +99,7 @@ GPIO_errorStatusType GPIO_configurePin(GPIO_configurationsType* a_ptr2configurat
     {
         /* Set the I/O mode for the required pin [Input - Output - Alternate Function - Analog]. */
         GPIO_WRITE_TWO_BITS((*(LOC_ptr2GPIOx + a_ptr2configurations->portID))->MODER,a_ptr2configurations->pinID,a_ptr2configurations->pinMode);
-
+			
         switch (a_ptr2configurations->pinMode)
         {
         case GPIO_INPUT_FLOAT_MODE:
