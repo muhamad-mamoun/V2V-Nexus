@@ -8,6 +8,8 @@
 #ifndef _RCC_H_
 #define _RCC_H_
 
+#include "std_types.h"
+#include "common_macros.h"
 
 /****************/
 #define TIME_OUT 1000000

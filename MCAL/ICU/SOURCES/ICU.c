@@ -1,5 +1,5 @@
 #include "std_types.h"
-#include "bit_math.h"
+#include "common_macros.h"
 
 #include "ICU.h"
 #include "ICU_prv.h"
@@ -13,13 +13,13 @@ void ICU_voidInitTimer(u8 Copy_u8Channel, u8 Copy_u8Timer)
 	#if ICU_INT	== ICU_INTEnable
 	SET_BIT(Timer[Copy_u8Timer]->DIER,(CC1IE+Copy_u8Channel));
 	#elif ICU_INT	== ICU_INTDisable
-	CLEAR_BIT(Timer[Copy_u8Timer]->DIER,(CC1IE+Copy_u8Channel));
+	CLR_BIT(Timer[Copy_u8Timer]->DIER,(CC1IE+Copy_u8Channel));
 	#endif
 
 	#if Timer_INT	== TIMER_INTEnable
 	SET_BIT(Timer[Copy_u8Timer]->DIER,UIE);
 	#elif Timer_INT	== TIMER_INTDisable
-	CLEAR_BIT(Timer[Copy_u8Timer]->DIER,UIE);
+	CLR_BIT(Timer[Copy_u8Timer]->DIER,UIE);
 	#endif
 	ICU_voidSetSensingEdge(Copy_u8Channel, Copy_u8Timer, Falling_Edge);
 	switch(Copy_u8Channel)
@@ -96,7 +96,7 @@ void ICU_voidGetTimerOvStatus(u8 Copy_u8Timer, u8* Ptr_OvStauts)
 }
 void ICU_voidClrTimerOvFlag(u8 Copy_u8Timer)
 {
-	CLEAR_BIT(Timer[Copy_u8Timer]->SR,UIF);
+	CLR_BIT(Timer[Copy_u8Timer]->SR,UIF);
 }
 void ICU_voidGetTimerIcuStatus(u8 Copy_u8Channel, u8 Copy_u8Timer, u8* Ptr_IcuStauts)
 {
@@ -108,5 +108,5 @@ void ICU_voidSetArrTime(u8 Copy_u8Timer, u32 Copy_u32ArrTime)
 }
 void ICU_voidClrTimerIcuFlag(u8 Copy_u8Channel, u8 Copy_u8Timer)
 {
-	CLEAR_BIT(Timer[Copy_u8Timer]->SR,(CC1IF + Copy_u8Channel));
+	CLR_BIT(Timer[Copy_u8Timer]->SR,(CC1IF + Copy_u8Channel));
 }

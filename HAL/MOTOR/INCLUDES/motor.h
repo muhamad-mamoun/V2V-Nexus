@@ -2,20 +2,20 @@
 #ifndef DC_MOTOR_H_
 #define DC_MOTOR_H_
 
-#include"../../../OTHERS/std_types.h"
-#include"../../../OTHERS/common_macros.h"
-#include"../../../MCAL/GPIO/INCLUDES/gpio.h"
-#include"../../../MCAL/PWM/includes/PWM.h"
+#include "../../../OTHERS/std_types.h"
+#include "../../../OTHERS/common_macros.h"
+#include "../../../MCAL/GPIO/INCLUDES/gpio.h"
+#include "../../../MCAL/PWM/includes/PWM.h"
 
 /////////////////////////////////////////////////////channels and timers configurations ////////////////////////////////////////////////////////////////////////////////
 // Pins and ports configurations for H-bridge
 #define H_BRIDGE_INPUT1_PORT       GPIO_PORTA_ID
-#define H_BRIDGE_INPUT1_PIN_HIGH   GPIO_PIN01_ID
-#define H_BRIDGE_INPUT1_PIN_LOW    GPIO_PIN02_ID
+#define H_BRIDGE_INPUT1_PIN_HIGH   GPIO_PIN13_ID
+#define H_BRIDGE_INPUT1_PIN_LOW    GPIO_PIN14_ID
 
-#define H_BRIDGE_INPUT2_PORT       GPIO_PORTA_ID
-#define H_BRIDGE_INPUT2_PIN_HIGH   GPIO_PIN03_ID
-#define H_BRIDGE_INPUT2_PIN_LOW    GPIO_PIN04_ID
+#define H_BRIDGE_INPUT2_PORT       GPIO_PORTC_ID
+#define H_BRIDGE_INPUT2_PIN_HIGH   GPIO_PIN13_ID
+#define H_BRIDGE_INPUT2_PIN_LOW    GPIO_PIN14_ID
 
 // selection of channel and timer IDs for PWM init
 #define DCMOTOR_SELECT_TIMER          TIM_2
@@ -31,12 +31,7 @@ typedef enum
 	DcMotor_stop,DcMotor_ACW,DcMotor_CW
 }DcMotor_State;
 
-/////////////////////////////////////H-bridge pins initialization///////////////////////////////////////////////////////////
 
-GPIO_configurationsType input1PinBack = {H_BRIDGE_INPUT1_PORT,H_BRIDGE_INPUT1_PIN_HIGH,GPIO_OUTPUT_OPEN_DRAIN_MODE,GPIO_LOW_SPEED};
-GPIO_configurationsType input2PinBack = {H_BRIDGE_INPUT1_PORT,H_BRIDGE_INPUT1_PIN_LOW,GPIO_OUTPUT_OPEN_DRAIN_MODE,GPIO_LOW_SPEED};
-GPIO_configurationsType input1PinFront = {H_BRIDGE_INPUT2_PORT,H_BRIDGE_INPUT2_PIN_HIGH,GPIO_OUTPUT_OPEN_DRAIN_MODE,GPIO_LOW_SPEED};
-GPIO_configurationsType input2PinFront = {H_BRIDGE_INPUT2_PORT,H_BRIDGE_INPUT2_PIN_LOW,GPIO_OUTPUT_OPEN_DRAIN_MODE,GPIO_LOW_SPEED};
 
 //GPIO_configurationsType input1EnablePin = {H_BRIDGE_BACK_ENABLE_PORT,H_BRIDGE1_BACK_ENABLE_PIN,GPIO_OUTPUT_OPEN_DRAIN_MODE,GPIO_LOW_SPEED};
 //GPIO_configurationsType input2EnablePin = {H_BRIDGE_FRONT_ENABLE_PORT,H_BRIDGE_FRONT_ENABLE_PIN,GPIO_OUTPUT_OPEN_DRAIN_MODE,GPIO_LOW_SPEED};
@@ -45,7 +40,7 @@ GPIO_configurationsType input2PinFront = {H_BRIDGE_INPUT2_PORT,H_BRIDGE_INPUT2_P
 /*
 pins and ports setting
 */
-void DCmotor_Init(PWM_enu_TIMx_t timer_num,PWM_enu_Channelx_t chan_num);
+void DCmotor_Init(void);
 /*
 setting DCmotor to move forward
 */

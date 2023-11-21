@@ -6,7 +6,8 @@
  */
 
 #include "std_types.h"
-#include "bit_math.h"
+#include "common_macros.h"
+
 #include "RCC_prv.h"
 #include "RCC.h"
 

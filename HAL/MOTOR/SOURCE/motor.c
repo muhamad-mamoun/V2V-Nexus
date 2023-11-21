@@ -1,19 +1,31 @@
 
-#include"../INCLUDES/motor.h"
+#include "motor.h"
+
+/////////////////////////////////////H-bridge pins initialization///////////////////////////////////////////////////////////
+
+GPIO_configurationsType input1PinBack  =  {H_BRIDGE_INPUT1_PORT,H_BRIDGE_INPUT1_PIN_HIGH,GPIO_OUTPUT_PUSH_PULL_MODE,GPIO_MEDIUM_SPEED};
+GPIO_configurationsType input1PinFront = {H_BRIDGE_INPUT1_PORT,H_BRIDGE_INPUT1_PIN_LOW,GPIO_OUTPUT_PUSH_PULL_MODE,GPIO_MEDIUM_SPEED};
+
+
+
+
+
+
+GPIO_configurationsType input2PinBack  = {H_BRIDGE_INPUT2_PORT,H_BRIDGE_INPUT2_PIN_HIGH,GPIO_OUTPUT_PUSH_PULL_MODE,GPIO_MEDIUM_SPEED};
+GPIO_configurationsType input2PinFront = {H_BRIDGE_INPUT2_PORT,H_BRIDGE_INPUT2_PIN_LOW,GPIO_OUTPUT_PUSH_PULL_MODE,GPIO_MEDIUM_SPEED};
 
 
 DcMotor_State state;
 /*
 initialize DCmotor by passing channel and timer IDs to the PWM init
 */
-void DCmotor_Init(PWM_enu_TIMx_t timer_num,PWM_enu_Channelx_t chan_num)
+void DCmotor_Init(void)
 {
 	GPIO_configurePin(&input1PinBack);
 	GPIO_configurePin(&input2PinBack);
 	GPIO_configurePin(&input1PinFront);
 	GPIO_configurePin(&input2PinFront);
-
-	PWM_enu_Init(timer_num,chan_num);
+	PWM_enu_Init(DCMOTOR_SELECT_TIMER,DCMOTOR_SELECT_CHANNEL);
 }
 
 void DCmotor_frontMove(u8 dutyCycle)

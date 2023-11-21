@@ -18,6 +18,6 @@ Author      : Mohamed Khaled
  *Parameters    : None 
  *Return Type   : None
  */
-static void HBLE_VGetChar(void);
+static void HBLE_VGetChar(u8 Copy_u8Key);
 
 #endif //end Guard

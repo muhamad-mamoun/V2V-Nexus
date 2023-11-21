@@ -10,7 +10,8 @@ Author      : Mohamed Khaled
 
 /*************************************||INCLUDES||*****************************************/
 #include "std_types.h"
-#include "bit_math.h"
+#include "common_macros.h"
+
 #include "NVIC.h"
 #include "NVIC_Prev.h"
 #include "NVIC_Config.h"

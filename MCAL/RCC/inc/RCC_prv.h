@@ -8,6 +8,9 @@
 #ifndef _RCC_PRV_H_
 #define _RCC_PRV_H_
 
+#include "std_types.h"
+#include "common_macros.h"
+
 typedef struct {
 volatile u32 RCC_CR;
 volatile u32 RCC_CFGR;

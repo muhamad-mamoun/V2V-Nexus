@@ -1,5 +1,5 @@
 #include "std_types.h"
-#include "bit_math.h"
+#include "common_macros.h"
 #include "RCC.h"
 #include "gpio.h"
 #include "PWM_prv.h"
@@ -69,7 +69,7 @@ PWM_enu_Error_t PWM_enu_Init(PWM_enu_TIMx_t Copy_enu_TIMx,PWM_enu_Channelx_t Cop
 				if ( Copy_enu_TIMx == TIM_2)
 				{
 					// Configure PIN and Send Alternate function corresponding to pin.
-					GPIO_setPinFuction(GPIO_PORTA_ID, GPIO_PIN05_ID,GPIO_AF01);
+					GPIO_setPinFuction(GPIO_PORTA_ID, GPIO_PIN00_ID,GPIO_AF01);
 				}
 				// CASE TIM3 
 				else if ( Copy_enu_TIMx == TIM_3)

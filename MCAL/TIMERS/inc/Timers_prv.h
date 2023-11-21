@@ -13,6 +13,7 @@
 #define TIMER_3_BASE_ADDRESS	0x40000400
 #define TIMER_4_BASE_ADDRESS	0x40000800  
 
+#include "std_types.h"
 
 typedef struct
 {

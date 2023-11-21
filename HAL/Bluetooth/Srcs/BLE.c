@@ -25,22 +25,27 @@ u8 G_Key=NO_REC_KEY;
  
  MUARTConfig  UART = 
  {
-	 OneStart_8Datat,
+	 OneStart_8Data,
    OV_16 , 
    Parity_Disabled,
 	 LSB , 
-	 OneStopbit , 
+	 OneStopBit , 
 	 9600 , 
 	 Interrupt_Enable_RX_Only, 
     	 
-	 
- }
+ };
  
+static void HBLE_VGetChar(u8 Copy_u8Key)
+{
+	G_Key=Copy_u8Key;
+}
+
 void HBLE_VInit(void)
 {
 	MUSART_voidInit(&UART);
+	
 	//send HBLE_VGetChar to the UART Call Back Function 
-	MUART_CallBack(HBLE_VGetChar);
+	MUSART1_VidSetCallBack(HBLE_VGetChar);
 }
 
 /*
@@ -100,8 +105,5 @@ void HBLE_VGetKey(pu8 ADD_pu8Key)
  *Parameters    : None 
  *Return Type   : None
  */
-static void HBLE_VGetChar(u8 Copy_u8Key)
-{
-	G_Key=Copy_u8Key;
-}
+
 

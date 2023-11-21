@@ -2,7 +2,7 @@
 #define US_H_
 
 #include "std_types.h"
-#include "bit_math.h"
+#include "common_macros.h"
 
 void US_voidInit(void);
 void US_voidGetUSSensorDistance(u16 *Ptr_u16DistanceCM);

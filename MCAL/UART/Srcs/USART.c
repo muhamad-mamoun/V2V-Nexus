@@ -4,7 +4,7 @@
 
 
 /* Common Libraries...*/
-#include "Bit_utils.h"
+#include "common_macros.h"
 #include "std_types.h"
 
 
@@ -289,9 +289,9 @@ UART_tenuErrorStatus MUSART1_u8RecCharSynch (u32* pData)
   *****************************************************************************
   */
 
-void MUSART1_VidSetCallBack( void (*ptr) (U8) )
+void MUSART1_VidSetCallBack( void (*ptr) (u8) )
 {
-  if (ptr != NULL)
+  if (ptr != PTR_NULL)
   {
 	MUSART1_CallBack = ptr ;
   } 

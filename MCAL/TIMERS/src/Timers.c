@@ -6,7 +6,7 @@
  */
 
 #include "std_types.h"
-#include "bit_math.h"
+#include "common_macros.h"
 #include "Timers_prv.h"
 #include "Timers.h"
 

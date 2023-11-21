@@ -1,5 +1,5 @@
 #include "EXTI_Prev.h"
-#include "bit_math.h"
+#include "common_macros.h"
 #include "std_types.h"
 extern void (*Call_Ptr[15])(void);
 
