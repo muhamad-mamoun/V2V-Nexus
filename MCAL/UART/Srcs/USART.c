@@ -12,7 +12,7 @@
 #include "UART_Private.h"
 
 /*CallBack Function */
-void (*MUSART1_CallBack)(u8);
+void (*MUSART1_CallBack)(u32);
 
 
 
@@ -289,7 +289,7 @@ UART_tenuErrorStatus MUSART1_u8RecCharSynch (u32* pData)
   *****************************************************************************
   */
 
-void MUSART1_VidSetCallBack( void (*ptr) (u8) )
+void MUSART1_VidSetCallBack( void (*ptr) (u32) )
 {
   if (ptr != PTR_NULL)
   {

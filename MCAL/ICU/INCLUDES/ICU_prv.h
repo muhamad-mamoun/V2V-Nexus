@@ -1,7 +1,7 @@
 #ifndef ICU_PRV_H_
 #define ICU_PRV_H_
 #include "std_types.h"
-#include "bit_math.h"
+#include "common_macros.h"
 
 typedef struct
 {

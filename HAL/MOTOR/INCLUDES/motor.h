@@ -10,12 +10,12 @@
 /////////////////////////////////////////////////////channels and timers configurations ////////////////////////////////////////////////////////////////////////////////
 // Pins and ports configurations for H-bridge
 #define H_BRIDGE_INPUT1_PORT       GPIO_PORTC_ID
-#define H_BRIDGE_INPUT1_PIN    GPIO_PIN02_ID
-#define H_BRIDGE_INPUT2_PIN    GPIO_PIN03_ID
+#define H_BRIDGE_INPUT1_PIN    		GPIO_PIN00_ID
+#define H_BRIDGE_INPUT2_PIN    		GPIO_PIN01_ID
 
 #define H_BRIDGE_INPUT2_PORT       GPIO_PORTC_ID
-#define H_BRIDGE_INPUT3_PIN   		  GPIO_PIN13_ID
-#define H_BRIDGE_INPUT4_PIN    			GPIO_PIN08_ID
+#define H_BRIDGE_INPUT3_PIN   		  GPIO_PIN02_ID
+#define H_BRIDGE_INPUT4_PIN    			GPIO_PIN03_ID
 
 // selection of channel and timer IDs for PWM init
 #define DCMOTOR_SELECT_TIMER          TIM_2

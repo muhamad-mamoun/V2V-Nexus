@@ -165,7 +165,7 @@ UART_tenuErrorStatus MUSART1_u8RecCharSynch (u32* pData) ;
 
 
 
-void MUSART1_VidSetCallBack( void (*ptr) (u8)) ; 
+void MUSART1_VidSetCallBack( void (*ptr) (u32)) ; 
 
 
 #endif

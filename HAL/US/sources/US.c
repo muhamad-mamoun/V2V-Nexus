@@ -1,5 +1,5 @@
 #include "std_types.h"
-#include "bit_math.h"
+#include "common_macros.h"
 
 #include "gpio.h"
 #include "US.h"
@@ -188,7 +188,7 @@ void US_voidGetDistancePolling(u16 *Ptr_u16DistanceCM)
 			if(Local_ICUStatus != 0)
 			{
 					ICU_voidGetICU_Count(CH1, Timer3, &Local_u32TimeCount);
-					*Ptr_u16DistanceCM = Local_u32TimeCount /58;
+					*Ptr_u16DistanceCM = Local_u32TimeCount / (u16)58;
 					ICU_voidClrTimerIcuFlag(CH1, Timer3);
 					flag =1;
 			}
