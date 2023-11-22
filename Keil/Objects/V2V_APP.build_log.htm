@@ -26,9 +26,1309 @@ Project File Date:  11/21/2023
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.19', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
-Build target 'Target 1'
+Rebuild target 'Target 1'
 Note: source file 'C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/timers.c' - object file renamed from '.\Objects\timers.o' to '.\Objects\timers_1.o'.
-".\Objects\V2V_APP.axf" - 0 Error(s), 0 Warning(s).
+../MCAL/RCC/src/RCC.c(11): warning: In file included from...
+../MCAL/RCC/inc\RCC_prv.h(36): warning: no newline at end of file [-Wnewline-eof]
+#endif
+      ^
+1 warning generated.
+compiling RCC.c...
+main.c(13): warning: In file included from...
+../MCAL/UART/Includes\UART_interface.h(171): warning: no newline at end of file [-Wnewline-eof]
+#endif
+      ^
+1 warning generated.
+compiling main.c...
+../MCAL/EXTI/Srcs/EXTI.c(16): warning: In file included from...
+../MCAL/EXTI/Inludes\EXTI_Config.h(19): warning: no newline at end of file [-Wnewline-eof]
+#endif //-End Guard
+                   ^
+../MCAL/EXTI/Srcs/EXTI.c(47): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        SYSCFG_EXTIx[LOC_u8RegID]=(Copy_u8PinID<<LOC_u8PINOffset);
+                                 ~ ~~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+../MCAL/EXTI/Srcs/EXTI.c(18): warning: no previous extern declaration for non-static variable 'Call_Ptr' [-Wmissing-variable-declarations]
+void (*Call_Ptr[15])(void);
+       ^
+../MCAL/EXTI/Srcs/EXTI.c(18): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+void (*Call_Ptr[15])(void);
+^
+3 warnings generated.
+compiling EXTI.c...
+../MCAL/UART/Srcs/USART.c(11): warning: In file included from...
+../MCAL/UART/Includes\UART_interface.h(171): warning: no newline at end of file [-Wnewline-eof]
+#endif
+      ^
+../MCAL/UART/Srcs/USART.c(12): warning: non-portable path to file '"UART_private.h"'; specified path differs in case from file name on disk [-Wnonportable-include-path]
+#include "UART_Private.h"
+         ^~~~~~~~~~~~~~~~
+         "UART_private.h"
+../MCAL/UART/Srcs/USART.c(12): warning: In file included from...
+../MCAL/UART/Includes\UART_Private.h(5): warning: non-portable path to file '"std_types.h"'; specified path differs in case from file name on disk [-Wnonportable-include-path]
+#include "Std_types.h"
+         ^~~~~~~~~~~~~
+         "std_types.h"
+../MCAL/UART/Includes\UART_Private.h(27): warning: no newline at end of file [-Wnewline-eof]
+#endif
+      ^
+../MCAL/UART/Srcs/USART.c(45): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+                                                                                CLR_BIT(MUSART->CR1,28);
+                                                                                ^~~~~~~~~~~~~~~~~~~~~~~
+../OTHERS\common_macros.h(7): note: expanded from macro 'CLR_BIT'
+#define CLR_BIT(Reg,Bit)                                        (Reg&=(~(1<<Bit)))
+                                                                    ~~ ^~~~~~~~~
+../MCAL/UART/Srcs/USART.c(46): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+                                                                                CLR_BIT(MUSART->CR1,12);
+                                                                                ^~~~~~~~~~~~~~~~~~~~~~~
+../OTHERS\common_macros.h(7): note: expanded from macro 'CLR_BIT'
+#define CLR_BIT(Reg,Bit)                                        (Reg&=(~(1<<Bit)))
+                                                                    ~~ ^~~~~~~~~
+../MCAL/UART/Srcs/USART.c(53): warning: overflow converting case value to switch condition type (268435456 to 0) [-Wswitch]
+    case OneStart_9Data:
+         ^
+../MCAL/UART/Includes\UART_interface.h(46): note: expanded from macro 'OneStart_9Data'
+#define OneStart_9Data   0x10000000
+                         ^
+../MCAL/UART/Srcs/USART.c(49): warning: overflow converting case value to switch condition type (4096 to 0) [-Wswitch]
+    case OneStart_7Data: 
+         ^
+../MCAL/UART/Includes\UART_interface.h(45): note: expanded from macro 'OneStart_7Data'
+#define OneStart_7Data   0x00001000
+                         ^
+../MCAL/UART/Srcs/USART.c(68): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+                CLR_BIT(MUSART->CR1 , OVER_SAM) ; 
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../OTHERS\common_macros.h(7): note: expanded from macro 'CLR_BIT'
+#define CLR_BIT(Reg,Bit)                                        (Reg&=(~(1<<Bit)))
+                                                                    ~~ ^~~~~~~~~
+../MCAL/UART/Srcs/USART.c(91): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+                  CLR_BIT(MUSART->CR1 , PCE) ;                 
+                  ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../OTHERS\common_macros.h(7): note: expanded from macro 'CLR_BIT'
+#define CLR_BIT(Reg,Bit)                                        (Reg&=(~(1<<Bit)))
+                                                                    ~~ ^~~~~~~~~
+../MCAL/UART/Srcs/USART.c(96): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+                  CLR_BIT(MUSART->CR1 , PS) ;                 
+                  ^~~~~~~~~~~~~~~~~~~~~~~~~
+../OTHERS\common_macros.h(7): note: expanded from macro 'CLR_BIT'
+#define CLR_BIT(Reg,Bit)                                        (Reg&=(~(1<<Bit)))
+                                                                    ~~ ^~~~~~~~~
+../MCAL/UART/Srcs/USART.c(112): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+      CLR_BIT (MUSART->CR2 , ABREN) ; 
+      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../OTHERS\common_macros.h(7): note: expanded from macro 'CLR_BIT'
+#define CLR_BIT(Reg,Bit)                                        (Reg&=(~(1<<Bit)))
+                                                                    ~~ ^~~~~~~~~
+../MCAL/UART/Srcs/USART.c(120): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+               CLR_BIT (MUSART->CR2 , MSBFIRST) ;       
+               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../OTHERS\common_macros.h(7): note: expanded from macro 'CLR_BIT'
+#define CLR_BIT(Reg,Bit)                                        (Reg&=(~(1<<Bit)))
+                                                                    ~~ ^~~~~~~~~
+../MCAL/UART/Srcs/USART.c(133): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+                       CLR_BIT (MUSART->CR2 , STOP0) ; 
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../OTHERS\common_macros.h(7): note: expanded from macro 'CLR_BIT'
+#define CLR_BIT(Reg,Bit)                                        (Reg&=(~(1<<Bit)))
+                                                                    ~~ ^~~~~~~~~
+../MCAL/UART/Srcs/USART.c(134): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+                       CLR_BIT (MUSART->CR2 , STOP1) ; 
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../OTHERS\common_macros.h(7): note: expanded from macro 'CLR_BIT'
+#define CLR_BIT(Reg,Bit)                                        (Reg&=(~(1<<Bit)))
+                                                                    ~~ ^~~~~~~~~
+../MCAL/UART/Srcs/USART.c(139): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+                       CLR_BIT (MUSART->CR2 , STOP1) ; 
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../OTHERS\common_macros.h(7): note: expanded from macro 'CLR_BIT'
+#define CLR_BIT(Reg,Bit)                                        (Reg&=(~(1<<Bit)))
+                                                                    ~~ ^~~~~~~~~
+../MCAL/UART/Srcs/USART.c(144): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+                       CLR_BIT (MUSART->CR2 , STOP0) ; 
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../OTHERS\common_macros.h(7): note: expanded from macro 'CLR_BIT'
+#define CLR_BIT(Reg,Bit)                                        (Reg&=(~(1<<Bit)))
+                                                                    ~~ ^~~~~~~~~
+../MCAL/UART/Srcs/USART.c(163): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+                                    CLR_BIT(MUSART->CR1, RXNEIE); // Disable RXNE interrupt
+                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../OTHERS\common_macros.h(7): note: expanded from macro 'CLR_BIT'
+#define CLR_BIT(Reg,Bit)                                        (Reg&=(~(1<<Bit)))
+                                                                    ~~ ^~~~~~~~~
+../MCAL/UART/Srcs/USART.c(164): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+                                    CLR_BIT(MUSART->CR1, TXEIE);  // Disable TXE interrupt
+                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../OTHERS\common_macros.h(7): note: expanded from macro 'CLR_BIT'
+#define CLR_BIT(Reg,Bit)                                        (Reg&=(~(1<<Bit)))
+                                                                    ~~ ^~~~~~~~~
+../MCAL/UART/Srcs/USART.c(11): warning: In file included from...
+../MCAL/UART/Includes\UART_interface.h(21): warning: padding struct 'MUARTConfig' with 1 byte to align 'BaudRate' [-Wpadded]
+    volatile u16 BaudRate           ;
+                 ^
+../MCAL/UART/Includes\UART_interface.h(7): warning: padding size of 'MUARTConfig' with 1 byte to alignment boundary [-Wpadded]
+typedef struct 
+        ^
+../MCAL/UART/Srcs/USART.c(214): warning: while loop has empty body [-Wempty-body]
+        while( GET_BIT( MUSART -> ISR , 6 ) == 0) ; 
+                                                  ^
+../MCAL/UART/Srcs/USART.c(214): note: put the semicolon on a separate line to silence this warning
+../MCAL/UART/Srcs/USART.c(310): warning: implicit conversion loses integer precision: 'volatile u32' (aka 'volatile unsigned long') to 'u8' (aka 'unsigned char') [-Wimplicit-int-conversion]
+             MUSART1_CallBack(MUSART -> RDR);
+             ~~~~~~~~~~~~~~~~ ~~~~~~~~~~^~~
+../MCAL/UART/Srcs/USART.c(307): warning: no previous prototype for function 'USART1_IRQHandler' [-Wmissing-prototypes]
+void USART1_IRQHandler(void)
+     ^
+../MCAL/UART/Srcs/USART.c(307): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void USART1_IRQHandler(void)
+^
+static 
+../MCAL/UART/Srcs/USART.c(15): warning: no previous extern declaration for non-static variable 'MUSART1_CallBack' [-Wmissing-variable-declarations]
+void (*MUSART1_CallBack)(u8);
+       ^
+../MCAL/UART/Srcs/USART.c(15): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+void (*MUSART1_CallBack)(u8);
+^
+25 warnings generated.
+compiling USART.c...
+../MCAL/ICU/SOURCES/ICU.c(5): warning: In file included from...
+../MCAL/ICU/INCLUDES\ICU_prv.h(34): warning: initializing 'TIMx_t *' with an expression of type 'volatile TIMx_t *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+        ((volatile TIMx_t *)0x40000000),
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/ICU/INCLUDES\ICU_prv.h(35): warning: initializing 'TIMx_t *' with an expression of type 'volatile TIMx_t *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+        ((volatile TIMx_t *)0x40000400),
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/ICU/INCLUDES\ICU_prv.h(36): warning: initializing 'TIMx_t *' with an expression of type 'volatile TIMx_t *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+        ((volatile TIMx_t *)0x40000800) 
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/ICU/INCLUDES\ICU_prv.h(32): warning: no previous extern declaration for non-static variable 'Timer' [-Wmissing-variable-declarations]
+TIMx_t *Timer[3] = 
+        ^
+../MCAL/ICU/INCLUDES\ICU_prv.h(32): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+TIMx_t *Timer[3] = 
+^
+../MCAL/ICU/SOURCES/ICU.c(22): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+        CLR_BIT(Timer[Copy_u8Timer]->DIER,UIE);
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../OTHERS\common_macros.h(7): note: expanded from macro 'CLR_BIT'
+#define CLR_BIT(Reg,Bit)                                        (Reg&=(~(1<<Bit)))
+                                                                    ~~ ^~~~~~~~~
+../MCAL/ICU/SOURCES/ICU.c(91): warning: variable 'Local_count' may be uninitialized when used here [-Wconditional-uninitialized]
+        *Ptr_ICU_Count = Local_count;
+                         ^~~~~~~~~~~
+../MCAL/ICU/SOURCES/ICU.c(75): note: initialize the variable 'Local_count' to silence this warning
+        u32 Local_count;
+                       ^
+                        = 0
+../MCAL/ICU/SOURCES/ICU.c(99): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+        CLR_BIT(Timer[Copy_u8Timer]->SR,UIF);
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../OTHERS\common_macros.h(7): note: expanded from macro 'CLR_BIT'
+#define CLR_BIT(Reg,Bit)                                        (Reg&=(~(1<<Bit)))
+                                                                    ~~ ^~~~~~~~~
+7 warnings generated.
+compiling ICU.c...
+../MCAL/PWM/sources/PWM.c(6): warning: In file included from...
+../MCAL/PWM/includes\PWM_cfg.h(36): warning: no newline at end of file [-Wnewline-eof]
+#endif
+      ^
+../MCAL/PWM/sources/PWM.c(9): warning: no previous extern declaration for non-static variable 'test' [-Wmissing-variable-declarations]
+GPIO_configurationsType test  =  {GPIO_PORTA_ID,GPIO_PIN00_ID,GPIO_ALTERNATE_PUSH_PULL_MODE,GPIO_HIGH_SPEED};
+                        ^
+../MCAL/PWM/sources/PWM.c(9): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+GPIO_configurationsType test  =  {GPIO_PORTA_ID,GPIO_PIN00_ID,GPIO_ALTERNATE_PUSH_PULL_MODE,GPIO_HIGH_SPEED};
+^
+../MCAL/PWM/sources/PWM.c(96): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+                                REG(Timx_BASE[Copy_enu_TIMx],TIMx_CCMR1) &= ~(MASK_MODE<<OC1M); 
+                                                                         ~~ ^~~~~~~~~~~~~~~~~~
+../MCAL/PWM/sources/PWM.c(134): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+                                REG(Timx_BASE[Copy_enu_TIMx],TIMx_CCMR1) &= ~(MASK_MODE<<OC2M); 
+                                                                         ~~ ^~~~~~~~~~~~~~~~~~
+../MCAL/PWM/sources/PWM.c(171): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+                                REG(Timx_BASE[Copy_enu_TIMx],TIMx_CCMR2) &= ~(MASK_MODE<<OC3M); 
+                                                                         ~~ ^~~~~~~~~~~~~~~~~~
+../MCAL/PWM/sources/PWM.c(206): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+                                REG(Timx_BASE[Copy_enu_TIMx],TIMx_CCMR2) &= ~(MASK_MODE<<OC4M); 
+                                                                         ~~ ^~~~~~~~~~~~~~~~~~
+../MCAL/PWM/sources/PWM.c(63): warning: enumeration value 'CHANNEL_MAX' not explicitly handled in switch [-Wswitch-enum]
+                switch (Copy_enu_CHx)
+                        ^~~~~~~~~~~~
+../MCAL/PWM/sources/PWM.c(268): warning: enumeration value 'CHANNEL_MAX' not explicitly handled in switch [-Wswitch-enum]
+                switch (Copy_enu_CHx)
+                        ^~~~~~~~~~~~
+8 warnings generated.
+compiling PWM.c...
+../MCAL/NVIC Driver/Srcs/NVIC.c(17): warning: In file included from...
+../MCAL/NVIC Driver/Includes\NVIC_Config.h(30): warning: no newline at end of file [-Wnewline-eof]
+#endif //-End Guard
+                   ^
+../MCAL/NVIC Driver/Srcs/NVIC.c(270): warning: implicit conversion loses integer precision: 'unsigned long' to 'u8' (aka 'unsigned char') [-Wimplicit-int-conversion]
+        u8 LOC_u8RegID=Copy_u32INTID/4;
+           ~~~~~~~~~~~ ~~~~~~~~~~~~~^~
+../MCAL/NVIC Driver/Srcs/NVIC.c(285): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+NVIC_IPRx[LOC_u8RegID] =(Copy_u8Group_Prior<<LOC_u8PerOffset) |(Copy_u8SUBg_Prior<<LOC_u8PerOffset) ;
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/NVIC Driver/Srcs/NVIC.c(300): warning: no newline at end of file [-Wnewline-eof]
+}
+ ^
+4 warnings generated.
+compiling NVIC.c...
+../MCAL/GPIO/SOURCE/gpio.c(34): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                             ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(45): note: expanded from macro 'GPIOA'
+#define GPIOA                              ((volatile GPIOx_registersType*)(0X48000000))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(34): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                   ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(46): note: expanded from macro 'GPIOB'
+#define GPIOB                              ((volatile GPIOx_registersType*)(0X48000400))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(34): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                         ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(47): note: expanded from macro 'GPIOC'
+#define GPIOC                              ((volatile GPIOx_registersType*)(0X48000800))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(34): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                               ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(48): note: expanded from macro 'GPIOD'
+#define GPIOD                              ((volatile GPIOx_registersType*)(0X48000C00))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(34): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                     ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(49): note: expanded from macro 'GPIOE'
+#define GPIOE                              ((volatile GPIOx_registersType*)(0X48001000))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(34): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                           ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(50): note: expanded from macro 'GPIOF'
+#define GPIOF                              ((volatile GPIOx_registersType*)(0X48001400))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(34): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                                 ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(51): note: expanded from macro 'GPIOG'
+#define GPIOG                              ((volatile GPIOx_registersType*)(0X48001800))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(34): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                                       ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(52): note: expanded from macro 'GPIOH'
+#define GPIOH                              ((volatile GPIOx_registersType*)(0X48001C00))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(34): warning: unused variable 'LOC_ptr2GPIOx' [-Wunused-variable]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                         ^
+../MCAL/GPIO/SOURCE/gpio.c(71): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                             ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(45): note: expanded from macro 'GPIOA'
+#define GPIOA                              ((volatile GPIOx_registersType*)(0X48000000))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(71): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                   ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(46): note: expanded from macro 'GPIOB'
+#define GPIOB                              ((volatile GPIOx_registersType*)(0X48000400))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(71): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                         ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(47): note: expanded from macro 'GPIOC'
+#define GPIOC                              ((volatile GPIOx_registersType*)(0X48000800))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(71): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                               ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(48): note: expanded from macro 'GPIOD'
+#define GPIOD                              ((volatile GPIOx_registersType*)(0X48000C00))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(71): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                     ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(49): note: expanded from macro 'GPIOE'
+#define GPIOE                              ((volatile GPIOx_registersType*)(0X48001000))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(71): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                           ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(50): note: expanded from macro 'GPIOF'
+#define GPIOF                              ((volatile GPIOx_registersType*)(0X48001400))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(71): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                                 ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(51): note: expanded from macro 'GPIOG'
+#define GPIOG                              ((volatile GPIOx_registersType*)(0X48001800))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(71): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                                       ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(52): note: expanded from macro 'GPIOH'
+#define GPIOH                              ((volatile GPIOx_registersType*)(0X48001C00))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(101): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+        GPIO_WRITE_TWO_BITS((*(LOC_ptr2GPIOx + a_ptr2configurations->portID))->MODER,a_ptr2configurations->pinID,a_ptr2configurations->pinMode);
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(59): note: expanded from macro 'GPIO_WRITE_TWO_BITS'
+#define GPIO_WRITE_TWO_BITS(REG,PIN,VALUE)  (REG = (REG & (~(0X03 << (PIN * 2)))) | ((VALUE & 0X03) << (PIN * 2)))
+                                                                                  ~  ~~~~~~~~~~~~~~~^~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(101): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+        GPIO_WRITE_TWO_BITS((*(LOC_ptr2GPIOx + a_ptr2configurations->portID))->MODER,a_ptr2configurations->pinID,a_ptr2configurations->pinMode);
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(59): note: expanded from macro 'GPIO_WRITE_TWO_BITS'
+#define GPIO_WRITE_TWO_BITS(REG,PIN,VALUE)  (REG = (REG & (~(0X03 << (PIN * 2)))) | ((VALUE & 0X03) << (PIN * 2)))
+                                                        ~  ^~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(109): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+            GPIO_WRITE_TWO_BITS((*(LOC_ptr2GPIOx + a_ptr2configurations->portID))->PUPDR,a_ptr2configurations->pinID,(a_ptr2configurations->pinMode >> 2));
+            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(59): note: expanded from macro 'GPIO_WRITE_TWO_BITS'
+#define GPIO_WRITE_TWO_BITS(REG,PIN,VALUE)  (REG = (REG & (~(0X03 << (PIN * 2)))) | ((VALUE & 0X03) << (PIN * 2)))
+                                                                                  ~  ~~~~~~~~~~~~~~~^~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(109): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+            GPIO_WRITE_TWO_BITS((*(LOC_ptr2GPIOx + a_ptr2configurations->portID))->PUPDR,a_ptr2configurations->pinID,(a_ptr2configurations->pinMode >> 2));
+            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(59): note: expanded from macro 'GPIO_WRITE_TWO_BITS'
+#define GPIO_WRITE_TWO_BITS(REG,PIN,VALUE)  (REG = (REG & (~(0X03 << (PIN * 2)))) | ((VALUE & 0X03) << (PIN * 2)))
+                                                        ~  ^~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(117): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+            GPIO_WRITE_TWO_BITS((*(LOC_ptr2GPIOx + a_ptr2configurations->portID))->OSPEEDR,a_ptr2configurations->pinID,a_ptr2configurations->pinSpeed);
+            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(59): note: expanded from macro 'GPIO_WRITE_TWO_BITS'
+#define GPIO_WRITE_TWO_BITS(REG,PIN,VALUE)  (REG = (REG & (~(0X03 << (PIN * 2)))) | ((VALUE & 0X03) << (PIN * 2)))
+                                                                                  ~  ~~~~~~~~~~~~~~~^~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(117): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+            GPIO_WRITE_TWO_BITS((*(LOC_ptr2GPIOx + a_ptr2configurations->portID))->OSPEEDR,a_ptr2configurations->pinID,a_ptr2configurations->pinSpeed);
+            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(59): note: expanded from macro 'GPIO_WRITE_TWO_BITS'
+#define GPIO_WRITE_TWO_BITS(REG,PIN,VALUE)  (REG = (REG & (~(0X03 << (PIN * 2)))) | ((VALUE & 0X03) << (PIN * 2)))
+                                                        ~  ^~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(119): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+            GPIO_WRITE_ONE_BIT((*(LOC_ptr2GPIOx + a_ptr2configurations->portID))->OTYPER,a_ptr2configurations->pinID,(a_ptr2configurations->pinMode >> 2));
+            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(58): note: expanded from macro 'GPIO_WRITE_ONE_BIT'
+#define GPIO_WRITE_ONE_BIT(REG,PIN,VALUE)   (REG = (REG & (~(0X01 << (PIN * 1)))) | ((VALUE & 0X01) << (PIN * 1)))
+                                                                                  ~  ~~~~~~~~~~~~~~~^~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(126): warning: default label in switch which covers all enumeration values [-Wcovered-switch-default]
+        default:
+        ^
+../MCAL/GPIO/SOURCE/gpio.c(149): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                             ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(45): note: expanded from macro 'GPIOA'
+#define GPIOA                              ((volatile GPIOx_registersType*)(0X48000000))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(149): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                   ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(46): note: expanded from macro 'GPIOB'
+#define GPIOB                              ((volatile GPIOx_registersType*)(0X48000400))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(149): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                         ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(47): note: expanded from macro 'GPIOC'
+#define GPIOC                              ((volatile GPIOx_registersType*)(0X48000800))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(149): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                               ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(48): note: expanded from macro 'GPIOD'
+#define GPIOD                              ((volatile GPIOx_registersType*)(0X48000C00))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(149): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                     ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(49): note: expanded from macro 'GPIOE'
+#define GPIOE                              ((volatile GPIOx_registersType*)(0X48001000))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(149): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                           ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(50): note: expanded from macro 'GPIOF'
+#define GPIOF                              ((volatile GPIOx_registersType*)(0X48001400))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(149): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                                 ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(51): note: expanded from macro 'GPIOG'
+#define GPIOG                              ((volatile GPIOx_registersType*)(0X48001800))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(149): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                                       ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(52): note: expanded from macro 'GPIOH'
+#define GPIOH                              ((volatile GPIOx_registersType*)(0X48001C00))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(168): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+        GPIO_WRITE_ONE_BIT((*(LOC_ptr2GPIOx + a_portID))->ODR,a_pinID,a_pinStatus);
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(58): note: expanded from macro 'GPIO_WRITE_ONE_BIT'
+#define GPIO_WRITE_ONE_BIT(REG,PIN,VALUE)   (REG = (REG & (~(0X01 << (PIN * 1)))) | ((VALUE & 0X01) << (PIN * 1)))
+                                                                                  ~  ~~~~~~~~~~~~~~~^~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(185): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                             ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(45): note: expanded from macro 'GPIOA'
+#define GPIOA                              ((volatile GPIOx_registersType*)(0X48000000))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(185): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                   ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(46): note: expanded from macro 'GPIOB'
+#define GPIOB                              ((volatile GPIOx_registersType*)(0X48000400))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(185): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                         ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(47): note: expanded from macro 'GPIOC'
+#define GPIOC                              ((volatile GPIOx_registersType*)(0X48000800))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(185): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                               ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(48): note: expanded from macro 'GPIOD'
+#define GPIOD                              ((volatile GPIOx_registersType*)(0X48000C00))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(185): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                     ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(49): note: expanded from macro 'GPIOE'
+#define GPIOE                              ((volatile GPIOx_registersType*)(0X48001000))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(185): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                           ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(50): note: expanded from macro 'GPIOF'
+#define GPIOF                              ((volatile GPIOx_registersType*)(0X48001400))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(185): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                                 ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(51): note: expanded from macro 'GPIOG'
+#define GPIOG                              ((volatile GPIOx_registersType*)(0X48001800))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(185): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                                       ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(52): note: expanded from macro 'GPIOH'
+#define GPIOH                              ((volatile GPIOx_registersType*)(0X48001C00))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(214): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                             ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(45): note: expanded from macro 'GPIOA'
+#define GPIOA                              ((volatile GPIOx_registersType*)(0X48000000))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(214): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                   ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(46): note: expanded from macro 'GPIOB'
+#define GPIOB                              ((volatile GPIOx_registersType*)(0X48000400))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(214): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                         ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(47): note: expanded from macro 'GPIOC'
+#define GPIOC                              ((volatile GPIOx_registersType*)(0X48000800))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(214): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                               ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(48): note: expanded from macro 'GPIOD'
+#define GPIOD                              ((volatile GPIOx_registersType*)(0X48000C00))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(214): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                     ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(49): note: expanded from macro 'GPIOE'
+#define GPIOE                              ((volatile GPIOx_registersType*)(0X48001000))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(214): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                           ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(50): note: expanded from macro 'GPIOF'
+#define GPIOF                              ((volatile GPIOx_registersType*)(0X48001400))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(214): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                                 ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(51): note: expanded from macro 'GPIOG'
+#define GPIOG                              ((volatile GPIOx_registersType*)(0X48001800))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(214): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                                       ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(52): note: expanded from macro 'GPIOH'
+#define GPIOH                              ((volatile GPIOx_registersType*)(0X48001C00))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(251): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                             ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(45): note: expanded from macro 'GPIOA'
+#define GPIOA                              ((volatile GPIOx_registersType*)(0X48000000))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(251): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                   ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(46): note: expanded from macro 'GPIOB'
+#define GPIOB                              ((volatile GPIOx_registersType*)(0X48000400))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(251): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                         ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(47): note: expanded from macro 'GPIOC'
+#define GPIOC                              ((volatile GPIOx_registersType*)(0X48000800))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(251): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                               ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(48): note: expanded from macro 'GPIOD'
+#define GPIOD                              ((volatile GPIOx_registersType*)(0X48000C00))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(251): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                     ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(49): note: expanded from macro 'GPIOE'
+#define GPIOE                              ((volatile GPIOx_registersType*)(0X48001000))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(251): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                           ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(50): note: expanded from macro 'GPIOF'
+#define GPIOF                              ((volatile GPIOx_registersType*)(0X48001400))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(251): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                                 ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(51): note: expanded from macro 'GPIOG'
+#define GPIOG                              ((volatile GPIOx_registersType*)(0X48001800))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(251): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                                       ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(52): note: expanded from macro 'GPIOH'
+#define GPIOH                              ((volatile GPIOx_registersType*)(0X48001C00))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(265): warning: implicit conversion loses integer precision: 'volatile u32' (aka 'volatile unsigned long') to 'u16' (aka 'unsigned short') [-Wimplicit-int-conversion]
+        *a_ptr2portStatus = (*(LOC_ptr2GPIOx + a_portID))->IDR;
+                          ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~
+../MCAL/GPIO/SOURCE/gpio.c(283): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                             ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(45): note: expanded from macro 'GPIOA'
+#define GPIOA                              ((volatile GPIOx_registersType*)(0X48000000))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(283): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                   ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(46): note: expanded from macro 'GPIOB'
+#define GPIOB                              ((volatile GPIOx_registersType*)(0X48000400))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(283): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                         ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(47): note: expanded from macro 'GPIOC'
+#define GPIOC                              ((volatile GPIOx_registersType*)(0X48000800))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(283): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                               ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(48): note: expanded from macro 'GPIOD'
+#define GPIOD                              ((volatile GPIOx_registersType*)(0X48000C00))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(283): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                     ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(49): note: expanded from macro 'GPIOE'
+#define GPIOE                              ((volatile GPIOx_registersType*)(0X48001000))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(283): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                           ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(50): note: expanded from macro 'GPIOF'
+#define GPIOF                              ((volatile GPIOx_registersType*)(0X48001400))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(283): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                                 ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(51): note: expanded from macro 'GPIOG'
+#define GPIOG                              ((volatile GPIOx_registersType*)(0X48001800))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(283): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                                       ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(52): note: expanded from macro 'GPIOH'
+#define GPIOH                              ((volatile GPIOx_registersType*)(0X48001C00))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(317): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                             ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(45): note: expanded from macro 'GPIOA'
+#define GPIOA                              ((volatile GPIOx_registersType*)(0X48000000))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(317): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                   ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(46): note: expanded from macro 'GPIOB'
+#define GPIOB                              ((volatile GPIOx_registersType*)(0X48000400))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(317): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                         ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(47): note: expanded from macro 'GPIOC'
+#define GPIOC                              ((volatile GPIOx_registersType*)(0X48000800))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(317): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                               ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(48): note: expanded from macro 'GPIOD'
+#define GPIOD                              ((volatile GPIOx_registersType*)(0X48000C00))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(317): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                     ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(49): note: expanded from macro 'GPIOE'
+#define GPIOE                              ((volatile GPIOx_registersType*)(0X48001000))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(317): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                           ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(50): note: expanded from macro 'GPIOF'
+#define GPIOF                              ((volatile GPIOx_registersType*)(0X48001400))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(317): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                                 ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(51): note: expanded from macro 'GPIOG'
+#define GPIOG                              ((volatile GPIOx_registersType*)(0X48001800))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(317): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                                       ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(52): note: expanded from macro 'GPIOH'
+#define GPIOH                              ((volatile GPIOx_registersType*)(0X48001C00))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(336): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+        GPIO_WRITE_FOUR_BITS((*(LOC_ptr2GPIOx + a_portID))->AFRL,a_pinID,a_alternateFunction);
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(60): note: expanded from macro 'GPIO_WRITE_FOUR_BITS'
+#define GPIO_WRITE_FOUR_BITS(REG,PIN,VALUE) (REG = (REG & (~(0X0F << (PIN * 4)))) | ((VALUE & 0X0F) << (PIN * 4)))
+                                                                                  ~  ~~~~~~~~~~~~~~~^~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(336): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+        GPIO_WRITE_FOUR_BITS((*(LOC_ptr2GPIOx + a_portID))->AFRL,a_pinID,a_alternateFunction);
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(60): note: expanded from macro 'GPIO_WRITE_FOUR_BITS'
+#define GPIO_WRITE_FOUR_BITS(REG,PIN,VALUE) (REG = (REG & (~(0X0F << (PIN * 4)))) | ((VALUE & 0X0F) << (PIN * 4)))
+                                                        ~  ^~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(341): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+        GPIO_WRITE_FOUR_BITS((*(LOC_ptr2GPIOx + a_portID))->AFRH,a_pinID,a_alternateFunction);
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(60): note: expanded from macro 'GPIO_WRITE_FOUR_BITS'
+#define GPIO_WRITE_FOUR_BITS(REG,PIN,VALUE) (REG = (REG & (~(0X0F << (PIN * 4)))) | ((VALUE & 0X0F) << (PIN * 4)))
+                                                                                  ~  ~~~~~~~~~~~~~~~^~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(341): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+        GPIO_WRITE_FOUR_BITS((*(LOC_ptr2GPIOx + a_portID))->AFRH,a_pinID,a_alternateFunction);
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(60): note: expanded from macro 'GPIO_WRITE_FOUR_BITS'
+#define GPIO_WRITE_FOUR_BITS(REG,PIN,VALUE) (REG = (REG & (~(0X0F << (PIN * 4)))) | ((VALUE & 0X0F) << (PIN * 4)))
+                                                        ~  ^~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(359): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                             ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(45): note: expanded from macro 'GPIOA'
+#define GPIOA                              ((volatile GPIOx_registersType*)(0X48000000))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(359): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                   ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(46): note: expanded from macro 'GPIOB'
+#define GPIOB                              ((volatile GPIOx_registersType*)(0X48000400))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(359): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                         ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(47): note: expanded from macro 'GPIOC'
+#define GPIOC                              ((volatile GPIOx_registersType*)(0X48000800))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(359): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                               ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(48): note: expanded from macro 'GPIOD'
+#define GPIOD                              ((volatile GPIOx_registersType*)(0X48000C00))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(359): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                     ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(49): note: expanded from macro 'GPIOE'
+#define GPIOE                              ((volatile GPIOx_registersType*)(0X48001000))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(359): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                           ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(50): note: expanded from macro 'GPIOF'
+#define GPIOF                              ((volatile GPIOx_registersType*)(0X48001400))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(359): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                                 ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(51): note: expanded from macro 'GPIOG'
+#define GPIOG                              ((volatile GPIOx_registersType*)(0X48001800))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(359): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                                       ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(52): note: expanded from macro 'GPIOH'
+#define GPIOH                              ((volatile GPIOx_registersType*)(0X48001C00))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(382): warning: no newline at end of file [-Wnewline-eof]
+}
+ ^
+../MCAL/GPIO/SOURCE/gpio.c(358): warning: variable 'LOC_errorStatus' set but not used [-Wunused-but-set-variable]
+    GPIO_errorStatusType LOC_errorStatus = GPIO_NO_ERRORS;
+                         ^
+../MCAL/GPIO/SOURCE/gpio.c(382): warning: non-void function does not return a value [-Wreturn-type]
+}
+^
+90 warnings generated.
+compiling gpio.c...
+../MCAL/EXTI/Srcs/EXTI_IRQ.c(6): warning: no previous prototype for function 'EXTI0_IRQHandler' [-Wmissing-prototypes]
+void EXTI0_IRQHandler(void)
+     ^
+../MCAL/EXTI/Srcs/EXTI_IRQ.c(6): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void EXTI0_IRQHandler(void)
+^
+static 
+../MCAL/EXTI/Srcs/EXTI_IRQ.c(11): warning: no previous prototype for function 'EXTI1_IRQHandler' [-Wmissing-prototypes]
+void EXTI1_IRQHandler(void)
+     ^
+../MCAL/EXTI/Srcs/EXTI_IRQ.c(11): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void EXTI1_IRQHandler(void)
+^
+static 
+../MCAL/EXTI/Srcs/EXTI_IRQ.c(16): warning: no previous prototype for function 'EXTI2_TSC_IRQHandler' [-Wmissing-prototypes]
+void EXTI2_TSC_IRQHandler(void)
+     ^
+../MCAL/EXTI/Srcs/EXTI_IRQ.c(16): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void EXTI2_TSC_IRQHandler(void)
+^
+static 
+../MCAL/EXTI/Srcs/EXTI_IRQ.c(21): warning: no previous prototype for function 'EXTI3_IRQHandler' [-Wmissing-prototypes]
+void EXTI3_IRQHandler(void)
+     ^
+../MCAL/EXTI/Srcs/EXTI_IRQ.c(21): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void EXTI3_IRQHandler(void)
+^
+static 
+../MCAL/EXTI/Srcs/EXTI_IRQ.c(27): warning: no previous prototype for function 'EXTI4_IRQHandler' [-Wmissing-prototypes]
+void EXTI4_IRQHandler(void)
+     ^
+../MCAL/EXTI/Srcs/EXTI_IRQ.c(27): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void EXTI4_IRQHandler(void)
+^
+static 
+../MCAL/EXTI/Srcs/EXTI_IRQ.c(33): warning: no previous prototype for function 'EXTI9_5_IRQHandler' [-Wmissing-prototypes]
+void EXTI9_5_IRQHandler(void)
+     ^
+../MCAL/EXTI/Srcs/EXTI_IRQ.c(33): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void EXTI9_5_IRQHandler(void)
+^
+static 
+../MCAL/EXTI/Srcs/EXTI_IRQ.c(70): warning: no previous prototype for function 'EXTI15_10_IRQHandler' [-Wmissing-prototypes]
+void EXTI15_10_IRQHandler(void)
+     ^
+../MCAL/EXTI/Srcs/EXTI_IRQ.c(70): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void EXTI15_10_IRQHandler(void)
+^
+static 
+7 warnings generated.
+compiling EXTI_IRQ.c...
+../HAL/MOTOR/SOURCE/motor.c(6): warning: no previous extern declaration for non-static variable 'input1PinBack' [-Wmissing-variable-declarations]
+GPIO_configurationsType input1PinBack  =  {H_BRIDGE_INPUT1_PORT,H_BRIDGE_INPUT1_PIN,GPIO_OUTPUT_PUSH_PULL_MODE,GPIO_MEDIUM_SPEED};
+                        ^
+../HAL/MOTOR/SOURCE/motor.c(6): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+GPIO_configurationsType input1PinBack  =  {H_BRIDGE_INPUT1_PORT,H_BRIDGE_INPUT1_PIN,GPIO_OUTPUT_PUSH_PULL_MODE,GPIO_MEDIUM_SPEED};
+^
+../HAL/MOTOR/SOURCE/motor.c(7): warning: no previous extern declaration for non-static variable 'input1PinFront' [-Wmissing-variable-declarations]
+GPIO_configurationsType input1PinFront = {H_BRIDGE_INPUT1_PORT,H_BRIDGE_INPUT2_PIN,GPIO_OUTPUT_PUSH_PULL_MODE,GPIO_MEDIUM_SPEED};
+                        ^
+../HAL/MOTOR/SOURCE/motor.c(7): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+GPIO_configurationsType input1PinFront = {H_BRIDGE_INPUT1_PORT,H_BRIDGE_INPUT2_PIN,GPIO_OUTPUT_PUSH_PULL_MODE,GPIO_MEDIUM_SPEED};
+^
+../HAL/MOTOR/SOURCE/motor.c(14): warning: no previous extern declaration for non-static variable 'input2PinBack' [-Wmissing-variable-declarations]
+GPIO_configurationsType input2PinBack  = {H_BRIDGE_INPUT2_PORT,H_BRIDGE_INPUT3_PIN,GPIO_OUTPUT_PUSH_PULL_MODE,GPIO_MEDIUM_SPEED};
+                        ^
+../HAL/MOTOR/SOURCE/motor.c(14): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+GPIO_configurationsType input2PinBack  = {H_BRIDGE_INPUT2_PORT,H_BRIDGE_INPUT3_PIN,GPIO_OUTPUT_PUSH_PULL_MODE,GPIO_MEDIUM_SPEED};
+^
+../HAL/MOTOR/SOURCE/motor.c(15): warning: no previous extern declaration for non-static variable 'input2PinFront' [-Wmissing-variable-declarations]
+GPIO_configurationsType input2PinFront = {H_BRIDGE_INPUT2_PORT,H_BRIDGE_INPUT4_PIN,GPIO_OUTPUT_PUSH_PULL_MODE,GPIO_MEDIUM_SPEED};
+                        ^
+../HAL/MOTOR/SOURCE/motor.c(15): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+GPIO_configurationsType input2PinFront = {H_BRIDGE_INPUT2_PORT,H_BRIDGE_INPUT4_PIN,GPIO_OUTPUT_PUSH_PULL_MODE,GPIO_MEDIUM_SPEED};
+^
+../HAL/MOTOR/SOURCE/motor.c(18): warning: no previous extern declaration for non-static variable 'state' [-Wmissing-variable-declarations]
+DcMotor_State state;
+              ^
+../HAL/MOTOR/SOURCE/motor.c(18): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+DcMotor_State state;
+^
+5 warnings generated.
+compiling motor.c...
+../HAL/US/sources/US.c(17): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
+        GPIO_configurationsType US_EchoPin;                      /*      *******            configure as #define in US.h File    */
+                                ^
+../HAL/US/sources/US.c(56): warning: implicit conversion loses integer precision: 'unsigned long' to 'u16' (aka 'unsigned short') [-Wimplicit-int-conversion]
+                                        *Ptr_u16DistanceCM = Local_u32TimeCount /58;
+                                                           ~ ~~~~~~~~~~~~~~~~~~~^~~
+../HAL/US/sources/US.c(100): warning: implicit conversion loses integer precision: 'unsigned long' to 'u16' (aka 'unsigned short') [-Wimplicit-int-conversion]
+                *Ptr_u16DistanceCM = Local_u32TimeCount / 58;
+                                   ~ ~~~~~~~~~~~~~~~~~~~^~~~
+3 warnings generated.
+compiling US.c...
+../HAL/Bluetooth/Srcs/BLE.c(15): warning: In file included from...
+../MCAL/UART/Includes\UART_interface.h(171): warning: no newline at end of file [-Wnewline-eof]
+#endif
+      ^
+../HAL/Bluetooth/Srcs/BLE.c(18): warning: no previous extern declaration for non-static variable 'G_Key' [-Wmissing-variable-declarations]
+u8 G_Key=NO_REC_KEY;
+   ^
+../HAL/Bluetooth/Srcs/BLE.c(18): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+u8 G_Key=NO_REC_KEY;
+^
+../HAL/Bluetooth/Srcs/BLE.c(26): warning: no previous extern declaration for non-static variable 'UART' [-Wmissing-variable-declarations]
+ MUARTConfig  UART = 
+              ^
+../HAL/Bluetooth/Srcs/BLE.c(26): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+ MUARTConfig  UART = 
+ ^
+../HAL/Bluetooth/Srcs/BLE.c(15): warning: In file included from...
+../MCAL/UART/Includes\UART_interface.h(21): warning: padding struct 'MUARTConfig' with 1 byte to align 'BaudRate' [-Wpadded]
+    volatile u16 BaudRate           ;
+                 ^
+../MCAL/UART/Includes\UART_interface.h(7): warning: padding size of 'MUARTConfig' with 1 byte to alignment boundary [-Wpadded]
+typedef struct 
+        ^
+5 warnings generated.
+compiling BLE.c...
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/CMSIS/RTOS2/FreeRTOS/Source/ARM/clib_arm.c(26): warning: In file included from...
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include\FreeRTOS.h(59): warning: In file included from...
+./RTE/RTOS\FreeRTOSConfig.h(46): warning: In file included from...
+C:/Users/CAIRO/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include\stm32f3xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include\stm32f3xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/CMSIS/RTOS2/FreeRTOS/Source/ARM/clib_arm.c(26): warning: In file included from...
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include\FreeRTOS.h(1343): warning: padding struct 'struct xSTATIC_QUEUE' with 1 byte to align 'uxDummy8' [-Wpadded]
+        UBaseType_t uxDummy8;
+                    ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include\FreeRTOS.h(1320): warning: padding size of 'struct xSTATIC_QUEUE' with 3 bytes to alignment boundary [-Wpadded]
+typedef struct xSTATIC_QUEUE
+               ^
+4 warnings generated.
+compiling clib_arm.c...
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/CMSIS/RTOS2/FreeRTOS/Source/os_systick.c(28): warning: In file included from...
+C:/Users/CAIRO/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include\stm32f3xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include\stm32f3xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+2 warnings generated.
+compiling os_systick.c...
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/CMSIS/RTOS2/FreeRTOS/Source/cmsis_os2.c(29): warning: In file included from...
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include\FreeRTOS.h(59): warning: In file included from...
+./RTE/RTOS\FreeRTOSConfig.h(46): warning: In file included from...
+C:/Users/CAIRO/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include\stm32f3xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include\stm32f3xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/CMSIS/RTOS2/FreeRTOS/Source/cmsis_os2.c(29): warning: In file included from...
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include\FreeRTOS.h(1256): warning: padding size of 'struct xSTATIC_TCB' with 2 bytes to alignment boundary [-Wpadded]
+typedef struct xSTATIC_TCB
+               ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/CMSIS/RTOS2/FreeRTOS/Source/cmsis_os2.c(656): warning: default label in switch which covers all enumeration values [-Wcovered-switch-default]
+      default:         state = osThreadError;      break;
+      ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/CMSIS/RTOS2/FreeRTOS/Source/cmsis_os2.c(730): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+    taskYIELD();
+               ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/CMSIS/RTOS2/FreeRTOS/Source/cmsis_os2.c(30): warning: In file included from...
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include/task.h(160): warning: padding struct 'struct xTASK_STATUS' with 3 bytes to align 'uxCurrentPriority' [-Wpadded]
+    UBaseType_t uxCurrentPriority;                /* The priority at which the task was running (may be inherited) when the structure was populated. */
+                ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include/task.h(154): warning: padding size of 'struct xTASK_STATUS' with 2 bytes to alignment boundary [-Wpadded]
+typedef struct xTASK_STATUS
+               ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/CMSIS/RTOS2/FreeRTOS/Source/cmsis_os2.c(29): warning: In file included from...
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include\FreeRTOS.h(1391): warning: padding size of 'struct xSTATIC_TIMER' with 3 bytes to alignment boundary [-Wpadded]
+typedef struct xSTATIC_TIMER
+               ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/CMSIS/RTOS2/FreeRTOS/Source/cmsis_os2.c(1206): warning: implicit conversion changes signedness: 'UBaseType_t' (aka 'unsigned long') to 'BaseType_t' (aka 'long') [-Wsign-conversion]
+          hTimer = xTimerCreateStatic (name, 1, reload, callb, TimerCallback, (StaticTimer_t *)attr->cb_mem);
+                   ~~~~~~~~~~~~~~~~~~           ^~~~~~
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/CMSIS/RTOS2/FreeRTOS/Source/cmsis_os2.c(1212): warning: implicit conversion changes signedness: 'UBaseType_t' (aka 'unsigned long') to 'BaseType_t' (aka 'long') [-Wsign-conversion]
+            hTimer = xTimerCreate (name, 1, reload, callb, TimerCallback);
+                     ~~~~~~~~~~~~           ^~~~~~
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/CMSIS/RTOS2/FreeRTOS/Source/cmsis_os2.c(29): warning: In file included from...
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include\FreeRTOS.h(1363): warning: padding size of 'struct xSTATIC_EVENT_GROUP' with 3 bytes to alignment boundary [-Wpadded]
+typedef struct xSTATIC_EVENT_GROUP
+               ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include\FreeRTOS.h(1343): warning: padding struct 'struct xSTATIC_QUEUE' with 1 byte to align 'uxDummy8' [-Wpadded]
+        UBaseType_t uxDummy8;
+                    ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include\FreeRTOS.h(1320): warning: padding size of 'struct xSTATIC_QUEUE' with 3 bytes to alignment boundary [-Wpadded]
+typedef struct xSTATIC_QUEUE
+               ^
+13 warnings generated.
+compiling cmsis_os2.c...
+assembling startup_stm32f303xe.s...
+RTE/Device/STM32F303RETx/system_stm32f3xx.c(70): warning: In file included from...
+C:/Users/CAIRO/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include\stm32f3xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include\stm32f3xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+2 warnings generated.
+compiling system_stm32f3xx.c...
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/CMSIS/RTOS2/FreeRTOS/Source/freertos_evr.c(23): warning: In file included from...
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include\FreeRTOS.h(59): warning: In file included from...
+./RTE/RTOS\FreeRTOSConfig.h(46): warning: In file included from...
+C:/Users/CAIRO/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include\stm32f3xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include\stm32f3xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+2 warnings generated.
+compiling freertos_evr.c...
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/event_groups.c(38): warning: In file included from...
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include\FreeRTOS.h(59): warning: In file included from...
+./RTE/RTOS\FreeRTOSConfig.h(46): warning: In file included from...
+C:/Users/CAIRO/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include\stm32f3xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include\stm32f3xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/event_groups.c(64): warning: padding size of 'struct EventGroupDef_t' with 3 bytes to alignment boundary [-Wpadded]
+typedef struct EventGroupDef_t
+               ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/event_groups.c(38): warning: In file included from...
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include\FreeRTOS.h(1363): warning: padding size of 'struct xSTATIC_EVENT_GROUP' with 3 bytes to alignment boundary [-Wpadded]
+typedef struct xSTATIC_EVENT_GROUP
+               ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/event_groups.c(261): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+            portYIELD_WITHIN_API();
+                                  ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/event_groups.c(413): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+            portYIELD_WITHIN_API();
+                                  ^
+6 warnings generated.
+compiling event_groups.c...
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/list.c(37): warning: In file included from...
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include\FreeRTOS.h(59): warning: In file included from...
+./RTE/RTOS\FreeRTOSConfig.h(46): warning: In file included from...
+C:/Users/CAIRO/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include\stm32f3xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include\stm32f3xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+2 warnings generated.
+compiling list.c...
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/portable/GCC/ARM_CM4F/port.c(34): warning: In file included from...
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include\FreeRTOS.h(59): warning: In file included from...
+./RTE/RTOS\FreeRTOSConfig.h(46): warning: In file included from...
+C:/Users/CAIRO/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include\stm32f3xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include\stm32f3xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+2 warnings generated.
+compiling port.c...
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/portable/MemMang/heap_4.c(45): warning: In file included from...
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include\FreeRTOS.h(59): warning: In file included from...
+./RTE/RTOS\FreeRTOSConfig.h(46): warning: In file included from...
+C:/Users/CAIRO/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include\stm32f3xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include\stm32f3xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/portable/MemMang/heap_4.c(414): warning: cast from 'uint8_t *' (aka 'unsigned char *') to 'BlockLink_t *' (aka 'struct A_BLOCK_LINK *') increases required alignment from 1 to 4 [-Wcast-align]
+    pxFirstFreeBlock = ( BlockLink_t * ) pucAlignedHeap;
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+3 warnings generated.
+compiling heap_4.c...
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/queue.c(37): warning: In file included from...
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include\FreeRTOS.h(59): warning: In file included from...
+./RTE/RTOS\FreeRTOSConfig.h(46): warning: In file included from...
+C:/Users/CAIRO/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include\stm32f3xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include\stm32f3xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/queue.c(130): warning: padding struct 'struct QueueDefinition' with 1 byte to align 'uxQueueNumber' [-Wpadded]
+        UBaseType_t uxQueueNumber;
+                    ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/queue.c(100): warning: padding size of 'struct QueueDefinition' with 3 bytes to alignment boundary [-Wpadded]
+typedef struct QueueDefinition /* The old naming convention is used to prevent breaking kernel aware debuggers. */
+               ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/queue.c(37): warning: In file included from...
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include\FreeRTOS.h(1343): warning: padding struct 'struct xSTATIC_QUEUE' with 1 byte to align 'uxDummy8' [-Wpadded]
+        UBaseType_t uxDummy8;
+                    ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include\FreeRTOS.h(1320): warning: padding size of 'struct xSTATIC_QUEUE' with 3 bytes to alignment boundary [-Wpadded]
+typedef struct xSTATIC_QUEUE
+               ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/queue.c(1024): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+                    portYIELD_WITHIN_API();
+                                          ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/queue.c(1195): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+                prvIncrementQueueTxLock( pxQueue, cTxLock );
+                                                           ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/queue.c(1361): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+                prvIncrementQueueTxLock( pxQueue, cTxLock );
+                                                           ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/queue.c(1485): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+                    portYIELD_WITHIN_API();
+                                          ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/queue.c(1668): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+                    portYIELD_WITHIN_API();
+                                          ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/queue.c(1846): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+                    portYIELD_WITHIN_API();
+                                          ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/queue.c(1958): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+                prvIncrementQueueRxLock( pxQueue, cRxLock );
+                                                           ^
+13 warnings generated.
+compiling queue.c...
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/timers.c(37): warning: In file included from...
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include\FreeRTOS.h(59): warning: In file included from...
+./RTE/RTOS\FreeRTOSConfig.h(46): warning: In file included from...
+C:/Users/CAIRO/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include\stm32f3xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include\stm32f3xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/timers.c(37): warning: In file included from...
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include\FreeRTOS.h(1256): warning: padding size of 'struct xSTATIC_TCB' with 2 bytes to alignment boundary [-Wpadded]
+typedef struct xSTATIC_TCB
+               ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/timers.c(75): warning: padding size of 'struct tmrTimerControl' with 3 bytes to alignment boundary [-Wpadded]
+    typedef struct tmrTimerControl                  /* The old naming convention is used to prevent breaking kernel aware debuggers. */
+                   ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/timers.c(37): warning: In file included from...
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include\FreeRTOS.h(1391): warning: padding size of 'struct xSTATIC_TIMER' with 3 bytes to alignment boundary [-Wpadded]
+typedef struct xSTATIC_TIMER
+               ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/timers.c(569): warning: function 'prvTimerTask' could be declared with attribute 'noreturn' [-Wmissing-noreturn]
+    {
+    ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/timers.c(650): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+                        portYIELD_WITHIN_API();
+                                              ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/timers.c(37): warning: In file included from...
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include\FreeRTOS.h(1343): warning: padding struct 'struct xSTATIC_QUEUE' with 1 byte to align 'uxDummy8' [-Wpadded]
+        UBaseType_t uxDummy8;
+                    ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include\FreeRTOS.h(1320): warning: padding size of 'struct xSTATIC_QUEUE' with 3 bytes to alignment boundary [-Wpadded]
+typedef struct xSTATIC_QUEUE
+               ^
+9 warnings generated.
+compiling timers.c...
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c(39): warning: In file included from...
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include\FreeRTOS.h(59): warning: In file included from...
+./RTE/RTOS\FreeRTOSConfig.h(46): warning: In file included from...
+C:/Users/CAIRO/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include\stm32f3xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include\stm32f3xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c(329): warning: no previous extern declaration for non-static variable 'pxCurrentTCB' [-Wmissing-variable-declarations]
+portDONT_DISCARD PRIVILEGED_DATA TCB_t * volatile pxCurrentTCB = NULL;
+                                                  ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c(329): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+portDONT_DISCARD PRIVILEGED_DATA TCB_t * volatile pxCurrentTCB = NULL;
+                                 ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c(255): warning: padding size of 'struct tskTaskControlBlock' with 2 bytes to alignment boundary [-Wpadded]
+typedef struct tskTaskControlBlock       /* The old naming convention is used to prevent breaking kernel aware debuggers. */
+               ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c(376): warning: no previous extern declaration for non-static variable 'uxTopUsedPriority' [-Wmissing-variable-declarations]
+const volatile UBaseType_t uxTopUsedPriority = configMAX_PRIORITIES - 1U;
+                           ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c(376): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+const volatile UBaseType_t uxTopUsedPriority = configMAX_PRIORITIES - 1U;
+               ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c(39): warning: In file included from...
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include\FreeRTOS.h(1256): warning: padding size of 'struct xSTATIC_TCB' with 2 bytes to alignment boundary [-Wpadded]
+typedef struct xSTATIC_TCB
+               ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c(1084): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+        prvAddTaskToReadyList( pxNewTCB );
+                                         ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c(1200): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+                portYIELD_WITHIN_API();
+                                      ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c(1286): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+            portYIELD_WITHIN_API();
+                                  ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c(1333): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+            portYIELD_WITHIN_API();
+                                  ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c(1644): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+                    prvAddTaskToReadyList( pxTCB );
+                                                  ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c(1747): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+                portYIELD_WITHIN_API();
+                                      ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c(1845): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+                    prvAddTaskToReadyList( pxTCB );
+                                                  ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c(1931): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+                    prvAddTaskToReadyList( pxTCB );
+                                                  ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c(2201): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+                    listREMOVE_ITEM( &( pxTCB->xEventListItem ) );
+                                                                 ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c(2203): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+                    listREMOVE_ITEM( &( pxTCB->xStateListItem ) );
+                                                                 ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c(2204): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+                    prvAddTaskToReadyList( pxTCB );
+                                                  ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c(40): warning: In file included from...
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include/task.h(160): warning: padding struct 'struct xTASK_STATUS' with 3 bytes to align 'uxCurrentPriority' [-Wpadded]
+    UBaseType_t uxCurrentPriority;                /* The priority at which the task was running (may be inherited) when the structure was populated. */
+                ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include/task.h(154): warning: padding size of 'struct xTASK_STATUS' with 2 bytes to alignment boundary [-Wpadded]
+typedef struct xTASK_STATUS
+               ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c(2743): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+            taskSWITCH_DELAYED_LISTS();
+                                      ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c(2793): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+                    listREMOVE_ITEM( &( pxTCB->xStateListItem ) );
+                                                                 ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c(2799): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+                        listREMOVE_ITEM( &( pxTCB->xEventListItem ) );
+                                                                     ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c(2808): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+                    prvAddTaskToReadyList( pxTCB );
+                                                  ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c(3051): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+        taskCHECK_FOR_STACK_OVERFLOW();
+                                      ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c(3062): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+        taskSELECT_HIGHEST_PRIORITY_TASK(); /*lint !e9079 void * is used as this macro is used with timers and co-routines too.  Alignment is known to be fine as the type of the pointer stored and retrieved is the same. */
+                                          ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c(3128): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+    listINSERT_END( pxEventList, &( pxCurrentTCB->xEventListItem ) );
+                                                                    ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c(3152): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+        listINSERT_END( pxEventList, &( pxCurrentTCB->xEventListItem ) );
+                                                                        ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c(3189): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+    listREMOVE_ITEM( &( pxUnblockedTCB->xEventListItem ) );
+                                                          ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c(3193): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+        listREMOVE_ITEM( &( pxUnblockedTCB->xStateListItem ) );
+                                                              ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c(3194): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+        prvAddTaskToReadyList( pxUnblockedTCB );
+                                               ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c(3214): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+        listINSERT_END( &( xPendingReadyList ), &( pxUnblockedTCB->xEventListItem ) );
+                                                                                     ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c(3253): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+    listREMOVE_ITEM( pxEventListItem );
+                                      ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c(3272): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+    listREMOVE_ITEM( &( pxUnblockedTCB->xStateListItem ) );
+                                                          ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c(3273): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+    prvAddTaskToReadyList( pxUnblockedTCB );
+                                           ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c(3452): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+            taskYIELD();
+                       ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c(3428): warning: function 'prvIdleTask' could be declared with attribute 'noreturn' [-Wmissing-noreturn]
+{
+^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c(3832): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+            listGET_OWNER_OF_NEXT_ENTRY( pxFirstTCB, pxList ); /*lint !e9079 void * is used as this macro is used with timers and co-routines too.  Alignment is known to be fine as the type of the pointer stored and retrieved is the same. */
+                                                             ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c(3840): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+                listGET_OWNER_OF_NEXT_ENTRY( pxNextTCB, pxList ); /*lint !e9079 void * is used as this macro is used with timers and co-routines too.  Alignment is known to be fine as the type of the pointer stored and retrieved is the same. */
+                                                                ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c(4112): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+                    prvAddTaskToReadyList( pxMutexHolderTCB );
+                                                             ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c(4202): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+                    prvAddTaskToReadyList( pxTCB );
+                                                  ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c(4315): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+                        prvAddTaskToReadyList( pxTCB );
+                                                      ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c(4716): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+                    portYIELD_WITHIN_API();
+                                          ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c(4795): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+                    portYIELD_WITHIN_API();
+                                          ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c(4908): warning: default label in switch which covers all enumeration values [-Wcovered-switch-default]
+                default:
+                ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c(4924): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+                listREMOVE_ITEM( &( pxTCB->xStateListItem ) );
+                                                             ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c(4925): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+                prvAddTaskToReadyList( pxTCB );
+                                              ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c(5051): warning: default label in switch which covers all enumeration values [-Wcovered-switch-default]
+                default:
+                ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c(5071): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+                    listREMOVE_ITEM( &( pxTCB->xStateListItem ) );
+                                                                 ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c(5072): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+                    prvAddTaskToReadyList( pxTCB );
+                                                  ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c(5078): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+                    listINSERT_END( &( xPendingReadyList ), &( pxTCB->xEventListItem ) );
+                                                                                        ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c(5162): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+                    listREMOVE_ITEM( &( pxTCB->xStateListItem ) );
+                                                                 ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c(5163): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+                    prvAddTaskToReadyList( pxTCB );
+                                                  ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c(5169): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+                    listINSERT_END( &( xPendingReadyList ), &( pxTCB->xEventListItem ) );
+                                                                                        ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c(5332): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+            listINSERT_END( &xSuspendedTaskList, &( pxCurrentTCB->xStateListItem ) );
+                                                                                    ^
+54 warnings generated.
+compiling tasks.c...
+linking...
+Program Size: Code=10872 RO-data=724 RW-data=24 ZI-data=11544  
+".\Objects\V2V_APP.axf" - 0 Error(s), 271 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -109,7 +1409,7 @@ Package Vendor: Keil
       Include file:  Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f3xx.h
       Source file:   MDK/Device/Source/ARM/STM32F3xx_OPT.s
       Source file:   Drivers/CMSIS/Device/ST/STM32F3xx/Source/Templates/system_stm32f3xx.c
-Build Time Elapsed:  00:00:00
+Build Time Elapsed:  00:00:05
 </pre>
 </body>
 </html>

@@ -27,14 +27,18 @@ int main(void)
 	RCC_voidEnablePeripheral(APB1_BUS,TIM2_EN);
 	
 
+
 	 DCmotor_Init();
-	 DCmotor_frontMove(50);
+	
+	
 	while(1)
 	{
-		DCmotor_frontMove(20);
-		DCmotor_backMove(50);
-		DCmotor_rightMove(80);
-		DCmotor_leftMove(100);
+		DCmotor_frontMove(100);
+		DCmotor_backMove(40);
+	 DCmotor_rightMove(80);
+		DCmotor_leftMove(40);
+
+		
 	}
 	
 }
