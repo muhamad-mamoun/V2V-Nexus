@@ -80,8 +80,10 @@ void US_voidGetUSSensorDistance(u16 *Ptr_u16DistanceCM)
 void US_voidSetTrigger(void)
 {
 	u8 Local_OvStauts = 0;
-	GPIO_writePin(GPIO_PORTC_ID, GPIO_PIN05_ID, GPIO_HIGH_PIN);
-	ICU_voidSetArrTime(Timer3, 15);
+	GPIO_writePin(GPIO_PORTC_ID, GPIO_PIN08_ID, GPIO_LOW_PIN);
+	ICU_voidDisableTimer(Timer3);
+	ICU_voidSetCountTime(Timer3, 0);
+	ICU_voidSetArrTime(Timer3, 2);
 	ICU_voidClrTimerOvFlag(Timer3);
 	ICU_voidEnableTimer(Timer3);
 	ICU_voidGetTimerOvStatus(Timer3, &Local_OvStauts);
@@ -89,8 +91,18 @@ void US_voidSetTrigger(void)
 	{
 		ICU_voidGetTimerOvStatus(Timer3, &Local_OvStauts);
 	}
-	GPIO_writePin(GPIO_PORTC_ID, GPIO_PIN05_ID, GPIO_LOW_PIN);
+	Local_OvStauts = 0;	
+	GPIO_writePin(GPIO_PORTC_ID, GPIO_PIN08_ID, GPIO_HIGH_PIN);
+	ICU_voidSetArrTime(Timer3, 12);
 	ICU_voidClrTimerOvFlag(Timer3);
+	ICU_voidEnableTimer(Timer3);
+	ICU_voidGetTimerOvStatus(Timer3, &Local_OvStauts);
+	while(Local_OvStauts == 0)
+	{
+		ICU_voidGetTimerOvStatus(Timer3, &Local_OvStauts);
+	}
+	Local_OvStauts = 0;
+	GPIO_writePin(GPIO_PORTC_ID, GPIO_PIN08_ID, GPIO_LOW_PIN);
 }
 void US_voidSetICUTime(void)
 {
@@ -118,7 +130,7 @@ void US_voidGetICU_Distance(u16 *Ptr_u16DistanceCM)
 	}
 	ICU_voidClrTimerOvFlag(Timer3);
 }
-
+/**************************************/
 void US_voidGetUSSensorDistanceAsync(u16 *Ptr_u16DistanceCM)
 {
 	static u8 US_flag = 0;
@@ -143,8 +155,8 @@ void US_voidGetUSSensorDistanceAsync(u16 *Ptr_u16DistanceCM)
 			*Ptr_u16DistanceCM =0xDDDD;
 		}
 	}
-
 }
+/************************************************/
 void US_voidGetDistancePolling(u16 *Ptr_u16DistanceCM)
 {
 	u8 Local_OvStauts = 0;
@@ -198,4 +210,88 @@ void US_voidGetDistancePolling(u16 *Ptr_u16DistanceCM)
 			}
 	}
 	ICU_voidClrTimerOvFlag(Timer3);
+}
+void US_voidGetTimeICUStatus(u8* Ptr_u8Flag)
+{
+	ICU_voidGetTimerIcuStatus(CH1, Timer3, Ptr_u8Flag);
+}
+void US_voidGetUSSensorDistanceAsyncTask(u16 *Ptr_u16DistanceCM)
+{
+	static u8 US_flag = 0;
+	static u8 US_TimerStatus = 0;
+	static u8 US_TimerICUStatus = 0;
+
+	if(US_flag == 0)
+	{
+		US_voidSetTrigger();
+		US_voidSetICUTime();
+		US_flag = 1;
+	}
+	if(US_flag == 1)
+	{
+		US_voidGetTimeStatus(&US_TimerStatus);
+		US_voidGetTimeICUStatus(&US_TimerICUStatus);
+		if(US_TimerStatus == 0)
+		{
+			if(US_TimerICUStatus == 1)
+			{
+				US_voidGetICU_Distance(Ptr_u16DistanceCM);
+				US_flag = 0;
+				ICU_voidClrTimerIcuFlag(CH1, Timer3);
+			}
+		}
+		else
+		{
+			
+			if(US_TimerICUStatus == 1)
+			{
+				US_voidGetICU_Distance(Ptr_u16DistanceCM);
+				ICU_voidClrTimerIcuFlag(CH1, Timer3);
+			}
+			else 
+			{
+					*Ptr_u16DistanceCM = 0xDDDD;
+			}
+			US_flag = 0;
+			ICU_voidClrTimerOvFlag(Timer3);
+		}
+	}
+}
+void US_voidUltraSonicStart(void)
+{
+	US_voidSetTrigger();
+	US_voidSetICUTime();
+}
+void US_voidGetUSSensorDistanceTask(u16 *Ptr_u16DistanceCM)
+{
+	static u8 US_TimerStatus = 0;
+	static u8 US_TimerICUStatus = 0;
+		US_voidGetTimeStatus(&US_TimerStatus);
+		US_voidGetTimeICUStatus(&US_TimerICUStatus);
+		if(US_TimerStatus == 0)
+		{
+			if(US_TimerICUStatus == 1)
+			{
+												/*if Ptr_u16DistanceCM == 0xFEFE data garbage*/
+
+				US_voidGetICU_Distance(Ptr_u16DistanceCM);
+				ICU_voidClrTimerIcuFlag(CH1, Timer3);
+			}
+		}
+		else
+		{
+			if(US_TimerICUStatus == 1)
+			{
+								/*if Ptr_u16DistanceCM == 0xFEFE data garbage*/
+				US_voidGetICU_Distance(Ptr_u16DistanceCM);
+				ICU_voidClrTimerIcuFlag(CH1, Timer3);
+			}
+			else 
+			{
+				/*US No response*/
+					*Ptr_u16DistanceCM = 0xDDDD;
+			}
+			ICU_voidClrTimerOvFlag(Timer3);
+		}
+	
 }

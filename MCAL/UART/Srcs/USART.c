@@ -305,14 +305,11 @@ void MUSART1_VidSetCallBack( void (*ptr) (u32) )
   ******************************************************************************
   */
 void USART1_IRQHandler(void)
-{
-      
-	    
+{    
 	     MUSART1_CallBack(MUSART -> RDR);
 	     /*Clear Flag By Software..*/
 	     MUSART -> ICR |= (1<<3) | (1<<4) | (1<<6); 
 	     MUSART -> RQR |= (1<<4) | (1<<3);
-      
 
 }
 

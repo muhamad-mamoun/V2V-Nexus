@@ -1,6 +1,28 @@
 Dependencies for Project 'V2V_APP', Target 'Target 1': (DO NOT MODIFY !)
 CompilerVersion: 6190000::V6.19::ARMCLANG
-F (.\main.c)(0x655E2D7F)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../OTHERS -I ../MCAL/RCC/inc -I ../MCAL/GPIO/INCLUDES -I "../MCAL/NVIC Driver/Includes" -I ../MCAL/PWM/includes -I ../MCAL/UART/Includes -I ../MCAL/ICU/INCLUDES -I ../MCAL/EXTI/Inludes -I ../HAL/MOTOR/INCLUDES -I ../HAL/Bluetooth/Includes -I ../HAL/US/Includes-I./RTE/RTOS-I./RTE/_Target_1-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/CMSIS/RTOS2/FreeRTOS/Include-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/portable/GCC/ARM_CM4F-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/RTOS2/Include-IC:/Users/CAIRO/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F303xE -D_RTE_-o ./objects/main.o -MD)
+F (.\main.c)(0x655E5259)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../OTHERS -I ../MCAL/RCC/inc -I ../MCAL/GPIO/INCLUDES -I "../MCAL/NVIC Driver/Includes" -I ../MCAL/PWM/includes -I ../MCAL/UART/Includes -I ../MCAL/ICU/INCLUDES -I ../MCAL/EXTI/Inludes -I ../HAL/MOTOR/INCLUDES -I ../HAL/Bluetooth/Includes -I ../HAL/US/Includes-I./RTE/RTOS-I./RTE/_Target_1-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/CMSIS/RTOS2/FreeRTOS/Include-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/portable/GCC/ARM_CM4F-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/RTOS2/Include-IC:/Users/CAIRO/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F303xE -D_RTE_-o ./objects/main.o -MD)
+I (C:\Users\CAIRO\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\include\FreeRTOS.h)(0x63870880)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x63889D68)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63889D68)
+I (RTE\RTOS\FreeRTOSConfig.h)(0x655E4D24)
+I (RTE\_Target_1\RTE_Components.h)(0x655C69FC)
+I (C:\Users\CAIRO\AppData\Local\Arm\Packs\Keil\STM32F3xx_DFP\2.2.2\Drivers\CMSIS\Device\ST\STM32F3xx\Include\stm32f3xx.h)(0x60FBC418)
+I (C:\Users\CAIRO\AppData\Local\Arm\Packs\Keil\STM32F3xx_DFP\2.2.2\Drivers\CMSIS\Device\ST\STM32F3xx\Include\stm32f303xe.h)(0x60FBC418)
+I (C:\Users\CAIRO\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F912E)
+I (C:\Users\CAIRO\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F912E)
+I (C:\Users\CAIRO\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F912E)
+I (C:\Users\CAIRO\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F912E)
+I (C:\Users\CAIRO\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x626F912E)
+I (C:\Users\CAIRO\AppData\Local\Arm\Packs\Keil\STM32F3xx_DFP\2.2.2\Drivers\CMSIS\Device\ST\STM32F3xx\Include\system_stm32f3xx.h)(0x60FBC418)
+I (C:\Users\CAIRO\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\10.5.1\CMSIS\RTOS2\FreeRTOS\Include\freertos_evr.h)(0x63870880)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63889D68)
+I (C:\Users\CAIRO\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\include\projdefs.h)(0x63870880)
+I (C:\Users\CAIRO\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\include\portable.h)(0x63870880)
+I (C:\Users\CAIRO\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\include\deprecated_definitions.h)(0x63870880)
+I (C:\Users\CAIRO\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\portable\GCC\ARM_CM4F\portmacro.h)(0x63870880)
+I (C:\Users\CAIRO\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\include\mpu_wrappers.h)(0x63870880)
+I (C:\Users\CAIRO\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\include\task.h)(0x63870880)
+I (C:\Users\CAIRO\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\include\list.h)(0x63870880)
 I (..\OTHERS\common_macros.h)(0x655C71B7)
 I (..\OTHERS\std_types.h)(0x6557DA60)
 I (..\MCAL\RCC\inc\RCC.h)(0x655C67D3)
@@ -8,15 +30,15 @@ I (..\MCAL\GPIO\INCLUDES\gpio.h)(0x6557DA60)
 I (..\MCAL\NVIC Driver\Includes\NVIC.h)(0x655C64BB)
 I (..\MCAL\PWM\includes\PWM.h)(0x655A4488)
 I (..\MCAL\UART\Includes\UART_interface.h)(0x655E2AAB)
-I (..\MCAL\ICU\INCLUDES\ICU.h)(0x655E16D8)
+I (..\MCAL\ICU\INCLUDES\ICU.h)(0x655E455F)
 I (..\MCAL\EXTI\Inludes\EXTI.h)(0x655C64BB)
 I (..\HAL\MOTOR\INCLUDES\motor.h)(0x655E1143)
 I (..\HAL\MOTOR\INCLUDES\..\..\..\OTHERS\std_types.h)(0x6557DA60)
 I (..\HAL\MOTOR\INCLUDES\..\..\..\OTHERS\common_macros.h)(0x655C71B7)
 I (..\HAL\MOTOR\INCLUDES\..\..\..\MCAL\GPIO\INCLUDES\gpio.h)(0x6557DA60)
 I (..\HAL\MOTOR\INCLUDES\..\..\..\MCAL\PWM\includes\PWM.h)(0x655A4488)
-I (..\HAL\US\Includes\US.h)(0x655E1685)
-I (..\HAL\Bluetooth\Includes\BLE.h)(0x655C6E28)
+I (..\HAL\US\Includes\US.h)(0x655E455F)
+I (..\HAL\Bluetooth\Includes\BLE.h)(0x655E366F)
 F (..\OTHERS\common_macros.h)(0x655C71B7)()
 F (..\OTHERS\std_types.h)(0x6557DA60)()
 F (..\MCAL\RCC\inc\RCC.h)(0x655C67D3)()
@@ -58,18 +80,18 @@ F (..\MCAL\PWM\includes\PWM_prv.h)(0x655A4488)()
 F (..\MCAL\UART\Includes\UART_cfg.h)(0x655C6E28)()
 F (..\MCAL\UART\Includes\UART_interface.h)(0x655E2AAB)()
 F (..\MCAL\UART\Includes\UART_private.h)(0x655C6E28)()
-F (..\MCAL\UART\Srcs\USART.c)(0x655E2AAB)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../OTHERS -I ../MCAL/RCC/inc -I ../MCAL/GPIO/INCLUDES -I "../MCAL/NVIC Driver/Includes" -I ../MCAL/PWM/includes -I ../MCAL/UART/Includes -I ../MCAL/ICU/INCLUDES -I ../MCAL/EXTI/Inludes -I ../HAL/MOTOR/INCLUDES -I ../HAL/Bluetooth/Includes -I ../HAL/US/Includes-I./RTE/RTOS-I./RTE/_Target_1-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/CMSIS/RTOS2/FreeRTOS/Include-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/portable/GCC/ARM_CM4F-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/RTOS2/Include-IC:/Users/CAIRO/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F303xE -D_RTE_-o ./objects/usart.o -MD)
+F (..\MCAL\UART\Srcs\USART.c)(0x655E325C)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../OTHERS -I ../MCAL/RCC/inc -I ../MCAL/GPIO/INCLUDES -I "../MCAL/NVIC Driver/Includes" -I ../MCAL/PWM/includes -I ../MCAL/UART/Includes -I ../MCAL/ICU/INCLUDES -I ../MCAL/EXTI/Inludes -I ../HAL/MOTOR/INCLUDES -I ../HAL/Bluetooth/Includes -I ../HAL/US/Includes-I./RTE/RTOS-I./RTE/_Target_1-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/CMSIS/RTOS2/FreeRTOS/Include-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/portable/GCC/ARM_CM4F-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/RTOS2/Include-IC:/Users/CAIRO/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F303xE -D_RTE_-o ./objects/usart.o -MD)
 I (..\OTHERS\common_macros.h)(0x655C71B7)
 I (..\OTHERS\std_types.h)(0x6557DA60)
 I (..\MCAL\UART\Includes\UART_interface.h)(0x655E2AAB)
 I (..\MCAL\UART\Includes\UART_Private.h)(0x655C6E28)
-F (..\MCAL\ICU\INCLUDES\ICU.h)(0x655E16D8)()
+F (..\MCAL\ICU\INCLUDES\ICU.h)(0x655E455F)()
 F (..\MCAL\ICU\INCLUDES\ICU_cfg.h)(0x655A4488)()
 F (..\MCAL\ICU\INCLUDES\ICU_prv.h)(0x655E16B0)()
-F (..\MCAL\ICU\SOURCES\ICU.c)(0x655E16D8)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../OTHERS -I ../MCAL/RCC/inc -I ../MCAL/GPIO/INCLUDES -I "../MCAL/NVIC Driver/Includes" -I ../MCAL/PWM/includes -I ../MCAL/UART/Includes -I ../MCAL/ICU/INCLUDES -I ../MCAL/EXTI/Inludes -I ../HAL/MOTOR/INCLUDES -I ../HAL/Bluetooth/Includes -I ../HAL/US/Includes-I./RTE/RTOS-I./RTE/_Target_1-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/CMSIS/RTOS2/FreeRTOS/Include-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/portable/GCC/ARM_CM4F-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/RTOS2/Include-IC:/Users/CAIRO/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F303xE -D_RTE_-o ./objects/icu.o -MD)
+F (..\MCAL\ICU\SOURCES\ICU.c)(0x655E455F)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../OTHERS -I ../MCAL/RCC/inc -I ../MCAL/GPIO/INCLUDES -I "../MCAL/NVIC Driver/Includes" -I ../MCAL/PWM/includes -I ../MCAL/UART/Includes -I ../MCAL/ICU/INCLUDES -I ../MCAL/EXTI/Inludes -I ../HAL/MOTOR/INCLUDES -I ../HAL/Bluetooth/Includes -I ../HAL/US/Includes-I./RTE/RTOS-I./RTE/_Target_1-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/CMSIS/RTOS2/FreeRTOS/Include-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/portable/GCC/ARM_CM4F-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/RTOS2/Include-IC:/Users/CAIRO/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F303xE -D_RTE_-o ./objects/icu.o -MD)
 I (..\OTHERS\std_types.h)(0x6557DA60)
 I (..\OTHERS\common_macros.h)(0x655C71B7)
-I (..\MCAL\ICU\INCLUDES\ICU.h)(0x655E16D8)
+I (..\MCAL\ICU\INCLUDES\ICU.h)(0x655E455F)
 I (..\MCAL\ICU\INCLUDES\ICU_prv.h)(0x655E16B0)
 I (..\MCAL\ICU\INCLUDES\ICU_cfg.h)(0x655A4488)
 F (..\MCAL\EXTI\Inludes\EXTI.h)(0x655C64BB)()
@@ -94,19 +116,19 @@ I (..\HAL\MOTOR\INCLUDES\..\..\..\OTHERS\std_types.h)(0x6557DA60)
 I (..\HAL\MOTOR\INCLUDES\..\..\..\OTHERS\common_macros.h)(0x655C71B7)
 I (..\HAL\MOTOR\INCLUDES\..\..\..\MCAL\GPIO\INCLUDES\gpio.h)(0x6557DA60)
 I (..\HAL\MOTOR\INCLUDES\..\..\..\MCAL\PWM\includes\PWM.h)(0x655A4488)
-F (..\HAL\US\Includes\US.h)(0x655E1685)()
-F (..\HAL\US\sources\US.c)(0x655E1668)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../OTHERS -I ../MCAL/RCC/inc -I ../MCAL/GPIO/INCLUDES -I "../MCAL/NVIC Driver/Includes" -I ../MCAL/PWM/includes -I ../MCAL/UART/Includes -I ../MCAL/ICU/INCLUDES -I ../MCAL/EXTI/Inludes -I ../HAL/MOTOR/INCLUDES -I ../HAL/Bluetooth/Includes -I ../HAL/US/Includes-I./RTE/RTOS-I./RTE/_Target_1-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/CMSIS/RTOS2/FreeRTOS/Include-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/portable/GCC/ARM_CM4F-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/RTOS2/Include-IC:/Users/CAIRO/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F303xE -D_RTE_-o ./objects/us.o -MD)
+F (..\HAL\US\Includes\US.h)(0x655E455F)()
+F (..\HAL\US\sources\US.c)(0x655E455F)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../OTHERS -I ../MCAL/RCC/inc -I ../MCAL/GPIO/INCLUDES -I "../MCAL/NVIC Driver/Includes" -I ../MCAL/PWM/includes -I ../MCAL/UART/Includes -I ../MCAL/ICU/INCLUDES -I ../MCAL/EXTI/Inludes -I ../HAL/MOTOR/INCLUDES -I ../HAL/Bluetooth/Includes -I ../HAL/US/Includes-I./RTE/RTOS-I./RTE/_Target_1-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/CMSIS/RTOS2/FreeRTOS/Include-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/portable/GCC/ARM_CM4F-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/RTOS2/Include-IC:/Users/CAIRO/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F303xE -D_RTE_-o ./objects/us.o -MD)
 I (..\OTHERS\std_types.h)(0x6557DA60)
 I (..\OTHERS\common_macros.h)(0x655C71B7)
 I (..\MCAL\GPIO\INCLUDES\gpio.h)(0x6557DA60)
-I (..\HAL\US\Includes\US.h)(0x655E1685)
-I (..\MCAL\ICU\INCLUDES\ICU.h)(0x655E16D8)
-F (..\HAL\Bluetooth\Includes\BLE.h)(0x655C6E28)()
+I (..\HAL\US\Includes\US.h)(0x655E455F)
+I (..\MCAL\ICU\INCLUDES\ICU.h)(0x655E455F)
+F (..\HAL\Bluetooth\Includes\BLE.h)(0x655E366F)()
 F (..\HAL\Bluetooth\Includes\BLE_Cfg.h)(0x655C7536)()
 F (..\HAL\Bluetooth\Includes\BLE_Prv.h)(0x655E2B0A)()
-F (..\HAL\Bluetooth\Srcs\BLE.c)(0x655E2D7F)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../OTHERS -I ../MCAL/RCC/inc -I ../MCAL/GPIO/INCLUDES -I "../MCAL/NVIC Driver/Includes" -I ../MCAL/PWM/includes -I ../MCAL/UART/Includes -I ../MCAL/ICU/INCLUDES -I ../MCAL/EXTI/Inludes -I ../HAL/MOTOR/INCLUDES -I ../HAL/Bluetooth/Includes -I ../HAL/US/Includes-I./RTE/RTOS-I./RTE/_Target_1-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/CMSIS/RTOS2/FreeRTOS/Include-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/portable/GCC/ARM_CM4F-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/RTOS2/Include-IC:/Users/CAIRO/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F303xE -D_RTE_-o ./objects/ble.o -MD)
+F (..\HAL\Bluetooth\Srcs\BLE.c)(0x655E366F)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../OTHERS -I ../MCAL/RCC/inc -I ../MCAL/GPIO/INCLUDES -I "../MCAL/NVIC Driver/Includes" -I ../MCAL/PWM/includes -I ../MCAL/UART/Includes -I ../MCAL/ICU/INCLUDES -I ../MCAL/EXTI/Inludes -I ../HAL/MOTOR/INCLUDES -I ../HAL/Bluetooth/Includes -I ../HAL/US/Includes-I./RTE/RTOS-I./RTE/_Target_1-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/CMSIS/RTOS2/FreeRTOS/Include-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/portable/GCC/ARM_CM4F-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/RTOS2/Include-IC:/Users/CAIRO/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F303xE -D_RTE_-o ./objects/ble.o -MD)
 I (..\OTHERS\std_types.h)(0x6557DA60)
-I (..\HAL\Bluetooth\Includes\BLE.h)(0x655C6E28)
+I (..\HAL\Bluetooth\Includes\BLE.h)(0x655E366F)
 I (..\HAL\Bluetooth\Includes\BLE_Cfg.h)(0x655C7536)
 I (..\HAL\Bluetooth\Includes\BLE_Prv.h)(0x655E2B0A)
 I (..\MCAL\GPIO\INCLUDES\gpio.h)(0x6557DA60)
@@ -118,7 +140,7 @@ F (C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/CMSIS/RTOS2/
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63889D68)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x63889D68)
 I (C:\Users\CAIRO\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\include\FreeRTOS.h)(0x63870880)
-I (RTE\RTOS\FreeRTOSConfig.h)(0x655C6B2C)
+I (RTE\RTOS\FreeRTOSConfig.h)(0x655E4D24)
 I (RTE\_Target_1\RTE_Components.h)(0x655C69FC)
 I (C:\Users\CAIRO\AppData\Local\Arm\Packs\Keil\STM32F3xx_DFP\2.2.2\Drivers\CMSIS\Device\ST\STM32F3xx\Include\stm32f3xx.h)(0x60FBC418)
 I (C:\Users\CAIRO\AppData\Local\Arm\Packs\Keil\STM32F3xx_DFP\2.2.2\Drivers\CMSIS\Device\ST\STM32F3xx\Include\stm32f303xe.h)(0x60FBC418)
@@ -148,7 +170,7 @@ I (C:\Users\CAIRO\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cms
 I (C:\Users\CAIRO\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F912E)
 I (C:\Users\CAIRO\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\RTOS2\Include\os_tick.h)(0x626F912E)
 I (C:\Users\CAIRO\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\include\FreeRTOS.h)(0x63870880)
-I (RTE\RTOS\FreeRTOSConfig.h)(0x655C6B2C)
+I (RTE\RTOS\FreeRTOSConfig.h)(0x655E4D24)
 I (RTE\_Target_1\RTE_Components.h)(0x655C69FC)
 I (C:\Users\CAIRO\AppData\Local\Arm\Packs\Keil\STM32F3xx_DFP\2.2.2\Drivers\CMSIS\Device\ST\STM32F3xx\Include\stm32f3xx.h)(0x60FBC418)
 I (C:\Users\CAIRO\AppData\Local\Arm\Packs\Keil\STM32F3xx_DFP\2.2.2\Drivers\CMSIS\Device\ST\STM32F3xx\Include\stm32f303xe.h)(0x60FBC418)
@@ -197,7 +219,7 @@ F (C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/CMSIS/RTOS2/
 I (C:\Users\CAIRO\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\include\FreeRTOS.h)(0x63870880)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x63889D68)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63889D68)
-I (RTE\RTOS\FreeRTOSConfig.h)(0x655C6B2C)
+I (RTE\RTOS\FreeRTOSConfig.h)(0x655E4D24)
 I (RTE\_Target_1\RTE_Components.h)(0x655C69FC)
 I (C:\Users\CAIRO\AppData\Local\Arm\Packs\Keil\STM32F3xx_DFP\2.2.2\Drivers\CMSIS\Device\ST\STM32F3xx\Include\stm32f3xx.h)(0x60FBC418)
 I (C:\Users\CAIRO\AppData\Local\Arm\Packs\Keil\STM32F3xx_DFP\2.2.2\Drivers\CMSIS\Device\ST\STM32F3xx\Include\stm32f303xe.h)(0x60FBC418)
@@ -226,7 +248,7 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63889D68)
 I (C:\Users\CAIRO\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\include\FreeRTOS.h)(0x63870880)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x63889D68)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63889D68)
-I (RTE\RTOS\FreeRTOSConfig.h)(0x655C6B2C)
+I (RTE\RTOS\FreeRTOSConfig.h)(0x655E4D24)
 I (RTE\_Target_1\RTE_Components.h)(0x655C69FC)
 I (C:\Users\CAIRO\AppData\Local\Arm\Packs\Keil\STM32F3xx_DFP\2.2.2\Drivers\CMSIS\Device\ST\STM32F3xx\Include\stm32f3xx.h)(0x60FBC418)
 I (C:\Users\CAIRO\AppData\Local\Arm\Packs\Keil\STM32F3xx_DFP\2.2.2\Drivers\CMSIS\Device\ST\STM32F3xx\Include\stm32f303xe.h)(0x60FBC418)
@@ -252,7 +274,7 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63889D68)
 I (C:\Users\CAIRO\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\include\FreeRTOS.h)(0x63870880)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x63889D68)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63889D68)
-I (RTE\RTOS\FreeRTOSConfig.h)(0x655C6B2C)
+I (RTE\RTOS\FreeRTOSConfig.h)(0x655E4D24)
 I (RTE\_Target_1\RTE_Components.h)(0x655C69FC)
 I (C:\Users\CAIRO\AppData\Local\Arm\Packs\Keil\STM32F3xx_DFP\2.2.2\Drivers\CMSIS\Device\ST\STM32F3xx\Include\stm32f3xx.h)(0x60FBC418)
 I (C:\Users\CAIRO\AppData\Local\Arm\Packs\Keil\STM32F3xx_DFP\2.2.2\Drivers\CMSIS\Device\ST\STM32F3xx\Include\stm32f303xe.h)(0x60FBC418)
@@ -274,7 +296,7 @@ F (C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/porta
 I (C:\Users\CAIRO\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\include\FreeRTOS.h)(0x63870880)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x63889D68)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63889D68)
-I (RTE\RTOS\FreeRTOSConfig.h)(0x655C6B2C)
+I (RTE\RTOS\FreeRTOSConfig.h)(0x655E4D24)
 I (RTE\_Target_1\RTE_Components.h)(0x655C69FC)
 I (C:\Users\CAIRO\AppData\Local\Arm\Packs\Keil\STM32F3xx_DFP\2.2.2\Drivers\CMSIS\Device\ST\STM32F3xx\Include\stm32f3xx.h)(0x60FBC418)
 I (C:\Users\CAIRO\AppData\Local\Arm\Packs\Keil\STM32F3xx_DFP\2.2.2\Drivers\CMSIS\Device\ST\STM32F3xx\Include\stm32f303xe.h)(0x60FBC418)
@@ -299,7 +321,7 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63889D68)
 I (C:\Users\CAIRO\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\include\FreeRTOS.h)(0x63870880)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x63889D68)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63889D68)
-I (RTE\RTOS\FreeRTOSConfig.h)(0x655C6B2C)
+I (RTE\RTOS\FreeRTOSConfig.h)(0x655E4D24)
 I (RTE\_Target_1\RTE_Components.h)(0x655C69FC)
 I (C:\Users\CAIRO\AppData\Local\Arm\Packs\Keil\STM32F3xx_DFP\2.2.2\Drivers\CMSIS\Device\ST\STM32F3xx\Include\stm32f3xx.h)(0x60FBC418)
 I (C:\Users\CAIRO\AppData\Local\Arm\Packs\Keil\STM32F3xx_DFP\2.2.2\Drivers\CMSIS\Device\ST\STM32F3xx\Include\stm32f303xe.h)(0x60FBC418)
@@ -323,7 +345,7 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63889D68)
 I (C:\Users\CAIRO\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\include\FreeRTOS.h)(0x63870880)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x63889D68)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63889D68)
-I (RTE\RTOS\FreeRTOSConfig.h)(0x655C6B2C)
+I (RTE\RTOS\FreeRTOSConfig.h)(0x655E4D24)
 I (RTE\_Target_1\RTE_Components.h)(0x655C69FC)
 I (C:\Users\CAIRO\AppData\Local\Arm\Packs\Keil\STM32F3xx_DFP\2.2.2\Drivers\CMSIS\Device\ST\STM32F3xx\Include\stm32f3xx.h)(0x60FBC418)
 I (C:\Users\CAIRO\AppData\Local\Arm\Packs\Keil\STM32F3xx_DFP\2.2.2\Drivers\CMSIS\Device\ST\STM32F3xx\Include\stm32f303xe.h)(0x60FBC418)
@@ -348,7 +370,7 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63889D68)
 I (C:\Users\CAIRO\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\include\FreeRTOS.h)(0x63870880)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x63889D68)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63889D68)
-I (RTE\RTOS\FreeRTOSConfig.h)(0x655C6B2C)
+I (RTE\RTOS\FreeRTOSConfig.h)(0x655E4D24)
 I (RTE\_Target_1\RTE_Components.h)(0x655C69FC)
 I (C:\Users\CAIRO\AppData\Local\Arm\Packs\Keil\STM32F3xx_DFP\2.2.2\Drivers\CMSIS\Device\ST\STM32F3xx\Include\stm32f3xx.h)(0x60FBC418)
 I (C:\Users\CAIRO\AppData\Local\Arm\Packs\Keil\STM32F3xx_DFP\2.2.2\Drivers\CMSIS\Device\ST\STM32F3xx\Include\stm32f303xe.h)(0x60FBC418)
@@ -373,7 +395,7 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63889D68)
 I (C:\Users\CAIRO\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\include\FreeRTOS.h)(0x63870880)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x63889D68)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63889D68)
-I (RTE\RTOS\FreeRTOSConfig.h)(0x655C6B2C)
+I (RTE\RTOS\FreeRTOSConfig.h)(0x655E4D24)
 I (RTE\_Target_1\RTE_Components.h)(0x655C69FC)
 I (C:\Users\CAIRO\AppData\Local\Arm\Packs\Keil\STM32F3xx_DFP\2.2.2\Drivers\CMSIS\Device\ST\STM32F3xx\Include\stm32f3xx.h)(0x60FBC418)
 I (C:\Users\CAIRO\AppData\Local\Arm\Packs\Keil\STM32F3xx_DFP\2.2.2\Drivers\CMSIS\Device\ST\STM32F3xx\Include\stm32f303xe.h)(0x60FBC418)
@@ -394,4 +416,4 @@ I (C:\Users\CAIRO\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\inclu
 I (C:\Users\CAIRO\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\include\list.h)(0x63870880)
 I (C:\Users\CAIRO\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\include\queue.h)(0x63870880)
 I (C:\Users\CAIRO\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\include\timers.h)(0x63870880)
-F (RTE/RTOS/FreeRTOSConfig.h)(0x655C6B2C)()
+F (RTE/RTOS/FreeRTOSConfig.h)(0x655E4D24)()

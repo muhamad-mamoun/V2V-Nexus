@@ -48,7 +48,6 @@ static void HBLE_VGetChar(u32 Copy_u8Key)
 }
 void HBLE_VInit(void)
 {
-	//RCC_voidEnablePeripheral(AHB_BUS,GPIOC_EN);
 	GPIO_configurePin(&UART_PIN_TX);
 	GPIO_configurePin(&UART_PIN_RX);
 	GPIO_setPinFuction(GPIO_PORTC_ID,GPIO_PIN04_ID, GPIO_AF07);
@@ -66,7 +65,7 @@ void HBLE_VInit(void)
  *Parameters    : pointer to carry the value of BLE Key
  *Return Type   : None
  */
-void HBLE_VGetKey(pu8 ADD_pu8Key)
+void HBLE_VGetKey(pu32 ADD_pu8Key)
 {
 	
 	//if the Key has a new value from BLE

@@ -21,6 +21,7 @@ void ICU_voidInitTimer(u8 Copy_u8Channel, u8 Copy_u8Timer);
 void ICU_voidSetSensingEdge(u8 Copy_u8Channel, u8 Copy_u8Timer, u8 Copy_u8SignalSense);
 void ICU_voidSetCountTime(u8 Copy_u8Timer, u32 Copy_u32CountTime);
 void ICU_voidEnableTimer(u8 Copy_u8Timer);
+void ICU_voidDisableTimer(u8 Copy_u8Timer);
 void ICU_voidGetICU_Count(u8 Copy_u8Channel, u8 Copy_u8Timer, u32* Ptr_ICU_Count);
 void ICU_voidGetTimerOvStatus(u8 Copy_u8Timer, u8* Ptr_OvStauts);
 void ICU_voidGetTimerIcuStatus(u8 Copy_u8Channel, u8 Copy_u8Timer, u8* Ptr_IcuStauts);

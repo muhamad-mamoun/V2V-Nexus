@@ -110,3 +110,7 @@ void ICU_voidClrTimerIcuFlag(u8 Copy_u8Channel, u8 Copy_u8Timer)
 {
 	CLR_BIT(Timer[Copy_u8Timer]->SR,(CC1IF + Copy_u8Channel));
 }
+void ICU_voidDisableTimer(u8 Copy_u8Timer)
+{
+	CLR_BIT(Timer[Copy_u8Timer]->CR1, CEN); 
+}

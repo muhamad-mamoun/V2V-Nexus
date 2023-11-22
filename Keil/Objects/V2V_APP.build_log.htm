@@ -28,7 +28,109 @@ Project File Date:  11/21/2023
 *** Using Compiler 'V6.19', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Build target 'Target 1'
 Note: source file 'C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/timers.c' - object file renamed from '.\Objects\timers.o' to '.\Objects\timers_1.o'.
-".\Objects\V2V_APP.axf" - 0 Error(s), 0 Warning(s).
+main.c(2): warning: In file included from...
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include\FreeRTOS.h(59): warning: In file included from...
+./RTE/RTOS\FreeRTOSConfig.h(46): warning: In file included from...
+C:/Users/CAIRO/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include\stm32f3xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include\stm32f3xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+main.c(7): warning: In file included from...
+../OTHERS\common_macros.h(6): warning: 'SET_BIT' macro redefined [-Wmacro-redefined]
+#define SET_BIT(Reg,Bit)                                        (Reg|=(1<<Bit))
+        ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include\stm32f3xx.h(191): note: previous definition is here
+#define SET_BIT(REG, BIT)     ((REG) |= (BIT))
+        ^
+main.c(15): warning: In file included from...
+../MCAL/UART/Includes\UART_interface.h(171): warning: no newline at end of file [-Wnewline-eof]
+#endif
+      ^
+main.c(24): warning: no previous extern declaration for non-static variable 'Global_u32Direction' [-Wmissing-variable-declarations]
+u32 Global_u32Direction = 'F';
+    ^
+main.c(24): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+u32 Global_u32Direction = 'F';
+^
+main.c(39): warning: implicit conversion loses integer precision: 'int' to 'u8' (aka 'unsigned char') [-Wimplicit-int-conversion]
+                        Speed =  Global_u16Distance + 10;
+                              ~  ~~~~~~~~~~~~~~~~~~~^~~~
+main.c(27): warning: unused parameter 'pvParameter' [-Wunused-parameter]
+void Motor_SetDirectionT(void* pvParameter)
+                               ^
+main.c(27): warning: no previous prototype for function 'Motor_SetDirectionT' [-Wmissing-prototypes]
+void Motor_SetDirectionT(void* pvParameter)
+     ^
+main.c(27): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void Motor_SetDirectionT(void* pvParameter)
+^
+static 
+main.c(28): warning: function 'Motor_SetDirectionT' could be declared with attribute 'noreturn' [-Wmissing-noreturn]
+{
+^
+main.c(68): warning: unused parameter 'pvparam' [-Wunused-parameter]
+void BLE_GetDirectionT(void* pvparam)
+                             ^
+main.c(68): warning: no previous prototype for function 'BLE_GetDirectionT' [-Wmissing-prototypes]
+void BLE_GetDirectionT(void* pvparam)
+     ^
+main.c(68): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void BLE_GetDirectionT(void* pvparam)
+^
+static 
+main.c(69): warning: function 'BLE_GetDirectionT' could be declared with attribute 'noreturn' [-Wmissing-noreturn]
+{
+^
+main.c(77): warning: unused parameter 'pvparam' [-Wunused-parameter]
+void US_GetDistanceT(void* pvparam)
+                           ^
+main.c(77): warning: no previous prototype for function 'US_GetDistanceT' [-Wmissing-prototypes]
+void US_GetDistanceT(void* pvparam)
+     ^
+main.c(77): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void US_GetDistanceT(void* pvparam)
+^
+static 
+main.c(78): warning: function 'US_GetDistanceT' could be declared with attribute 'noreturn' [-Wmissing-noreturn]
+{
+^
+main.c(124): warning: passing 'const signed char *' to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+        xTaskCreate(Motor_SetDirectionT,(const signed char*)"Motor_SetDirectionT",200,NULL,5,&SetDirectionH);
+                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include\task.h(356): note: passing argument to parameter 'pcName' here
+                            const char * const pcName, /*lint !e971 Unqualified char types are allowed for strings and single characters only. */
+                                               ^
+main.c(130): warning: passing 'const signed char *' to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+        xTaskCreate(US_GetDistanceT,(const signed char*)"US_GetDistanceT",200,NULL,7,&GetDistanceH);
+                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include\task.h(356): note: passing argument to parameter 'pcName' here
+                            const char * const pcName, /*lint !e971 Unqualified char types are allowed for strings and single characters only. */
+                                               ^
+main.c(129): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
+        xTaskHandle GetDistanceH;
+                    ^
+main.c(25): warning: no previous extern declaration for non-static variable 'Global_u16Distance' [-Wmissing-variable-declarations]
+u16 Global_u16Distance;
+    ^
+main.c(25): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+u16 Global_u16Distance;
+^
+main.c(104): warning: no previous extern declaration for non-static variable 'SetDirectionH' [-Wmissing-variable-declarations]
+        xTaskHandle SetDirectionH;
+                    ^
+main.c(104): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+        xTaskHandle SetDirectionH;
+        ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include\FreeRTOS.h(1067): note: expanded from macro 'xTaskHandle'
+    #define xTaskHandle                   TaskHandle_t
+                                          ^
+20 warnings generated.
+compiling main.c...
+linking...
+Program Size: Code=17820 RO-data=780 RW-data=68 ZI-data=12864  
+".\Objects\V2V_APP.axf" - 0 Error(s), 20 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -109,7 +211,7 @@ Package Vendor: Keil
       Source file:   Drivers/CMSIS/Device/ST/STM32F3xx/Source/Templates/system_stm32f3xx.c
       Source file:   MDK/Device/Source/ARM/STM32F3xx_OPT.s
       Include file:  Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f3xx.h
-Build Time Elapsed:  00:00:00
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>
