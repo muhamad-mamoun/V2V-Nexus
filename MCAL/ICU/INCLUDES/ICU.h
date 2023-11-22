@@ -1,7 +1,7 @@
 #ifndef ICU_H_
 #define ICU_H_
 #include "std_types.h"
-#include "common_macros.h"
+#include "bit_math.h"
 
 #define Timer2	0
 #define Timer3	1
