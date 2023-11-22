@@ -29,7 +29,7 @@ You can set the mode of any pin with only these values:
 =====================================================================================================================*/
 
 /* PORTA Pins Configurations. */
-#define GPIO_PORTA_PIN00_MODE                              (GPIO_OUTPUT_PUSH_PULL_MODE)
+#define GPIO_PORTA_PIN00_MODE                              (GPIO_ALTERNATE_PUSH_PULL_MODE)
 #define GPIO_PORTA_PIN01_MODE                              (GPIO_OUTPUT_PUSH_PULL_MODE)
 #define GPIO_PORTA_PIN02_MODE                              (GPIO_OUTPUT_PUSH_PULL_MODE)
 #define GPIO_PORTA_PIN03_MODE                              (GPIO_OUTPUT_PUSH_PULL_MODE)

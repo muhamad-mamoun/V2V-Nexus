@@ -258,7 +258,7 @@ UART_tenuErrorStatus MUSART1_u8RecCharSynch (u32* pData)
 	u32 LOC_TimeOut = 0 ;
 
     /*Clear Flag By Software..*/
-    SET_BIT(MUSART->RQR ,3);
+   // SET_BIT(MUSART->RQR ,3);
 
 	while((GET_BIT (MUSART->ISR,5) == 0) && ( LOC_TimeOut < THRESHOLD_VALUE ) )
 	{
@@ -306,7 +306,13 @@ void MUSART1_VidSetCallBack( void (*ptr) (u8) )
   */
 void USART1_IRQHandler(void)
 {
-  
+      
+	    
 	     MUSART1_CallBack(MUSART -> RDR);
+	     /*Clear Flag By Software..*/
+	     MUSART -> ICR |= (1<<3) | (1<<4) | (1<<6); 
+	     MUSART -> RQR |= (1<<4) | (1<<3);
+      
+
 }
 
