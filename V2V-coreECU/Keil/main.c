@@ -22,7 +22,7 @@
 #include "BLE.h"
 
 u32 Global_u32Direction = 'F';
-u16 Global_u16Distance;
+u16 Global_u16Distance = 70;
 
 void Motor_SetDirectionT(void* pvParameter)
 {
@@ -125,9 +125,9 @@ int main(void)
 
 //	xTaskHandle GetDirectionH;
 //	xTaskCreate(BLE_GetDirectionT,(const signed char*)"BLE_GetDirectionT",200,NULL,6,&GetDirectionH);
-//	
-	xTaskHandle GetDistanceH;
-	xTaskCreate(US_GetDistanceT,(const signed char*)"US_GetDistanceT",200,NULL,7,&GetDistanceH);
+	
+//	xTaskHandle GetDistanceH;
+//	xTaskCreate(US_GetDistanceT,(const signed char*)"US_GetDistanceT",200,NULL,7,&GetDistanceH);
 
 		vTaskStartScheduler();
 

@@ -177,7 +177,7 @@
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c</Filename>
+          <Filename>C:\Users\CAIRO\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\tasks.c</Filename>
           <ExecCommand></ExecCommand>
           <Expression>\\V2V_APP\tasks.c\2052</Expression>
         </Bp>
@@ -193,7 +193,7 @@
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/portable/GCC/ARM_CM4F/port.c</Filename>
+          <Filename>C:\Users\CAIRO\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\portable\GCC\ARM_CM4F\port.c</Filename>
           <ExecCommand></ExecCommand>
           <Expression>\\V2V_APP\port.c\389</Expression>
         </Bp>
@@ -221,11 +221,6 @@
           <ItemText>Dist</ItemText>
         </Ww>
       </WatchWindow1>
-      <ScvdPack>
-        <Filename>C:\Users\CAIRO\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\10.5.1\CMSIS\RTOS2\FreeRTOS\FreeRTOS.scvd</Filename>
-        <Type>ARM.CMSIS-FreeRTOS.10.5.1</Type>
-        <SubType>1</SubType>
-      </ScvdPack>
       <Tracepoint>
         <THDelay>0</THDelay>
       </Tracepoint>
