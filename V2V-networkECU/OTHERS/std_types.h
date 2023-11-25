@@ -2,7 +2,7 @@
 #define SERVIES_STD_TYPES_H_
 
 
-typedef signed char  						s8;
+typedef signed char  						  s8;
 typedef unsigned char 						u8;
 
 
