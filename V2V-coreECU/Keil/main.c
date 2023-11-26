@@ -26,7 +26,7 @@ u16 Global_u16Distance = 70;
 
 void Motor_SetDirectionT(void* pvParameter)
 {
-	u8 Speed = 0;
+	u8 Speed;
 	vTaskDelay(500);
 	while(1)
 	{
@@ -56,9 +56,10 @@ void Motor_SetDirectionT(void* pvParameter)
 		case 'L':
 			DCmotor_leftMove(Speed);
 			break;
-		default:
+		case 'S':
 			DCmotor_stop();
-		break;
+			break;
+		
 		}
 		vTaskDelay(100);
 	}
@@ -101,7 +102,7 @@ void US_GetDistanceT(void* pvparam)
 	
 }
 
-	xTaskHandle SetDirectionH;
+xTaskHandle SetDirectionH;
 
 int main(void)
 {
@@ -123,8 +124,8 @@ int main(void)
 	/************* TASKS CREATION ***************/
 	xTaskCreate(Motor_SetDirectionT,(const signed char*)"Motor_SetDirectionT",200,NULL,5,&SetDirectionH);
 
-//	xTaskHandle GetDirectionH;
-//	xTaskCreate(BLE_GetDirectionT,(const signed char*)"BLE_GetDirectionT",200,NULL,6,&GetDirectionH);
+	xTaskHandle GetDirectionH;
+	xTaskCreate(BLE_GetDirectionT,(const signed char*)"BLE_GetDirectionT",200,NULL,6,&GetDirectionH);
 	
 //	xTaskHandle GetDistanceH;
 //	xTaskCreate(US_GetDistanceT,(const signed char*)"US_GetDistanceT",200,NULL,7,&GetDistanceH);
