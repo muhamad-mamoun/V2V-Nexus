@@ -21,47 +21,36 @@
 #include "US.h"
 #include "BLE.h"
 
-u32 Global_u32Direction = 'F';
-u16 Global_u16Distance = 70;
+volatile u32 Global_u32Direction;
+volatile u16 Global_u16Distance;
+volatile u16 Global_u16Speed;
 
 void Motor_SetDirectionT(void* pvParameter)
 {
-	u8 Speed;
 	vTaskDelay(500);
 	while(1)
 	{
-		if( Global_u16Distance > 50)
-		{
-			Speed = 100;
-		}
-		else if (Global_u16Distance > 5 && Global_u16Distance <= 50)
-		{
-			Speed =  Global_u16Distance + 10;
-		}
-		else 
-		{
-			Speed = 0;
-		}
+	
 		switch(Global_u32Direction)
 		{
 		case 'F':
-			DCmotor_frontMove(Speed);
+			DCmotor_frontMove(Global_u16Speed);
 			break;
 		case 'B':
-			DCmotor_backMove(Speed);
+			DCmotor_backMove(Global_u16Speed);
 			break;
 		case 'R':
-			DCmotor_rightMove(Speed);
+			DCmotor_rightMove(Global_u16Speed);
 			break;
 		case 'L':
-			DCmotor_leftMove(Speed);
+			DCmotor_leftMove(Global_u16Speed);
 			break;
 		case 'S':
 			DCmotor_stop();
 			break;
 		
 		}
-		vTaskDelay(100);
+		vTaskDelay(300);
 	}
 	
 }
@@ -89,11 +78,12 @@ void US_GetDistanceT(void* pvparam)
 			/******For Testing********/
 			if(Global_u16Distance < 50)
 			{
-					GPIO_writePin(H_BRIDGE_INPUT2_PORT,H_BRIDGE_INPUT2_PIN,GPIO_HIGH_PIN);
+				
+					Global_u16Speed = 0;
 			}
 			else
 			{
-					GPIO_writePin(H_BRIDGE_INPUT2_PORT,H_BRIDGE_INPUT2_PIN,GPIO_LOW_PIN);
+				Global_u16Speed = 100;
 			}
 			/************************/
 		}
@@ -127,8 +117,8 @@ int main(void)
 	xTaskHandle GetDirectionH;
 	xTaskCreate(BLE_GetDirectionT,(const signed char*)"BLE_GetDirectionT",200,NULL,6,&GetDirectionH);
 	
-//	xTaskHandle GetDistanceH;
-//	xTaskCreate(US_GetDistanceT,(const signed char*)"US_GetDistanceT",200,NULL,7,&GetDistanceH);
+	xTaskHandle GetDistanceH;
+	xTaskCreate(US_GetDistanceT,(const signed char*)"US_GetDistanceT",200,NULL,7,&GetDistanceH);
 
 		vTaskStartScheduler();
 

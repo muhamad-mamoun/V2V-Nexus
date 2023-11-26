@@ -338,7 +338,7 @@ GPIO_errorStatusType GPIO_setPinFuction(GPIO_portIDType a_portID, GPIO_pinIDType
 
     else
     {
-        GPIO_WRITE_FOUR_BITS((*(LOC_ptr2GPIOx + a_portID))->AFRH,a_pinID,a_alternateFunction);
+        GPIO_WRITE_FOUR_BITS((*(LOC_ptr2GPIOx + a_portID))->AFRH,a_pinID-8,a_alternateFunction);
     }
 
     return LOC_errorStatus;

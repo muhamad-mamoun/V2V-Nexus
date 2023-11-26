@@ -101,7 +101,6 @@ void HBLE_VGetKey(pu32 ADD_pu8Key)
 				*ADD_pu8Key=NO_REC_KEY;
 		}
 	  //return G_Key to its initial value 
-		G_Key=NO_REC_KEY;
 		
 	}
 	else
