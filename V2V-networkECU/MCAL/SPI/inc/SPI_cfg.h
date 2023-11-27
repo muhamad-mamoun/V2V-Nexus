@@ -18,7 +18,7 @@
     2 - SW_SLAVE_MANAGEMENT
     
 */
-#define SPI1_SS_MANAGE      HW_SLAVE_MANAGEMENT
+#define SPI1_SS_MANAGE      SW_SLAVE_MANAGEMENT
 
 /*
     SPI1_DATA_ORDER OPTIONS:
@@ -42,7 +42,7 @@
     8 - SPI_FPCLK_DIVIDED_BY_256   
     
 */
-#define SPI1_PRESCALLER     SPI_FPCLK_DIVIDED_BY_4
+#define SPI1_PRESCALLER     SPI_FPCLK_DIVIDED_BY_16
 /*
     SPI1_MASTER_SLAVE OPTIONS:
 
@@ -61,7 +61,7 @@
     1 - SPI_MODE3   ---> POLARITY IDLE HIGH , PHASE WRITE,READ                      
     
 */
-#define SPI1_CLOCK_MODE     SPI_MODE3
+#define SPI1_CLOCK_MODE     SPI_MODE0
 
 
 #endif /* SPI_CFG_H_ */

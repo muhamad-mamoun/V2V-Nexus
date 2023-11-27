@@ -150,7 +150,7 @@ void delay(u32 Copy_DelayTime)
 {
 	for (u32 i =0 ;  i < Copy_DelayTime ; i++)
 	{
-		asm ("NOP");
+		//asm ("NOP");
 	}
 }
 void SEVEN_SEGMENT ( u8 copy_u8PORT, u8 Copy_u8Number  )
