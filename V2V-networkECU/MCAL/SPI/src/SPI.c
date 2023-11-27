@@ -37,54 +37,15 @@ static u16 sgl_Recieve_Index                      = FALSE;
 */
 void SPI_voidInit(void)
 {
-    /*Data Size Selection*/
-    #if   SPI1_DATA_SIZE == SPI_8BIT_DATA
-      CLR_BIT(SPI1->CR1,DFF);
-    #elif SPI1_DATA_SIZE == SPI_16BIT_DATA
-      SET_BIT(SPI1->CR1,DFF);
-    #else
-    #error "SPI1_DATA_SIZE ERROR IN CFG"
-    #endif
-
-    /*SS Manage Selection*/
-    #if   SPI1_SS_MANAGE == HW_SLAVE_MANAGEMENT
-      CLR_BIT(SPI1->CR1,SSM);
-    #elif SPI1_SS_MANAGE == SW_SLAVE_MANAGEMENT
-      SET_BIT(SPI1->CR1,SSM);
-    #else
-    #error "SPI1_SS_MANAGE ERROR IN CFG"
-    #endif
-
-    /*Data Order Selection*/
-    #if   SPI1_DATA_ORDER == SPI_MSB_FIRST
-      CLR_BIT(SPI1->CR1,LSBFIRST);
-    #elif SPI1_DATA_ORDER == SPI_LSB_FIRST
-      SET_BIT(SPI1->CR1,LSBFIRST);
-    #else
-    #error "SPI1_DATA_ORDER ERROR IN CFG"
-    #endif
-    
-    /*Prescaller Selection*/
+	 /*Prescaller Selection*/
     #if  SPI1_PRESCALLER < MAX_PRE_OPTION
     SPI1->CR1 &= SPI_PRE_MASK;  // CLR BR BITS 
     SPI1->CR1 |= (SPI1_PRESCALLER<<BR); // SET SELECTED Prescaller
     #else
     #error "SPI1_PRESCALLER ERROR IN CFG"
     #endif
-
-    /*Master Slave Selection*/
-    #if   SPI1_MASTER_SLAVE == SPI_SLAVE
-      CLR_BIT(SPI1->CR1,MSTR);
-      SET_BIT(SPI1->CR2,RXNEIE); /* ENABLE INTERRUPT FOR RECEPTION */
-    #elif SPI1_MASTER_SLAVE == SPI_MASTER
-      SET_BIT(SPI1->CR1,MSTR);
-      SET_BIT(SPI1->CR2,TXEIE); /* ENABLE INTERRUPT FOR TRANSIMISSION */
-
-    #else
-    #error "SPI1_MASTER_SLAVE ERROR IN CFG"
-    #endif
-
-    /*Clock Mode Selection*/
+	
+	 /*Clock Mode Selection*/
     #if   SPI1_CLOCK_MODE == SPI_MODE0
       CLR_BIT(SPI1->CR1,CPOL);
       CLR_BIT(SPI1->CR1,CPHA);
@@ -101,6 +62,48 @@ void SPI_voidInit(void)
     #else
     #error "SPI1_CLOCK_MODE ERROR IN CFG"
     #endif
+	
+    /*Data Size Selection*/
+    #if   SPI1_DATA_SIZE == SPI_8BIT_DATA
+      CLR_BIT(SPI1->CR1,DFF);
+    #elif SPI1_DATA_SIZE == SPI_16BIT_DATA
+      SET_BIT(SPI1->CR1,DFF);
+    #else
+    #error "SPI1_DATA_SIZE ERROR IN CFG"
+    #endif
+    /*Data Order Selection*/
+    #if   SPI1_DATA_ORDER == SPI_MSB_FIRST
+      CLR_BIT(SPI1->CR1,LSBFIRST);
+    #elif SPI1_DATA_ORDER == SPI_LSB_FIRST
+      SET_BIT(SPI1->CR1,LSBFIRST);
+    #else
+    #error "SPI1_DATA_ORDER ERROR IN CFG"
+    #endif
+    
+    /*SS Manage Selection*/
+    #if   SPI1_SS_MANAGE == HW_SLAVE_MANAGEMENT
+      CLR_BIT(SPI1->CR1,SSM);
+    #elif SPI1_SS_MANAGE == SW_SLAVE_MANAGEMENT
+      SET_BIT(SPI1->CR1,SSM);
+    #else
+    #error "SPI1_SS_MANAGE ERROR IN CFG"
+    #endif
+
+    
+
+    /*Master Slave Selection*/
+    #if   SPI1_MASTER_SLAVE == SPI_SLAVE
+      CLR_BIT(SPI1->CR1,MSTR);
+      SET_BIT(SPI1->CR2,RXNEIE); /* ENABLE INTERRUPT FOR RECEPTION */
+    #elif SPI1_MASTER_SLAVE == SPI_MASTER
+      SET_BIT(SPI1->CR1,MSTR);
+      //SET_BIT(SPI1->CR2,TXEIE); /* ENABLE INTERRUPT FOR TRANSIMISSION */
+
+    #else
+    #error "SPI1_MASTER_SLAVE ERROR IN CFG"
+    #endif
+
+   
 
     /*Enable SPI1*/
     SET_BIT(SPI1->CR1,SPE);
@@ -123,13 +126,13 @@ void SPI_voidSendReceieveCharSynch(u16 Copy_u16_data,u16 *ptr_u16_data)
       CLR_BIT(SPI1->CR2,RXNEIE); /* DISABLE INTERRUPT FOR RECEPTION */
     #elif SPI1_MASTER_SLAVE == SPI_MASTER
       CLR_BIT(SPI1->CR2,TXEIE); /* DISABLE INTERRUPT FOR TRANSIMISSION */
+	    //SET_BIT(SPI1->CR2,2);
     #endif
 
     /*WRITE DATA ON SPI DATA REG*/
-    SPI1->DR = Copy_u16_data;
+    SPI1->DR = (u8)Copy_u16_data;
     /*WAIT UNTILL SPI IS NOT BUSY*/
-    while (GET_BIT(SPI1->SR,BSY) == TRUE);
-
+    while (GET_BIT(SPI1->SR,1) == FALSE);
     /* Return Recieved Data*/
     *ptr_u16_data = SPI1->DR;
 
@@ -138,7 +141,8 @@ void SPI_voidSendReceieveCharSynch(u16 Copy_u16_data,u16 *ptr_u16_data)
     #if   SPI1_MASTER_SLAVE == SPI_SLAVE
       SET_BIT(SPI1->CR2,RXNEIE); /* ENABLE INTERRUPT FOR RECEPTION */
     #elif SPI1_MASTER_SLAVE == SPI_MASTER
-      SET_BIT(SPI1->CR2,TXEIE); /* ENABLE INTERRUPT FOR TRANSIMISSION */
+     // SET_BIT(SPI1->CR2,TXEIE); /* ENABLE INTERRUPT FOR TRANSIMISSION */
+		 //CLR_BIT(SPI1->CR2,2);
     #endif
 }
 
@@ -315,12 +319,8 @@ void SPI1_IRQHandler(void)
 
     // TODO HANDLE ISR FOR RECEPTION
 	#if   SPI1_MASTER_SLAVE == SPI_SLAVE
-      sgl_arr_Recieve_Buffer[++sgl_Recieve_Index] = SPI1->DR;
-      if (gl_ptr_Function != PTR_NULL)
-        {
-            gl_ptr_Function();
-        }
-
+       sgl_Recieve_Index = (u8)SPI1->DR;
+       gl_ptr_Function();
     #elif SPI1_MASTER_SLAVE == SPI_MASTER
       if (truncate_queue() == QUEUE_EMPTY)
       {

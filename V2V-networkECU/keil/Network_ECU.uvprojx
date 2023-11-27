@@ -185,8 +185,6 @@
             <uocXRam>0</uocXRam>
             <RvdsVP>0</RvdsVP>
             <RvdsMve>0</RvdsMve>
-            <RvdsCdeCp>0</RvdsCdeCp>
-            <nBranchProt>0</nBranchProt>
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
@@ -353,7 +351,7 @@
             <NoWarn>0</NoWarn>
             <uSurpInc>0</uSurpInc>
             <useXO>0</useXO>
-            <ClangAsOpt>4</ClangAsOpt>
+            <uClangAs>0</uClangAs>
             <VariousControls>
               <MiscControls></MiscControls>
               <Define></Define>
@@ -413,6 +411,71 @@
               <FileName>SPI.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\MCAL\SPI\src\SPI.c</FilePath>
+            </File>
+            <File>
+              <FileName>RCC_program.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\MCAL\RCC\src\RCC_program.c</FilePath>
+            </File>
+            <File>
+              <FileName>RCC_configuration.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\MCAL\RCC\inc\RCC_configuration.h</FilePath>
+            </File>
+            <File>
+              <FileName>RCC_interface.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\MCAL\RCC\inc\RCC_interface.h</FilePath>
+            </File>
+            <File>
+              <FileName>RCC_private.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\MCAL\RCC\inc\RCC_private.h</FilePath>
+            </File>
+            <File>
+              <FileName>NVIC_program.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\MCAL\NVIC\src\NVIC_program.c</FilePath>
+            </File>
+            <File>
+              <FileName>NVIC_config.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\MCAL\NVIC\inc\NVIC_config.h</FilePath>
+            </File>
+            <File>
+              <FileName>NVIC_interface.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\MCAL\NVIC\inc\NVIC_interface.h</FilePath>
+            </File>
+            <File>
+              <FileName>NVIC_private.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\MCAL\NVIC\inc\NVIC_private.h</FilePath>
+            </File>
+            <File>
+              <FileName>DIO_PROGRAM.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\MCAL\GPIO\src\DIO_PROGRAM.c</FilePath>
+            </File>
+            <File>
+              <FileName>DIO_config.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\MCAL\GPIO\inc\DIO_config.h</FilePath>
+            </File>
+            <File>
+              <FileName>DIO_interface.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\MCAL\GPIO\inc\DIO_interface.h</FilePath>
+            </File>
+            <File>
+              <FileName>DIO_private.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\MCAL\GPIO\inc\DIO_private.h</FilePath>
+            </File>
+            <File>
+              <FileName>V2V-networkECU.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\APP\V2V-networkECU.c</FilePath>
             </File>
           </Files>
         </Group>
