@@ -20,6 +20,7 @@ Author      : Mohamed Khaled
 /**************************************************||Function Implementation ||********************************************************************/
 u32 ARR_Recieved_Data[14][8];
 
+
 /*
  *Function Name : CAN_enuInit
  *Description   : Function to Initialize the CAN Peripheral
@@ -38,13 +39,13 @@ Error_status CAN_enuInit(const CAN_ConfigType* Config_Ptr)
 	}
 	
 	//GPIO _ INIt
-	RCC_voidEnablePeripheral(AHB_BUS,GPIOA_EN);
-	GPIO_configurationsType CAN_GPIOConfig={GPIO_PORTA_ID,GPIO_PIN11_ID,GPIO_ALTERNATE_PUSH_PULL_MODE,GPIO_HIGH_SPEED};
+	RCC_voidEnablePeripheral(AHB_BUS,GPIOB_EN);
+	GPIO_configurationsType CAN_GPIOConfig={GPIO_PORTB_ID,GPIO_PIN09_ID,GPIO_ALTERNATE_PUSH_PULL_MODE,GPIO_HIGH_SPEED};
 	GPIO_configurePin(&CAN_GPIOConfig);
-  GPIOA->AFRH |=(GPIO_AF09<<12);
-	GPIO_configurationsType CAN_GPIOConfig1={GPIO_PORTA_ID,GPIO_PIN12_ID,GPIO_ALTERNATE_PUSH_PULL_MODE,GPIO_HIGH_SPEED};
+  GPIOB->AFRH |=(GPIO_AF09<<0);
+	GPIO_configurationsType CAN_GPIOConfig1={GPIO_PORTB_ID,GPIO_PIN08_ID,GPIO_ALTERNATE_PUSH_PULL_MODE,GPIO_HIGH_SPEED};
 	GPIO_configurePin(&CAN_GPIOConfig1);
-  GPIOA->AFRH |=(GPIO_AF09<<16);
+  GPIOB->AFRH |=(GPIO_AF09<<4);
 	RCC_voidEnablePeripheral(APB1_BUS,CAN_EN);
 	//Init Mode In
 	CAN_REG->CAN_MCR.INRQ=SET;
@@ -67,6 +68,8 @@ Error_status CAN_enuInit(const CAN_ConfigType* Config_Ptr)
 	CAN_REG->CAN_MCR.RFLM=Config_Ptr->LockedMode;
 	//TimeTriggered
 	CAN_REG->CAN_MCR.TTCM=Config_Ptr->TimeTriggered;
+	CAN_REG->Transimit_Mailbox0.DLC.TIME=0;
+	
 	//FifoPriority
 	CAN_REG->CAN_MCR.TXFP=Config_Ptr->FifoPriority;
 	//BuadRate_prescaler
@@ -125,13 +128,17 @@ Error_status CAN_enuTransmit(const CAN_Transmit* Trans_Ptr)
 		//return null pointer error 
 		ErrorStatus=CAN_NullPointerError;
 	}
-	
+  //clear Transmmision request for 3 mailboxs 
+	CAN_REG->CAN_TSR.RQCP0=SET;	
+  CAN_REG->CAN_TSR.RQCP1=SET;	
+  CAN_REG->CAN_TSR.RQCP2=SET;	
+
 	if(CAN_REG->CAN_TSR.TME0==SET)
 	{
 	  if(Trans_Ptr->TEXID==STD_ID)
 	  {
 			 CAN_REG->Transimit_Mailbox0.ID_Reg.IDE=STD_ID;
-		   CAN_REG->Transimit_Mailbox0.ID_Reg.STID= (Trans_Ptr->ID & 0x000007FF);
+		   CAN_REG->Transimit_Mailbox0.ID_Reg.STID= Trans_Ptr->ID ;
    	}
 		else if(Trans_Ptr->TEXID==EX_ID)
 	  {
@@ -397,7 +404,10 @@ Error_status CAN_enuTransmit(const CAN_Transmit* Trans_Ptr)
 			CAN_REG->Transimit_Mailbox2.ID_Reg.RTR=RemoteFram;
 		}
 		CAN_REG->Transimit_Mailbox2.ID_Reg.TXRQ=SET;
+
+
 	}
+	
 	return ErrorStatus;//return error status value 
 }
 
@@ -422,11 +432,12 @@ Error_status CAN_enuCreateFilter(const FilterConfig* FilterCFG_Ptr)
 	}
 	
 	CAN_REG->CAN_FMR.FINIT=SET;
+	
 	switch(FilterCFG_Ptr->FilterNumber)
 	{
 		case FilterNumber0:
 			
-		
+	  CAN_REG->CAN_FA1R.FACT0=CLR;	
 		if(FilterCFG_Ptr->Mask==MaskMode)
 			{
 				CAN_REG->CAN_FM1R.FBM0=MaskMode;
@@ -436,21 +447,21 @@ Error_status CAN_enuCreateFilter(const FilterConfig* FilterCFG_Ptr)
 					CAN_REG->CAN_FFA1R.FFA0=FilterCFG_Ptr->FIFO_Asign;
 					if(FilterCFG_Ptr->RegNumber==_1R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F0R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F0R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
-					CAN_REG->CAN_Filter_Banks.CAN_F0R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F0R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<16);
+					CAN_REG->CAN_Filter_Banks.CAN_F0R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F0R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<5);
+					CAN_REG->CAN_Filter_Banks.CAN_F0R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F0R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<21);
 					}
 					else if(FilterCFG_Ptr->RegNumber==_2R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F0R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F0R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
-					CAN_REG->CAN_Filter_Banks.CAN_F0R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F0R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<16);
+					CAN_REG->CAN_Filter_Banks.CAN_F0R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F0R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<5);
+					CAN_REG->CAN_Filter_Banks.CAN_F0R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F0R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<21);
 					}
 				}
 				else if(FilterCFG_Ptr->Scale==Single)
 				{
 					  CAN_REG->CAN_FS1R.FSC0=Single;
 						CAN_REG->CAN_FFA1R.FFA0=FilterCFG_Ptr->FIFO_Asign;
-					  CAN_REG->CAN_Filter_Banks.CAN_F0R1= FilterCFG_Ptr->FilterID;
-						CAN_REG->CAN_Filter_Banks.CAN_F0R2=FilterCFG_Ptr->FilterMask;
+					  CAN_REG->CAN_Filter_Banks.CAN_F0R1= (FilterCFG_Ptr->FilterID<<21);
+						CAN_REG->CAN_Filter_Banks.CAN_F0R2=(FilterCFG_Ptr->FilterMask<<21);
 					  
 				}
 			}
@@ -463,11 +474,11 @@ Error_status CAN_enuCreateFilter(const FilterConfig* FilterCFG_Ptr)
 					CAN_REG->CAN_FFA1R.FFA0=FilterCFG_Ptr->FIFO_Asign;
 					if(FilterCFG_Ptr->RegNumber==_1R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F0R1=(CAN_REG->CAN_Filter_Banks.CAN_F0R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
+					CAN_REG->CAN_Filter_Banks.CAN_F0R1=(CAN_REG->CAN_Filter_Banks.CAN_F0R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<5);
 					}
 					else if(FilterCFG_Ptr->RegNumber==_2R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F0R2=(CAN_REG->CAN_Filter_Banks.CAN_F0R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
+					CAN_REG->CAN_Filter_Banks.CAN_F0R2=(CAN_REG->CAN_Filter_Banks.CAN_F0R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<5);
 					}
 					
 				}
@@ -476,14 +487,18 @@ Error_status CAN_enuCreateFilter(const FilterConfig* FilterCFG_Ptr)
 					  CAN_REG->CAN_FS1R.FSC0=Single;
 						CAN_REG->CAN_FFA1R.FFA0=FilterCFG_Ptr->FIFO_Asign;
 					  CAN_REG->CAN_Filter_Banks.CAN_F0R1= ((FilterCFG_Ptr->FilterID)<<21);					  
+					  CAN_REG->CAN_Filter_Banks.CAN_F0R2= ((FilterCFG_Ptr->FilterID)<<21);					  
+
 				}
 				
 			}
-				CAN_REG->CAN_FMR.FINIT=CLR;
-		CAN_REG->CAN_FA1R.FACT0=SET;
+			
+		  CAN_REG->CAN_FA1R.FACT0=SET;
+			CAN_REG->CAN_FMR.FINIT=CLR;
 			break;
+			
 		case FilterNumber1:
-		
+			CAN_REG->CAN_FA1R.FACT1=CLR;	
      if(FilterCFG_Ptr->Mask==MaskMode)
 			{
 				CAN_REG->CAN_FM1R.FBM1=MaskMode;
@@ -493,21 +508,21 @@ Error_status CAN_enuCreateFilter(const FilterConfig* FilterCFG_Ptr)
 					CAN_REG->CAN_FFA1R.FFA1=FilterCFG_Ptr->FIFO_Asign;
 					if(FilterCFG_Ptr->RegNumber==_1R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F1R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F1R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
-					CAN_REG->CAN_Filter_Banks.CAN_F1R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F1R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<16);
+					CAN_REG->CAN_Filter_Banks.CAN_F1R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F1R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<5);
+					CAN_REG->CAN_Filter_Banks.CAN_F1R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F1R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<21);
 					}
 					else if(FilterCFG_Ptr->RegNumber==_2R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F1R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F1R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
-					CAN_REG->CAN_Filter_Banks.CAN_F1R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F1R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<16);
+					CAN_REG->CAN_Filter_Banks.CAN_F1R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F1R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<5);
+					CAN_REG->CAN_Filter_Banks.CAN_F1R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F1R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<21);
 					}
 				}
 				else if(FilterCFG_Ptr->Scale==Single)
 				{
 					  CAN_REG->CAN_FS1R.FSC1=Single;
 						CAN_REG->CAN_FFA1R.FFA1=FilterCFG_Ptr->FIFO_Asign;
-					  CAN_REG->CAN_Filter_Banks.CAN_F1R1= FilterCFG_Ptr->FilterID;
-						CAN_REG->CAN_Filter_Banks.CAN_F1R2=FilterCFG_Ptr->FilterMask;
+					  CAN_REG->CAN_Filter_Banks.CAN_F1R1= FilterCFG_Ptr->FilterID<<21;
+						CAN_REG->CAN_Filter_Banks.CAN_F1R2=FilterCFG_Ptr->FilterMask<<21;
 					  
 				}
 			}
@@ -520,11 +535,11 @@ Error_status CAN_enuCreateFilter(const FilterConfig* FilterCFG_Ptr)
 					CAN_REG->CAN_FFA1R.FFA1=FilterCFG_Ptr->FIFO_Asign;
 					if(FilterCFG_Ptr->RegNumber==_1R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F1R1=(CAN_REG->CAN_Filter_Banks.CAN_F1R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
+					CAN_REG->CAN_Filter_Banks.CAN_F1R1=(CAN_REG->CAN_Filter_Banks.CAN_F1R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<5);
 					}
 					else if(FilterCFG_Ptr->RegNumber==_2R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F1R2=(CAN_REG->CAN_Filter_Banks.CAN_F1R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
+					CAN_REG->CAN_Filter_Banks.CAN_F1R2=(CAN_REG->CAN_Filter_Banks.CAN_F1R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<5);
 					}
 					
 				}
@@ -532,17 +547,17 @@ Error_status CAN_enuCreateFilter(const FilterConfig* FilterCFG_Ptr)
 				{
 					  CAN_REG->CAN_FS1R.FSC1=Single;
 						CAN_REG->CAN_FFA1R.FFA1=FilterCFG_Ptr->FIFO_Asign;
-					  CAN_REG->CAN_Filter_Banks.CAN_F1R1= FilterCFG_Ptr->FilterID;					  
+					  CAN_REG->CAN_Filter_Banks.CAN_F1R1= (FilterCFG_Ptr->FilterID<<21);					  
 				}
 				
 			}
-							CAN_REG->CAN_FMR.FINIT=CLR;
-
 		CAN_REG->CAN_FA1R.FACT1=SET;
+		CAN_REG->CAN_FMR.FINIT=CLR;
 			
 		break;
+		
 		case FilterNumber2:
-			
+		CAN_REG->CAN_FA1R.FACT2=CLR;
 		if(FilterCFG_Ptr->Mask==MaskMode)
 			{
 				CAN_REG->CAN_FM1R.FBM2=MaskMode;
@@ -552,21 +567,21 @@ Error_status CAN_enuCreateFilter(const FilterConfig* FilterCFG_Ptr)
 					CAN_REG->CAN_FFA1R.FFA2=FilterCFG_Ptr->FIFO_Asign;
 					if(FilterCFG_Ptr->RegNumber==_1R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F2R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F2R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
-					CAN_REG->CAN_Filter_Banks.CAN_F2R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F2R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<16);
+					CAN_REG->CAN_Filter_Banks.CAN_F2R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F2R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<5);
+					CAN_REG->CAN_Filter_Banks.CAN_F2R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F2R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<21);
 					}
 					else if(FilterCFG_Ptr->RegNumber==_2R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F2R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F2R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
-					CAN_REG->CAN_Filter_Banks.CAN_F2R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F2R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<16);
+					CAN_REG->CAN_Filter_Banks.CAN_F2R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F2R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<5);
+					CAN_REG->CAN_Filter_Banks.CAN_F2R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F2R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<21);
 					}
 				}
 				else if(FilterCFG_Ptr->Scale==Single)
 				{
 					  CAN_REG->CAN_FS1R.FSC2=Single;
 						CAN_REG->CAN_FFA1R.FFA2=FilterCFG_Ptr->FIFO_Asign;
-					  CAN_REG->CAN_Filter_Banks.CAN_F2R1= FilterCFG_Ptr->FilterID;
-						CAN_REG->CAN_Filter_Banks.CAN_F2R2=FilterCFG_Ptr->FilterMask;
+					  CAN_REG->CAN_Filter_Banks.CAN_F2R1= (FilterCFG_Ptr->FilterID<<21);
+						CAN_REG->CAN_Filter_Banks.CAN_F2R2= (FilterCFG_Ptr->FilterMask<<21);
 					  
 				}
 			}
@@ -579,11 +594,11 @@ Error_status CAN_enuCreateFilter(const FilterConfig* FilterCFG_Ptr)
 					CAN_REG->CAN_FFA1R.FFA2=FilterCFG_Ptr->FIFO_Asign;
 					if(FilterCFG_Ptr->RegNumber==_1R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F2R1=(CAN_REG->CAN_Filter_Banks.CAN_F2R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
+					CAN_REG->CAN_Filter_Banks.CAN_F2R1=(CAN_REG->CAN_Filter_Banks.CAN_F2R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<5);
 					}
 					else if(FilterCFG_Ptr->RegNumber==_2R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F2R2=(CAN_REG->CAN_Filter_Banks.CAN_F2R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
+					CAN_REG->CAN_Filter_Banks.CAN_F2R2=(CAN_REG->CAN_Filter_Banks.CAN_F2R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<5);
 					}
 					
 				}
@@ -591,16 +606,18 @@ Error_status CAN_enuCreateFilter(const FilterConfig* FilterCFG_Ptr)
 				{
 					  CAN_REG->CAN_FS1R.FSC2=Single;
 						CAN_REG->CAN_FFA1R.FFA2=FilterCFG_Ptr->FIFO_Asign;
-					  CAN_REG->CAN_Filter_Banks.CAN_F2R1= FilterCFG_Ptr->FilterID;					  
+					  CAN_REG->CAN_Filter_Banks.CAN_F2R1= (FilterCFG_Ptr->FilterID<<21);					  
 				}
 				
 			}
-							CAN_REG->CAN_FMR.FINIT=CLR;
-
 				CAN_REG->CAN_FA1R.FACT2=SET;
+
+			CAN_REG->CAN_FMR.FINIT=CLR;
+
 
 		break;
 		case FilterNumber3:
+					CAN_REG->CAN_FA1R.FACT3=CLR;
 			
 		if(FilterCFG_Ptr->Mask==MaskMode)
 			{
@@ -611,21 +628,21 @@ Error_status CAN_enuCreateFilter(const FilterConfig* FilterCFG_Ptr)
 					CAN_REG->CAN_FFA1R.FFA3=FilterCFG_Ptr->FIFO_Asign;
 					if(FilterCFG_Ptr->RegNumber==_1R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F3R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F3R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
-					CAN_REG->CAN_Filter_Banks.CAN_F3R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F3R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<16);
+					CAN_REG->CAN_Filter_Banks.CAN_F3R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F3R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<5);
+					CAN_REG->CAN_Filter_Banks.CAN_F3R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F3R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<21);
 					}
 					else if(FilterCFG_Ptr->RegNumber==_2R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F3R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F3R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
-					CAN_REG->CAN_Filter_Banks.CAN_F3R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F3R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<16);
+					CAN_REG->CAN_Filter_Banks.CAN_F3R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F3R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<5);
+					CAN_REG->CAN_Filter_Banks.CAN_F3R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F3R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<21);
 					}
 				}
 				else if(FilterCFG_Ptr->Scale==Single)
 				{
 					  CAN_REG->CAN_FS1R.FSC3=Single;
 						CAN_REG->CAN_FFA1R.FFA3=FilterCFG_Ptr->FIFO_Asign;
-					  CAN_REG->CAN_Filter_Banks.CAN_F3R1= FilterCFG_Ptr->FilterID;
-						CAN_REG->CAN_Filter_Banks.CAN_F3R2=FilterCFG_Ptr->FilterMask;
+					  CAN_REG->CAN_Filter_Banks.CAN_F3R1= (FilterCFG_Ptr->FilterID<<21);
+						CAN_REG->CAN_Filter_Banks.CAN_F3R2= (FilterCFG_Ptr->FilterMask<<21);
 					  
 				}
 			}
@@ -638,11 +655,11 @@ Error_status CAN_enuCreateFilter(const FilterConfig* FilterCFG_Ptr)
 					CAN_REG->CAN_FFA1R.FFA3=FilterCFG_Ptr->FIFO_Asign;
 					if(FilterCFG_Ptr->RegNumber==_1R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F3R1=(CAN_REG->CAN_Filter_Banks.CAN_F3R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
+					CAN_REG->CAN_Filter_Banks.CAN_F3R1=(CAN_REG->CAN_Filter_Banks.CAN_F3R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<5);
 					}
 					else if(FilterCFG_Ptr->RegNumber==_2R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F3R2=(CAN_REG->CAN_Filter_Banks.CAN_F3R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
+					CAN_REG->CAN_Filter_Banks.CAN_F3R2=(CAN_REG->CAN_Filter_Banks.CAN_F3R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<5);
 					}
 					
 				}
@@ -650,16 +667,18 @@ Error_status CAN_enuCreateFilter(const FilterConfig* FilterCFG_Ptr)
 				{
 					  CAN_REG->CAN_FS1R.FSC3=Single;
 						CAN_REG->CAN_FFA1R.FFA3=FilterCFG_Ptr->FIFO_Asign;
-					  CAN_REG->CAN_Filter_Banks.CAN_F3R1= FilterCFG_Ptr->FilterID;					  
+					  CAN_REG->CAN_Filter_Banks.CAN_F3R1= (FilterCFG_Ptr->FilterID<<21);					  
 				}
 				
 			}
-						CAN_REG->CAN_FMR.FINIT=CLR;
-	
 				CAN_REG->CAN_FA1R.FACT3=SET;
+
+			CAN_REG->CAN_FMR.FINIT=CLR;
+	
 
 		break;
 		case FilterNumber4:
+					CAN_REG->CAN_FA1R.FACT4=CLR;
 		
     if(FilterCFG_Ptr->Mask==MaskMode)
 			{
@@ -670,21 +689,21 @@ Error_status CAN_enuCreateFilter(const FilterConfig* FilterCFG_Ptr)
 					CAN_REG->CAN_FFA1R.FFA4=FilterCFG_Ptr->FIFO_Asign;
 					if(FilterCFG_Ptr->RegNumber==_1R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F4R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F4R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
-					CAN_REG->CAN_Filter_Banks.CAN_F4R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F4R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<16);
+					CAN_REG->CAN_Filter_Banks.CAN_F4R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F4R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<5);
+					CAN_REG->CAN_Filter_Banks.CAN_F4R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F4R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<21);
 					}
 					else if(FilterCFG_Ptr->RegNumber==_2R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F4R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F4R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
-					CAN_REG->CAN_Filter_Banks.CAN_F4R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F4R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<16);
+					CAN_REG->CAN_Filter_Banks.CAN_F4R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F4R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<5);
+					CAN_REG->CAN_Filter_Banks.CAN_F4R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F4R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<21);
 					}
 				}
 				else if(FilterCFG_Ptr->Scale==Single)
 				{
 					  CAN_REG->CAN_FS1R.FSC4=Single;
 						CAN_REG->CAN_FFA1R.FFA4=FilterCFG_Ptr->FIFO_Asign;
-					  CAN_REG->CAN_Filter_Banks.CAN_F4R1= FilterCFG_Ptr->FilterID;
-						CAN_REG->CAN_Filter_Banks.CAN_F4R2=FilterCFG_Ptr->FilterMask;
+					  CAN_REG->CAN_Filter_Banks.CAN_F4R1= (FilterCFG_Ptr->FilterID<<21);
+						CAN_REG->CAN_Filter_Banks.CAN_F4R2= (FilterCFG_Ptr->FilterMask<<21);
 					  
 				}
 			}
@@ -697,11 +716,11 @@ Error_status CAN_enuCreateFilter(const FilterConfig* FilterCFG_Ptr)
 					CAN_REG->CAN_FFA1R.FFA4=FilterCFG_Ptr->FIFO_Asign;
 					if(FilterCFG_Ptr->RegNumber==_1R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F4R1=(CAN_REG->CAN_Filter_Banks.CAN_F4R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
+					CAN_REG->CAN_Filter_Banks.CAN_F4R1=(CAN_REG->CAN_Filter_Banks.CAN_F4R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<5);
 					}
 					else if(FilterCFG_Ptr->RegNumber==_2R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F4R2=(CAN_REG->CAN_Filter_Banks.CAN_F4R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
+					CAN_REG->CAN_Filter_Banks.CAN_F4R2=(CAN_REG->CAN_Filter_Banks.CAN_F4R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<5);
 					}
 					
 				}
@@ -709,16 +728,18 @@ Error_status CAN_enuCreateFilter(const FilterConfig* FilterCFG_Ptr)
 				{
 					  CAN_REG->CAN_FS1R.FSC4=Single;
 						CAN_REG->CAN_FFA1R.FFA4=FilterCFG_Ptr->FIFO_Asign;
-					  CAN_REG->CAN_Filter_Banks.CAN_F4R1= FilterCFG_Ptr->FilterID;					  
+					  CAN_REG->CAN_Filter_Banks.CAN_F4R1= (FilterCFG_Ptr->FilterID<<21);					  
 				}
 				
 			}
-							CAN_REG->CAN_FMR.FINIT=CLR;
-
 					CAN_REG->CAN_FA1R.FACT4=SET;
+
+			CAN_REG->CAN_FMR.FINIT=CLR;
+
 
 			break;
 		case FilterNumber5:
+					CAN_REG->CAN_FA1R.FACT5=CLR;
 		
 			if(FilterCFG_Ptr->Mask==MaskMode)
 			{
@@ -729,21 +750,21 @@ Error_status CAN_enuCreateFilter(const FilterConfig* FilterCFG_Ptr)
 					CAN_REG->CAN_FFA1R.FFA5=FilterCFG_Ptr->FIFO_Asign;
 					if(FilterCFG_Ptr->RegNumber==_1R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F5R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F5R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
-					CAN_REG->CAN_Filter_Banks.CAN_F5R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F5R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<16);
+					CAN_REG->CAN_Filter_Banks.CAN_F5R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F5R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<5);
+					CAN_REG->CAN_Filter_Banks.CAN_F5R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F5R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<21);
 					}
 					else if(FilterCFG_Ptr->RegNumber==_2R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F5R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F5R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
-					CAN_REG->CAN_Filter_Banks.CAN_F5R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F5R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<16);
+					CAN_REG->CAN_Filter_Banks.CAN_F5R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F5R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<5);
+					CAN_REG->CAN_Filter_Banks.CAN_F5R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F5R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<21);
 					}
 				}
 				else if(FilterCFG_Ptr->Scale==Single)
 				{
 					  CAN_REG->CAN_FS1R.FSC5=Single;
 						CAN_REG->CAN_FFA1R.FFA5=FilterCFG_Ptr->FIFO_Asign;
-					  CAN_REG->CAN_Filter_Banks.CAN_F5R1= FilterCFG_Ptr->FilterID;
-						CAN_REG->CAN_Filter_Banks.CAN_F5R2=FilterCFG_Ptr->FilterMask;
+					  CAN_REG->CAN_Filter_Banks.CAN_F5R1= (FilterCFG_Ptr->FilterID<<21);
+						CAN_REG->CAN_Filter_Banks.CAN_F5R2= (FilterCFG_Ptr->FilterMask<<21);
 					  
 				}
 			}
@@ -756,11 +777,11 @@ Error_status CAN_enuCreateFilter(const FilterConfig* FilterCFG_Ptr)
 					CAN_REG->CAN_FFA1R.FFA5=FilterCFG_Ptr->FIFO_Asign;
 					if(FilterCFG_Ptr->RegNumber==_1R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F5R1=(CAN_REG->CAN_Filter_Banks.CAN_F5R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
+					CAN_REG->CAN_Filter_Banks.CAN_F5R1=(CAN_REG->CAN_Filter_Banks.CAN_F5R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<5);
 					}
 					else if(FilterCFG_Ptr->RegNumber==_2R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F5R2=(CAN_REG->CAN_Filter_Banks.CAN_F5R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
+					CAN_REG->CAN_Filter_Banks.CAN_F5R2=(CAN_REG->CAN_Filter_Banks.CAN_F5R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<5);
 					}
 					
 				}
@@ -768,16 +789,18 @@ Error_status CAN_enuCreateFilter(const FilterConfig* FilterCFG_Ptr)
 				{
 					  CAN_REG->CAN_FS1R.FSC5=Single;
 						CAN_REG->CAN_FFA1R.FFA5=FilterCFG_Ptr->FIFO_Asign;
-					  CAN_REG->CAN_Filter_Banks.CAN_F5R1= FilterCFG_Ptr->FilterID;					  
+					  CAN_REG->CAN_Filter_Banks.CAN_F5R1= (FilterCFG_Ptr->FilterID<<21);					  
 				}
 				
 			}
-							CAN_REG->CAN_FMR.FINIT=CLR;
-
 					CAN_REG->CAN_FA1R.FACT5=SET;
+
+			CAN_REG->CAN_FMR.FINIT=CLR;
+
 
 		break;
 		case FilterNumber6:
+					CAN_REG->CAN_FA1R.FACT6=CLR;
 		
 		if(FilterCFG_Ptr->Mask==MaskMode)
 			{
@@ -788,21 +811,21 @@ Error_status CAN_enuCreateFilter(const FilterConfig* FilterCFG_Ptr)
 					CAN_REG->CAN_FFA1R.FFA6=FilterCFG_Ptr->FIFO_Asign;
 					if(FilterCFG_Ptr->RegNumber==_1R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F6R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F6R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
-					CAN_REG->CAN_Filter_Banks.CAN_F6R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F6R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<16);
+					CAN_REG->CAN_Filter_Banks.CAN_F6R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F6R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<5);
+					CAN_REG->CAN_Filter_Banks.CAN_F6R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F6R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<21);
 					}
 					else if(FilterCFG_Ptr->RegNumber==_2R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F6R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F6R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
-					CAN_REG->CAN_Filter_Banks.CAN_F6R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F6R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<16);
+					CAN_REG->CAN_Filter_Banks.CAN_F6R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F6R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<5);
+					CAN_REG->CAN_Filter_Banks.CAN_F6R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F6R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<21);
 					}
 				}
 				else if(FilterCFG_Ptr->Scale==Single)
 				{
 					  CAN_REG->CAN_FS1R.FSC6=Single;
 						CAN_REG->CAN_FFA1R.FFA6=FilterCFG_Ptr->FIFO_Asign;
-					  CAN_REG->CAN_Filter_Banks.CAN_F6R1= FilterCFG_Ptr->FilterID;
-						CAN_REG->CAN_Filter_Banks.CAN_F6R2=FilterCFG_Ptr->FilterMask;
+					  CAN_REG->CAN_Filter_Banks.CAN_F6R1= (FilterCFG_Ptr->FilterID<<21);
+						CAN_REG->CAN_Filter_Banks.CAN_F6R2=(FilterCFG_Ptr->FilterMask<<21);
 					  
 				}
 			}
@@ -815,11 +838,11 @@ Error_status CAN_enuCreateFilter(const FilterConfig* FilterCFG_Ptr)
 					CAN_REG->CAN_FFA1R.FFA6=FilterCFG_Ptr->FIFO_Asign;
 					if(FilterCFG_Ptr->RegNumber==_1R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F6R1=(CAN_REG->CAN_Filter_Banks.CAN_F6R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
+					CAN_REG->CAN_Filter_Banks.CAN_F6R1=(CAN_REG->CAN_Filter_Banks.CAN_F6R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<5);
 					}
 					else if(FilterCFG_Ptr->RegNumber==_2R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F6R2=(CAN_REG->CAN_Filter_Banks.CAN_F6R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
+					CAN_REG->CAN_Filter_Banks.CAN_F6R2=(CAN_REG->CAN_Filter_Banks.CAN_F6R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<21);
 					}
 					
 				}
@@ -827,16 +850,17 @@ Error_status CAN_enuCreateFilter(const FilterConfig* FilterCFG_Ptr)
 				{
 					  CAN_REG->CAN_FS1R.FSC6=Single;
 						CAN_REG->CAN_FFA1R.FFA6=FilterCFG_Ptr->FIFO_Asign;
-					  CAN_REG->CAN_Filter_Banks.CAN_F6R1= FilterCFG_Ptr->FilterID;					  
+					  CAN_REG->CAN_Filter_Banks.CAN_F6R1= (FilterCFG_Ptr->FilterID<<21);					  
 				}
 				
 			}
-							CAN_REG->CAN_FMR.FINIT=CLR;
-
 					CAN_REG->CAN_FA1R.FACT6=SET;
+			CAN_REG->CAN_FMR.FINIT=CLR;
+
 
 		break;
 		case FilterNumber7:
+					CAN_REG->CAN_FA1R.FACT7=CLR;
 		
 			if(FilterCFG_Ptr->Mask==MaskMode)
 			{
@@ -847,21 +871,21 @@ Error_status CAN_enuCreateFilter(const FilterConfig* FilterCFG_Ptr)
 					CAN_REG->CAN_FFA1R.FFA7=FilterCFG_Ptr->FIFO_Asign;
 					if(FilterCFG_Ptr->RegNumber==_1R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F7R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F7R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
-					CAN_REG->CAN_Filter_Banks.CAN_F7R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F7R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<16);
+					CAN_REG->CAN_Filter_Banks.CAN_F7R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F7R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<5);
+					CAN_REG->CAN_Filter_Banks.CAN_F7R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F7R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<21);
 					}
 					else if(FilterCFG_Ptr->RegNumber==_2R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F7R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F7R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
-					CAN_REG->CAN_Filter_Banks.CAN_F7R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F7R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<16);
+					CAN_REG->CAN_Filter_Banks.CAN_F7R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F7R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<5);
+					CAN_REG->CAN_Filter_Banks.CAN_F7R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F7R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<21);
 					}
 				}
 				else if(FilterCFG_Ptr->Scale==Single)
 				{
 					  CAN_REG->CAN_FS1R.FSC7=Single;
 						CAN_REG->CAN_FFA1R.FFA7=FilterCFG_Ptr->FIFO_Asign;
-					  CAN_REG->CAN_Filter_Banks.CAN_F7R1= FilterCFG_Ptr->FilterID;
-						CAN_REG->CAN_Filter_Banks.CAN_F7R2=FilterCFG_Ptr->FilterMask;
+					  CAN_REG->CAN_Filter_Banks.CAN_F7R1= (FilterCFG_Ptr->FilterID<<21);
+						CAN_REG->CAN_Filter_Banks.CAN_F7R2= (FilterCFG_Ptr->FilterMask<<21);
 					  
 				}
 			}
@@ -874,11 +898,11 @@ Error_status CAN_enuCreateFilter(const FilterConfig* FilterCFG_Ptr)
 					CAN_REG->CAN_FFA1R.FFA7=FilterCFG_Ptr->FIFO_Asign;
 					if(FilterCFG_Ptr->RegNumber==_1R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F7R1=(CAN_REG->CAN_Filter_Banks.CAN_F7R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
+					CAN_REG->CAN_Filter_Banks.CAN_F7R1=(CAN_REG->CAN_Filter_Banks.CAN_F7R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<5);
 					}
 					else if(FilterCFG_Ptr->RegNumber==_2R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F7R2=(CAN_REG->CAN_Filter_Banks.CAN_F7R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
+					CAN_REG->CAN_Filter_Banks.CAN_F7R2=(CAN_REG->CAN_Filter_Banks.CAN_F7R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<5);
 					}
 					
 				}
@@ -886,16 +910,18 @@ Error_status CAN_enuCreateFilter(const FilterConfig* FilterCFG_Ptr)
 				{
 					  CAN_REG->CAN_FS1R.FSC7=Single;
 						CAN_REG->CAN_FFA1R.FFA7=FilterCFG_Ptr->FIFO_Asign;
-					  CAN_REG->CAN_Filter_Banks.CAN_F7R1= FilterCFG_Ptr->FilterID;					  
+					  CAN_REG->CAN_Filter_Banks.CAN_F7R1= (FilterCFG_Ptr->FilterID<<21);					  
 				}
 				
 			}
-							CAN_REG->CAN_FMR.FINIT=CLR;
-
 		CAN_REG->CAN_FA1R.FACT7=SET;
+
+			CAN_REG->CAN_FMR.FINIT=CLR;
+
 
 		break;
 		case FilterNumber8:
+					CAN_REG->CAN_FA1R.FACT8=CLR;
 			
 		if(FilterCFG_Ptr->Mask==MaskMode)
 			{
@@ -906,21 +932,21 @@ Error_status CAN_enuCreateFilter(const FilterConfig* FilterCFG_Ptr)
 					CAN_REG->CAN_FFA1R.FFA8=FilterCFG_Ptr->FIFO_Asign;
 					if(FilterCFG_Ptr->RegNumber==_1R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F8R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F8R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
-					CAN_REG->CAN_Filter_Banks.CAN_F8R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F8R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<16);
+					CAN_REG->CAN_Filter_Banks.CAN_F8R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F8R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<5);
+					CAN_REG->CAN_Filter_Banks.CAN_F8R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F8R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<21);
 					}
 					else if(FilterCFG_Ptr->RegNumber==_2R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F8R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F8R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
-					CAN_REG->CAN_Filter_Banks.CAN_F8R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F8R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<16);
+					CAN_REG->CAN_Filter_Banks.CAN_F8R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F8R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<5);
+					CAN_REG->CAN_Filter_Banks.CAN_F8R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F8R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<21);
 					}
 				}
 				else if(FilterCFG_Ptr->Scale==Single)
 				{
 					  CAN_REG->CAN_FS1R.FSC8=Single;
 						CAN_REG->CAN_FFA1R.FFA8=FilterCFG_Ptr->FIFO_Asign;
-					  CAN_REG->CAN_Filter_Banks.CAN_F8R1= FilterCFG_Ptr->FilterID;
-						CAN_REG->CAN_Filter_Banks.CAN_F8R2=FilterCFG_Ptr->FilterMask;
+					  CAN_REG->CAN_Filter_Banks.CAN_F8R1= (FilterCFG_Ptr->FilterID<<21);
+						CAN_REG->CAN_Filter_Banks.CAN_F8R2= (FilterCFG_Ptr->FilterMask<<21);
 					  
 				}
 			}
@@ -933,11 +959,11 @@ Error_status CAN_enuCreateFilter(const FilterConfig* FilterCFG_Ptr)
 					CAN_REG->CAN_FFA1R.FFA8=FilterCFG_Ptr->FIFO_Asign;
 					if(FilterCFG_Ptr->RegNumber==_1R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F8R1=(CAN_REG->CAN_Filter_Banks.CAN_F8R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
+					CAN_REG->CAN_Filter_Banks.CAN_F8R1=(CAN_REG->CAN_Filter_Banks.CAN_F8R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<5);
 					}
 					else if(FilterCFG_Ptr->RegNumber==_2R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F8R2=(CAN_REG->CAN_Filter_Banks.CAN_F8R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
+					CAN_REG->CAN_Filter_Banks.CAN_F8R2=(CAN_REG->CAN_Filter_Banks.CAN_F8R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<5);
 					}
 					
 				}
@@ -945,16 +971,18 @@ Error_status CAN_enuCreateFilter(const FilterConfig* FilterCFG_Ptr)
 				{
 					  CAN_REG->CAN_FS1R.FSC8=Single;
 						CAN_REG->CAN_FFA1R.FFA8=FilterCFG_Ptr->FIFO_Asign;
-					  CAN_REG->CAN_Filter_Banks.CAN_F8R1= FilterCFG_Ptr->FilterID;					  
+					  CAN_REG->CAN_Filter_Banks.CAN_F8R1= (FilterCFG_Ptr->FilterID<<21);					  
 				}
 				
 			}
-							CAN_REG->CAN_FMR.FINIT=CLR;
-
 					CAN_REG->CAN_FA1R.FACT8=SET;
+
+			CAN_REG->CAN_FMR.FINIT=CLR;
+
 
 			break;
 		case FilterNumber9:
+					CAN_REG->CAN_FA1R.FACT9=CLR;
 			
 		if(FilterCFG_Ptr->Mask==MaskMode)
 			{
@@ -965,21 +993,21 @@ Error_status CAN_enuCreateFilter(const FilterConfig* FilterCFG_Ptr)
 					CAN_REG->CAN_FFA1R.FFA9=FilterCFG_Ptr->FIFO_Asign;
 					if(FilterCFG_Ptr->RegNumber==_1R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F9R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F9R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
-					CAN_REG->CAN_Filter_Banks.CAN_F9R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F9R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<16);
+					CAN_REG->CAN_Filter_Banks.CAN_F9R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F9R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<5);
+					CAN_REG->CAN_Filter_Banks.CAN_F9R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F9R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<21);
 					}
 					else if(FilterCFG_Ptr->RegNumber==_2R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F9R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F9R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
-					CAN_REG->CAN_Filter_Banks.CAN_F9R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F9R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<16);
+					CAN_REG->CAN_Filter_Banks.CAN_F9R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F9R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<5);
+					CAN_REG->CAN_Filter_Banks.CAN_F9R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F9R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<21);
 					}
 				}
 				else if(FilterCFG_Ptr->Scale==Single)
 				{
 					  CAN_REG->CAN_FS1R.FSC9=Single;
 						CAN_REG->CAN_FFA1R.FFA9=FilterCFG_Ptr->FIFO_Asign;
-					  CAN_REG->CAN_Filter_Banks.CAN_F9R1= FilterCFG_Ptr->FilterID;
-						CAN_REG->CAN_Filter_Banks.CAN_F9R2=FilterCFG_Ptr->FilterMask;
+					  CAN_REG->CAN_Filter_Banks.CAN_F9R1= (FilterCFG_Ptr->FilterID<<21);
+						CAN_REG->CAN_Filter_Banks.CAN_F9R2=(FilterCFG_Ptr->FilterMask<<21);
 					  
 				}
 			}
@@ -992,11 +1020,11 @@ Error_status CAN_enuCreateFilter(const FilterConfig* FilterCFG_Ptr)
 					CAN_REG->CAN_FFA1R.FFA9=FilterCFG_Ptr->FIFO_Asign;
 					if(FilterCFG_Ptr->RegNumber==_1R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F9R1=(CAN_REG->CAN_Filter_Banks.CAN_F9R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
+					CAN_REG->CAN_Filter_Banks.CAN_F9R1=(CAN_REG->CAN_Filter_Banks.CAN_F9R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<5);
 					}
 					else if(FilterCFG_Ptr->RegNumber==_2R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F9R2=(CAN_REG->CAN_Filter_Banks.CAN_F9R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
+					CAN_REG->CAN_Filter_Banks.CAN_F9R2=(CAN_REG->CAN_Filter_Banks.CAN_F9R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<5);
 					}
 					
 				}
@@ -1004,16 +1032,17 @@ Error_status CAN_enuCreateFilter(const FilterConfig* FilterCFG_Ptr)
 				{
 					  CAN_REG->CAN_FS1R.FSC9=Single;
 						CAN_REG->CAN_FFA1R.FFA9=FilterCFG_Ptr->FIFO_Asign;
-					  CAN_REG->CAN_Filter_Banks.CAN_F9R1= FilterCFG_Ptr->FilterID;					  
+					  CAN_REG->CAN_Filter_Banks.CAN_F9R1= (FilterCFG_Ptr->FilterID<<21);					  
 				}
 				
 			}
-							CAN_REG->CAN_FMR.FINIT=CLR;
-
 					CAN_REG->CAN_FA1R.FACT9=SET;
+			CAN_REG->CAN_FMR.FINIT=CLR;
+
 
 			break;
 		case FilterNumber10:
+					CAN_REG->CAN_FA1R.FACT10=CLR;
 			
 		if(FilterCFG_Ptr->Mask==MaskMode)
 			{
@@ -1024,21 +1053,21 @@ Error_status CAN_enuCreateFilter(const FilterConfig* FilterCFG_Ptr)
 					CAN_REG->CAN_FFA1R.FFA10=FilterCFG_Ptr->FIFO_Asign;
 					if(FilterCFG_Ptr->RegNumber==_1R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F10R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F10R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
-					CAN_REG->CAN_Filter_Banks.CAN_F10R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F10R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<16);
+					CAN_REG->CAN_Filter_Banks.CAN_F10R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F10R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<5);
+					CAN_REG->CAN_Filter_Banks.CAN_F10R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F10R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<21);
 					}
 					else if(FilterCFG_Ptr->RegNumber==_2R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F10R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F10R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
-					CAN_REG->CAN_Filter_Banks.CAN_F10R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F10R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<16);
+					CAN_REG->CAN_Filter_Banks.CAN_F10R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F10R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<5);
+					CAN_REG->CAN_Filter_Banks.CAN_F10R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F10R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<21);
 					}
 				}
 				else if(FilterCFG_Ptr->Scale==Single)
 				{
 					  CAN_REG->CAN_FS1R.FSC10=Single;
 						CAN_REG->CAN_FFA1R.FFA10=FilterCFG_Ptr->FIFO_Asign;
-					  CAN_REG->CAN_Filter_Banks.CAN_F10R1= FilterCFG_Ptr->FilterID;
-						CAN_REG->CAN_Filter_Banks.CAN_F10R2=FilterCFG_Ptr->FilterMask;
+					  CAN_REG->CAN_Filter_Banks.CAN_F10R1= (FilterCFG_Ptr->FilterID<<21);
+						CAN_REG->CAN_Filter_Banks.CAN_F10R2=(FilterCFG_Ptr->FilterMask<<21);
 					  
 				}
 			}
@@ -1051,11 +1080,11 @@ Error_status CAN_enuCreateFilter(const FilterConfig* FilterCFG_Ptr)
 					CAN_REG->CAN_FFA1R.FFA10=FilterCFG_Ptr->FIFO_Asign;
 					if(FilterCFG_Ptr->RegNumber==_1R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F10R1=(CAN_REG->CAN_Filter_Banks.CAN_F10R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
+					CAN_REG->CAN_Filter_Banks.CAN_F10R1=(CAN_REG->CAN_Filter_Banks.CAN_F10R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<5);
 					}
 					else if(FilterCFG_Ptr->RegNumber==_2R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F10R2=(CAN_REG->CAN_Filter_Banks.CAN_F10R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
+					CAN_REG->CAN_Filter_Banks.CAN_F10R2=(CAN_REG->CAN_Filter_Banks.CAN_F10R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<5);
 					}
 					
 				}
@@ -1063,7 +1092,7 @@ Error_status CAN_enuCreateFilter(const FilterConfig* FilterCFG_Ptr)
 				{
 					  CAN_REG->CAN_FS1R.FSC10=Single;
 						CAN_REG->CAN_FFA1R.FFA10=FilterCFG_Ptr->FIFO_Asign;
-					  CAN_REG->CAN_Filter_Banks.CAN_F10R1= FilterCFG_Ptr->FilterID;					  
+					  CAN_REG->CAN_Filter_Banks.CAN_F10R1= (FilterCFG_Ptr->FilterID<<21);					  
 				}
 				
 			}
@@ -1083,21 +1112,21 @@ Error_status CAN_enuCreateFilter(const FilterConfig* FilterCFG_Ptr)
 					CAN_REG->CAN_FFA1R.FFA11=FilterCFG_Ptr->FIFO_Asign;
 					if(FilterCFG_Ptr->RegNumber==_1R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F11R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F11R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
-					CAN_REG->CAN_Filter_Banks.CAN_F11R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F11R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<16);
+					CAN_REG->CAN_Filter_Banks.CAN_F11R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F11R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<5);
+					CAN_REG->CAN_Filter_Banks.CAN_F11R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F11R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<21);
 					}
 					else if(FilterCFG_Ptr->RegNumber==_2R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F11R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F11R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
-					CAN_REG->CAN_Filter_Banks.CAN_F11R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F11R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<16);
+					CAN_REG->CAN_Filter_Banks.CAN_F11R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F11R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<5);
+					CAN_REG->CAN_Filter_Banks.CAN_F11R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F11R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<21);
 					}
 				}
 				else if(FilterCFG_Ptr->Scale==Single)
 				{
 					  CAN_REG->CAN_FS1R.FSC11=Single;
 						CAN_REG->CAN_FFA1R.FFA11=FilterCFG_Ptr->FIFO_Asign;
-					  CAN_REG->CAN_Filter_Banks.CAN_F11R1= FilterCFG_Ptr->FilterID;
-						CAN_REG->CAN_Filter_Banks.CAN_F11R2=FilterCFG_Ptr->FilterMask;
+					  CAN_REG->CAN_Filter_Banks.CAN_F11R1= (FilterCFG_Ptr->FilterID<<21);
+						CAN_REG->CAN_Filter_Banks.CAN_F11R2= (FilterCFG_Ptr->FilterMask<<21);
 					  
 				}
 			}
@@ -1110,11 +1139,11 @@ Error_status CAN_enuCreateFilter(const FilterConfig* FilterCFG_Ptr)
 					CAN_REG->CAN_FFA1R.FFA11=FilterCFG_Ptr->FIFO_Asign;
 					if(FilterCFG_Ptr->RegNumber==_1R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F11R1=(CAN_REG->CAN_Filter_Banks.CAN_F11R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
+					CAN_REG->CAN_Filter_Banks.CAN_F11R1=(CAN_REG->CAN_Filter_Banks.CAN_F11R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<5);
 					}
 					else if(FilterCFG_Ptr->RegNumber==_2R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F11R2=(CAN_REG->CAN_Filter_Banks.CAN_F11R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
+					CAN_REG->CAN_Filter_Banks.CAN_F11R2=(CAN_REG->CAN_Filter_Banks.CAN_F11R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<5);
 					}
 					
 				}
@@ -1122,7 +1151,7 @@ Error_status CAN_enuCreateFilter(const FilterConfig* FilterCFG_Ptr)
 				{
 					  CAN_REG->CAN_FS1R.FSC11=Single;
 						CAN_REG->CAN_FFA1R.FFA11=FilterCFG_Ptr->FIFO_Asign;
-					  CAN_REG->CAN_Filter_Banks.CAN_F11R1= FilterCFG_Ptr->FilterID;					  
+					  CAN_REG->CAN_Filter_Banks.CAN_F11R1= (FilterCFG_Ptr->FilterID<<21);					  
 				}
 				
 			}
@@ -1142,21 +1171,21 @@ Error_status CAN_enuCreateFilter(const FilterConfig* FilterCFG_Ptr)
 					CAN_REG->CAN_FFA1R.FFA12=FilterCFG_Ptr->FIFO_Asign;
 					if(FilterCFG_Ptr->RegNumber==_1R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F12R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F12R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
-					CAN_REG->CAN_Filter_Banks.CAN_F12R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F12R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<16);
+					CAN_REG->CAN_Filter_Banks.CAN_F12R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F12R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<5);
+					CAN_REG->CAN_Filter_Banks.CAN_F12R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F12R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<21);
 					}
 					else if(FilterCFG_Ptr->RegNumber==_2R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F12R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F12R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
-					CAN_REG->CAN_Filter_Banks.CAN_F12R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F12R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<16);
+					CAN_REG->CAN_Filter_Banks.CAN_F12R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F12R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<5);
+					CAN_REG->CAN_Filter_Banks.CAN_F12R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F12R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<21);
 					}
 				}
 				else if(FilterCFG_Ptr->Scale==Single)
 				{
 					  CAN_REG->CAN_FS1R.FSC12=Single;
 						CAN_REG->CAN_FFA1R.FFA12=FilterCFG_Ptr->FIFO_Asign;
-					  CAN_REG->CAN_Filter_Banks.CAN_F12R1= FilterCFG_Ptr->FilterID;
-						CAN_REG->CAN_Filter_Banks.CAN_F12R2=FilterCFG_Ptr->FilterMask;
+					  CAN_REG->CAN_Filter_Banks.CAN_F12R1= (FilterCFG_Ptr->FilterID<<21);
+						CAN_REG->CAN_Filter_Banks.CAN_F12R2= (FilterCFG_Ptr->FilterMask<<21);
 					  
 				}
 			}
@@ -1169,11 +1198,11 @@ Error_status CAN_enuCreateFilter(const FilterConfig* FilterCFG_Ptr)
 					CAN_REG->CAN_FFA1R.FFA12=FilterCFG_Ptr->FIFO_Asign;
 					if(FilterCFG_Ptr->RegNumber==_1R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F12R1 =(CAN_REG->CAN_Filter_Banks.CAN_F12R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
+					CAN_REG->CAN_Filter_Banks.CAN_F12R1 =(CAN_REG->CAN_Filter_Banks.CAN_F12R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<5);
 					}
 					else if(FilterCFG_Ptr->RegNumber==_2R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F12R2 =(CAN_REG->CAN_Filter_Banks.CAN_F12R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
+					CAN_REG->CAN_Filter_Banks.CAN_F12R2 =(CAN_REG->CAN_Filter_Banks.CAN_F12R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<5);
 					}
 					
 				}
@@ -1181,7 +1210,7 @@ Error_status CAN_enuCreateFilter(const FilterConfig* FilterCFG_Ptr)
 				{
 					  CAN_REG->CAN_FS1R.FSC12=Single;
 						CAN_REG->CAN_FFA1R.FFA12=FilterCFG_Ptr->FIFO_Asign;
-					  CAN_REG->CAN_Filter_Banks.CAN_F12R1= FilterCFG_Ptr->FilterID;					  
+					  CAN_REG->CAN_Filter_Banks.CAN_F12R1= (FilterCFG_Ptr->FilterID<<21);					  
 				}
 				
 			}
@@ -1201,21 +1230,21 @@ Error_status CAN_enuCreateFilter(const FilterConfig* FilterCFG_Ptr)
 					CAN_REG->CAN_FFA1R.FFA13=FilterCFG_Ptr->FIFO_Asign;
 					if(FilterCFG_Ptr->RegNumber==_1R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F13R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F13R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
-					CAN_REG->CAN_Filter_Banks.CAN_F13R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F13R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<16);
+					CAN_REG->CAN_Filter_Banks.CAN_F13R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F13R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<5);
+					CAN_REG->CAN_Filter_Banks.CAN_F13R1 |=(CAN_REG->CAN_Filter_Banks.CAN_F13R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<21);
 					}
 					else if(FilterCFG_Ptr->RegNumber==_2R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F13R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F13R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
-					CAN_REG->CAN_Filter_Banks.CAN_F13R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F13R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<16);
+					CAN_REG->CAN_Filter_Banks.CAN_F13R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F13R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<5);
+					CAN_REG->CAN_Filter_Banks.CAN_F13R2 |=(CAN_REG->CAN_Filter_Banks.CAN_F13R1 & 0xFFFF0000) | (FilterCFG_Ptr->FilterMask<<21);
 					}
 				}
 				else if(FilterCFG_Ptr->Scale==Single)
 				{
 					  CAN_REG->CAN_FS1R.FSC13=Single;
 						CAN_REG->CAN_FFA1R.FFA13=FilterCFG_Ptr->FIFO_Asign;
-					  CAN_REG->CAN_Filter_Banks.CAN_F13R1= FilterCFG_Ptr->FilterID;
-						CAN_REG->CAN_Filter_Banks.CAN_F13R2=FilterCFG_Ptr->FilterMask;
+					  CAN_REG->CAN_Filter_Banks.CAN_F13R1= (FilterCFG_Ptr->FilterID)<<21;
+						CAN_REG->CAN_Filter_Banks.CAN_F13R2=(FilterCFG_Ptr->FilterMask)<<21;
 					  
 				}
 			}
@@ -1228,11 +1257,11 @@ Error_status CAN_enuCreateFilter(const FilterConfig* FilterCFG_Ptr)
 					CAN_REG->CAN_FFA1R.FFA13=FilterCFG_Ptr->FIFO_Asign;
 					if(FilterCFG_Ptr->RegNumber==_1R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F13R1=(CAN_REG->CAN_Filter_Banks.CAN_F13R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
+					CAN_REG->CAN_Filter_Banks.CAN_F13R1=(CAN_REG->CAN_Filter_Banks.CAN_F13R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<5);
 					}
 					else if(FilterCFG_Ptr->RegNumber==_2R)
 					{
-					CAN_REG->CAN_Filter_Banks.CAN_F13R2=(CAN_REG->CAN_Filter_Banks.CAN_F13R1 & 0x0000FFFF) | FilterCFG_Ptr->FilterID;
+					CAN_REG->CAN_Filter_Banks.CAN_F13R2=(CAN_REG->CAN_Filter_Banks.CAN_F13R1 & 0x0000FFFF) | (FilterCFG_Ptr->FilterID<<5);
 					}
 					
 				}
@@ -1240,7 +1269,7 @@ Error_status CAN_enuCreateFilter(const FilterConfig* FilterCFG_Ptr)
 				{
 					  CAN_REG->CAN_FS1R.FSC13=Single;
 						CAN_REG->CAN_FFA1R.FFA13=FilterCFG_Ptr->FIFO_Asign;
-					  CAN_REG->CAN_Filter_Banks.CAN_F13R1= FilterCFG_Ptr->FilterID;					  
+					  CAN_REG->CAN_Filter_Banks.CAN_F13R1= (FilterCFG_Ptr->FilterID)<<21;					  
 				}
 				
 			}
