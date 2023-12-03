@@ -22,60 +22,482 @@ Dialog DLL:      TCM.DLL V1.56.4.0
  
 <h2>Project:</h2>
 D:\NTI\06-FinalProject\V2V-coreECU\V2V-coreECU\Keil\V2V_APP.uvprojx
-Project File Date:  11/26/2023
+Project File Date:  11/28/2023
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.19', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
-Build target 'Target 1'
-../HAL/Bluetooth/Srcs/BLE.c(18): warning: In file included from...
-../MCAL/UART/Includes\UART_interface.h(171): warning: no newline at end of file [-Wnewline-eof]
-#endif
-      ^
-../HAL/Bluetooth/Srcs/BLE.c(21): warning: no previous extern declaration for non-static variable 'G_Key' [-Wmissing-variable-declarations]
-u8 G_Key=NO_REC_KEY;
-   ^
-../HAL/Bluetooth/Srcs/BLE.c(21): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-u8 G_Key=NO_REC_KEY;
+Rebuild target 'Target 1'
+compiling EXTI.c...
+compiling RCC.c...
+compiling NVIC.c...
+../MCAL/UART/Srcs/USART.c(53): warning: overflow converting case value to switch condition type (268435456 to 0) [-Wswitch]
+    case OneStart_9Data:
+         ^
+../MCAL/UART/Includes\UART_interface.h(46): note: expanded from macro 'OneStart_9Data'
+#define OneStart_9Data   0x10000000
+                         ^
+../MCAL/UART/Srcs/USART.c(49): warning: overflow converting case value to switch condition type (4096 to 0) [-Wswitch]
+    case OneStart_7Data: 
+         ^
+../MCAL/UART/Includes\UART_interface.h(45): note: expanded from macro 'OneStart_7Data'
+#define OneStart_7Data   0x00001000
+                         ^
+../MCAL/UART/Srcs/USART.c(214): warning: while loop has empty body [-Wempty-body]
+        while( GET_BIT( MUSART -> ISR , 6 ) == 0) ; 
+                                                  ^
+../MCAL/UART/Srcs/USART.c(214): note: put the semicolon on a separate line to silence this warning
+3 warnings generated.
+compiling USART.c...
+../MCAL/ICU/SOURCES/ICU.c(5): warning: In file included from...
+../MCAL/ICU/INCLUDES\ICU_prv.h(34): warning: initializing 'TIMx_t *' with an expression of type 'volatile TIMx_t *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+        ((volatile TIMx_t *)0x40000000),
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/ICU/INCLUDES\ICU_prv.h(35): warning: initializing 'TIMx_t *' with an expression of type 'volatile TIMx_t *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+        ((volatile TIMx_t *)0x40000400),
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/ICU/INCLUDES\ICU_prv.h(36): warning: initializing 'TIMx_t *' with an expression of type 'volatile TIMx_t *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+        ((volatile TIMx_t *)0x40000800) 
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+3 warnings generated.
+compiling ICU.c...
+compiling PWM.c...
+../MCAL/GPIO/SOURCE/gpio.c(34): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                             ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(45): note: expanded from macro 'GPIOA'
+#define GPIOA                              ((volatile GPIOx_registersType*)(0X48000000))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(34): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                   ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(46): note: expanded from macro 'GPIOB'
+#define GPIOB                              ((volatile GPIOx_registersType*)(0X48000400))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(34): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                         ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(47): note: expanded from macro 'GPIOC'
+#define GPIOC                              ((volatile GPIOx_registersType*)(0X48000800))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(34): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                               ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(48): note: expanded from macro 'GPIOD'
+#define GPIOD                              ((volatile GPIOx_registersType*)(0X48000C00))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(34): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                     ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(49): note: expanded from macro 'GPIOE'
+#define GPIOE                              ((volatile GPIOx_registersType*)(0X48001000))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(34): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                           ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(50): note: expanded from macro 'GPIOF'
+#define GPIOF                              ((volatile GPIOx_registersType*)(0X48001400))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(34): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                                 ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(51): note: expanded from macro 'GPIOG'
+#define GPIOG                              ((volatile GPIOx_registersType*)(0X48001800))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(34): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                                       ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(52): note: expanded from macro 'GPIOH'
+#define GPIOH                              ((volatile GPIOx_registersType*)(0X48001C00))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(71): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                             ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(45): note: expanded from macro 'GPIOA'
+#define GPIOA                              ((volatile GPIOx_registersType*)(0X48000000))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(71): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                   ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(46): note: expanded from macro 'GPIOB'
+#define GPIOB                              ((volatile GPIOx_registersType*)(0X48000400))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(71): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                         ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(47): note: expanded from macro 'GPIOC'
+#define GPIOC                              ((volatile GPIOx_registersType*)(0X48000800))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(71): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                               ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(48): note: expanded from macro 'GPIOD'
+#define GPIOD                              ((volatile GPIOx_registersType*)(0X48000C00))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(71): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                     ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(49): note: expanded from macro 'GPIOE'
+#define GPIOE                              ((volatile GPIOx_registersType*)(0X48001000))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(71): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                           ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(50): note: expanded from macro 'GPIOF'
+#define GPIOF                              ((volatile GPIOx_registersType*)(0X48001400))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(71): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                                 ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(51): note: expanded from macro 'GPIOG'
+#define GPIOG                              ((volatile GPIOx_registersType*)(0X48001800))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(71): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                                       ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(52): note: expanded from macro 'GPIOH'
+#define GPIOH                              ((volatile GPIOx_registersType*)(0X48001C00))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(149): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                             ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(45): note: expanded from macro 'GPIOA'
+#define GPIOA                              ((volatile GPIOx_registersType*)(0X48000000))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(149): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                   ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(46): note: expanded from macro 'GPIOB'
+#define GPIOB                              ((volatile GPIOx_registersType*)(0X48000400))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(149): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                         ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(47): note: expanded from macro 'GPIOC'
+#define GPIOC                              ((volatile GPIOx_registersType*)(0X48000800))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(149): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                               ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(48): note: expanded from macro 'GPIOD'
+#define GPIOD                              ((volatile GPIOx_registersType*)(0X48000C00))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(149): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                     ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(49): note: expanded from macro 'GPIOE'
+#define GPIOE                              ((volatile GPIOx_registersType*)(0X48001000))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(149): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                           ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(50): note: expanded from macro 'GPIOF'
+#define GPIOF                              ((volatile GPIOx_registersType*)(0X48001400))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(149): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                                 ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(51): note: expanded from macro 'GPIOG'
+#define GPIOG                              ((volatile GPIOx_registersType*)(0X48001800))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(149): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                                       ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(52): note: expanded from macro 'GPIOH'
+#define GPIOH                              ((volatile GPIOx_registersType*)(0X48001C00))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(185): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                             ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(45): note: expanded from macro 'GPIOA'
+#define GPIOA                              ((volatile GPIOx_registersType*)(0X48000000))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(185): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                   ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(46): note: expanded from macro 'GPIOB'
+#define GPIOB                              ((volatile GPIOx_registersType*)(0X48000400))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(185): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                         ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(47): note: expanded from macro 'GPIOC'
+#define GPIOC                              ((volatile GPIOx_registersType*)(0X48000800))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(185): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                               ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(48): note: expanded from macro 'GPIOD'
+#define GPIOD                              ((volatile GPIOx_registersType*)(0X48000C00))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(185): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                     ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(49): note: expanded from macro 'GPIOE'
+#define GPIOE                              ((volatile GPIOx_registersType*)(0X48001000))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(185): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                           ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(50): note: expanded from macro 'GPIOF'
+#define GPIOF                              ((volatile GPIOx_registersType*)(0X48001400))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(185): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                                 ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(51): note: expanded from macro 'GPIOG'
+#define GPIOG                              ((volatile GPIOx_registersType*)(0X48001800))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(185): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                                       ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(52): note: expanded from macro 'GPIOH'
+#define GPIOH                              ((volatile GPIOx_registersType*)(0X48001C00))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(214): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                             ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(45): note: expanded from macro 'GPIOA'
+#define GPIOA                              ((volatile GPIOx_registersType*)(0X48000000))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(214): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                   ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(46): note: expanded from macro 'GPIOB'
+#define GPIOB                              ((volatile GPIOx_registersType*)(0X48000400))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(214): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                         ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(47): note: expanded from macro 'GPIOC'
+#define GPIOC                              ((volatile GPIOx_registersType*)(0X48000800))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(214): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                               ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(48): note: expanded from macro 'GPIOD'
+#define GPIOD                              ((volatile GPIOx_registersType*)(0X48000C00))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(214): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                     ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(49): note: expanded from macro 'GPIOE'
+#define GPIOE                              ((volatile GPIOx_registersType*)(0X48001000))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(214): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                           ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(50): note: expanded from macro 'GPIOF'
+#define GPIOF                              ((volatile GPIOx_registersType*)(0X48001400))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(214): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                                 ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(51): note: expanded from macro 'GPIOG'
+#define GPIOG                              ((volatile GPIOx_registersType*)(0X48001800))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(214): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                                       ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(52): note: expanded from macro 'GPIOH'
+#define GPIOH                              ((volatile GPIOx_registersType*)(0X48001C00))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(251): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                             ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(45): note: expanded from macro 'GPIOA'
+#define GPIOA                              ((volatile GPIOx_registersType*)(0X48000000))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(251): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                   ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(46): note: expanded from macro 'GPIOB'
+#define GPIOB                              ((volatile GPIOx_registersType*)(0X48000400))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(251): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                         ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(47): note: expanded from macro 'GPIOC'
+#define GPIOC                              ((volatile GPIOx_registersType*)(0X48000800))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(251): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                               ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(48): note: expanded from macro 'GPIOD'
+#define GPIOD                              ((volatile GPIOx_registersType*)(0X48000C00))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(251): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                     ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(49): note: expanded from macro 'GPIOE'
+#define GPIOE                              ((volatile GPIOx_registersType*)(0X48001000))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(251): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                           ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(50): note: expanded from macro 'GPIOF'
+#define GPIOF                              ((volatile GPIOx_registersType*)(0X48001400))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(251): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                                 ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(51): note: expanded from macro 'GPIOG'
+#define GPIOG                              ((volatile GPIOx_registersType*)(0X48001800))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(251): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                                       ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(52): note: expanded from macro 'GPIOH'
+#define GPIOH                              ((volatile GPIOx_registersType*)(0X48001C00))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(283): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                             ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(45): note: expanded from macro 'GPIOA'
+#define GPIOA                              ((volatile GPIOx_registersType*)(0X48000000))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(283): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                   ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(46): note: expanded from macro 'GPIOB'
+#define GPIOB                              ((volatile GPIOx_registersType*)(0X48000400))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(283): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                         ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(47): note: expanded from macro 'GPIOC'
+#define GPIOC                              ((volatile GPIOx_registersType*)(0X48000800))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(283): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                               ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(48): note: expanded from macro 'GPIOD'
+#define GPIOD                              ((volatile GPIOx_registersType*)(0X48000C00))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(283): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                     ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(49): note: expanded from macro 'GPIOE'
+#define GPIOE                              ((volatile GPIOx_registersType*)(0X48001000))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(283): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                           ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(50): note: expanded from macro 'GPIOF'
+#define GPIOF                              ((volatile GPIOx_registersType*)(0X48001400))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(283): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                                 ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(51): note: expanded from macro 'GPIOG'
+#define GPIOG                              ((volatile GPIOx_registersType*)(0X48001800))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(283): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                                       ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(52): note: expanded from macro 'GPIOH'
+#define GPIOH                              ((volatile GPIOx_registersType*)(0X48001C00))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(317): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                             ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(45): note: expanded from macro 'GPIOA'
+#define GPIOA                              ((volatile GPIOx_registersType*)(0X48000000))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(317): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                   ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(46): note: expanded from macro 'GPIOB'
+#define GPIOB                              ((volatile GPIOx_registersType*)(0X48000400))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(317): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                         ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(47): note: expanded from macro 'GPIOC'
+#define GPIOC                              ((volatile GPIOx_registersType*)(0X48000800))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(317): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                               ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(48): note: expanded from macro 'GPIOD'
+#define GPIOD                              ((volatile GPIOx_registersType*)(0X48000C00))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(317): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                     ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(49): note: expanded from macro 'GPIOE'
+#define GPIOE                              ((volatile GPIOx_registersType*)(0X48001000))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(317): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                           ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(50): note: expanded from macro 'GPIOF'
+#define GPIOF                              ((volatile GPIOx_registersType*)(0X48001400))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(317): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                                 ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(51): note: expanded from macro 'GPIOG'
+#define GPIOG                              ((volatile GPIOx_registersType*)(0X48001800))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(317): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                                       ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(52): note: expanded from macro 'GPIOH'
+#define GPIOH                              ((volatile GPIOx_registersType*)(0X48001C00))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(359): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                             ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(45): note: expanded from macro 'GPIOA'
+#define GPIOA                              ((volatile GPIOx_registersType*)(0X48000000))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(359): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                   ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(46): note: expanded from macro 'GPIOB'
+#define GPIOB                              ((volatile GPIOx_registersType*)(0X48000400))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(359): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                         ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(47): note: expanded from macro 'GPIOC'
+#define GPIOC                              ((volatile GPIOx_registersType*)(0X48000800))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(359): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                               ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(48): note: expanded from macro 'GPIOD'
+#define GPIOD                              ((volatile GPIOx_registersType*)(0X48000C00))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(359): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                     ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(49): note: expanded from macro 'GPIOE'
+#define GPIOE                              ((volatile GPIOx_registersType*)(0X48001000))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(359): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                           ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(50): note: expanded from macro 'GPIOF'
+#define GPIOF                              ((volatile GPIOx_registersType*)(0X48001400))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(359): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                                 ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(51): note: expanded from macro 'GPIOG'
+#define GPIOG                              ((volatile GPIOx_registersType*)(0X48001800))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(359): warning: initializing 'GPIOx_registersType *' with an expression of type 'volatile GPIOx_registersType *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    GPIOx_registersType* LOC_ptr2GPIOx[GPIO_NUM_OF_PORTS] = {GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF,GPIOG,GPIOH};
+                                                                                                       ^~~~~
+../MCAL/GPIO/SOURCE/../INCLUDES/gpio_prv.h(52): note: expanded from macro 'GPIOH'
+#define GPIOH                              ((volatile GPIOx_registersType*)(0X48001C00))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../MCAL/GPIO/SOURCE/gpio.c(382): warning: non-void function does not return a value [-Wreturn-type]
+}
 ^
-../HAL/Bluetooth/Srcs/BLE.c(23): warning: no previous extern declaration for non-static variable 'UART_PIN_TX' [-Wmissing-variable-declarations]
-GPIO_configurationsType UART_PIN_TX = {GPIO_PORTC_ID,GPIO_PIN04_ID,GPIO_ALTERNATE_PUSH_PULL_MODE,GPIO_MEDIUM_SPEED};
-                        ^
-../HAL/Bluetooth/Srcs/BLE.c(23): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-GPIO_configurationsType UART_PIN_TX = {GPIO_PORTC_ID,GPIO_PIN04_ID,GPIO_ALTERNATE_PUSH_PULL_MODE,GPIO_MEDIUM_SPEED};
-^
-../HAL/Bluetooth/Srcs/BLE.c(24): warning: no previous extern declaration for non-static variable 'UART_PIN_RX' [-Wmissing-variable-declarations]
-GPIO_configurationsType UART_PIN_RX = {GPIO_PORTC_ID,GPIO_PIN05_ID,GPIO_ALTERNATE_PUSH_PULL_MODE,GPIO_MEDIUM_SPEED};
-                        ^
-../HAL/Bluetooth/Srcs/BLE.c(24): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-GPIO_configurationsType UART_PIN_RX = {GPIO_PORTC_ID,GPIO_PIN05_ID,GPIO_ALTERNATE_PUSH_PULL_MODE,GPIO_MEDIUM_SPEED};
-^
-../HAL/Bluetooth/Srcs/BLE.c(32): warning: no previous extern declaration for non-static variable 'UART' [-Wmissing-variable-declarations]
- MUARTConfig  UART = 
-              ^
-../HAL/Bluetooth/Srcs/BLE.c(32): note: declare 'static' if the variable is not intended to be used outside of this translation unit
- MUARTConfig  UART = 
- ^
-../HAL/Bluetooth/Srcs/BLE.c(18): warning: In file included from...
-../MCAL/UART/Includes\UART_interface.h(21): warning: padding struct 'MUARTConfig' with 1 byte to align 'BaudRate' [-Wpadded]
-    volatile u16 BaudRate           ;
-                 ^
-../MCAL/UART/Includes\UART_interface.h(7): warning: padding size of 'MUARTConfig' with 1 byte to alignment boundary [-Wpadded]
-typedef struct 
-        ^
-../HAL/Bluetooth/Srcs/BLE.c(46): warning: implicit conversion loses integer precision: 'u32' (aka 'unsigned long') to 'u8' (aka 'unsigned char') [-Wimplicit-int-conversion]
-        G_Key=Copy_u8Key;
-             ~^~~~~~~~~~
-8 warnings generated.
-compiling BLE.c...
-main.c(2): warning: In file included from...
-C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include\FreeRTOS.h(59): warning: In file included from...
-./RTE/RTOS\FreeRTOSConfig.h(46): warning: In file included from...
-C:/Users/CAIRO/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include\stm32f3xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
-                                               ^
-C:/Users/CAIRO/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include\stm32f3xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-  *                code will be based on direct access to peripheral<92>s registers 
-                                                                    ^
+73 warnings generated.
+compiling gpio.c...
 main.c(7): warning: In file included from...
 ../OTHERS\common_macros.h(6): warning: 'SET_BIT' macro redefined [-Wmacro-redefined]
 #define SET_BIT(Reg,Bit)                                        (Reg|=(1<<Bit))
@@ -83,120 +505,128 @@ main.c(7): warning: In file included from...
 C:/Users/CAIRO/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include\stm32f3xx.h(191): note: previous definition is here
 #define SET_BIT(REG, BIT)     ((REG) |= (BIT))
         ^
-main.c(15): warning: In file included from...
-../MCAL/UART/Includes\UART_interface.h(171): warning: no newline at end of file [-Wnewline-eof]
-#endif
-      ^
-main.c(37): warning: implicit conversion loses integer precision: 'volatile u16' (aka 'volatile unsigned short') to 'u8' (aka 'unsigned char') [-Wimplicit-int-conversion]
-                        DCmotor_frontMove(Global_u16Speed);
-                        ~~~~~~~~~~~~~~~~~ ^~~~~~~~~~~~~~~
-main.c(40): warning: implicit conversion loses integer precision: 'volatile u16' (aka 'volatile unsigned short') to 'u8' (aka 'unsigned char') [-Wimplicit-int-conversion]
-                        DCmotor_backMove(Global_u16Speed);
-                        ~~~~~~~~~~~~~~~~ ^~~~~~~~~~~~~~~
-main.c(43): warning: implicit conversion loses integer precision: 'volatile u16' (aka 'volatile unsigned short') to 'u8' (aka 'unsigned char') [-Wimplicit-int-conversion]
-                        DCmotor_rightMove(Global_u16Speed);
-                        ~~~~~~~~~~~~~~~~~ ^~~~~~~~~~~~~~~
-main.c(46): warning: implicit conversion loses integer precision: 'volatile u16' (aka 'volatile unsigned short') to 'u8' (aka 'unsigned char') [-Wimplicit-int-conversion]
-                        DCmotor_leftMove(Global_u16Speed);
-                        ~~~~~~~~~~~~~~~~ ^~~~~~~~~~~~~~~
-main.c(28): warning: unused parameter 'pvParameter' [-Wunused-parameter]
-void Motor_SetDirectionT(void* pvParameter)
-                               ^
-main.c(28): warning: no previous prototype for function 'Motor_SetDirectionT' [-Wmissing-prototypes]
-void Motor_SetDirectionT(void* pvParameter)
-     ^
-main.c(28): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void Motor_SetDirectionT(void* pvParameter)
-^
-static 
-main.c(29): warning: function 'Motor_SetDirectionT' could be declared with attribute 'noreturn' [-Wmissing-noreturn]
-{
-^
-main.c(62): warning: passing 'volatile u32 *' (aka 'volatile unsigned long *') to parameter of type 'pu32' (aka 'unsigned long *') discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
-                HBLE_VGetKey(&Global_u32Direction);
-                             ^~~~~~~~~~~~~~~~~~~~
-../HAL/Bluetooth/Includes\BLE.h(33): note: passing argument to parameter 'ADD_pu8Key' here
-void HBLE_VGetKey(pu32 ADD_pu8Key);
-                       ^
-main.c(58): warning: unused parameter 'pvparam' [-Wunused-parameter]
-void BLE_GetDirectionT(void* pvparam)
-                             ^
-main.c(58): warning: no previous prototype for function 'BLE_GetDirectionT' [-Wmissing-prototypes]
-void BLE_GetDirectionT(void* pvparam)
-     ^
-main.c(58): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void BLE_GetDirectionT(void* pvparam)
-^
-static 
-main.c(59): warning: function 'BLE_GetDirectionT' could be declared with attribute 'noreturn' [-Wmissing-noreturn]
-{
-^
-main.c(67): warning: unused parameter 'pvparam' [-Wunused-parameter]
-void US_GetDistanceT(void* pvparam)
-                           ^
-main.c(67): warning: no previous prototype for function 'US_GetDistanceT' [-Wmissing-prototypes]
-void US_GetDistanceT(void* pvparam)
-     ^
-main.c(67): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void US_GetDistanceT(void* pvparam)
-^
-static 
-main.c(68): warning: function 'US_GetDistanceT' could be declared with attribute 'noreturn' [-Wmissing-noreturn]
-{
-^
-main.c(115): warning: passing 'const signed char *' to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
-        xTaskCreate(Motor_SetDirectionT,(const signed char*)"Motor_SetDirectionT",200,NULL,5,&SetDirectionH);
+main.c(17): warning: In file included from...
+../MCAL/GPIO/INCLUDES\gpio_prv.h(45): warning: 'GPIOA' macro redefined [-Wmacro-redefined]
+#define GPIOA                              ((volatile GPIOx_registersType*)(0X48000000))
+        ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f303xe.h(979): note: previous definition is here
+#define GPIOA               ((GPIO_TypeDef *) GPIOA_BASE)
+        ^
+main.c(17): warning: In file included from...
+../MCAL/GPIO/INCLUDES\gpio_prv.h(46): warning: 'GPIOB' macro redefined [-Wmacro-redefined]
+#define GPIOB                              ((volatile GPIOx_registersType*)(0X48000400))
+        ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f303xe.h(980): note: previous definition is here
+#define GPIOB               ((GPIO_TypeDef *) GPIOB_BASE)
+        ^
+main.c(17): warning: In file included from...
+../MCAL/GPIO/INCLUDES\gpio_prv.h(47): warning: 'GPIOC' macro redefined [-Wmacro-redefined]
+#define GPIOC                              ((volatile GPIOx_registersType*)(0X48000800))
+        ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f303xe.h(981): note: previous definition is here
+#define GPIOC               ((GPIO_TypeDef *) GPIOC_BASE)
+        ^
+main.c(17): warning: In file included from...
+../MCAL/GPIO/INCLUDES\gpio_prv.h(48): warning: 'GPIOD' macro redefined [-Wmacro-redefined]
+#define GPIOD                              ((volatile GPIOx_registersType*)(0X48000C00))
+        ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f303xe.h(982): note: previous definition is here
+#define GPIOD               ((GPIO_TypeDef *) GPIOD_BASE)
+        ^
+main.c(17): warning: In file included from...
+../MCAL/GPIO/INCLUDES\gpio_prv.h(49): warning: 'GPIOE' macro redefined [-Wmacro-redefined]
+#define GPIOE                              ((volatile GPIOx_registersType*)(0X48001000))
+        ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f303xe.h(983): note: previous definition is here
+#define GPIOE               ((GPIO_TypeDef *) GPIOE_BASE)
+        ^
+main.c(17): warning: In file included from...
+../MCAL/GPIO/INCLUDES\gpio_prv.h(50): warning: 'GPIOF' macro redefined [-Wmacro-redefined]
+#define GPIOF                              ((volatile GPIOx_registersType*)(0X48001400))
+        ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f303xe.h(984): note: previous definition is here
+#define GPIOF               ((GPIO_TypeDef *) GPIOF_BASE)
+        ^
+main.c(17): warning: In file included from...
+../MCAL/GPIO/INCLUDES\gpio_prv.h(51): warning: 'GPIOG' macro redefined [-Wmacro-redefined]
+#define GPIOG                              ((volatile GPIOx_registersType*)(0X48001800))
+        ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f303xe.h(985): note: previous definition is here
+#define GPIOG               ((GPIO_TypeDef *) GPIOG_BASE)
+        ^
+main.c(17): warning: In file included from...
+../MCAL/GPIO/INCLUDES\gpio_prv.h(52): warning: 'GPIOH' macro redefined [-Wmacro-redefined]
+#define GPIOH                              ((volatile GPIOx_registersType*)(0X48001C00))
+        ^
+C:/Users/CAIRO/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f303xe.h(986): note: previous definition is here
+#define GPIOH               ((GPIO_TypeDef *) GPIOH_BASE)
+        ^
+main.c(75): warning: passing 'volatile u8 *' (aka 'volatile unsigned char *') to parameter of type 'pu8' (aka 'unsigned char *') discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+                HBLE_VGetKey(&Global_u8Direction);
+                             ^~~~~~~~~~~~~~~~~~~
+../HAL/Bluetooth/Includes\BLE.h(34): note: passing argument to parameter 'ADD_pu8Key' here
+void HBLE_VGetKey(pu8 ADD_pu8Key);
+                      ^
+main.c(179): warning: passing 'const signed char *' to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+        xTaskCreate(Motor_SetDirectionT,(const signed char*)"Motor_SetDirectionT",200,NULL,5,&Motor_SetDirectionH);
                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include\task.h(356): note: passing argument to parameter 'pcName' here
                             const char * const pcName, /*lint !e971 Unqualified char types are allowed for strings and single characters only. */
                                                ^
-main.c(118): warning: passing 'const signed char *' to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
-        xTaskCreate(BLE_GetDirectionT,(const signed char*)"BLE_GetDirectionT",200,NULL,6,&GetDirectionH);
+main.c(182): warning: passing 'const signed char *' to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+        xTaskCreate(CAN_SendDataT,(const signed char*)"CAN_SendDataT",200,NULL,5,&CAN_SendDataH);
+                                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include\task.h(356): note: passing argument to parameter 'pcName' here
+                            const char * const pcName, /*lint !e971 Unqualified char types are allowed for strings and single characters only. */
+                                               ^
+main.c(185): warning: passing 'const signed char *' to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+        xTaskCreate(BLE_GetDirectionT,(const signed char*)"BLE_GetDirectionT",200,NULL,6,&BLE_GetDirectionH);
                                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include\task.h(356): note: passing argument to parameter 'pcName' here
                             const char * const pcName, /*lint !e971 Unqualified char types are allowed for strings and single characters only. */
                                                ^
-main.c(121): warning: passing 'const signed char *' to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
-        xTaskCreate(US_GetDistanceT,(const signed char*)"US_GetDistanceT",200,NULL,7,&GetDistanceH);
+main.c(188): warning: passing 'const signed char *' to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+        xTaskCreate(US_GetDistanceT,(const signed char*)"US_GetDistanceT",200,NULL,7,&US_GetDistanceH);
                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include\task.h(356): note: passing argument to parameter 'pcName' here
                             const char * const pcName, /*lint !e971 Unqualified char types are allowed for strings and single characters only. */
                                                ^
-main.c(117): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
-        xTaskHandle GetDirectionH;
-                    ^
-main.c(24): warning: no previous extern declaration for non-static variable 'Global_u32Direction' [-Wmissing-variable-declarations]
-volatile u32 Global_u32Direction;
-             ^
-main.c(24): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-volatile u32 Global_u32Direction;
-         ^
-main.c(25): warning: no previous extern declaration for non-static variable 'Global_u16Distance' [-Wmissing-variable-declarations]
-volatile u16 Global_u16Distance;
-             ^
-main.c(25): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-volatile u16 Global_u16Distance;
-         ^
-main.c(26): warning: no previous extern declaration for non-static variable 'Global_u16Speed' [-Wmissing-variable-declarations]
-volatile u16 Global_u16Speed;
-             ^
-main.c(26): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-volatile u16 Global_u16Speed;
-         ^
-main.c(95): warning: no previous extern declaration for non-static variable 'SetDirectionH' [-Wmissing-variable-declarations]
-xTaskHandle SetDirectionH;
-            ^
-main.c(95): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-xTaskHandle SetDirectionH;
-^
-C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include\FreeRTOS.h(1067): note: expanded from macro 'xTaskHandle'
-    #define xTaskHandle                   TaskHandle_t
-                                          ^
-26 warnings generated.
+14 warnings generated.
 compiling main.c...
+compiling motor.c...
+compiling EXTI_IRQ.c...
+compiling US.c...
+compiling BLE.c...
+compiling clib_arm.c...
+../MCAL/CAN/Can.c(1452): warning: while loop has empty body [-Wempty-body]
+                while(CAN_REG->CAN_MSR.SLAK==SET);
+                                                 ^
+../MCAL/CAN/Can.c(1452): note: put the semicolon on a separate line to silence this warning
+../MCAL/CAN/Can.c(1458): warning: while loop has empty body [-Wempty-body]
+                while(CAN_REG->CAN_MSR.SLAK==SET);
+                                                 ^
+../MCAL/CAN/Can.c(1458): note: put the semicolon on a separate line to silence this warning
+../MCAL/CAN/Can.c(1533): warning: while loop has empty body [-Wempty-body]
+        while(CAN_REG->CAN_MSR.INAK==SET);
+                                         ^
+../MCAL/CAN/Can.c(1533): note: put the semicolon on a separate line to silence this warning
+3 warnings generated.
+compiling Can.c...
+compiling cmsis_os2.c...
+assembling startup_stm32f303xe.s...
+compiling os_systick.c...
+compiling system_stm32f3xx.c...
+compiling freertos_evr.c...
+compiling list.c...
+compiling event_groups.c...
+compiling port.c...
+compiling heap_4.c...
+compiling timers.c...
+compiling queue.c...
+compiling tasks.c...
 linking...
-Program Size: Code=18052 RO-data=796 RW-data=64 ZI-data=12872  
-".\Objects\V2V_APP.axf" - 0 Error(s), 34 Warning(s).
+Program Size: Code=29808 RO-data=824 RW-data=64 ZI-data=12864  
+".\Objects\V2V_APP.axf" - 0 Error(s), 96 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -243,13 +673,13 @@ Package Vendor: Keil
       Include file:  CMSIS/RTOS2/FreeRTOS/Config/ARMCM/FreeRTOSConfig.h
 
    * Component: ARM.FreeRTOS::RTOS:Core:Cortex-M:10.5.1
+      Include file:  Source/include/queue.h
       Include file:  Source/include/task.h
-      Source file:   Source/list.c
-      Include file:  Source/include/semphr.h
       Source file:   Source/queue.c
       Source file:   Source/tasks.c
+      Include file:  Source/include/semphr.h
+      Source file:   Source/list.c
       Include file:  Source/include/FreeRTOS.h
-      Include file:  Source/include/queue.h
       Source file:   Source/portable/GCC/ARM_CM4F/port.c
       Source file:   CMSIS/RTOS2/FreeRTOS/Source/freertos_evr.c
 
@@ -267,17 +697,17 @@ Package Vendor: Keil
    * Component: ARM::CMSIS:CORE:5.6.0
 
    * Component: ARM::CMSIS:RTOS2:FreeRTOS:Cortex-M:10.5.1
-      Source file:   CMSIS/RTOS2/FreeRTOS/Source/ARM/clib_arm.c
-      Source file:   CMSIS/RTOS2/FreeRTOS/Source/cmsis_os2.c
-      Source file:   CMSIS/RTOS2/FreeRTOS/Source/os_systick.c
       Include file:  CMSIS/RTOS2/FreeRTOS/Include/freertos_mpool.h
+      Source file:   CMSIS/RTOS2/FreeRTOS/Source/cmsis_os2.c
+      Source file:   CMSIS/RTOS2/FreeRTOS/Source/ARM/clib_arm.c
+      Source file:   CMSIS/RTOS2/FreeRTOS/Source/os_systick.c
 
    * Component: Keil.Standalone::Device:Startup:1.11.3
-      Source file:   Drivers/CMSIS/Device/ST/STM32F3xx/Source/Templates/arm/startup_stm32f303xe.s
-      Source file:   MDK/Device/Source/ARM/STM32F3xx_OPT.s
       Source file:   Drivers/CMSIS/Device/ST/STM32F3xx/Source/Templates/system_stm32f3xx.c
       Include file:  Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f3xx.h
-Build Time Elapsed:  00:00:01
+      Source file:   MDK/Device/Source/ARM/STM32F3xx_OPT.s
+      Source file:   Drivers/CMSIS/Device/ST/STM32F3xx/Source/Templates/arm/startup_stm32f303xe.s
+Build Time Elapsed:  00:00:03
 </pre>
 </body>
 </html>

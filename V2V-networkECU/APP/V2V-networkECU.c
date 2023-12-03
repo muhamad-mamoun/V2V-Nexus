@@ -13,14 +13,14 @@ Description  :
                                                < Includes >
 =====================================================================================================================*/
 
-#include "std_types.h"
-#include "../HAL/NRF24L01/INCLUDES/nrf24l01.h"
+//#include "std_types.h"
+//#include "../HAL/NRF24L01/INCLUDES/nrf24l01.h"
 
 /*=====================================================================================================================
                                            < Global Variables >
 =====================================================================================================================*/
 
-u8 G_receivedByte = 0X00;
+//u8 G_receivedByte = 0X00;
 
 /*=====================================================================================================================
                                           < Functions Definitions >
@@ -33,13 +33,13 @@ u8 G_receivedByte = 0X00;
  *                   <>      -> 
  * [return]        : The function returns void.
  ====================================================================================================================*/
-int main(void)
-{
-	NRF24L01_init();
+//int main(void)
+//{
+//	NRF24L01_init();
 
-	NRF24L01_writeRegister(0X01,0X3F);
-	NRF24L01_readRegister(0X01,&G_receivedByte);
+//	NRF24L01_writeRegister(0X01,0X3F);
+//	NRF24L01_readRegister(0X01,&G_receivedByte);
 
-	while(1);
-}
+//	while(1);
+//}
 

@@ -12,6 +12,7 @@ Author      : Mohamed Khaled
 #ifndef BLE_H //Strat
 #define BLE_H //Guard
 
+#include "std_types.h"
 
 #define NO_REC_KEY        (0xFF)
 
@@ -30,7 +31,7 @@ void HBLE_VInit(void);
  *Parameters    : pointer to carry the value of BLE Key
  *Return Type   : None
  */
-void HBLE_VGetKey(pu32 ADD_pu8Key);
+void HBLE_VGetKey(pu8 ADD_pu8Key);
 
 
 

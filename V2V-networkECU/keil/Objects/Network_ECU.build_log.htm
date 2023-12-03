@@ -5,7 +5,7 @@
 <h2>Tool Versions:</h2>
 IDE-Version: µVision V5.38.0.0
 Copyright (C) 2022 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: Muhamad Mamoun, Valeo, LIC=----
+License Information: Ahmed Wael, NIT, LIC=----
  
 Tool Versions:
 Toolchain:       MDK-Lite  Version: 5.38.0.0
@@ -21,111 +21,16 @@ Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.1.0.0
 Dialog DLL:      TCM.DLL V1.56.4.0
  
 <h2>Project:</h2>
-D:\Content\NTI\Projects\Final Project\Software [Git Repo]\V2V-networkECU\keil\Network_ECU.uvprojx
-Project File Date:  11/27/2023
+D:\NTI\06-FinalProject\V2V-coreECU\V2V-networkECU\keil\Network_ECU.uvprojx
+Project File Date:  12/03/2023
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.19', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
-Rebuild target 'Target 1'
-assembling startup_stm32f10x_md.s...
-compiling V2V-networkECU.c...
-compiling SPI.c...
-compiling RCC_program.c...
-compiling system_stm32f10x.c...
-../HAL/NRF24L01/SOURCE/nrf24l01.c(123): warning: incompatible pointer types passing 'u8 *' (aka 'unsigned char *') to parameter of type 'u16 *' (aka 'unsigned short *') [-Wincompatible-pointer-types]
-    SPI_voidSendReceieveCharSynch(a_command,&G_statusRegister);    /* Send the required command through SPI. */
-                                            ^~~~~~~~~~~~~~~~~
-../HAL/NRF24L01/SOURCE/../../../MCAL/SPI/inc/SPI.h(32): note: passing argument to parameter 'ptr_u16_data' here
-void SPI_voidSendReceieveCharSynch(u16 Copy_u16_data,u16 *ptr_u16_data);
-                                                          ^
-../HAL/NRF24L01/SOURCE/nrf24l01.c(143): warning: incompatible pointer types passing 'u8 *' (aka 'unsigned char *') to parameter of type 'u16 *' (aka 'unsigned short *') [-Wincompatible-pointer-types]
-    SPI_voidSendReceieveCharSynch(a_registerAddress,&G_statusRegister); /* Send the register address through SPI. */
-                                                    ^~~~~~~~~~~~~~~~~
-../HAL/NRF24L01/SOURCE/../../../MCAL/SPI/inc/SPI.h(32): note: passing argument to parameter 'ptr_u16_data' here
-void SPI_voidSendReceieveCharSynch(u16 Copy_u16_data,u16 *ptr_u16_data);
-                                                          ^
-../HAL/NRF24L01/SOURCE/nrf24l01.c(144): warning: incompatible pointer types passing 'u8 *' (aka 'unsigned char *') to parameter of type 'u16 *' (aka 'unsigned short *') [-Wincompatible-pointer-types]
-    SPI_voidSendReceieveCharSynch(G_statusRegister,a_ptr2value);          /* Read the register value through SPI. */
-                                                   ^~~~~~~~~~~
-../HAL/NRF24L01/SOURCE/../../../MCAL/SPI/inc/SPI.h(32): note: passing argument to parameter 'ptr_u16_data' here
-void SPI_voidSendReceieveCharSynch(u16 Copy_u16_data,u16 *ptr_u16_data);
-                                                          ^
-../HAL/NRF24L01/SOURCE/nrf24l01.c(164): warning: incompatible pointer types passing 'u8 *' (aka 'unsigned char *') to parameter of type 'u16 *' (aka 'unsigned short *') [-Wincompatible-pointer-types]
-    SPI_voidSendReceieveCharSynch(a_registerAddress,&G_statusRegister); /* Send the register address through SPI. */
-                                                    ^~~~~~~~~~~~~~~~~
-../HAL/NRF24L01/SOURCE/../../../MCAL/SPI/inc/SPI.h(32): note: passing argument to parameter 'ptr_u16_data' here
-void SPI_voidSendReceieveCharSynch(u16 Copy_u16_data,u16 *ptr_u16_data);
-                                                          ^
-../HAL/NRF24L01/SOURCE/nrf24l01.c(165): warning: incompatible pointer types passing 'u8 *' (aka 'unsigned char *') to parameter of type 'u16 *' (aka 'unsigned short *') [-Wincompatible-pointer-types]
-    SPI_voidSendReceieveCharSynch(a_value,&G_statusRegister);             /* Send the register value through SPI. */
-                                          ^~~~~~~~~~~~~~~~~
-../HAL/NRF24L01/SOURCE/../../../MCAL/SPI/inc/SPI.h(32): note: passing argument to parameter 'ptr_u16_data' here
-void SPI_voidSendReceieveCharSynch(u16 Copy_u16_data,u16 *ptr_u16_data);
-                                                          ^
-../HAL/NRF24L01/SOURCE/nrf24l01.c(186): warning: incompatible pointer types passing 'u8 *' (aka 'unsigned char *') to parameter of type 'u16 *' (aka 'unsigned short *') [-Wincompatible-pointer-types]
-    SPI_voidSendReceieveCharSynch(a_registerAddress,&G_statusRegister); /* Send the register address through SPI. */
-                                                    ^~~~~~~~~~~~~~~~~
-../HAL/NRF24L01/SOURCE/../../../MCAL/SPI/inc/SPI.h(32): note: passing argument to parameter 'ptr_u16_data' here
-void SPI_voidSendReceieveCharSynch(u16 Copy_u16_data,u16 *ptr_u16_data);
-                                                          ^
-../HAL/NRF24L01/SOURCE/nrf24l01.c(187): warning: incompatible pointer types passing 'u8 *' (aka 'unsigned char *') to parameter of type 'u16 *' (aka 'unsigned short *') [-Wincompatible-pointer-types]
-    SPI_enu_SendRecieveStreamSynch(a_ptr2value,a_ptr2value,a_size);       /* Send the register value through SPI. */
-                                   ^~~~~~~~~~~
-../HAL/NRF24L01/SOURCE/../../../MCAL/SPI/inc/SPI.h(65): note: passing argument to parameter 'ptr_u16_data' here
-void SPI_enu_SendRecieveStreamSynch(u16 *ptr_u16_data,u16 *ptr_u16_Reception,u8 Copy_u8_streamSize);
-                                         ^
-../HAL/NRF24L01/SOURCE/nrf24l01.c(187): warning: incompatible pointer types passing 'u8 *' (aka 'unsigned char *') to parameter of type 'u16 *' (aka 'unsigned short *') [-Wincompatible-pointer-types]
-    SPI_enu_SendRecieveStreamSynch(a_ptr2value,a_ptr2value,a_size);       /* Send the register value through SPI. */
-                                               ^~~~~~~~~~~
-../HAL/NRF24L01/SOURCE/../../../MCAL/SPI/inc/SPI.h(65): note: passing argument to parameter 'ptr_u16_Reception' here
-void SPI_enu_SendRecieveStreamSynch(u16 *ptr_u16_data,u16 *ptr_u16_Reception,u8 Copy_u8_streamSize);
-                                                           ^
-../HAL/NRF24L01/SOURCE/nrf24l01.c(392): warning: incompatible pointer types passing 'u8 *' (aka 'unsigned char *') to parameter of type 'u16 *' (aka 'unsigned short *') [-Wincompatible-pointer-types]
-        SPI_voidSendReceieveCharSynch(NRF24L01_W_TX_PAYLOAD_COMMAND,&G_statusRegister);
-                                                                    ^~~~~~~~~~~~~~~~~
-../HAL/NRF24L01/SOURCE/../../../MCAL/SPI/inc/SPI.h(32): note: passing argument to parameter 'ptr_u16_data' here
-void SPI_voidSendReceieveCharSynch(u16 Copy_u16_data,u16 *ptr_u16_data);
-                                                          ^
-../HAL/NRF24L01/SOURCE/nrf24l01.c(394): warning: incompatible pointer types passing 'u8 *' (aka 'unsigned char *') to parameter of type 'u16 *' (aka 'unsigned short *') [-Wincompatible-pointer-types]
-        SPI_enu_SendRecieveStreamSynch(a_ptr2data,a_ptr2data,a_size);
-                                       ^~~~~~~~~~
-../HAL/NRF24L01/SOURCE/../../../MCAL/SPI/inc/SPI.h(65): note: passing argument to parameter 'ptr_u16_data' here
-void SPI_enu_SendRecieveStreamSynch(u16 *ptr_u16_data,u16 *ptr_u16_Reception,u8 Copy_u8_streamSize);
-                                         ^
-../HAL/NRF24L01/SOURCE/nrf24l01.c(394): warning: incompatible pointer types passing 'u8 *' (aka 'unsigned char *') to parameter of type 'u16 *' (aka 'unsigned short *') [-Wincompatible-pointer-types]
-        SPI_enu_SendRecieveStreamSynch(a_ptr2data,a_ptr2data,a_size);
-                                                  ^~~~~~~~~~
-../HAL/NRF24L01/SOURCE/../../../MCAL/SPI/inc/SPI.h(65): note: passing argument to parameter 'ptr_u16_Reception' here
-void SPI_enu_SendRecieveStreamSynch(u16 *ptr_u16_data,u16 *ptr_u16_Reception,u8 Copy_u8_streamSize);
-                                                           ^
-../HAL/NRF24L01/SOURCE/nrf24l01.c(426): warning: incompatible pointer types passing 'u8 *' (aka 'unsigned char *') to parameter of type 'u16 *' (aka 'unsigned short *') [-Wincompatible-pointer-types]
-        SPI_voidSendReceieveCharSynch(NRF24L01_R_RX_PAYLOAD_COMMAND,&G_statusRegister);
-                                                                    ^~~~~~~~~~~~~~~~~
-../HAL/NRF24L01/SOURCE/../../../MCAL/SPI/inc/SPI.h(32): note: passing argument to parameter 'ptr_u16_data' here
-void SPI_voidSendReceieveCharSynch(u16 Copy_u16_data,u16 *ptr_u16_data);
-                                                          ^
-../HAL/NRF24L01/SOURCE/nrf24l01.c(428): warning: incompatible pointer types passing 'u8 *' (aka 'unsigned char *') to parameter of type 'u16 *' (aka 'unsigned short *') [-Wincompatible-pointer-types]
-        SPI_enu_SendRecieveStreamSynch(a_ptr2data,a_ptr2data,a_size);
-                                       ^~~~~~~~~~
-../HAL/NRF24L01/SOURCE/../../../MCAL/SPI/inc/SPI.h(65): note: passing argument to parameter 'ptr_u16_data' here
-void SPI_enu_SendRecieveStreamSynch(u16 *ptr_u16_data,u16 *ptr_u16_Reception,u8 Copy_u8_streamSize);
-                                         ^
-../HAL/NRF24L01/SOURCE/nrf24l01.c(428): warning: incompatible pointer types passing 'u8 *' (aka 'unsigned char *') to parameter of type 'u16 *' (aka 'unsigned short *') [-Wincompatible-pointer-types]
-        SPI_enu_SendRecieveStreamSynch(a_ptr2data,a_ptr2data,a_size);
-                                                  ^~~~~~~~~~
-../HAL/NRF24L01/SOURCE/../../../MCAL/SPI/inc/SPI.h(65): note: passing argument to parameter 'ptr_u16_Reception' here
-void SPI_enu_SendRecieveStreamSynch(u16 *ptr_u16_data,u16 *ptr_u16_Reception,u8 Copy_u8_streamSize);
-                                                           ^
-14 warnings generated.
-compiling nrf24l01.c...
-compiling DIO_PROGRAM.c...
+Build target 'Target 1'
+compiling main.c...
 linking...
-.\Objects\Network_ECU.axf: Error: L6218E: Undefined symbol NRF24L01_writeRegister (referred from v2v-networkecu.o).
-.\Objects\Network_ECU.axf: Error: L6218E: Undefined symbol NRF24L01_readRegister (referred from v2v-networkecu.o).
-Not enough information to list image symbols.
-Not enough information to list load addresses in the image map.
-Finished: 2 information, 0 warning and 2 error messages.
-".\Objects\Network_ECU.axf" - 2 Error(s), 14 Warning(s).
+Program Size: Code=8568 RO-data=268 RW-data=204 ZI-data=2096  
+".\Objects\Network_ECU.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -144,20 +49,19 @@ Package Vendor: Keil
 <h2>Collection of Component include folders:</h2>
   ./RTE/Device/STM32F103C8
   ./RTE/_Target_1
-  C:/Users/Mamoun/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include
-  C:/Users/Mamoun/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include
+  C:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include
+  C:/Users/CAIRO/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include
 
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.6.0
 
    * Component: Keil::Device:Startup:1.0.0
-      Source file:   Device/Source/ARM/startup_stm32f10x_md.s
-      Source file:   Device/Source/system_stm32f10x.c
-      Source file:   Device/Source/ARM/STM32F1xx_OPT.s
       Include file:  RTE_Driver/Config/RTE_Device.h
-Target not created.
-Build Time Elapsed:  00:00:01
+      Source file:   Device/Source/ARM/STM32F1xx_OPT.s
+      Source file:   Device/Source/system_stm32f10x.c
+      Source file:   Device/Source/ARM/startup_stm32f10x_md.s
+Build Time Elapsed:  00:00:00
 </pre>
 </body>
 </html>

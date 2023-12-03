@@ -11,6 +11,7 @@
 ".\objects\motor.o"
 ".\objects\us.o"
 ".\objects\ble.o"
+".\objects\can.o"
 ".\objects\clib_arm.o"
 ".\objects\cmsis_os2.o"
 ".\objects\os_systick.o"

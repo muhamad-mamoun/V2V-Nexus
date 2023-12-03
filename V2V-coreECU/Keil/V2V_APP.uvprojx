@@ -323,7 +323,7 @@
             <PlainCh>0</PlainCh>
             <Ropi>0</Ropi>
             <Rwpi>0</Rwpi>
-            <wLevel>2</wLevel>
+            <wLevel>4</wLevel>
             <uThumb>0</uThumb>
             <uSurpInc>0</uSurpInc>
             <uC99>1</uC99>
@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\OTHERS;..\MCAL\RCC\inc;..\MCAL\GPIO\INCLUDES;..\MCAL\NVIC Driver\Includes;..\MCAL\PWM\includes;..\MCAL\UART\Includes;..\MCAL\ICU\INCLUDES;..\MCAL\EXTI\Inludes;..\HAL\MOTOR\INCLUDES;..\HAL\Bluetooth\Includes;..\HAL\US\Includes</IncludePath>
+              <IncludePath>..\OTHERS;..\MCAL\RCC\inc;..\MCAL\GPIO\INCLUDES;..\MCAL\NVIC Driver\Includes;..\MCAL\PWM\includes;..\MCAL\UART\Includes;..\MCAL\ICU\INCLUDES;..\MCAL\EXTI\Inludes;..\HAL\MOTOR\INCLUDES;..\HAL\Bluetooth\Includes;..\HAL\US\Includes;..\MCAL\CAN</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -588,6 +588,26 @@
               <FileName>BLE.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\HAL\Bluetooth\Srcs\BLE.c</FilePath>
+            </File>
+            <File>
+              <FileName>Can.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\MCAL\CAN\Can.c</FilePath>
+            </File>
+            <File>
+              <FileName>Can.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\MCAL\CAN\Can.h</FilePath>
+            </File>
+            <File>
+              <FileName>Can_Cfg.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\MCAL\CAN\Can_Cfg.h</FilePath>
+            </File>
+            <File>
+              <FileName>Can_Prv.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\MCAL\CAN\Can_Prv.h</FilePath>
             </File>
           </Files>
         </Group>

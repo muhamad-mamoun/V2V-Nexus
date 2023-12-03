@@ -16,6 +16,8 @@
 #define GPIO_HIGH   1
 #define GPIO_LOW    0
 
+#define  AFIO_BASE           *((u32*)0x40010000)
+#define  AFIO_MAPR           *((u32*)0x40010004)
 
 
           /* GPIO ports*/

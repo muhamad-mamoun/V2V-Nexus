@@ -65,7 +65,7 @@ void HBLE_VInit(void)
  *Parameters    : pointer to carry the value of BLE Key
  *Return Type   : None
  */
-void HBLE_VGetKey(pu32 ADD_pu8Key)
+void HBLE_VGetKey(pu8 ADD_pu8Key)
 {
 	
 	//if the Key has a new value from BLE
