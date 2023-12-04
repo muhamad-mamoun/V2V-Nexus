@@ -46,7 +46,7 @@ int main()
 	BasicCFG.BuadRate_prescaler = 0x00070000;
 	CAN_enuInit(&BasicCFG);
 	
-	FilterConfig R_Filter = {FilterNumber0,_1R,ListMode,Single,FIFO_0,0x100,0};
+	FilterConfig R_Filter = {FilterNumber0,_1R,ListMode,Single,FIFO_0,0x200,0};
 	CAN_enuCreateFilter(&R_Filter);
 	/***CAN Recieve***/
 	
