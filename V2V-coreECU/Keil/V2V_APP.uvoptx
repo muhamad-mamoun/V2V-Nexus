@@ -152,18 +152,18 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>109</LineNumber>
+          <LineNumber>122</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134227684</Address>
+          <Address>134218970</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\MCAL\CAN\Srcs\Can.c</Filename>
+          <Filename>.\main.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\V2V_APP\../MCAL/CAN/Srcs/Can.c\109</Expression>
+          <Expression>\\V2V_APP\main.c\122</Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>
@@ -191,6 +191,11 @@
           <count>4</count>
           <WinNumber>1</WinNumber>
           <ItemText>ErrorStatus</ItemText>
+        </Ww>
+        <Ww>
+          <count>5</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>Global_u8DataArr,0x0A</ItemText>
         </Ww>
       </WatchWindow1>
       <ScvdPack>
