@@ -130,9 +130,13 @@ void CAN_voidSysInit()
 	/*********Pins Configuration*************/
 	GPIO_configurationsType CAN_TX  =  {GPIO_PORTB_ID,GPIO_PIN09_ID,GPIO_ALTERNATE_PUSH_PULL_MODE,GPIO_HIGH_SPEED};
 	GPIO_configurationsType CAN_RX  =  {GPIO_PORTB_ID,GPIO_PIN08_ID,GPIO_ALTERNATE_PUSH_PULL_MODE,GPIO_HIGH_SPEED};
+	
 	GPIO_configurePin(&CAN_TX);
 	GPIO_configurePin(&CAN_RX);
-
+	
+//	GPIO_setPinFuction(GPIO_PORTB_ID,GPIO_PIN09_ID,GPIO_AF09);
+//	GPIO_setPinFuction(GPIO_PORTB_ID,GPIO_PIN08_ID,GPIO_AF09);
+//	
   GPIOB->AFRH |=(GPIO_AF09<<0);
   GPIOB->AFRH |=(GPIO_AF09<<4);
 

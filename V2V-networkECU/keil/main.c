@@ -19,8 +19,8 @@ int main()
 	/***RCC Init***/
 	MRCC_voidInit();
 	MRCC_voidPerClock_State(APB1,CAN_PERIPHERAL,PClock_enable);
-//	MRCC_voidPerClock_State(APB2,AFIO_PERIPHERAL,PClock_enable);
-//	
+	//MRCC_voidPerClock_State(APB2,AFIO_PERIPHERAL,PClock_enable);
+
 	MRCC_voidPerClock_State(APB2,IOPA_PERIPHERAL,PClock_enable);
 	MRCC_voidPerClock_State(APB2,IOPC_PERIPHERAL,PClock_enable);
 
@@ -29,8 +29,9 @@ int main()
 	
 	/***GPIO Init***/
 
-	MGPIO_voidSetPinDirection(GPIOA,PIN12,OUTPUT_SPEED_50MHZ_AFPP);
-
+	MGPIO_voidSetPinDirection(GPIOA,PIN12,OUTPUT_SPEED_50MHZ_AFPP); //TX
+	MGPIO_voidSetPinDirection(GPIOA,PIN11,INPUT_FLOATING);  //RX
+	
 	MGPIO_voidSetPinDirection(GPIOC,PIN13,OUTPUT_SPEED_2MHZ_PP);
 	MGPIO_voidSetPinValue(GPIOC,PIN13,GPIO_HIGH);
 
@@ -65,9 +66,7 @@ int main()
 			Data2 = ARR_Recieved_Data[x][1];
 			Data3 = ARR_Recieved_Data[x][2];
 			MGPIO_voidSetPinValue(GPIOC,PIN13,GPIO_LOW);
-
-		}
-		
+		}	
 	}
 }
 

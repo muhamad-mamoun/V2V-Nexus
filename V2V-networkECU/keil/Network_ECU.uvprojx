@@ -485,24 +485,24 @@
               <FilePath>.\main.c</FilePath>
             </File>
             <File>
-              <FileName>Can.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\MCAL\CAN\Can.c</FilePath>
-            </File>
-            <File>
               <FileName>Can.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\MCAL\CAN\Can.h</FilePath>
+              <FilePath>..\MCAL\CAN\Include\Can.h</FilePath>
             </File>
             <File>
               <FileName>Can_Cfg.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\MCAL\CAN\Can_Cfg.h</FilePath>
+              <FilePath>..\MCAL\CAN\Include\Can_Cfg.h</FilePath>
             </File>
             <File>
               <FileName>Can_Prv.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\MCAL\CAN\Can_Prv.h</FilePath>
+              <FilePath>..\MCAL\CAN\Include\Can_Prv.h</FilePath>
+            </File>
+            <File>
+              <FileName>Can.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\MCAL\CAN\Srcs\Can.c</FilePath>
             </File>
           </Files>
         </Group>

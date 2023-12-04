@@ -10,13 +10,13 @@ Author      : Mohamed Khaled
 /**************************************************|| Includes ||********************************************************************/
 
 #include "std_types.h"
-#include "bit_math.h"
+#include "common_macros.h"
 #include "Can.h"
 #include "Can_Cfg.h"
 #include "Can_Prv.h"
-#include "RCC.h"
-#include "gpio.h"
-#include "gpio_prv.h"
+//#include "RCC.h"
+//#include "gpio.h"
+//#include "gpio_prv.h"
 /**************************************************||Function Implementation ||********************************************************************/
 u32 ARR_Recieved_Data[14][8];
 
@@ -39,14 +39,14 @@ Error_status CAN_enuInit(const CAN_ConfigType* Config_Ptr)
 	}
 	
 	//GPIO _ INIt
-	RCC_voidEnablePeripheral(AHB_BUS,GPIOB_EN);
-	GPIO_configurationsType CAN_GPIOConfig={GPIO_PORTB_ID,GPIO_PIN09_ID,GPIO_ALTERNATE_PUSH_PULL_MODE,GPIO_HIGH_SPEED};
-	GPIO_configurePin(&CAN_GPIOConfig);
-  GPIOB->AFRH |=(GPIO_AF09<<0);
-	GPIO_configurationsType CAN_GPIOConfig1={GPIO_PORTB_ID,GPIO_PIN08_ID,GPIO_ALTERNATE_PUSH_PULL_MODE,GPIO_HIGH_SPEED};
-	GPIO_configurePin(&CAN_GPIOConfig1);
-  GPIOB->AFRH |=(GPIO_AF09<<4);
-	RCC_voidEnablePeripheral(APB1_BUS,CAN_EN);
+//	RCC_voidEnablePeripheral(AHB_BUS,GPIOB_EN);
+//	GPIO_configurationsType CAN_GPIOConfig={GPIO_PORTB_ID,GPIO_PIN09_ID,GPIO_ALTERNATE_PUSH_PULL_MODE,GPIO_HIGH_SPEED};
+//	GPIO_configurePin(&CAN_GPIOConfig);
+//  GPIOB->AFRH |=(GPIO_AF09<<0);
+//	GPIO_configurationsType CAN_GPIOConfig1={GPIO_PORTB_ID,GPIO_PIN08_ID,GPIO_ALTERNATE_PUSH_PULL_MODE,GPIO_HIGH_SPEED};
+//	GPIO_configurePin(&CAN_GPIOConfig1);
+//  GPIOB->AFRH |=(GPIO_AF09<<4);
+//	RCC_voidEnablePeripheral(APB1_BUS,CAN_EN);
 	//Init Mode In
 	CAN_REG->CAN_MCR.INRQ=SET;
 	//wait untill Init mode flag raise
