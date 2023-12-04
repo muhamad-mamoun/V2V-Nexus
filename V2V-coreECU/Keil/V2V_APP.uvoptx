@@ -203,6 +203,11 @@
           <WinNumber>1</WinNumber>
           <ItemText>Global_u32Direction,0x0A</ItemText>
         </Ww>
+        <Ww>
+          <count>4</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>ErrorStatus</ItemText>
+        </Ww>
       </WatchWindow1>
       <ScvdPack>
         <Filename>C:\Users\CAIRO\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\10.5.1\CMSIS\RTOS2\FreeRTOS\FreeRTOS.scvd</Filename>

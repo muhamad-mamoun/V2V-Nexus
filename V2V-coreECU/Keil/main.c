@@ -111,7 +111,7 @@ void US_GetDistanceT(void* pvparam)
 void CAN_SendDataT(void* pvparam)
 {
 	vTaskDelay(500);
-	CAN_Transmit TConfig={STD_ID,DataFram,_3Byte_Data,CAN_DataID,Global_u8DataArr};
+	CAN_Transmit TConfig={STD_ID,DataFram,_3Byte_Data,0x200,Global_u8DataArr};
 	while(1)
 	{
 			Global_u8DataArr[0] = 5/* Global_u8Direction*/;
@@ -144,7 +144,7 @@ void CAN_voidSysInit()
 	BasicCFG.BussOffManag = Automatic_BusOff_Enable;
 	BasicCFG.TimeTriggered = Time_Trigger_Disable;
 	BasicCFG.DebugFreeze = CAN_Debug_Working;
-	BasicCFG.FifoPriority = Message_ID;
+	BasicCFG.FifoPriority = Request_Order;
 	BasicCFG.BuadRate_prescaler = 0x00070000;
 	
 	/***********Filter Struct**************/
