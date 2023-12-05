@@ -20,6 +20,7 @@ typedef struct
 
 #define DFF                         11
 #define SSM                         9
+#define SSI                         8
 #define LSBFIRST                    7
 #define SPE                         6
 #define BR                          3

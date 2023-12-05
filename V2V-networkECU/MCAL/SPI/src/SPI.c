@@ -85,6 +85,7 @@ void SPI_voidInit(void)
       CLR_BIT(SPI1->CR1,SSM);
     #elif SPI1_SS_MANAGE == SW_SLAVE_MANAGEMENT
       SET_BIT(SPI1->CR1,SSM);
+      SET_BIT(SPI1->CR1,SSI);
     #else
     #error "SPI1_SS_MANAGE ERROR IN CFG"
     #endif
