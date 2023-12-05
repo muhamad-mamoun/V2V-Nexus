@@ -1,7 +1,7 @@
 
 
-#include "std_types.h"
-#include "common_macros.h"
+#include "../../../OTHERS/std_types.h"
+#include "../../../OTHERS/common_macros.h"
 
 #include "../inc/SPI_prv.h"
 #include "../inc/SPI_cfg.h"
@@ -118,32 +118,15 @@ void SPI_voidInit(void)
  RETURN: void
 
 */
-void SPI_voidSendReceieveCharSynch(u16 Copy_u16_data,u16 *ptr_u16_data)
+void SPI_voidSendReceieveCharSynch(u8 Copy_u16_data,u8 *ptr_u16_data)
 {
-
-    /*DISABLE INTERRUBT FOR BLOCKING APPROACH*/
-    #if   SPI1_MASTER_SLAVE == SPI_SLAVE
-      CLR_BIT(SPI1->CR2,RXNEIE); /* DISABLE INTERRUPT FOR RECEPTION */
-    #elif SPI1_MASTER_SLAVE == SPI_MASTER
-      CLR_BIT(SPI1->CR2,TXEIE); /* DISABLE INTERRUPT FOR TRANSIMISSION */
-	    //SET_BIT(SPI1->CR2,2);
-    #endif
-
     /*WRITE DATA ON SPI DATA REG*/
-    SPI1->DR = (u8)Copy_u16_data;
+    *(vu8*)(&SPI1->DR) = (u8)Copy_u16_data;
     /*WAIT UNTILL SPI IS NOT BUSY*/
+    while (GET_BIT(SPI1->SR,7) == TRUE);
     while (GET_BIT(SPI1->SR,1) == FALSE);
     /* Return Recieved Data*/
-    *ptr_u16_data = SPI1->DR;
-
-
-    /*ENABLE INTERRUBT FOR DEFAULT MODE*/
-    #if   SPI1_MASTER_SLAVE == SPI_SLAVE
-      SET_BIT(SPI1->CR2,RXNEIE); /* ENABLE INTERRUPT FOR RECEPTION */
-    #elif SPI1_MASTER_SLAVE == SPI_MASTER
-     // SET_BIT(SPI1->CR2,TXEIE); /* ENABLE INTERRUPT FOR TRANSIMISSION */
-		 //CLR_BIT(SPI1->CR2,2);
-    #endif
+    *ptr_u16_data = *(vu8*)(&SPI1->DR) ;
 }
 
 /*
@@ -197,7 +180,7 @@ void SPI_enu_SendStreamAsynch(u16 *ptr_u16_data,u8 Copy_u8_streamSize)
  RETURN: void
 
 */
-void SPI_enu_SendRecieveStreamSynch(u16 *ptr_u16_data,u16 *ptr_u16_Reception,u8 Copy_u8_streamSize)
+void SPI_enu_SendRecieveStreamSynch(u8 *ptr_u16_data,u8 *ptr_u16_Reception,u8 Copy_u8_streamSize)
 {
     /*Initilize Local Itrator to Control Buffer Index*/
     u8 loc_u8_Buff_itrator = FALSE;

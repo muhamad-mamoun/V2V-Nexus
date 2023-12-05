@@ -29,7 +29,7 @@ void SPI_voidInit(void);
  RETURN: void
 
 */
-void SPI_voidSendReceieveCharSynch(u16 Copy_u16_data,u16 *ptr_u16_data);
+void SPI_voidSendReceieveCharSynch(u8 Copy_u16_data,u8* ptr_u16_data);
 /*
 
  NAME  : SPI_enu_SendDataAsynch
@@ -62,7 +62,7 @@ void SPI_enu_SendStreamAsynch(u16 *ptr_u16_data,u8 Copy_u8_streamSize);
  RETURN: void
 
 */
-void SPI_enu_SendRecieveStreamSynch(u16 *ptr_u16_data,u16 *ptr_u16_Reception,u8 Copy_u8_streamSize);
+void SPI_enu_SendRecieveStreamSynch(u8 *ptr_u16_data,u8 *ptr_u16_Reception,u8 Copy_u8_streamSize);
 
 /*
 
