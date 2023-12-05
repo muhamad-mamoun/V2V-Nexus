@@ -36,9 +36,9 @@ typedef enum
 
 typedef enum
 {
-    NRF24L01_DATA_PIPE_EMPTY,
-    NRF24L01_DATA_PIPE_NOT_EMPTY,
-}NRF24L01_dataPipeStatusType;
+    NRF24L01_BUFFER_EMPTY,
+    NRF24L01_BUFFER_NOT_EMPTY,
+}NRF24L01_bufferStatusType;
 
 /*=====================================================================================================================
                                          < Functions Prototypes >
@@ -81,15 +81,25 @@ NRF24L01_errorStatusType NRF24L01_switchToTransmitterMode(u8 a_channel);
 NRF24L01_errorStatusType NRF24L01_switchToReceiverMode(u8 a_channel, NRF24L01_dataPipeType a_dataPipe);
 
 /*=====================================================================================================================
- * [Function Name] : NRF24L01_checkDataPipe
- * [Description]   : Check if the data pipe Receiver buffer is empty or not.
- * [Arguments]     : <a_dataPipe>      -> Indicates to the required data pipe to be checked.
- *                   <a_ptr2status>    -> Pointer to a variable to store the data pipe status.
+ * [Function Name] : NRF24L01_checkTransmitterBuffer
+ * [Description]   : Check if the Transmitter buffer is empty or not.
+ *                   <a_ptr2status>    -> Pointer to a variable to store the buffer status.
  * [return]        : The function returns error status: - No Errors.
  *                                                      - Data Pipe Error.
  *                                                      - Null Pointer Error.
  ====================================================================================================================*/
-NRF24L01_errorStatusType NRF24L01_checkDataPipe(NRF24L01_dataPipeType a_dataPipe, NRF24L01_dataPipeStatusType* a_ptr2status);
+NRF24L01_errorStatusType NRF24L01_checkTransmitterBuffer(NRF24L01_bufferStatusType* a_ptr2bufferStatus);
+
+/*=====================================================================================================================
+ * [Function Name] : NRF24L01_checkReceiverBuffer
+ * [Description]   : Check if the Receiver buffer of a specific data pipe is empty or not.
+ * [Arguments]     : <a_dataPipe>          -> Indicates to the required data pipe to be checked.
+ *                   <a_ptr2bufferStatus>  -> Pointer to a variable to store the buffer status.
+ * [return]        : The function returns error status: - No Errors.
+ *                                                      - Data Pipe Error.
+ *                                                      - Null Pointer Error.
+ ====================================================================================================================*/
+NRF24L01_errorStatusType NRF24L01_checkReceiverBuffer(NRF24L01_dataPipeType a_dataPipe, NRF24L01_bufferStatusType* a_ptr2bufferStatus);
 
 /*=====================================================================================================================
  * [Function Name] : NRF24L01_sendData
@@ -110,5 +120,21 @@ NRF24L01_errorStatusType NRF24L01_sendData(u8* a_ptr2data, u8 a_size);
  *                                                      - Null Pointer Error.
  ====================================================================================================================*/
 NRF24L01_errorStatusType NRF24L01_readData(u8* a_ptr2data, u8 a_size);
+
+/*=====================================================================================================================
+ * [Function Name] : NRF24L01_flushTransmitterBuffer
+ * [Description]   : Flush the transmitter buffer after sending the data.
+ * [Arguments]     : The function takes no argument.
+ * [return]        : The function returns void.
+ ====================================================================================================================*/
+void NRF24L01_flushTransmitterBuffer(void);
+
+/*=====================================================================================================================
+ * [Function Name] : NRF24L01_flushReceiverBuffer
+ * [Description]   : Flush the receiver buffer after reading the received data.
+ * [Arguments]     : The function takes no argument.
+ * [return]        : The function returns void.
+ ====================================================================================================================*/
+void NRF24L01_flushReceiverBuffer(void);
 
 #endif /* HAL_NRF24L01_INCLUDES_NRF24L01_H_ */

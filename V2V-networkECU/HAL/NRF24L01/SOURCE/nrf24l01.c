@@ -27,18 +27,21 @@ Description  : Source file for the NRF24L01 module driver.
 =====================================================================================================================*/
 
 /* The nRF24L01 STATUS register value received every time you send a command. */
-u8 G_statusRegister = 0X00;
+static u8 G_statusRegister = 0X00;
+
+/* Dummy array used in SPI stream transceiver functions. */
+static u8 G_dummyArray[NRF24L01_PAYLOAD_SIZE] = {'\0'};
 
 /* Array holding the 5-byte address of the transmitter [configured in "nrf24l01_cfg.h" file]. */
-u8 G_transmitterAddress[NRF24L01_TX_RX_ADDRESS_SIZE] = {NRF24L01_TRANSMITTER_ADDRESS};
+static u8 G_transmitterAddress[NRF24L01_TX_RX_ADDRESS_SIZE] = {NRF24L01_TRANSMITTER_ADDRESS};
 
 /* 5 arrays holding the 5-byte addresses of the 5 data pipes [configured in "nrf24l01_cfg.h" file]. */
-u8 G_receiverPipe0Address[NRF24L01_TX_RX_ADDRESS_SIZE] = {NRF24L01_RECEIVER_PIPE0_ADDRESS};  /* Data pipe 0. */
-u8 G_receiverPipe1Address[NRF24L01_TX_RX_ADDRESS_SIZE] = {NRF24L01_RECEIVER_PIPE1_ADDRESS};  /* Data pipe 1. */
-u8 G_receiverPipe2Address[NRF24L01_TX_RX_ADDRESS_SIZE] = {NRF24L01_RECEIVER_PIPE2_ADDRESS};  /* Data pipe 2. */
-u8 G_receiverPipe3Address[NRF24L01_TX_RX_ADDRESS_SIZE] = {NRF24L01_RECEIVER_PIPE3_ADDRESS};  /* Data pipe 3. */
-u8 G_receiverPipe4Address[NRF24L01_TX_RX_ADDRESS_SIZE] = {NRF24L01_RECEIVER_PIPE4_ADDRESS};  /* Data pipe 4. */
-u8 G_receiverPipe5Address[NRF24L01_TX_RX_ADDRESS_SIZE] = {NRF24L01_RECEIVER_PIPE5_ADDRESS};  /* Data pipe 5. */
+static u8 G_receiverPipe0Address[NRF24L01_TX_RX_ADDRESS_SIZE] = {NRF24L01_RECEIVER_PIPE0_ADDRESS};  /* Data pipe 0. */
+static u8 G_receiverPipe1Address[NRF24L01_TX_RX_ADDRESS_SIZE] = {NRF24L01_RECEIVER_PIPE1_ADDRESS};  /* Data pipe 1. */
+static u8 G_receiverPipe2Address[NRF24L01_TX_RX_ADDRESS_SIZE] = {NRF24L01_RECEIVER_PIPE2_ADDRESS};  /* Data pipe 2. */
+static u8 G_receiverPipe3Address[NRF24L01_TX_RX_ADDRESS_SIZE] = {NRF24L01_RECEIVER_PIPE3_ADDRESS};  /* Data pipe 3. */
+static u8 G_receiverPipe4Address[NRF24L01_TX_RX_ADDRESS_SIZE] = {NRF24L01_RECEIVER_PIPE4_ADDRESS};  /* Data pipe 4. */
+static u8 G_receiverPipe5Address[NRF24L01_TX_RX_ADDRESS_SIZE] = {NRF24L01_RECEIVER_PIPE5_ADDRESS};  /* Data pipe 5. */
 
 /*=====================================================================================================================
                                           < Functions Definitions >
@@ -61,12 +64,12 @@ void NRF24L01_init(void)
     MGPIO_voidSetPinDirection(NRF24L01_SCK_PORT_ID,NRF24L01_SCK_PIN_ID,OUTPUT_SPEED_10MHZ_AFPP);
     MGPIO_voidSetPinDirection(NRF24L01_NSS_PORT_ID,NRF24L01_NSS_PIN_ID,OUTPUT_SPEED_10MHZ_PP);
     MGPIO_voidSetPinDirection(NRF24L01_CE_PORT_ID,NRF24L01_CE_PIN_ID,OUTPUT_SPEED_10MHZ_PP);
-
+    
     /* Set the NSS pin initial value as HIGH to unselect the nRF chip. */
     MGPIO_voidSetPinValue(NRF24L01_NSS_PORT_ID,NRF24L01_NSS_PIN_ID,GPIO_HIGH);
-
+    
     SPI_voidInit();                                                        /* Initialize the SPI peripheral. */
-
+        
     /* Disable the nRF chip while initialization. */
     MGPIO_voidSetPinValue(NRF24L01_CE_PORT_ID,NRF24L01_CE_PIN_ID,GPIO_LOW);
 
@@ -77,7 +80,7 @@ void NRF24L01_init(void)
     NRF24L01_writeRegister(NRF24L01_EN_RXADDR_REG,0X00);                           /* Diable all data pipes. */
     NRF24L01_writeRegister(NRF24L01_SETUP_RETR_REG,0X00);           /* Disable the automatic retransmission. */
     NRF24L01_writeRegister(NRF24L01_RF_CH_REG,0X00);                         /* Reset the frequency channel. */
-
+    
     /* Activate the nRF chip after completing the initialization. */
     MGPIO_voidSetPinValue(NRF24L01_CE_PORT_ID,NRF24L01_CE_PIN_ID,GPIO_HIGH);
 }
@@ -143,9 +146,9 @@ static void NRF24L01_readRegister(u8 a_registerAddress, u8* a_ptr2value)
     /* Select the nRF chip for SPI transmission. */
     MGPIO_voidSetPinValue(NRF24L01_NSS_PORT_ID,NRF24L01_NSS_PIN_ID,GPIO_LOW);
 
-    SPI_voidSendReceieveCharSynch(a_registerAddress,&G_statusRegister); /* Send the register address through SPI. */
-    SPI_voidSendReceieveCharSynch(G_statusRegister,a_ptr2value);          /* Read the register value through SPI. */
-
+    SPI_voidSendReceieveCharSynch(a_registerAddress,&G_statusRegister); 
+    SPI_voidSendReceieveCharSynch(G_statusRegister,a_ptr2value);   
+    
     /* Unselect the nRF chip after completing the transmission. */
     MGPIO_voidSetPinValue(NRF24L01_NSS_PORT_ID,NRF24L01_NSS_PIN_ID,GPIO_HIGH);
 }
@@ -157,7 +160,7 @@ static void NRF24L01_readRegister(u8 a_registerAddress, u8* a_ptr2value)
  *                   <a_value>             -> Indicates to the required value to be written.
  * [return]        : The function returns void.
  ====================================================================================================================*/
-static void NRF24L01_writeRegister(u8 a_registerAddress, u8 a_value)
+void NRF24L01_writeRegister(u8 a_registerAddress, u8 a_value)
 {
     a_registerAddress = ((a_registerAddress & 0X1F) | (NRF24L01_W_REGISTER_COMMAND));
 
@@ -187,7 +190,7 @@ static void NRF24L01_writeRegisterMulti(u8 a_registerAddress, u8* a_ptr2value, u
     MGPIO_voidSetPinValue(NRF24L01_NSS_PORT_ID,NRF24L01_NSS_PIN_ID,GPIO_LOW);
 
     SPI_voidSendReceieveCharSynch(a_registerAddress,&G_statusRegister); /* Send the register address through SPI. */
-    SPI_enu_SendRecieveStreamSynch(a_ptr2value,a_ptr2value,a_size);       /* Send the register value through SPI. */
+    SPI_enu_SendRecieveStreamSynch(a_ptr2value,G_dummyArray,a_size);      /* Send the register value through SPI. */
 
     /* Unselect the nRF chip after completing the transmission. */
     MGPIO_voidSetPinValue(NRF24L01_NSS_PORT_ID,NRF24L01_NSS_PIN_ID,GPIO_HIGH);
@@ -217,7 +220,7 @@ NRF24L01_errorStatusType NRF24L01_switchToTransmitterMode(u8 a_channel)
 
         /* Set the 5-byte address of the transmitter. */
         NRF24L01_writeRegisterMulti(NRF24L01_TX_ADDR_REG,G_transmitterAddress,NRF24L01_TX_RX_ADDRESS_SIZE);
-
+        
         /* Set the transmitter channel number. */
         NRF24L01_writeRegister(NRF24L01_RF_CH_REG,a_channel);
 
@@ -325,15 +328,54 @@ NRF24L01_errorStatusType NRF24L01_switchToReceiverMode(u8 a_channel, NRF24L01_da
 }
 
 /*=====================================================================================================================
- * [Function Name] : NRF24L01_checkDataPipe
- * [Description]   : Check if the data pipe Receiver buffer is empty or not.
- * [Arguments]     : <a_dataPipe>      -> Indicates to the required data pipe to be checked.
- *                   <a_ptr2status>    -> Pointer to a variable to store the data pipe status.
+ * [Function Name] : NRF24L01_checkTransmitterBuffer
+ * [Description]   : Check if the Transmitter buffer is empty or not.
+ *                   <a_ptr2status>    -> Pointer to a variable to store the buffer status.
  * [return]        : The function returns error status: - No Errors.
  *                                                      - Data Pipe Error.
  *                                                      - Null Pointer Error.
  ====================================================================================================================*/
-NRF24L01_errorStatusType NRF24L01_checkDataPipe(NRF24L01_dataPipeType a_dataPipe, NRF24L01_dataPipeStatusType* a_ptr2status)
+NRF24L01_errorStatusType NRF24L01_checkTransmitterBuffer(NRF24L01_bufferStatusType* a_ptr2bufferStatus)
+{
+    NRF24L01_errorStatusType LOC_errorStatus = NRF24L01_NO_ERRORS;
+    u8 LOC_registerValue = 0;
+
+    if(a_ptr2bufferStatus == PTR_NULL)
+    {
+        LOC_errorStatus = NRF24L01_NULL_PTR_ERROR;
+    }
+
+    else
+    {
+        *a_ptr2bufferStatus = NRF24L01_BUFFER_EMPTY;
+
+        /* Read the value of the status register. */
+        NRF24L01_readRegister(NRF24L01_STATUS_REG,&LOC_registerValue);
+
+        /* Check if the TX_DS flag is set or not. */
+        if(LOC_registerValue & (1 << 5))
+        {
+            /* Clear the TX_DS flag by writting 1 on it. */
+            NRF24L01_writeRegister(NRF24L01_STATUS_REG,(LOC_registerValue & 0XFF));
+
+            /* Change the data pipe status to Not Empty. */
+            *a_ptr2bufferStatus = NRF24L01_BUFFER_NOT_EMPTY;
+        }
+    }
+
+    return LOC_errorStatus;
+}
+
+/*=====================================================================================================================
+ * [Function Name] : NRF24L01_checkReceiverBuffer
+ * [Description]   : Check if the Receiver buffer of a specific data pipe is empty or not.
+ * [Arguments]     : <a_dataPipe>          -> Indicates to the required data pipe to be checked.
+ *                   <a_ptr2bufferStatus>  -> Pointer to a variable to store the buffer status.
+ * [return]        : The function returns error status: - No Errors.
+ *                                                      - Data Pipe Error.
+ *                                                      - Null Pointer Error.
+ ====================================================================================================================*/
+NRF24L01_errorStatusType NRF24L01_checkReceiverBuffer(NRF24L01_dataPipeType a_dataPipe, NRF24L01_bufferStatusType* a_ptr2bufferStatus)
 {
     NRF24L01_errorStatusType LOC_errorStatus = NRF24L01_NO_ERRORS;
     u8 LOC_registerValue = 0;
@@ -343,14 +385,14 @@ NRF24L01_errorStatusType NRF24L01_checkDataPipe(NRF24L01_dataPipeType a_dataPipe
         LOC_errorStatus = NRF24L01_DATA_PIPE_ERROR;
     }
 
-    else if(a_ptr2status == PTR_NULL)
+    else if(a_ptr2bufferStatus == PTR_NULL)
     {
         LOC_errorStatus = NRF24L01_NULL_PTR_ERROR;
     }
 
     else
     {
-        *a_ptr2status = NRF24L01_DATA_PIPE_EMPTY;
+        *a_ptr2bufferStatus = NRF24L01_BUFFER_EMPTY;
 
         /* Read the value of the status register. */
         NRF24L01_readRegister(NRF24L01_STATUS_REG,&LOC_registerValue);
@@ -359,10 +401,10 @@ NRF24L01_errorStatusType NRF24L01_checkDataPipe(NRF24L01_dataPipeType a_dataPipe
         if((LOC_registerValue & (1 << 6)) && (((LOC_registerValue & 0X0E) >> 1) == a_dataPipe))
         {
             /* Clear the RX_DR flag by writting 1 on it. */
-            NRF24L01_writeRegister(NRF24L01_STATUS_REG,0X4E);
+            NRF24L01_writeRegister(NRF24L01_STATUS_REG,(LOC_registerValue & 0XFF));
 
             /* Change the data pipe status to Not Empty. */
-            *a_ptr2status = NRF24L01_DATA_PIPE_NOT_EMPTY;
+            *a_ptr2bufferStatus = NRF24L01_BUFFER_NOT_EMPTY;
         }
     }
 
@@ -393,8 +435,9 @@ NRF24L01_errorStatusType NRF24L01_sendData(u8* a_ptr2data, u8 a_size)
 
         /* Send the write payload command through SPI. */
         SPI_voidSendReceieveCharSynch(NRF24L01_W_TX_PAYLOAD_COMMAND,&G_statusRegister);
+        
         /* Send the required data through SPI. */
-        SPI_enu_SendRecieveStreamSynch(a_ptr2data,a_ptr2data,a_size);
+        SPI_enu_SendRecieveStreamSynch(a_ptr2data,G_dummyArray,a_size);
 
         /* Unselect the nRF chip after completing the transmission. */
         MGPIO_voidSetPinValue(NRF24L01_NSS_PORT_ID,NRF24L01_NSS_PIN_ID,GPIO_HIGH);
@@ -427,13 +470,36 @@ NRF24L01_errorStatusType NRF24L01_readData(u8* a_ptr2data, u8 a_size)
 
         /* Send the read payload command through SPI. */
         SPI_voidSendReceieveCharSynch(NRF24L01_R_RX_PAYLOAD_COMMAND,&G_statusRegister);
+
         /* Read the received data through SPI. */
-        SPI_enu_SendRecieveStreamSynch(a_ptr2data,a_ptr2data,a_size);
+        SPI_enu_SendRecieveStreamSynch(G_dummyArray,a_ptr2data,a_size);
 
         /* Unselect the nRF chip after completing the transmission. */
         MGPIO_voidSetPinValue(NRF24L01_NSS_PORT_ID,NRF24L01_NSS_PIN_ID,GPIO_HIGH);
     }
 
     return LOC_errorStatus;
+}
+
+/*=====================================================================================================================
+ * [Function Name] : NRF24L01_flushTransmitterBuffer
+ * [Description]   : Flush the transmitter buffer after sending the data.
+ * [Arguments]     : The function takes no argument.
+ * [return]        : The function returns void.
+ ====================================================================================================================*/
+void NRF24L01_flushTransmitterBuffer(void)
+{
+    NRF24L01_sendCommand(NRF24L01_FLUSH_TX_COMMAND);                            /* Send the TX Flush command */
+}
+
+/*=====================================================================================================================
+ * [Function Name] : NRF24L01_flushReceiverBuffer
+ * [Description]   : Flush the receiver buffer after reading the received data.
+ * [Arguments]     : The function takes no argument.
+ * [return]        : The function returns void.
+ ====================================================================================================================*/
+void NRF24L01_flushReceiverBuffer(void)
+{
+    NRF24L01_sendCommand(NRF24L01_FLUSH_RX_COMMAND);                            /* Send the RX Flush command */
 }
 
