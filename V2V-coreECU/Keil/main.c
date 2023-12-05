@@ -25,7 +25,7 @@ volatile u16 Global_u16Distance;
 /*MakeSure of u8 pointer*/
 
 volatile u8 Global_u8Direction;
-volatile u8 Global_u8Speed = 70;
+volatile u8 Global_u8Speed = 80;
 volatile u8  Global_u8BrakeStatus;
 
  u8 Global_u8DataArr[3];
@@ -45,7 +45,7 @@ void Motor_SetDirectionT(void* pvParameter)
 			break;
 		
 		case 'B':
-			DCmotor_backMove(Global_u8Speed);
+			DCmotor_backMove(80);
 			Global_u8BrakeStatus = 0;
 			break;
 		
@@ -111,17 +111,21 @@ void US_GetDistanceT(void* pvparam)
 void CAN_SendDataT(void* pvparam)
 {
 	vTaskDelay(500);
-	
+	Global_u8DataArr[0] = 5;
+	Global_u8DataArr[1] = 6;
+	Global_u8DataArr[2] = 7;
 	CAN_Transmit TConfig={STD_ID,DataFram,_3Byte_Data,CAN_DataID,Global_u8DataArr};
 	while(1)
 	{
-		Global_u8DataArr[0] = Global_u8Direction;
-		Global_u8DataArr[1] = Global_u8Speed;
-		Global_u8DataArr[2] = Global_u8BrakeStatus;
+//		Global_u8DataArr[0] = Global_u8Direction;
+//		Global_u8DataArr[1] = Global_u8Speed;
+//		Global_u8DataArr[2] = Global_u8BrakeStatus;
 			
-		CAN_enuTransmit(&TConfig);
-			
-		vTaskDelay(1000);
+			CAN_enuTransmit(&TConfig);
+			Global_u8DataArr[0]++;
+			Global_u8DataArr[1]++; 
+			Global_u8DataArr[2]++;
+		  vTaskDelay(2000);
 	} 
 }
 
@@ -137,13 +141,8 @@ void CAN_voidSysInit()
 	GPIO_configurePin(&CAN_TX);
 	GPIO_configurePin(&CAN_RX);
 	
-//	GPIO_setPinFuction(GPIO_PORTB_ID,GPIO_PIN09_ID,GPIO_AF09);
-//	GPIO_setPinFuction(GPIO_PORTB_ID,GPIO_PIN08_ID,GPIO_AF09);
-	
-	/********** SHOULD BE HANDLED IN GPIO DRIVER*****************/
-		/**/ GPIOB->AFRH |=(GPIO_AF09<<0); /**/   
-		/**/ GPIOB->AFRH |=(GPIO_AF09<<4); /**/
-	/***********************************************************/
+	GPIO_setPinFuction(GPIO_PORTB_ID,GPIO_PIN09_ID,GPIO_AF09);  //sa3at bthng
+	GPIO_setPinFuction(GPIO_PORTB_ID,GPIO_PIN08_ID,GPIO_AF09);
 
 	/*********Configuration Struct***********/
 	CAN_ConfigType BasicCFG;

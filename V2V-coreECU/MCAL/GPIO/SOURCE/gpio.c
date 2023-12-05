@@ -333,12 +333,12 @@ GPIO_errorStatusType GPIO_setPinFuction(GPIO_portIDType a_portID, GPIO_pinIDType
 
     else if(a_pinID < 8)
     {
-        GPIO_WRITE_FOUR_BITS((*(LOC_ptr2GPIOx + a_portID))->AFRL,a_pinID,a_alternateFunction);
+        GPIO_WRITE_FOUR_BITS((*(LOC_ptr2GPIOx + a_portID))->AFRL, (a_pinID) ,a_alternateFunction);
     }
 
     else
     {
-        GPIO_WRITE_FOUR_BITS((*(LOC_ptr2GPIOx + a_portID))->AFRH,a_pinID-8,a_alternateFunction);
+        GPIO_WRITE_FOUR_BITS((*(LOC_ptr2GPIOx + a_portID))->AFRH , (a_pinID-8) , a_alternateFunction);
     }
 
     return LOC_errorStatus;

@@ -127,6 +127,26 @@ void MGPIO_voidSetPinValue(u8 copy_u8PORT , u8 copy_u8PIN , u8 copy_u8Value)
 
 		}
 	}
+
+void MGPIO_voidTogglePin (u8 copy_u8PORT , u8 copy_u8PIN)
+{
+		switch(copy_u8PORT)
+	{
+	   case GPIOA :
+			 TGL_BIT(GPIOA_ODR,copy_u8PIN);
+		 break ;
+
+	   case GPIOB :  
+			 TGL_BIT(GPIOB_ODR,copy_u8PIN);
+	   break ;
+
+	   case GPIOC :
+			 TGL_BIT(GPIOC_ODR,copy_u8PIN);
+	   break ;
+	}
+}	
+
+	
 u8 MGPIO_u8GetPinValue(u8 copy_u8PORT , u8 copy_u8PIN )
 {
 	u8 LOC_u8Result =0;

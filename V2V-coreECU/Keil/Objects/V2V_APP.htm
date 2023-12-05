@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\V2V_APP.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\V2V_APP.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6190004: Last Updated: Tue Dec  5 01:10:03 2023
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6190004: Last Updated: Tue Dec  5 20:00:06 2023
 <BR><P>
 <H3>Maximum Stack Usage =        284 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -624,7 +624,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(.text.main)
 </UL>
-<P><STRONG><a name="[58]"></a>CAN_SendDataT</STRONG> (Thumb, 96 bytes, Stack size 24 bytes, main.o(.text.CAN_SendDataT))
+<P><STRONG><a name="[58]"></a>CAN_SendDataT</STRONG> (Thumb, 98 bytes, Stack size 24 bytes, main.o(.text.CAN_SendDataT))
 <BR><BR>[Stack]<UL><LI>Max Depth = 116<LI>Call Chain = CAN_SendDataT &rArr; CAN_enuTransmit
 </UL>
 <BR>[Calls]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_enuTransmit
@@ -632,13 +632,13 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(.text.main)
 </UL>
-<P><STRONG><a name="[83]"></a>CAN_enuCreateFilter</STRONG> (Thumb, 8290 bytes, Stack size 12 bytes, can.o(.text.CAN_enuCreateFilter))
+<P><STRONG><a name="[84]"></a>CAN_enuCreateFilter</STRONG> (Thumb, 8290 bytes, Stack size 12 bytes, can.o(.text.CAN_enuCreateFilter))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = CAN_enuCreateFilter
 </UL>
 <BR>[Called By]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_voidSysInit
 </UL>
 
-<P><STRONG><a name="[84]"></a>CAN_enuInit</STRONG> (Thumb, 440 bytes, Stack size 16 bytes, can.o(.text.CAN_enuInit))
+<P><STRONG><a name="[85]"></a>CAN_enuInit</STRONG> (Thumb, 440 bytes, Stack size 16 bytes, can.o(.text.CAN_enuInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = CAN_enuInit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_voidSysInit
@@ -650,67 +650,68 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_SendDataT
 </UL>
 
-<P><STRONG><a name="[81]"></a>CAN_voidSysInit</STRONG> (Thumb, 132 bytes, Stack size 48 bytes, main.o(.text.CAN_voidSysInit))
-<BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = CAN_voidSysInit &rArr; GPIO_configurePin
+<P><STRONG><a name="[81]"></a>CAN_voidSysInit</STRONG> (Thumb, 132 bytes, Stack size 56 bytes, main.o(.text.CAN_voidSysInit))
+<BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = CAN_voidSysInit &rArr; GPIO_configurePin
 </UL>
-<BR>[Calls]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_enuInit
-<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_enuCreateFilter
+<BR>[Calls]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_enuInit
+<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_enuCreateFilter
+<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_setPinFuction
 <LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_configurePin
 </UL>
 <BR>[Called By]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[85]"></a>DCmotor_Init</STRONG> (Thumb, 108 bytes, Stack size 16 bytes, motor.o(.text.DCmotor_Init))
+<P><STRONG><a name="[86]"></a>DCmotor_Init</STRONG> (Thumb, 108 bytes, Stack size 16 bytes, motor.o(.text.DCmotor_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = DCmotor_Init &rArr; PWM_enu_Init &rArr; GPIO_configurePin
 </UL>
-<BR>[Calls]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PWM_enu_Init
-<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_writePin
+<BR>[Calls]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PWM_enu_Init
+<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_writePin
 <LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_configurePin
 </UL>
 <BR>[Called By]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[88]"></a>DCmotor_backMove</STRONG> (Thumb, 70 bytes, Stack size 24 bytes, motor.o(.text.DCmotor_backMove))
+<P><STRONG><a name="[89]"></a>DCmotor_backMove</STRONG> (Thumb, 70 bytes, Stack size 24 bytes, motor.o(.text.DCmotor_backMove))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = DCmotor_backMove &rArr; GPIO_writePin
 </UL>
-<BR>[Calls]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PWM_enu_SetDutyCycle
-<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_writePin
+<BR>[Calls]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PWM_enu_SetDutyCycle
+<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_writePin
 </UL>
 <BR>[Called By]<UL><LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_SetDirectionT
 </UL>
 
-<P><STRONG><a name="[8a]"></a>DCmotor_frontMove</STRONG> (Thumb, 70 bytes, Stack size 24 bytes, motor.o(.text.DCmotor_frontMove))
+<P><STRONG><a name="[8b]"></a>DCmotor_frontMove</STRONG> (Thumb, 70 bytes, Stack size 24 bytes, motor.o(.text.DCmotor_frontMove))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = DCmotor_frontMove &rArr; GPIO_writePin
 </UL>
-<BR>[Calls]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PWM_enu_SetDutyCycle
-<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_writePin
+<BR>[Calls]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PWM_enu_SetDutyCycle
+<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_writePin
 </UL>
 <BR>[Called By]<UL><LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_SetDirectionT
 </UL>
 
-<P><STRONG><a name="[8b]"></a>DCmotor_leftMove</STRONG> (Thumb, 70 bytes, Stack size 24 bytes, motor.o(.text.DCmotor_leftMove))
+<P><STRONG><a name="[8c]"></a>DCmotor_leftMove</STRONG> (Thumb, 70 bytes, Stack size 24 bytes, motor.o(.text.DCmotor_leftMove))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = DCmotor_leftMove &rArr; GPIO_writePin
 </UL>
-<BR>[Calls]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PWM_enu_SetDutyCycle
-<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_writePin
+<BR>[Calls]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PWM_enu_SetDutyCycle
+<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_writePin
 </UL>
 <BR>[Called By]<UL><LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_SetDirectionT
 </UL>
 
-<P><STRONG><a name="[8c]"></a>DCmotor_rightMove</STRONG> (Thumb, 70 bytes, Stack size 24 bytes, motor.o(.text.DCmotor_rightMove))
+<P><STRONG><a name="[8d]"></a>DCmotor_rightMove</STRONG> (Thumb, 70 bytes, Stack size 24 bytes, motor.o(.text.DCmotor_rightMove))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = DCmotor_rightMove &rArr; GPIO_writePin
 </UL>
-<BR>[Calls]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PWM_enu_SetDutyCycle
-<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_writePin
+<BR>[Calls]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PWM_enu_SetDutyCycle
+<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_writePin
 </UL>
 <BR>[Called By]<UL><LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_SetDirectionT
 </UL>
 
-<P><STRONG><a name="[8d]"></a>DCmotor_stop</STRONG> (Thumb, 62 bytes, Stack size 16 bytes, motor.o(.text.DCmotor_stop))
+<P><STRONG><a name="[8e]"></a>DCmotor_stop</STRONG> (Thumb, 62 bytes, Stack size 16 bytes, motor.o(.text.DCmotor_stop))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = DCmotor_stop &rArr; GPIO_writePin
 </UL>
-<BR>[Calls]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PWM_enu_SetDutyCycle
-<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_writePin
+<BR>[Calls]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PWM_enu_SetDutyCycle
+<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_writePin
 </UL>
 <BR>[Called By]<UL><LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_SetDirectionT
 </UL>
@@ -753,31 +754,32 @@ Global Symbols
 <P><STRONG><a name="[82]"></a>GPIO_configurePin</STRONG> (Thumb, 450 bytes, Stack size 56 bytes, gpio.o(.text.GPIO_configurePin))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = GPIO_configurePin
 </UL>
-<BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PWM_enu_Init
-<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HBLE_VInit
+<BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PWM_enu_Init
+<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HBLE_VInit
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;US_voidInit
-<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DCmotor_Init
+<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DCmotor_Init
 <LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_voidSysInit
 </UL>
 
-<P><STRONG><a name="[8f]"></a>GPIO_setPinFuction</STRONG> (Thumb, 248 bytes, Stack size 48 bytes, gpio.o(.text.GPIO_setPinFuction))
+<P><STRONG><a name="[83]"></a>GPIO_setPinFuction</STRONG> (Thumb, 252 bytes, Stack size 48 bytes, gpio.o(.text.GPIO_setPinFuction))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = GPIO_setPinFuction
 </UL>
-<BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PWM_enu_Init
-<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HBLE_VInit
+<BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PWM_enu_Init
+<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HBLE_VInit
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;US_voidInit
+<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_voidSysInit
 </UL>
 
-<P><STRONG><a name="[86]"></a>GPIO_writePin</STRONG> (Thumb, 192 bytes, Stack size 48 bytes, gpio.o(.text.GPIO_writePin))
+<P><STRONG><a name="[87]"></a>GPIO_writePin</STRONG> (Thumb, 192 bytes, Stack size 48 bytes, gpio.o(.text.GPIO_writePin))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = GPIO_writePin
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;US_voidSetTrigger
-<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DCmotor_Init
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DCmotor_stop
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DCmotor_leftMove
-<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DCmotor_rightMove
-<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DCmotor_backMove
-<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DCmotor_frontMove
+<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DCmotor_Init
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DCmotor_stop
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DCmotor_leftMove
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DCmotor_rightMove
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DCmotor_backMove
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DCmotor_frontMove
 </UL>
 
 <P><STRONG><a name="[7e]"></a>HBLE_VGetKey</STRONG> (Thumb, 220 bytes, Stack size 8 bytes, ble.o(.text.HBLE_VGetKey))
@@ -786,13 +788,13 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BLE_GetDirectionT
 </UL>
 
-<P><STRONG><a name="[8e]"></a>HBLE_VInit</STRONG> (Thumb, 88 bytes, Stack size 16 bytes, ble.o(.text.HBLE_VInit))
+<P><STRONG><a name="[8f]"></a>HBLE_VInit</STRONG> (Thumb, 88 bytes, Stack size 16 bytes, ble.o(.text.HBLE_VInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = HBLE_VInit &rArr; GPIO_configurePin
 </UL>
 <BR>[Calls]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MUSART1_VidSetCallBack
 <LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MUSART_voidInit
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MNVIC_EnuEnablePerInterrupt
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_setPinFuction
+<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_setPinFuction
 <LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_configurePin
 </UL>
 <BR>[Called By]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -877,51 +879,51 @@ Global Symbols
 <P><STRONG><a name="[92]"></a>MNVIC_EnuEnablePerInterrupt</STRONG> (Thumb, 112 bytes, Stack size 16 bytes, nvic.o(.text.MNVIC_EnuEnablePerInterrupt))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = MNVIC_EnuEnablePerInterrupt
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HBLE_VInit
+<BR>[Called By]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HBLE_VInit
 </UL>
 
 <P><STRONG><a name="[91]"></a>MUSART1_VidSetCallBack</STRONG> (Thumb, 28 bytes, Stack size 4 bytes, usart.o(.text.MUSART1_VidSetCallBack))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = MUSART1_VidSetCallBack
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HBLE_VInit
+<BR>[Called By]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HBLE_VInit
 </UL>
 
 <P><STRONG><a name="[90]"></a>MUSART_voidInit</STRONG> (Thumb, 700 bytes, Stack size 32 bytes, usart.o(.text.MUSART_voidInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = MUSART_voidInit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HBLE_VInit
+<BR>[Called By]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HBLE_VInit
 </UL>
 
-<P><STRONG><a name="[57]"></a>Motor_SetDirectionT</STRONG> (Thumb, 182 bytes, Stack size 16 bytes, main.o(.text.Motor_SetDirectionT))
+<P><STRONG><a name="[57]"></a>Motor_SetDirectionT</STRONG> (Thumb, 174 bytes, Stack size 16 bytes, main.o(.text.Motor_SetDirectionT))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = Motor_SetDirectionT &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DCmotor_stop
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DCmotor_leftMove
-<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DCmotor_rightMove
-<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DCmotor_backMove
-<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DCmotor_frontMove
+<BR>[Calls]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DCmotor_stop
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DCmotor_leftMove
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DCmotor_rightMove
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DCmotor_backMove
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DCmotor_frontMove
 <LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(.text.main)
 </UL>
-<P><STRONG><a name="[87]"></a>PWM_enu_Init</STRONG> (Thumb, 920 bytes, Stack size 32 bytes, pwm.o(.text.PWM_enu_Init))
+<P><STRONG><a name="[88]"></a>PWM_enu_Init</STRONG> (Thumb, 920 bytes, Stack size 32 bytes, pwm.o(.text.PWM_enu_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = PWM_enu_Init &rArr; GPIO_configurePin
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_setPinFuction
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_voidEnablePeripheral
+<BR>[Calls]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_voidEnablePeripheral
+<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_setPinFuction
 <LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_configurePin
 </UL>
-<BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DCmotor_Init
+<BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DCmotor_Init
 </UL>
 
-<P><STRONG><a name="[89]"></a>PWM_enu_SetDutyCycle</STRONG> (Thumb, 252 bytes, Stack size 20 bytes, pwm.o(.text.PWM_enu_SetDutyCycle))
+<P><STRONG><a name="[8a]"></a>PWM_enu_SetDutyCycle</STRONG> (Thumb, 252 bytes, Stack size 20 bytes, pwm.o(.text.PWM_enu_SetDutyCycle))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = PWM_enu_SetDutyCycle
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DCmotor_stop
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DCmotor_leftMove
-<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DCmotor_rightMove
-<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DCmotor_backMove
-<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DCmotor_frontMove
+<BR>[Called By]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DCmotor_stop
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DCmotor_leftMove
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DCmotor_rightMove
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DCmotor_backMove
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DCmotor_frontMove
 </UL>
 
 <P><STRONG><a name="[8]"></a>PendSV_Handler</STRONG> (Thumb, 100 bytes, Stack size 0 bytes, port.o(.text.PendSV_Handler))
@@ -934,7 +936,7 @@ Global Symbols
 <P><STRONG><a name="[95]"></a>RCC_voidEnablePeripheral</STRONG> (Thumb, 120 bytes, Stack size 8 bytes, rcc.o(.text.RCC_voidEnablePeripheral))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = RCC_voidEnablePeripheral
 </UL>
-<BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PWM_enu_Init
+<BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PWM_enu_Init
 <LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -1007,7 +1009,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = US_voidInit &rArr; GPIO_configurePin
 </UL>
 <BR>[Calls]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICU_voidInitTimer
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_setPinFuction
+<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_setPinFuction
 <LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_configurePin
 </UL>
 <BR>[Called By]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -1034,7 +1036,7 @@ Global Symbols
 <LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICU_voidGetTimerOvStatus
 <LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICU_voidEnableTimer
 <LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICU_voidSetCountTime
-<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_writePin
+<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_writePin
 </UL>
 <BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;US_voidUltraSonicStart
 </UL>
@@ -1088,9 +1090,9 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskStartScheduler
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
-<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HBLE_VInit
+<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HBLE_VInit
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;US_voidInit
-<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DCmotor_Init
+<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DCmotor_Init
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_voidEnablePeripheral
 <LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_voidSysInit
 </UL>

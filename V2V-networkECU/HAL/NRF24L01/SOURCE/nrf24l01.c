@@ -74,7 +74,7 @@ void NRF24L01_init(void)
     MGPIO_voidSetPinValue(NRF24L01_CE_PORT_ID,NRF24L01_CE_PIN_ID,GPIO_LOW);
 
     NRF24L01_reset();                                                   /* Reset all the nRF chip registers. */
-
+	
     NRF24L01_writeRegister(NRF24L01_CONFIG_REG,0X00);                                        /* Disable CRC. */
     NRF24L01_writeRegister(NRF24L01_EN_AA_REG,0X00);      /* Diable auto acknowledgement for all data pipes. */
     NRF24L01_writeRegister(NRF24L01_EN_RXADDR_REG,0X00);                           /* Diable all data pipes. */

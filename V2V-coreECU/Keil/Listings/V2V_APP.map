@@ -27,14 +27,12 @@ Section Cross References
     main.o(.text.US_GetDistanceT) refers to main.o(.bss.Global_u8BrakeStatus) for Global_u8BrakeStatus
     main.o(.ARM.exidx.text.US_GetDistanceT) refers to main.o(.text.US_GetDistanceT) for [Anonymous Symbol]
     main.o(.text.CAN_SendDataT) refers to tasks.o(.text.vTaskDelay) for vTaskDelay
-    main.o(.text.CAN_SendDataT) refers to main.o(.rodata..L__const.CAN_SendDataT.TConfig) for .L__const.CAN_SendDataT.TConfig
-    main.o(.text.CAN_SendDataT) refers to main.o(.bss.Global_u8Direction) for Global_u8Direction
     main.o(.text.CAN_SendDataT) refers to main.o(.bss.Global_u8DataArr) for Global_u8DataArr
-    main.o(.text.CAN_SendDataT) refers to main.o(.data.Global_u8Speed) for Global_u8Speed
-    main.o(.text.CAN_SendDataT) refers to main.o(.bss.Global_u8BrakeStatus) for Global_u8BrakeStatus
+    main.o(.text.CAN_SendDataT) refers to main.o(.rodata..L__const.CAN_SendDataT.TConfig) for .L__const.CAN_SendDataT.TConfig
     main.o(.text.CAN_SendDataT) refers to can.o(.text.CAN_enuTransmit) for CAN_enuTransmit
     main.o(.ARM.exidx.text.CAN_SendDataT) refers to main.o(.text.CAN_SendDataT) for [Anonymous Symbol]
     main.o(.text.CAN_voidSysInit) refers to gpio.o(.text.GPIO_configurePin) for GPIO_configurePin
+    main.o(.text.CAN_voidSysInit) refers to gpio.o(.text.GPIO_setPinFuction) for GPIO_setPinFuction
     main.o(.text.CAN_voidSysInit) refers to can.o(.text.CAN_enuCreateFilter) for CAN_enuCreateFilter
     main.o(.text.CAN_voidSysInit) refers to can.o(.text.CAN_enuInit) for CAN_enuInit
     main.o(.ARM.exidx.text.CAN_voidSysInit) refers to main.o(.text.CAN_voidSysInit) for [Anonymous Symbol]
@@ -2192,45 +2190,45 @@ Image Symbol Table
     .text                                    0x08000486   Section        0  indicate_semi.o(.text)
     [Anonymous Symbol]                       0x08000488   Section        0  main.o(.text.BLE_GetDirectionT)
     [Anonymous Symbol]                       0x080004a4   Section        0  main.o(.text.CAN_SendDataT)
-    [Anonymous Symbol]                       0x08000504   Section        0  can.o(.text.CAN_enuCreateFilter)
-    [Anonymous Symbol]                       0x08002568   Section        0  can.o(.text.CAN_enuInit)
-    [Anonymous Symbol]                       0x08002720   Section        0  can.o(.text.CAN_enuTransmit)
-    [Anonymous Symbol]                       0x08003340   Section        0  main.o(.text.CAN_voidSysInit)
-    [Anonymous Symbol]                       0x080033c4   Section        0  motor.o(.text.DCmotor_Init)
-    [Anonymous Symbol]                       0x08003430   Section        0  motor.o(.text.DCmotor_backMove)
-    [Anonymous Symbol]                       0x08003478   Section        0  motor.o(.text.DCmotor_frontMove)
-    [Anonymous Symbol]                       0x080034c0   Section        0  motor.o(.text.DCmotor_leftMove)
-    [Anonymous Symbol]                       0x08003508   Section        0  motor.o(.text.DCmotor_rightMove)
-    [Anonymous Symbol]                       0x08003550   Section        0  motor.o(.text.DCmotor_stop)
-    [Anonymous Symbol]                       0x08003590   Section        0  exti_irq.o(.text.EXTI0_IRQHandler)
-    [Anonymous Symbol]                       0x080035a0   Section        0  exti_irq.o(.text.EXTI15_10_IRQHandler)
-    [Anonymous Symbol]                       0x080036d0   Section        0  exti_irq.o(.text.EXTI1_IRQHandler)
-    [Anonymous Symbol]                       0x080036e0   Section        0  exti_irq.o(.text.EXTI2_TSC_IRQHandler)
-    [Anonymous Symbol]                       0x080036f0   Section        0  exti_irq.o(.text.EXTI3_IRQHandler)
-    [Anonymous Symbol]                       0x08003700   Section        0  exti_irq.o(.text.EXTI4_IRQHandler)
-    [Anonymous Symbol]                       0x08003710   Section        0  exti_irq.o(.text.EXTI9_5_IRQHandler)
-    [Anonymous Symbol]                       0x08003810   Section        0  gpio.o(.text.GPIO_configurePin)
-    [Anonymous Symbol]                       0x080039d4   Section        0  gpio.o(.text.GPIO_setPinFuction)
-    [Anonymous Symbol]                       0x08003acc   Section        0  gpio.o(.text.GPIO_writePin)
-    HBLE_VGetChar                            0x08003b8d   Thumb Code    20  ble.o(.text.HBLE_VGetChar)
-    [Anonymous Symbol]                       0x08003b8c   Section        0  ble.o(.text.HBLE_VGetChar)
-    [Anonymous Symbol]                       0x08003ba0   Section        0  ble.o(.text.HBLE_VGetKey)
-    [Anonymous Symbol]                       0x08003c7c   Section        0  ble.o(.text.HBLE_VInit)
-    [Anonymous Symbol]                       0x08003cd4   Section        0  icu.o(.text.ICU_voidClrTimerIcuFlag)
-    [Anonymous Symbol]                       0x08003d04   Section        0  icu.o(.text.ICU_voidClrTimerOvFlag)
-    [Anonymous Symbol]                       0x08003d28   Section        0  icu.o(.text.ICU_voidDisableTimer)
-    [Anonymous Symbol]                       0x08003d4c   Section        0  icu.o(.text.ICU_voidEnableTimer)
-    [Anonymous Symbol]                       0x08003d70   Section        0  icu.o(.text.ICU_voidGetICU_Count)
-    [Anonymous Symbol]                       0x08003df4   Section        0  icu.o(.text.ICU_voidGetTimerIcuStatus)
-    [Anonymous Symbol]                       0x08003e28   Section        0  icu.o(.text.ICU_voidGetTimerOvStatus)
-    [Anonymous Symbol]                       0x08003e50   Section        0  icu.o(.text.ICU_voidInitTimer)
-    [Anonymous Symbol]                       0x08003f80   Section        0  icu.o(.text.ICU_voidSetArrTime)
-    [Anonymous Symbol]                       0x08003fa0   Section        0  icu.o(.text.ICU_voidSetCountTime)
-    [Anonymous Symbol]                       0x08003fc0   Section        0  icu.o(.text.ICU_voidSetSensingEdge)
-    [Anonymous Symbol]                       0x080040b4   Section        0  nvic.o(.text.MNVIC_EnuEnablePerInterrupt)
-    [Anonymous Symbol]                       0x08004124   Section        0  usart.o(.text.MUSART1_VidSetCallBack)
-    [Anonymous Symbol]                       0x08004140   Section        0  usart.o(.text.MUSART_voidInit)
-    [Anonymous Symbol]                       0x080043fc   Section        0  main.o(.text.Motor_SetDirectionT)
+    [Anonymous Symbol]                       0x08000508   Section        0  can.o(.text.CAN_enuCreateFilter)
+    [Anonymous Symbol]                       0x0800256c   Section        0  can.o(.text.CAN_enuInit)
+    [Anonymous Symbol]                       0x08002724   Section        0  can.o(.text.CAN_enuTransmit)
+    [Anonymous Symbol]                       0x08003344   Section        0  main.o(.text.CAN_voidSysInit)
+    [Anonymous Symbol]                       0x080033c8   Section        0  motor.o(.text.DCmotor_Init)
+    [Anonymous Symbol]                       0x08003434   Section        0  motor.o(.text.DCmotor_backMove)
+    [Anonymous Symbol]                       0x0800347c   Section        0  motor.o(.text.DCmotor_frontMove)
+    [Anonymous Symbol]                       0x080034c4   Section        0  motor.o(.text.DCmotor_leftMove)
+    [Anonymous Symbol]                       0x0800350c   Section        0  motor.o(.text.DCmotor_rightMove)
+    [Anonymous Symbol]                       0x08003554   Section        0  motor.o(.text.DCmotor_stop)
+    [Anonymous Symbol]                       0x08003594   Section        0  exti_irq.o(.text.EXTI0_IRQHandler)
+    [Anonymous Symbol]                       0x080035a4   Section        0  exti_irq.o(.text.EXTI15_10_IRQHandler)
+    [Anonymous Symbol]                       0x080036d4   Section        0  exti_irq.o(.text.EXTI1_IRQHandler)
+    [Anonymous Symbol]                       0x080036e4   Section        0  exti_irq.o(.text.EXTI2_TSC_IRQHandler)
+    [Anonymous Symbol]                       0x080036f4   Section        0  exti_irq.o(.text.EXTI3_IRQHandler)
+    [Anonymous Symbol]                       0x08003704   Section        0  exti_irq.o(.text.EXTI4_IRQHandler)
+    [Anonymous Symbol]                       0x08003714   Section        0  exti_irq.o(.text.EXTI9_5_IRQHandler)
+    [Anonymous Symbol]                       0x08003814   Section        0  gpio.o(.text.GPIO_configurePin)
+    [Anonymous Symbol]                       0x080039d8   Section        0  gpio.o(.text.GPIO_setPinFuction)
+    [Anonymous Symbol]                       0x08003ad4   Section        0  gpio.o(.text.GPIO_writePin)
+    HBLE_VGetChar                            0x08003b95   Thumb Code    20  ble.o(.text.HBLE_VGetChar)
+    [Anonymous Symbol]                       0x08003b94   Section        0  ble.o(.text.HBLE_VGetChar)
+    [Anonymous Symbol]                       0x08003ba8   Section        0  ble.o(.text.HBLE_VGetKey)
+    [Anonymous Symbol]                       0x08003c84   Section        0  ble.o(.text.HBLE_VInit)
+    [Anonymous Symbol]                       0x08003cdc   Section        0  icu.o(.text.ICU_voidClrTimerIcuFlag)
+    [Anonymous Symbol]                       0x08003d0c   Section        0  icu.o(.text.ICU_voidClrTimerOvFlag)
+    [Anonymous Symbol]                       0x08003d30   Section        0  icu.o(.text.ICU_voidDisableTimer)
+    [Anonymous Symbol]                       0x08003d54   Section        0  icu.o(.text.ICU_voidEnableTimer)
+    [Anonymous Symbol]                       0x08003d78   Section        0  icu.o(.text.ICU_voidGetICU_Count)
+    [Anonymous Symbol]                       0x08003dfc   Section        0  icu.o(.text.ICU_voidGetTimerIcuStatus)
+    [Anonymous Symbol]                       0x08003e30   Section        0  icu.o(.text.ICU_voidGetTimerOvStatus)
+    [Anonymous Symbol]                       0x08003e58   Section        0  icu.o(.text.ICU_voidInitTimer)
+    [Anonymous Symbol]                       0x08003f88   Section        0  icu.o(.text.ICU_voidSetArrTime)
+    [Anonymous Symbol]                       0x08003fa8   Section        0  icu.o(.text.ICU_voidSetCountTime)
+    [Anonymous Symbol]                       0x08003fc8   Section        0  icu.o(.text.ICU_voidSetSensingEdge)
+    [Anonymous Symbol]                       0x080040bc   Section        0  nvic.o(.text.MNVIC_EnuEnablePerInterrupt)
+    [Anonymous Symbol]                       0x0800412c   Section        0  usart.o(.text.MUSART1_VidSetCallBack)
+    [Anonymous Symbol]                       0x08004148   Section        0  usart.o(.text.MUSART_voidInit)
+    [Anonymous Symbol]                       0x08004404   Section        0  main.o(.text.Motor_SetDirectionT)
     [Anonymous Symbol]                       0x080044b4   Section        0  pwm.o(.text.PWM_enu_Init)
     [Anonymous Symbol]                       0x0800484c   Section        0  pwm.o(.text.PWM_enu_SetDutyCycle)
     [Anonymous Symbol]                       0x08004950   Section        0  port.o(.text.PendSV_Handler)
@@ -2682,44 +2680,44 @@ Image Symbol Table
     __use_no_semihosting_swi                 0x08000485   Thumb Code     2  use_no_semi.o(.text)
     __semihosting_library_function           0x08000487   Thumb Code     0  indicate_semi.o(.text)
     BLE_GetDirectionT                        0x08000489   Thumb Code    28  main.o(.text.BLE_GetDirectionT)
-    CAN_SendDataT                            0x080004a5   Thumb Code    96  main.o(.text.CAN_SendDataT)
-    CAN_enuCreateFilter                      0x08000505   Thumb Code  8290  can.o(.text.CAN_enuCreateFilter)
-    CAN_enuInit                              0x08002569   Thumb Code   440  can.o(.text.CAN_enuInit)
-    CAN_enuTransmit                          0x08002721   Thumb Code  3104  can.o(.text.CAN_enuTransmit)
-    CAN_voidSysInit                          0x08003341   Thumb Code   132  main.o(.text.CAN_voidSysInit)
-    DCmotor_Init                             0x080033c5   Thumb Code   108  motor.o(.text.DCmotor_Init)
-    DCmotor_backMove                         0x08003431   Thumb Code    70  motor.o(.text.DCmotor_backMove)
-    DCmotor_frontMove                        0x08003479   Thumb Code    70  motor.o(.text.DCmotor_frontMove)
-    DCmotor_leftMove                         0x080034c1   Thumb Code    70  motor.o(.text.DCmotor_leftMove)
-    DCmotor_rightMove                        0x08003509   Thumb Code    70  motor.o(.text.DCmotor_rightMove)
-    DCmotor_stop                             0x08003551   Thumb Code    62  motor.o(.text.DCmotor_stop)
-    EXTI0_IRQHandler                         0x08003591   Thumb Code    16  exti_irq.o(.text.EXTI0_IRQHandler)
-    EXTI15_10_IRQHandler                     0x080035a1   Thumb Code   304  exti_irq.o(.text.EXTI15_10_IRQHandler)
-    EXTI1_IRQHandler                         0x080036d1   Thumb Code    16  exti_irq.o(.text.EXTI1_IRQHandler)
-    EXTI2_TSC_IRQHandler                     0x080036e1   Thumb Code    16  exti_irq.o(.text.EXTI2_TSC_IRQHandler)
-    EXTI3_IRQHandler                         0x080036f1   Thumb Code    16  exti_irq.o(.text.EXTI3_IRQHandler)
-    EXTI4_IRQHandler                         0x08003701   Thumb Code    16  exti_irq.o(.text.EXTI4_IRQHandler)
-    EXTI9_5_IRQHandler                       0x08003711   Thumb Code   254  exti_irq.o(.text.EXTI9_5_IRQHandler)
-    GPIO_configurePin                        0x08003811   Thumb Code   450  gpio.o(.text.GPIO_configurePin)
-    GPIO_setPinFuction                       0x080039d5   Thumb Code   248  gpio.o(.text.GPIO_setPinFuction)
-    GPIO_writePin                            0x08003acd   Thumb Code   192  gpio.o(.text.GPIO_writePin)
-    HBLE_VGetKey                             0x08003ba1   Thumb Code   220  ble.o(.text.HBLE_VGetKey)
-    HBLE_VInit                               0x08003c7d   Thumb Code    88  ble.o(.text.HBLE_VInit)
-    ICU_voidClrTimerIcuFlag                  0x08003cd5   Thumb Code    48  icu.o(.text.ICU_voidClrTimerIcuFlag)
-    ICU_voidClrTimerOvFlag                   0x08003d05   Thumb Code    34  icu.o(.text.ICU_voidClrTimerOvFlag)
-    ICU_voidDisableTimer                     0x08003d29   Thumb Code    34  icu.o(.text.ICU_voidDisableTimer)
-    ICU_voidEnableTimer                      0x08003d4d   Thumb Code    34  icu.o(.text.ICU_voidEnableTimer)
-    ICU_voidGetICU_Count                     0x08003d71   Thumb Code   132  icu.o(.text.ICU_voidGetICU_Count)
-    ICU_voidGetTimerIcuStatus                0x08003df5   Thumb Code    50  icu.o(.text.ICU_voidGetTimerIcuStatus)
-    ICU_voidGetTimerOvStatus                 0x08003e29   Thumb Code    38  icu.o(.text.ICU_voidGetTimerOvStatus)
-    ICU_voidInitTimer                        0x08003e51   Thumb Code   304  icu.o(.text.ICU_voidInitTimer)
-    ICU_voidSetArrTime                       0x08003f81   Thumb Code    32  icu.o(.text.ICU_voidSetArrTime)
-    ICU_voidSetCountTime                     0x08003fa1   Thumb Code    32  icu.o(.text.ICU_voidSetCountTime)
-    ICU_voidSetSensingEdge                   0x08003fc1   Thumb Code   244  icu.o(.text.ICU_voidSetSensingEdge)
-    MNVIC_EnuEnablePerInterrupt              0x080040b5   Thumb Code   112  nvic.o(.text.MNVIC_EnuEnablePerInterrupt)
-    MUSART1_VidSetCallBack                   0x08004125   Thumb Code    28  usart.o(.text.MUSART1_VidSetCallBack)
-    MUSART_voidInit                          0x08004141   Thumb Code   700  usart.o(.text.MUSART_voidInit)
-    Motor_SetDirectionT                      0x080043fd   Thumb Code   182  main.o(.text.Motor_SetDirectionT)
+    CAN_SendDataT                            0x080004a5   Thumb Code    98  main.o(.text.CAN_SendDataT)
+    CAN_enuCreateFilter                      0x08000509   Thumb Code  8290  can.o(.text.CAN_enuCreateFilter)
+    CAN_enuInit                              0x0800256d   Thumb Code   440  can.o(.text.CAN_enuInit)
+    CAN_enuTransmit                          0x08002725   Thumb Code  3104  can.o(.text.CAN_enuTransmit)
+    CAN_voidSysInit                          0x08003345   Thumb Code   132  main.o(.text.CAN_voidSysInit)
+    DCmotor_Init                             0x080033c9   Thumb Code   108  motor.o(.text.DCmotor_Init)
+    DCmotor_backMove                         0x08003435   Thumb Code    70  motor.o(.text.DCmotor_backMove)
+    DCmotor_frontMove                        0x0800347d   Thumb Code    70  motor.o(.text.DCmotor_frontMove)
+    DCmotor_leftMove                         0x080034c5   Thumb Code    70  motor.o(.text.DCmotor_leftMove)
+    DCmotor_rightMove                        0x0800350d   Thumb Code    70  motor.o(.text.DCmotor_rightMove)
+    DCmotor_stop                             0x08003555   Thumb Code    62  motor.o(.text.DCmotor_stop)
+    EXTI0_IRQHandler                         0x08003595   Thumb Code    16  exti_irq.o(.text.EXTI0_IRQHandler)
+    EXTI15_10_IRQHandler                     0x080035a5   Thumb Code   304  exti_irq.o(.text.EXTI15_10_IRQHandler)
+    EXTI1_IRQHandler                         0x080036d5   Thumb Code    16  exti_irq.o(.text.EXTI1_IRQHandler)
+    EXTI2_TSC_IRQHandler                     0x080036e5   Thumb Code    16  exti_irq.o(.text.EXTI2_TSC_IRQHandler)
+    EXTI3_IRQHandler                         0x080036f5   Thumb Code    16  exti_irq.o(.text.EXTI3_IRQHandler)
+    EXTI4_IRQHandler                         0x08003705   Thumb Code    16  exti_irq.o(.text.EXTI4_IRQHandler)
+    EXTI9_5_IRQHandler                       0x08003715   Thumb Code   254  exti_irq.o(.text.EXTI9_5_IRQHandler)
+    GPIO_configurePin                        0x08003815   Thumb Code   450  gpio.o(.text.GPIO_configurePin)
+    GPIO_setPinFuction                       0x080039d9   Thumb Code   252  gpio.o(.text.GPIO_setPinFuction)
+    GPIO_writePin                            0x08003ad5   Thumb Code   192  gpio.o(.text.GPIO_writePin)
+    HBLE_VGetKey                             0x08003ba9   Thumb Code   220  ble.o(.text.HBLE_VGetKey)
+    HBLE_VInit                               0x08003c85   Thumb Code    88  ble.o(.text.HBLE_VInit)
+    ICU_voidClrTimerIcuFlag                  0x08003cdd   Thumb Code    48  icu.o(.text.ICU_voidClrTimerIcuFlag)
+    ICU_voidClrTimerOvFlag                   0x08003d0d   Thumb Code    34  icu.o(.text.ICU_voidClrTimerOvFlag)
+    ICU_voidDisableTimer                     0x08003d31   Thumb Code    34  icu.o(.text.ICU_voidDisableTimer)
+    ICU_voidEnableTimer                      0x08003d55   Thumb Code    34  icu.o(.text.ICU_voidEnableTimer)
+    ICU_voidGetICU_Count                     0x08003d79   Thumb Code   132  icu.o(.text.ICU_voidGetICU_Count)
+    ICU_voidGetTimerIcuStatus                0x08003dfd   Thumb Code    50  icu.o(.text.ICU_voidGetTimerIcuStatus)
+    ICU_voidGetTimerOvStatus                 0x08003e31   Thumb Code    38  icu.o(.text.ICU_voidGetTimerOvStatus)
+    ICU_voidInitTimer                        0x08003e59   Thumb Code   304  icu.o(.text.ICU_voidInitTimer)
+    ICU_voidSetArrTime                       0x08003f89   Thumb Code    32  icu.o(.text.ICU_voidSetArrTime)
+    ICU_voidSetCountTime                     0x08003fa9   Thumb Code    32  icu.o(.text.ICU_voidSetCountTime)
+    ICU_voidSetSensingEdge                   0x08003fc9   Thumb Code   244  icu.o(.text.ICU_voidSetSensingEdge)
+    MNVIC_EnuEnablePerInterrupt              0x080040bd   Thumb Code   112  nvic.o(.text.MNVIC_EnuEnablePerInterrupt)
+    MUSART1_VidSetCallBack                   0x0800412d   Thumb Code    28  usart.o(.text.MUSART1_VidSetCallBack)
+    MUSART_voidInit                          0x08004149   Thumb Code   700  usart.o(.text.MUSART_voidInit)
+    Motor_SetDirectionT                      0x08004405   Thumb Code   174  main.o(.text.Motor_SetDirectionT)
     PWM_enu_Init                             0x080044b5   Thumb Code   920  pwm.o(.text.PWM_enu_Init)
     PWM_enu_SetDutyCycle                     0x0800484d   Thumb Code   252  pwm.o(.text.PWM_enu_SetDutyCycle)
     PendSV_Handler                           0x08004951   Thumb Code   100  port.o(.text.PendSV_Handler)
@@ -2896,58 +2894,59 @@ Memory Map of the image
     0x08000486   0x08000486   0x00000000   Code   RO         1110    .text               c_w.l(indicate_semi.o)
     0x08000486   0x08000486   0x00000002   PAD
     0x08000488   0x08000488   0x0000001c   Code   RO            4    .text.BLE_GetDirectionT  main.o
-    0x080004a4   0x080004a4   0x00000060   Code   RO            8    .text.CAN_SendDataT  main.o
-    0x08000504   0x08000504   0x00002062   Code   RO          289    .text.CAN_enuCreateFilter  can.o
-    0x08002566   0x08002566   0x00000002   PAD
-    0x08002568   0x08002568   0x000001b8   Code   RO          285    .text.CAN_enuInit   can.o
-    0x08002720   0x08002720   0x00000c20   Code   RO          287    .text.CAN_enuTransmit  can.o
-    0x08003340   0x08003340   0x00000084   Code   RO           10    .text.CAN_voidSysInit  main.o
-    0x080033c4   0x080033c4   0x0000006c   Code   RO          198    .text.DCmotor_Init  motor.o
-    0x08003430   0x08003430   0x00000046   Code   RO          202    .text.DCmotor_backMove  motor.o
-    0x08003476   0x08003476   0x00000002   PAD
-    0x08003478   0x08003478   0x00000046   Code   RO          200    .text.DCmotor_frontMove  motor.o
-    0x080034be   0x080034be   0x00000002   PAD
-    0x080034c0   0x080034c0   0x00000046   Code   RO          206    .text.DCmotor_leftMove  motor.o
-    0x08003506   0x08003506   0x00000002   PAD
-    0x08003508   0x08003508   0x00000046   Code   RO          204    .text.DCmotor_rightMove  motor.o
-    0x0800354e   0x0800354e   0x00000002   PAD
-    0x08003550   0x08003550   0x0000003e   Code   RO          208    .text.DCmotor_stop  motor.o
-    0x0800358e   0x0800358e   0x00000002   PAD
-    0x08003590   0x08003590   0x00000010   Code   RO          177    .text.EXTI0_IRQHandler  exti_irq.o
-    0x080035a0   0x080035a0   0x00000130   Code   RO          189    .text.EXTI15_10_IRQHandler  exti_irq.o
-    0x080036d0   0x080036d0   0x00000010   Code   RO          179    .text.EXTI1_IRQHandler  exti_irq.o
-    0x080036e0   0x080036e0   0x00000010   Code   RO          181    .text.EXTI2_TSC_IRQHandler  exti_irq.o
-    0x080036f0   0x080036f0   0x00000010   Code   RO          183    .text.EXTI3_IRQHandler  exti_irq.o
-    0x08003700   0x08003700   0x00000010   Code   RO          185    .text.EXTI4_IRQHandler  exti_irq.o
-    0x08003710   0x08003710   0x000000fe   Code   RO          187    .text.EXTI9_5_IRQHandler  exti_irq.o
-    0x0800380e   0x0800380e   0x00000002   PAD
-    0x08003810   0x08003810   0x000001c2   Code   RO           47    .text.GPIO_configurePin  gpio.o
-    0x080039d2   0x080039d2   0x00000002   PAD
-    0x080039d4   0x080039d4   0x000000f8   Code   RO           59    .text.GPIO_setPinFuction  gpio.o
-    0x08003acc   0x08003acc   0x000000c0   Code   RO           49    .text.GPIO_writePin  gpio.o
-    0x08003b8c   0x08003b8c   0x00000014   Code   RO          270    .text.HBLE_VGetChar  ble.o
-    0x08003ba0   0x08003ba0   0x000000dc   Code   RO          272    .text.HBLE_VGetKey  ble.o
-    0x08003c7c   0x08003c7c   0x00000058   Code   RO          268    .text.HBLE_VInit    ble.o
-    0x08003cd4   0x08003cd4   0x00000030   Code   RO          151    .text.ICU_voidClrTimerIcuFlag  icu.o
-    0x08003d04   0x08003d04   0x00000022   Code   RO          145    .text.ICU_voidClrTimerOvFlag  icu.o
-    0x08003d26   0x08003d26   0x00000002   PAD
-    0x08003d28   0x08003d28   0x00000022   Code   RO          153    .text.ICU_voidDisableTimer  icu.o
-    0x08003d4a   0x08003d4a   0x00000002   PAD
-    0x08003d4c   0x08003d4c   0x00000022   Code   RO          139    .text.ICU_voidEnableTimer  icu.o
-    0x08003d6e   0x08003d6e   0x00000002   PAD
-    0x08003d70   0x08003d70   0x00000084   Code   RO          141    .text.ICU_voidGetICU_Count  icu.o
-    0x08003df4   0x08003df4   0x00000032   Code   RO          147    .text.ICU_voidGetTimerIcuStatus  icu.o
-    0x08003e26   0x08003e26   0x00000002   PAD
-    0x08003e28   0x08003e28   0x00000026   Code   RO          143    .text.ICU_voidGetTimerOvStatus  icu.o
-    0x08003e4e   0x08003e4e   0x00000002   PAD
-    0x08003e50   0x08003e50   0x00000130   Code   RO          133    .text.ICU_voidInitTimer  icu.o
-    0x08003f80   0x08003f80   0x00000020   Code   RO          149    .text.ICU_voidSetArrTime  icu.o
-    0x08003fa0   0x08003fa0   0x00000020   Code   RO          137    .text.ICU_voidSetCountTime  icu.o
-    0x08003fc0   0x08003fc0   0x000000f4   Code   RO          135    .text.ICU_voidSetSensingEdge  icu.o
-    0x080040b4   0x080040b4   0x00000070   Code   RO           78    .text.MNVIC_EnuEnablePerInterrupt  nvic.o
-    0x08004124   0x08004124   0x0000001c   Code   RO          121    .text.MUSART1_VidSetCallBack  usart.o
-    0x08004140   0x08004140   0x000002bc   Code   RO          113    .text.MUSART_voidInit  usart.o
-    0x080043fc   0x080043fc   0x000000b6   Code   RO            2    .text.Motor_SetDirectionT  main.o
+    0x080004a4   0x080004a4   0x00000062   Code   RO            8    .text.CAN_SendDataT  main.o
+    0x08000506   0x08000506   0x00000002   PAD
+    0x08000508   0x08000508   0x00002062   Code   RO          289    .text.CAN_enuCreateFilter  can.o
+    0x0800256a   0x0800256a   0x00000002   PAD
+    0x0800256c   0x0800256c   0x000001b8   Code   RO          285    .text.CAN_enuInit   can.o
+    0x08002724   0x08002724   0x00000c20   Code   RO          287    .text.CAN_enuTransmit  can.o
+    0x08003344   0x08003344   0x00000084   Code   RO           10    .text.CAN_voidSysInit  main.o
+    0x080033c8   0x080033c8   0x0000006c   Code   RO          198    .text.DCmotor_Init  motor.o
+    0x08003434   0x08003434   0x00000046   Code   RO          202    .text.DCmotor_backMove  motor.o
+    0x0800347a   0x0800347a   0x00000002   PAD
+    0x0800347c   0x0800347c   0x00000046   Code   RO          200    .text.DCmotor_frontMove  motor.o
+    0x080034c2   0x080034c2   0x00000002   PAD
+    0x080034c4   0x080034c4   0x00000046   Code   RO          206    .text.DCmotor_leftMove  motor.o
+    0x0800350a   0x0800350a   0x00000002   PAD
+    0x0800350c   0x0800350c   0x00000046   Code   RO          204    .text.DCmotor_rightMove  motor.o
+    0x08003552   0x08003552   0x00000002   PAD
+    0x08003554   0x08003554   0x0000003e   Code   RO          208    .text.DCmotor_stop  motor.o
+    0x08003592   0x08003592   0x00000002   PAD
+    0x08003594   0x08003594   0x00000010   Code   RO          177    .text.EXTI0_IRQHandler  exti_irq.o
+    0x080035a4   0x080035a4   0x00000130   Code   RO          189    .text.EXTI15_10_IRQHandler  exti_irq.o
+    0x080036d4   0x080036d4   0x00000010   Code   RO          179    .text.EXTI1_IRQHandler  exti_irq.o
+    0x080036e4   0x080036e4   0x00000010   Code   RO          181    .text.EXTI2_TSC_IRQHandler  exti_irq.o
+    0x080036f4   0x080036f4   0x00000010   Code   RO          183    .text.EXTI3_IRQHandler  exti_irq.o
+    0x08003704   0x08003704   0x00000010   Code   RO          185    .text.EXTI4_IRQHandler  exti_irq.o
+    0x08003714   0x08003714   0x000000fe   Code   RO          187    .text.EXTI9_5_IRQHandler  exti_irq.o
+    0x08003812   0x08003812   0x00000002   PAD
+    0x08003814   0x08003814   0x000001c2   Code   RO           47    .text.GPIO_configurePin  gpio.o
+    0x080039d6   0x080039d6   0x00000002   PAD
+    0x080039d8   0x080039d8   0x000000fc   Code   RO           59    .text.GPIO_setPinFuction  gpio.o
+    0x08003ad4   0x08003ad4   0x000000c0   Code   RO           49    .text.GPIO_writePin  gpio.o
+    0x08003b94   0x08003b94   0x00000014   Code   RO          270    .text.HBLE_VGetChar  ble.o
+    0x08003ba8   0x08003ba8   0x000000dc   Code   RO          272    .text.HBLE_VGetKey  ble.o
+    0x08003c84   0x08003c84   0x00000058   Code   RO          268    .text.HBLE_VInit    ble.o
+    0x08003cdc   0x08003cdc   0x00000030   Code   RO          151    .text.ICU_voidClrTimerIcuFlag  icu.o
+    0x08003d0c   0x08003d0c   0x00000022   Code   RO          145    .text.ICU_voidClrTimerOvFlag  icu.o
+    0x08003d2e   0x08003d2e   0x00000002   PAD
+    0x08003d30   0x08003d30   0x00000022   Code   RO          153    .text.ICU_voidDisableTimer  icu.o
+    0x08003d52   0x08003d52   0x00000002   PAD
+    0x08003d54   0x08003d54   0x00000022   Code   RO          139    .text.ICU_voidEnableTimer  icu.o
+    0x08003d76   0x08003d76   0x00000002   PAD
+    0x08003d78   0x08003d78   0x00000084   Code   RO          141    .text.ICU_voidGetICU_Count  icu.o
+    0x08003dfc   0x08003dfc   0x00000032   Code   RO          147    .text.ICU_voidGetTimerIcuStatus  icu.o
+    0x08003e2e   0x08003e2e   0x00000002   PAD
+    0x08003e30   0x08003e30   0x00000026   Code   RO          143    .text.ICU_voidGetTimerOvStatus  icu.o
+    0x08003e56   0x08003e56   0x00000002   PAD
+    0x08003e58   0x08003e58   0x00000130   Code   RO          133    .text.ICU_voidInitTimer  icu.o
+    0x08003f88   0x08003f88   0x00000020   Code   RO          149    .text.ICU_voidSetArrTime  icu.o
+    0x08003fa8   0x08003fa8   0x00000020   Code   RO          137    .text.ICU_voidSetCountTime  icu.o
+    0x08003fc8   0x08003fc8   0x000000f4   Code   RO          135    .text.ICU_voidSetSensingEdge  icu.o
+    0x080040bc   0x080040bc   0x00000070   Code   RO           78    .text.MNVIC_EnuEnablePerInterrupt  nvic.o
+    0x0800412c   0x0800412c   0x0000001c   Code   RO          121    .text.MUSART1_VidSetCallBack  usart.o
+    0x08004148   0x08004148   0x000002bc   Code   RO          113    .text.MUSART_voidInit  usart.o
+    0x08004404   0x08004404   0x000000ae   Code   RO            2    .text.Motor_SetDirectionT  main.o
     0x080044b2   0x080044b2   0x00000002   PAD
     0x080044b4   0x080044b4   0x00000398   Code   RO           99    .text.PWM_enu_Init  pwm.o
     0x0800484c   0x0800484c   0x000000fc   Code   RO          101    .text.PWM_enu_SetDutyCycle  pwm.o
@@ -3210,11 +3209,11 @@ Image component sizes
        124          0          0          0       1016      33022   cmsis_os2.o
          0          0          0          0         60       1404   exti.o
        638          0          0          0          0       1327   exti_irq.o
-       890          0        288          0          0       5276   gpio.o
+       894          0        288          0          0       5276   gpio.o
        880          0          0          0       8220       4380   heap_4.o
        982          8          0         12          0       2769   icu.o
        238          0          0          0          0       2328   list.o
-       830         18         80          1          9       6100   main.o
+       824         18         80          1          9       5817   main.o
        450          0          0         16          0       3226   motor.o
        112          0          0          0          0       2656   nvic.o
        626         16          0          4          0       2823   port.o
@@ -3229,9 +3228,9 @@ Image component sizes
        786          8          0          0          4       2880   usart.o
 
     ----------------------------------------------------------------------
-     29504        192        824         64      12768     157119   Object Totals
+     29504        192        824         64      12768     156836   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-       138          0          3          4          1          0   (incl. Padding)
+       140          0          3          4          1          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -3285,8 +3284,8 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     30224        208        824         64      12864     157367   Grand Totals
-     30224        208        824         64      12864     157367   ELF Image Totals
+     30224        208        824         64      12864     157084   Grand Totals
+     30224        208        824         64      12864     157084   ELF Image Totals
      30224        208        824         64          0          0   ROM Totals
 
 ==============================================================================

@@ -97,6 +97,7 @@
 
 void MGPIO_voidSetPinDirection(u8 copy_u8PORT , u8 copy_u8PIN  , u8 copy_u8Mode);
 void MGPIO_voidSetPinValue    (u8 copy_u8PORT , u8 copy_u8PIN  , u8 copy_u8Value);
+void MGPIO_voidTogglePin (u8 copy_u8PORT , u8 copy_u8PIN);
 u8   MGPIO_u8GetPinValue      (u8 copy_u8PORT , u8 copy_u8PIN );
 void delay(u32 Copy_DelayTime);
 void SEVEN_SEGMENT ( u8 copy_u8PORT, u8 Copy_u8Number  );
