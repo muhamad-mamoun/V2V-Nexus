@@ -14,6 +14,7 @@ Section Cross References
     main.o(.text.main) refers to main.o(.bss.data) for data
     main.o(.text.main) refers to nrf24l01.o(.text.NRF24L01_readData) for NRF24L01_readData
     main.o(.text.main) refers to nrf24l01.o(.text.NRF24L01_flushReceiverBuffer) for NRF24L01_flushReceiverBuffer
+    main.o(.text.main) refers to dio_program.o(.text.MGPIO_voidTogglePin) for MGPIO_voidTogglePin
     main.o(.ARM.exidx.text.main) refers to main.o(.text.main) for [Anonymous Symbol]
     rcc_program.o(.text.MRCC_voidInit) refers to rcc_program.o(.text.MRCC_voidClkEnable) for MRCC_voidClkEnable
     rcc_program.o(.text.MRCC_voidInit) refers to rcc_program.o(.text.MRCC_u8CheckClockReady) for MRCC_u8CheckClockReady
@@ -301,7 +302,6 @@ Removing Unused input sections from the image.
     Removing dio_program.o(.text), (0 bytes).
     Removing dio_program.o(.ARM.exidx.text.MGPIO_voidSetPinDirection), (8 bytes).
     Removing dio_program.o(.ARM.exidx.text.MGPIO_voidSetPinValue), (8 bytes).
-    Removing dio_program.o(.text.MGPIO_voidTogglePin), (120 bytes).
     Removing dio_program.o(.ARM.exidx.text.MGPIO_voidTogglePin), (8 bytes).
     Removing dio_program.o(.text.MGPIO_u8GetPinValue), (130 bytes).
     Removing dio_program.o(.ARM.exidx.text.MGPIO_u8GetPinValue), (8 bytes).
@@ -348,7 +348,7 @@ Removing Unused input sections from the image.
     Removing system_stm32f10x.o(.data.SystemCoreClock), (4 bytes).
     Removing system_stm32f10x.o(.rodata.AHBPrescTable), (16 bytes).
 
-82 unused section(s) (total 6229 bytes) removed from the image.
+81 unused section(s) (total 6109 bytes) removed from the image.
 
 ==============================================================================
 
@@ -475,39 +475,40 @@ Image Symbol Table
     .text                                    0x08000242   Section        0  indicate_semi.o(.text)
     [Anonymous Symbol]                       0x08000244   Section        0  dio_program.o(.text.MGPIO_voidSetPinDirection)
     [Anonymous Symbol]                       0x0800041c   Section        0  dio_program.o(.text.MGPIO_voidSetPinValue)
-    [Anonymous Symbol]                       0x08000528   Section        0  rcc_program.o(.text.MRCC_u8CheckClockReady)
-    [Anonymous Symbol]                       0x08000594   Section        0  rcc_program.o(.text.MRCC_voidClkDisable)
-    [Anonymous Symbol]                       0x080005f0   Section        0  rcc_program.o(.text.MRCC_voidClkEnable)
-    [Anonymous Symbol]                       0x0800064c   Section        0  rcc_program.o(.text.MRCC_voidInit)
-    [Anonymous Symbol]                       0x08000688   Section        0  rcc_program.o(.text.MRCC_voidPerClock_State)
-    [Anonymous Symbol]                       0x08000798   Section        0  rcc_program.o(.text.MRCC_voidSetBusesPrescaler)
-    [Anonymous Symbol]                       0x080007e0   Section        0  rcc_program.o(.text.MRCC_voidSetClkSource)
-    [Anonymous Symbol]                       0x08000854   Section        0  nrf24l01.o(.text.NRF24L01_checkReceiverBuffer)
-    [Anonymous Symbol]                       0x080008d8   Section        0  nrf24l01.o(.text.NRF24L01_flushReceiverBuffer)
-    [Anonymous Symbol]                       0x080008e4   Section        0  nrf24l01.o(.text.NRF24L01_init)
-    [Anonymous Symbol]                       0x08000990   Section        0  nrf24l01.o(.text.NRF24L01_readData)
-    NRF24L01_readRegister                    0x080009f1   Thumb Code    78  nrf24l01.o(.text.NRF24L01_readRegister)
-    [Anonymous Symbol]                       0x080009f0   Section        0  nrf24l01.o(.text.NRF24L01_readRegister)
-    [Anonymous Symbol]                       0x08000a40   Section        0  nrf24l01.o(.text.NRF24L01_reset)
-    NRF24L01_sendCommand                     0x08000aed   Thumb Code    52  nrf24l01.o(.text.NRF24L01_sendCommand)
-    [Anonymous Symbol]                       0x08000aec   Section        0  nrf24l01.o(.text.NRF24L01_sendCommand)
-    [Anonymous Symbol]                       0x08000b20   Section        0  nrf24l01.o(.text.NRF24L01_switchToReceiverMode)
-    NRF24L01_writeRegister                   0x08000c6d   Thumb Code    84  nrf24l01.o(.text.NRF24L01_writeRegister)
-    [Anonymous Symbol]                       0x08000c6c   Section        0  nrf24l01.o(.text.NRF24L01_writeRegister)
-    NRF24L01_writeRegisterMulti              0x08000cc1   Thumb Code    92  nrf24l01.o(.text.NRF24L01_writeRegisterMulti)
-    [Anonymous Symbol]                       0x08000cc0   Section        0  nrf24l01.o(.text.NRF24L01_writeRegisterMulti)
-    [Anonymous Symbol]                       0x08000d1c   Section        0  spi.o(.text.SPI1_IRQHandler)
-    [Anonymous Symbol]                       0x08000d48   Section        0  spi.o(.text.SPI_enu_SendRecieveStreamSynch)
-    [Anonymous Symbol]                       0x08000d8c   Section        0  spi.o(.text.SPI_voidInit)
-    [Anonymous Symbol]                       0x08000de8   Section        0  spi.o(.text.SPI_voidSendReceieveCharSynch)
-    SetSysClock                              0x08000e3d   Thumb Code     8  system_stm32f10x.o(.text.SetSysClock)
-    [Anonymous Symbol]                       0x08000e3c   Section        0  system_stm32f10x.o(.text.SetSysClock)
-    SetSysClockTo72                          0x08000e45   Thumb Code   290  system_stm32f10x.o(.text.SetSysClockTo72)
-    [Anonymous Symbol]                       0x08000e44   Section        0  system_stm32f10x.o(.text.SetSysClockTo72)
-    [Anonymous Symbol]                       0x08000f68   Section        0  system_stm32f10x.o(.text.SystemInit)
-    [Anonymous Symbol]                       0x08000fd0   Section        0  main.o(.text.main)
-    truncate_queue                           0x08001045   Thumb Code   120  spi.o(.text.truncate_queue)
-    [Anonymous Symbol]                       0x08001044   Section        0  spi.o(.text.truncate_queue)
+    [Anonymous Symbol]                       0x08000528   Section        0  dio_program.o(.text.MGPIO_voidTogglePin)
+    [Anonymous Symbol]                       0x080005a0   Section        0  rcc_program.o(.text.MRCC_u8CheckClockReady)
+    [Anonymous Symbol]                       0x0800060c   Section        0  rcc_program.o(.text.MRCC_voidClkDisable)
+    [Anonymous Symbol]                       0x08000668   Section        0  rcc_program.o(.text.MRCC_voidClkEnable)
+    [Anonymous Symbol]                       0x080006c4   Section        0  rcc_program.o(.text.MRCC_voidInit)
+    [Anonymous Symbol]                       0x08000700   Section        0  rcc_program.o(.text.MRCC_voidPerClock_State)
+    [Anonymous Symbol]                       0x08000810   Section        0  rcc_program.o(.text.MRCC_voidSetBusesPrescaler)
+    [Anonymous Symbol]                       0x08000858   Section        0  rcc_program.o(.text.MRCC_voidSetClkSource)
+    [Anonymous Symbol]                       0x080008cc   Section        0  nrf24l01.o(.text.NRF24L01_checkReceiverBuffer)
+    [Anonymous Symbol]                       0x08000950   Section        0  nrf24l01.o(.text.NRF24L01_flushReceiverBuffer)
+    [Anonymous Symbol]                       0x0800095c   Section        0  nrf24l01.o(.text.NRF24L01_init)
+    [Anonymous Symbol]                       0x08000a08   Section        0  nrf24l01.o(.text.NRF24L01_readData)
+    NRF24L01_readRegister                    0x08000a69   Thumb Code    78  nrf24l01.o(.text.NRF24L01_readRegister)
+    [Anonymous Symbol]                       0x08000a68   Section        0  nrf24l01.o(.text.NRF24L01_readRegister)
+    [Anonymous Symbol]                       0x08000ab8   Section        0  nrf24l01.o(.text.NRF24L01_reset)
+    NRF24L01_sendCommand                     0x08000b65   Thumb Code    52  nrf24l01.o(.text.NRF24L01_sendCommand)
+    [Anonymous Symbol]                       0x08000b64   Section        0  nrf24l01.o(.text.NRF24L01_sendCommand)
+    [Anonymous Symbol]                       0x08000b98   Section        0  nrf24l01.o(.text.NRF24L01_switchToReceiverMode)
+    NRF24L01_writeRegister                   0x08000ce5   Thumb Code    84  nrf24l01.o(.text.NRF24L01_writeRegister)
+    [Anonymous Symbol]                       0x08000ce4   Section        0  nrf24l01.o(.text.NRF24L01_writeRegister)
+    NRF24L01_writeRegisterMulti              0x08000d39   Thumb Code    92  nrf24l01.o(.text.NRF24L01_writeRegisterMulti)
+    [Anonymous Symbol]                       0x08000d38   Section        0  nrf24l01.o(.text.NRF24L01_writeRegisterMulti)
+    [Anonymous Symbol]                       0x08000d94   Section        0  spi.o(.text.SPI1_IRQHandler)
+    [Anonymous Symbol]                       0x08000dc0   Section        0  spi.o(.text.SPI_enu_SendRecieveStreamSynch)
+    [Anonymous Symbol]                       0x08000e04   Section        0  spi.o(.text.SPI_voidInit)
+    [Anonymous Symbol]                       0x08000e60   Section        0  spi.o(.text.SPI_voidSendReceieveCharSynch)
+    SetSysClock                              0x08000eb5   Thumb Code     8  system_stm32f10x.o(.text.SetSysClock)
+    [Anonymous Symbol]                       0x08000eb4   Section        0  system_stm32f10x.o(.text.SetSysClock)
+    SetSysClockTo72                          0x08000ebd   Thumb Code   290  system_stm32f10x.o(.text.SetSysClockTo72)
+    [Anonymous Symbol]                       0x08000ebc   Section        0  system_stm32f10x.o(.text.SetSysClockTo72)
+    [Anonymous Symbol]                       0x08000fe0   Section        0  system_stm32f10x.o(.text.SystemInit)
+    [Anonymous Symbol]                       0x08001048   Section        0  main.o(.text.main)
+    truncate_queue                           0x080010c5   Thumb Code   120  spi.o(.text.truncate_queue)
+    [Anonymous Symbol]                       0x080010c4   Section        0  spi.o(.text.truncate_queue)
     G_receiverPipe0Address                   0x20000000   Data           5  nrf24l01.o(.data.G_receiverPipe0Address)
     [Anonymous Symbol]                       0x20000000   Section        0  nrf24l01.o(.data.G_receiverPipe0Address)
     G_receiverPipe1Address                   0x20000005   Data           5  nrf24l01.o(.data.G_receiverPipe1Address)
@@ -685,27 +686,28 @@ Image Symbol Table
     __semihosting_library_function           0x08000243   Thumb Code     0  indicate_semi.o(.text)
     MGPIO_voidSetPinDirection                0x08000245   Thumb Code   472  dio_program.o(.text.MGPIO_voidSetPinDirection)
     MGPIO_voidSetPinValue                    0x0800041d   Thumb Code   268  dio_program.o(.text.MGPIO_voidSetPinValue)
-    MRCC_u8CheckClockReady                   0x08000529   Thumb Code   108  rcc_program.o(.text.MRCC_u8CheckClockReady)
-    MRCC_voidClkDisable                      0x08000595   Thumb Code    92  rcc_program.o(.text.MRCC_voidClkDisable)
-    MRCC_voidClkEnable                       0x080005f1   Thumb Code    92  rcc_program.o(.text.MRCC_voidClkEnable)
-    MRCC_voidInit                            0x0800064d   Thumb Code    58  rcc_program.o(.text.MRCC_voidInit)
-    MRCC_voidPerClock_State                  0x08000689   Thumb Code   270  rcc_program.o(.text.MRCC_voidPerClock_State)
-    MRCC_voidSetBusesPrescaler               0x08000799   Thumb Code    72  rcc_program.o(.text.MRCC_voidSetBusesPrescaler)
-    MRCC_voidSetClkSource                    0x080007e1   Thumb Code   116  rcc_program.o(.text.MRCC_voidSetClkSource)
-    NRF24L01_checkReceiverBuffer             0x08000855   Thumb Code   130  nrf24l01.o(.text.NRF24L01_checkReceiverBuffer)
-    NRF24L01_flushReceiverBuffer             0x080008d9   Thumb Code    10  nrf24l01.o(.text.NRF24L01_flushReceiverBuffer)
-    NRF24L01_init                            0x080008e5   Thumb Code   170  nrf24l01.o(.text.NRF24L01_init)
-    NRF24L01_readData                        0x08000991   Thumb Code    96  nrf24l01.o(.text.NRF24L01_readData)
-    NRF24L01_reset                           0x08000a41   Thumb Code   172  nrf24l01.o(.text.NRF24L01_reset)
-    NRF24L01_switchToReceiverMode            0x08000b21   Thumb Code   330  nrf24l01.o(.text.NRF24L01_switchToReceiverMode)
-    SPI1_IRQHandler                          0x08000d1d   Thumb Code    44  spi.o(.text.SPI1_IRQHandler)
-    SPI_enu_SendRecieveStreamSynch           0x08000d49   Thumb Code    66  spi.o(.text.SPI_enu_SendRecieveStreamSynch)
-    SPI_voidInit                             0x08000d8d   Thumb Code    92  spi.o(.text.SPI_voidInit)
-    SPI_voidSendReceieveCharSynch            0x08000de9   Thumb Code    84  spi.o(.text.SPI_voidSendReceieveCharSynch)
-    SystemInit                               0x08000f69   Thumb Code   102  system_stm32f10x.o(.text.SystemInit)
-    main                                     0x08000fd1   Thumb Code   116  main.o(.text.main)
-    Region$$Table$$Base                      0x080010bc   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x080010dc   Number         0  anon$$obj.o(Region$$Table)
+    MGPIO_voidTogglePin                      0x08000529   Thumb Code   120  dio_program.o(.text.MGPIO_voidTogglePin)
+    MRCC_u8CheckClockReady                   0x080005a1   Thumb Code   108  rcc_program.o(.text.MRCC_u8CheckClockReady)
+    MRCC_voidClkDisable                      0x0800060d   Thumb Code    92  rcc_program.o(.text.MRCC_voidClkDisable)
+    MRCC_voidClkEnable                       0x08000669   Thumb Code    92  rcc_program.o(.text.MRCC_voidClkEnable)
+    MRCC_voidInit                            0x080006c5   Thumb Code    58  rcc_program.o(.text.MRCC_voidInit)
+    MRCC_voidPerClock_State                  0x08000701   Thumb Code   270  rcc_program.o(.text.MRCC_voidPerClock_State)
+    MRCC_voidSetBusesPrescaler               0x08000811   Thumb Code    72  rcc_program.o(.text.MRCC_voidSetBusesPrescaler)
+    MRCC_voidSetClkSource                    0x08000859   Thumb Code   116  rcc_program.o(.text.MRCC_voidSetClkSource)
+    NRF24L01_checkReceiverBuffer             0x080008cd   Thumb Code   130  nrf24l01.o(.text.NRF24L01_checkReceiverBuffer)
+    NRF24L01_flushReceiverBuffer             0x08000951   Thumb Code    10  nrf24l01.o(.text.NRF24L01_flushReceiverBuffer)
+    NRF24L01_init                            0x0800095d   Thumb Code   170  nrf24l01.o(.text.NRF24L01_init)
+    NRF24L01_readData                        0x08000a09   Thumb Code    96  nrf24l01.o(.text.NRF24L01_readData)
+    NRF24L01_reset                           0x08000ab9   Thumb Code   172  nrf24l01.o(.text.NRF24L01_reset)
+    NRF24L01_switchToReceiverMode            0x08000b99   Thumb Code   330  nrf24l01.o(.text.NRF24L01_switchToReceiverMode)
+    SPI1_IRQHandler                          0x08000d95   Thumb Code    44  spi.o(.text.SPI1_IRQHandler)
+    SPI_enu_SendRecieveStreamSynch           0x08000dc1   Thumb Code    66  spi.o(.text.SPI_enu_SendRecieveStreamSynch)
+    SPI_voidInit                             0x08000e05   Thumb Code    92  spi.o(.text.SPI_voidInit)
+    SPI_voidSendReceieveCharSynch            0x08000e61   Thumb Code    84  spi.o(.text.SPI_voidSendReceieveCharSynch)
+    SystemInit                               0x08000fe1   Thumb Code   102  system_stm32f10x.o(.text.SystemInit)
+    main                                     0x08001049   Thumb Code   124  main.o(.text.main)
+    Region$$Table$$Base                      0x0800113c   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x0800115c   Number         0  anon$$obj.o(Region$$Table)
     gl_SPI_data_queue                        0x2000001e   Data         202  spi.o(.data.gl_SPI_data_queue)
     __libspace_start                         0x200000e8   Data          96  libspace.o(.bss)
     __temporary_stack_top$libspace           0x20000148   Data           0  libspace.o(.bss)
@@ -720,9 +722,9 @@ Memory Map of the image
 
   Image Entry point : 0x08000189
 
-  Load Region LR_1 (Base: 0x08000000, Size: 0x000011c4, Max: 0xffffffff, ABSOLUTE)
+  Load Region LR_1 (Base: 0x08000000, Size: 0x00001244, Max: 0xffffffff, ABSOLUTE)
 
-    Execution Region ER_RO (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x000010dc, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RO (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x0000115c, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -787,59 +789,60 @@ Memory Map of the image
     0x08000242   0x08000242   0x00000002   PAD
     0x08000244   0x08000244   0x000001d8   Code   RO           68    .text.MGPIO_voidSetPinDirection  dio_program.o
     0x0800041c   0x0800041c   0x0000010c   Code   RO           70    .text.MGPIO_voidSetPinValue  dio_program.o
-    0x08000528   0x08000528   0x0000006c   Code   RO           16    .text.MRCC_u8CheckClockReady  rcc_program.o
-    0x08000594   0x08000594   0x0000005c   Code   RO           22    .text.MRCC_voidClkDisable  rcc_program.o
-    0x080005f0   0x080005f0   0x0000005c   Code   RO           14    .text.MRCC_voidClkEnable  rcc_program.o
-    0x0800064c   0x0800064c   0x0000003a   Code   RO           12    .text.MRCC_voidInit  rcc_program.o
-    0x08000686   0x08000686   0x00000002   PAD
-    0x08000688   0x08000688   0x0000010e   Code   RO           24    .text.MRCC_voidPerClock_State  rcc_program.o
-    0x08000796   0x08000796   0x00000002   PAD
-    0x08000798   0x08000798   0x00000048   Code   RO           18    .text.MRCC_voidSetBusesPrescaler  rcc_program.o
-    0x080007e0   0x080007e0   0x00000074   Code   RO           20    .text.MRCC_voidSetClkSource  rcc_program.o
-    0x08000854   0x08000854   0x00000082   Code   RO          113    .text.NRF24L01_checkReceiverBuffer  nrf24l01.o
-    0x080008d6   0x080008d6   0x00000002   PAD
-    0x080008d8   0x080008d8   0x0000000a   Code   RO          123    .text.NRF24L01_flushReceiverBuffer  nrf24l01.o
-    0x080008e2   0x080008e2   0x00000002   PAD
-    0x080008e4   0x080008e4   0x000000aa   Code   RO           97    .text.NRF24L01_init  nrf24l01.o
-    0x0800098e   0x0800098e   0x00000002   PAD
-    0x08000990   0x08000990   0x00000060   Code   RO          117    .text.NRF24L01_readData  nrf24l01.o
-    0x080009f0   0x080009f0   0x0000004e   Code   RO          107    .text.NRF24L01_readRegister  nrf24l01.o
-    0x08000a3e   0x08000a3e   0x00000002   PAD
-    0x08000a40   0x08000a40   0x000000ac   Code   RO           99    .text.NRF24L01_reset  nrf24l01.o
-    0x08000aec   0x08000aec   0x00000034   Code   RO          121    .text.NRF24L01_sendCommand  nrf24l01.o
-    0x08000b20   0x08000b20   0x0000014a   Code   RO          109    .text.NRF24L01_switchToReceiverMode  nrf24l01.o
-    0x08000c6a   0x08000c6a   0x00000002   PAD
-    0x08000c6c   0x08000c6c   0x00000054   Code   RO          101    .text.NRF24L01_writeRegister  nrf24l01.o
-    0x08000cc0   0x08000cc0   0x0000005c   Code   RO          105    .text.NRF24L01_writeRegisterMulti  nrf24l01.o
-    0x08000d1c   0x08000d1c   0x0000002c   Code   RO           55    .text.SPI1_IRQHandler  spi.o
-    0x08000d48   0x08000d48   0x00000042   Code   RO           49    .text.SPI_enu_SendRecieveStreamSynch  spi.o
-    0x08000d8a   0x08000d8a   0x00000002   PAD
-    0x08000d8c   0x08000d8c   0x0000005c   Code   RO           37    .text.SPI_voidInit  spi.o
-    0x08000de8   0x08000de8   0x00000054   Code   RO           39    .text.SPI_voidSendReceieveCharSynch  spi.o
-    0x08000e3c   0x08000e3c   0x00000008   Code   RO          152    .text.SetSysClock   system_stm32f10x.o
-    0x08000e44   0x08000e44   0x00000122   Code   RO          156    .text.SetSysClockTo72  system_stm32f10x.o
-    0x08000f66   0x08000f66   0x00000002   PAD
-    0x08000f68   0x08000f68   0x00000066   Code   RO          150    .text.SystemInit    system_stm32f10x.o
-    0x08000fce   0x08000fce   0x00000002   PAD
-    0x08000fd0   0x08000fd0   0x00000074   Code   RO            2    .text.main          main.o
-    0x08001044   0x08001044   0x00000078   Code   RO           45    .text.truncate_queue  spi.o
-    0x080010bc   0x080010bc   0x00000020   Data   RO          334    Region$$Table       anon$$obj.o
+    0x08000528   0x08000528   0x00000078   Code   RO           72    .text.MGPIO_voidTogglePin  dio_program.o
+    0x080005a0   0x080005a0   0x0000006c   Code   RO           16    .text.MRCC_u8CheckClockReady  rcc_program.o
+    0x0800060c   0x0800060c   0x0000005c   Code   RO           22    .text.MRCC_voidClkDisable  rcc_program.o
+    0x08000668   0x08000668   0x0000005c   Code   RO           14    .text.MRCC_voidClkEnable  rcc_program.o
+    0x080006c4   0x080006c4   0x0000003a   Code   RO           12    .text.MRCC_voidInit  rcc_program.o
+    0x080006fe   0x080006fe   0x00000002   PAD
+    0x08000700   0x08000700   0x0000010e   Code   RO           24    .text.MRCC_voidPerClock_State  rcc_program.o
+    0x0800080e   0x0800080e   0x00000002   PAD
+    0x08000810   0x08000810   0x00000048   Code   RO           18    .text.MRCC_voidSetBusesPrescaler  rcc_program.o
+    0x08000858   0x08000858   0x00000074   Code   RO           20    .text.MRCC_voidSetClkSource  rcc_program.o
+    0x080008cc   0x080008cc   0x00000082   Code   RO          113    .text.NRF24L01_checkReceiverBuffer  nrf24l01.o
+    0x0800094e   0x0800094e   0x00000002   PAD
+    0x08000950   0x08000950   0x0000000a   Code   RO          123    .text.NRF24L01_flushReceiverBuffer  nrf24l01.o
+    0x0800095a   0x0800095a   0x00000002   PAD
+    0x0800095c   0x0800095c   0x000000aa   Code   RO           97    .text.NRF24L01_init  nrf24l01.o
+    0x08000a06   0x08000a06   0x00000002   PAD
+    0x08000a08   0x08000a08   0x00000060   Code   RO          117    .text.NRF24L01_readData  nrf24l01.o
+    0x08000a68   0x08000a68   0x0000004e   Code   RO          107    .text.NRF24L01_readRegister  nrf24l01.o
+    0x08000ab6   0x08000ab6   0x00000002   PAD
+    0x08000ab8   0x08000ab8   0x000000ac   Code   RO           99    .text.NRF24L01_reset  nrf24l01.o
+    0x08000b64   0x08000b64   0x00000034   Code   RO          121    .text.NRF24L01_sendCommand  nrf24l01.o
+    0x08000b98   0x08000b98   0x0000014a   Code   RO          109    .text.NRF24L01_switchToReceiverMode  nrf24l01.o
+    0x08000ce2   0x08000ce2   0x00000002   PAD
+    0x08000ce4   0x08000ce4   0x00000054   Code   RO          101    .text.NRF24L01_writeRegister  nrf24l01.o
+    0x08000d38   0x08000d38   0x0000005c   Code   RO          105    .text.NRF24L01_writeRegisterMulti  nrf24l01.o
+    0x08000d94   0x08000d94   0x0000002c   Code   RO           55    .text.SPI1_IRQHandler  spi.o
+    0x08000dc0   0x08000dc0   0x00000042   Code   RO           49    .text.SPI_enu_SendRecieveStreamSynch  spi.o
+    0x08000e02   0x08000e02   0x00000002   PAD
+    0x08000e04   0x08000e04   0x0000005c   Code   RO           37    .text.SPI_voidInit  spi.o
+    0x08000e60   0x08000e60   0x00000054   Code   RO           39    .text.SPI_voidSendReceieveCharSynch  spi.o
+    0x08000eb4   0x08000eb4   0x00000008   Code   RO          152    .text.SetSysClock   system_stm32f10x.o
+    0x08000ebc   0x08000ebc   0x00000122   Code   RO          156    .text.SetSysClockTo72  system_stm32f10x.o
+    0x08000fde   0x08000fde   0x00000002   PAD
+    0x08000fe0   0x08000fe0   0x00000066   Code   RO          150    .text.SystemInit    system_stm32f10x.o
+    0x08001046   0x08001046   0x00000002   PAD
+    0x08001048   0x08001048   0x0000007c   Code   RO            2    .text.main          main.o
+    0x080010c4   0x080010c4   0x00000078   Code   RO           45    .text.truncate_queue  spi.o
+    0x0800113c   0x0800113c   0x00000020   Data   RO          334    Region$$Table       anon$$obj.o
 
 
-    Execution Region ER_RW (Exec base: 0x20000000, Load base: 0x080010dc, Size: 0x000000e8, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RW (Exec base: 0x20000000, Load base: 0x0800115c, Size: 0x000000e8, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x080010dc   0x00000005   Data   RW          126    .data.G_receiverPipe0Address  nrf24l01.o
-    0x20000005   0x080010e1   0x00000005   Data   RW          127    .data.G_receiverPipe1Address  nrf24l01.o
-    0x2000000a   0x080010e6   0x00000005   Data   RW          128    .data.G_receiverPipe2Address  nrf24l01.o
-    0x2000000f   0x080010eb   0x00000005   Data   RW          129    .data.G_receiverPipe3Address  nrf24l01.o
-    0x20000014   0x080010f0   0x00000005   Data   RW          130    .data.G_receiverPipe4Address  nrf24l01.o
-    0x20000019   0x080010f5   0x00000005   Data   RW          131    .data.G_receiverPipe5Address  nrf24l01.o
-    0x2000001e   0x080010fa   0x000000ca   Data   RW           58    .data.gl_SPI_data_queue  spi.o
+    0x20000000   0x0800115c   0x00000005   Data   RW          126    .data.G_receiverPipe0Address  nrf24l01.o
+    0x20000005   0x08001161   0x00000005   Data   RW          127    .data.G_receiverPipe1Address  nrf24l01.o
+    0x2000000a   0x08001166   0x00000005   Data   RW          128    .data.G_receiverPipe2Address  nrf24l01.o
+    0x2000000f   0x0800116b   0x00000005   Data   RW          129    .data.G_receiverPipe3Address  nrf24l01.o
+    0x20000014   0x08001170   0x00000005   Data   RW          130    .data.G_receiverPipe4Address  nrf24l01.o
+    0x20000019   0x08001175   0x00000005   Data   RW          131    .data.G_receiverPipe5Address  nrf24l01.o
+    0x2000001e   0x0800117a   0x000000ca   Data   RW           58    .data.gl_SPI_data_queue  spi.o
 
 
-    Execution Region ER_ZI (Exec base: 0x200000e8, Load base: 0x080011c4, Size: 0x00000688, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_ZI (Exec base: 0x200000e8, Load base: 0x08001244, Size: 0x00000688, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -859,8 +862,8 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-       740          0          0          0          0       4893   dio_program.o
-       116          0          0          0          3       1127   main.o
+       860          0          0          0          0       4893   dio_program.o
+       124          0          0          0          3       1124   main.o
       1214          6          0         30         33       4411   nrf24l01.o
        808          0          0          0          0       2644   rcc_program.o
        406          0          0        202          4       3068   spi.o
@@ -868,7 +871,7 @@ Image component sizes
        400          0          0          0          0       2904   system_stm32f10x.o
 
     ----------------------------------------------------------------------
-      3768         32        268        232       1576      19923   Object Totals
+      3896         32        268        232       1576      19920   Object Totals
          0          0         32          0          0          0   (incl. Generated)
         20          0          0          0          0          0   (incl. Padding)
 
@@ -917,15 +920,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      4048         48        268        232       1672      20299   Grand Totals
-      4048         48        268        232       1672      20299   ELF Image Totals
-      4048         48        268        232          0          0   ROM Totals
+      4176         48        268        232       1672      20296   Grand Totals
+      4176         48        268        232       1672      20296   ELF Image Totals
+      4176         48        268        232          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 4316 (   4.21kB)
+    Total RO  Size (Code + RO Data)                 4444 (   4.34kB)
     Total RW  Size (RW Data + ZI Data)              1904 (   1.86kB)
-    Total ROM Size (Code + RO Data + RW Data)       4548 (   4.44kB)
+    Total ROM Size (Code + RO Data + RW Data)       4676 (   4.57kB)
 
 ==============================================================================
 

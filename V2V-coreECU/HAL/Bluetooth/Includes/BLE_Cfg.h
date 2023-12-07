@@ -19,14 +19,13 @@ Author      : Mohamed Khaled
 
 #define DESIRED_KEY3 'R'
 
-#define DESIRED_KEY4	'L'
+#define DESIRED_KEY4 'L'
 
 #define DESIRED_KEY5 'S'
 
-#define DESIRED_KEY6 'N'
+#define DESIRED_KEY6 '+'
 
-#define DESIRED_KEY7	'W'
+#define DESIRED_KEY7 '-'
 
-#define DESIRED_KEY8 'Q'
-
+#define DESIRED_KEY8  '\0'
 #endif //end Guard

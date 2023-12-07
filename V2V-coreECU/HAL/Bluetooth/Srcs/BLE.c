@@ -71,36 +71,10 @@ void HBLE_VGetKey(pu8 ADD_pu8Key)
 	//if the Key has a new value from BLE
 	if(G_Key !=NO_REC_KEY)
 	{
-		switch(G_Key)
-		{
-			case DESIRED_KEY1:
-				*ADD_pu8Key=G_Key;
-				break;
-			case DESIRED_KEY2:
-				*ADD_pu8Key=G_Key;
-				break;
-			case DESIRED_KEY3:
-				*ADD_pu8Key=G_Key;	
-			  break;
-			case DESIRED_KEY4:
-				*ADD_pu8Key=G_Key;
-				break;
-			case DESIRED_KEY5:
-				*ADD_pu8Key=G_Key;
-				break;
-			case DESIRED_KEY6:
-				*ADD_pu8Key=G_Key;
-				break;
-			case DESIRED_KEY7:
-				*ADD_pu8Key=G_Key;
-				break;
-			case DESIRED_KEY8:
-				*ADD_pu8Key=G_Key;
-				break;
-			default :
-				*ADD_pu8Key=NO_REC_KEY;
-		}
+		
 	  //return G_Key to its initial value 
+		*ADD_pu8Key=G_Key;
+		G_Key = NO_REC_KEY;
 		
 	}
 	else

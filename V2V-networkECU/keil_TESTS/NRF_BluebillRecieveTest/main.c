@@ -27,8 +27,9 @@ int main()
 		{
 			NRF24L01_checkReceiverBuffer(NRF24L01_DATA_PIPE_0,&x);
 		}
-					NRF24L01_readData(data,3);
-			NRF24L01_flushReceiverBuffer();
+		NRF24L01_readData(data,3);
+		NRF24L01_flushReceiverBuffer();
+		MGPIO_voidTogglePin(GPIOC,PIN13);
 	}
 	
 	

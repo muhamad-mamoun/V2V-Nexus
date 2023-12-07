@@ -22,60 +22,93 @@
 #include "BLE.h"
 
 volatile u16 Global_u16Distance;
-/*MakeSure of u8 pointer*/
 
+u8 Global_u8CANDataIndex;
+typedef struct 
+{
 volatile u8 Global_u8Direction;
-volatile u8 Global_u8Speed = 80;
+volatile u8 Global_u8Speed;
 volatile u8  Global_u8BrakeStatus;
+}Data_t;
 
- u8 Global_u8DataArr[3];
+Data_t My_Data = {'S',60,0};
+Data_t REC_Data;
+
+u8 Global_u8DataArr[3];
 
 #define CAN_DataID 	0x200
 
 void Motor_SetDirectionT(void* pvParameter)
 {
 	vTaskDelay(500);
+	u8 Local_u8RecData = 0;
+	u8 Local_u8PrevDirection = 0;
 	while(1)
 	{
-		switch(Global_u8Direction)
+		HBLE_VGetKey(&Local_u8RecData);
+		if (Local_u8RecData == '-' )
 		{
-		case 'F':
-			DCmotor_frontMove(Global_u8Speed);
-		  Global_u8BrakeStatus = 0;
-			break;
-		
-		case 'B':
-			DCmotor_backMove(80);
-			Global_u8BrakeStatus = 0;
-			break;
-		
-		case 'R':
-			DCmotor_rightMove(40);
-			Global_u8BrakeStatus = 0;
-			break;
-		
-		case 'L':
-			DCmotor_leftMove(40);
-			Global_u8BrakeStatus = 0;
-			break;
-		
-		case 'S':
-			DCmotor_stop();
-		  Global_u8BrakeStatus = 1;
-			break;
+			if(My_Data.Global_u8Speed != 0)
+			{
+				My_Data.Global_u8Speed-=20;
+			}
 		}
-		vTaskDelay(100);
+		else if (Local_u8RecData == '+' )
+		{
+			if(My_Data.Global_u8Speed != 100)
+			{
+				My_Data.Global_u8Speed+=20;
+			}
+		}
+		else if (Local_u8RecData != NO_REC_KEY)
+		{
+			My_Data.Global_u8Direction = Local_u8RecData;
+		}
+		
+		/*if(Local_u8PrevDirection != My_Data.Global_u8Direction  || My_Data.Global_u8BrakeStatus == 1 
+			           || Local_u8RecData == '+' || Local_u8RecData == '-')
+		{*/
+		//	Local_u8PrevDirection =  My_Data.Global_u8Direction;
+			switch(My_Data.Global_u8Direction)
+					{
+					case 'F':
+						if( My_Data.Global_u8BrakeStatus == 0)
+						{
+							DCmotor_frontMove(My_Data.Global_u8Speed);
+						}
+						else
+						{
+							DCmotor_stop();
+						}
+						break;
+					
+					case 'B':
+						DCmotor_backMove(My_Data.Global_u8Speed);
+						break;
+					
+					case 'R':
+						DCmotor_rightMove(40);
+						break;
+					
+					case 'L':
+						DCmotor_leftMove(40);
+						break;
+					
+					case 'S':
+						DCmotor_stop();
+						My_Data.Global_u8BrakeStatus = 1;
+						break;
+					}
+		/*}
+		else
+		{
+			
+		}*/
+		
+		vTaskDelay(70);
 	}
 }
 
-void BLE_GetDirectionT(void* pvparam)
-{
-	while (1)
-	{
-		HBLE_VGetKey(&Global_u8Direction);
-		vTaskDelay(200);
-	}
-}
 
 void US_GetDistanceT(void* pvparam)
 {
@@ -86,24 +119,17 @@ void US_GetDistanceT(void* pvparam)
 		vTaskDelay(50);
 		US_voidGetUSSensorDistanceTask(&Local_Dist);
 		if((Local_Dist != 0xDDDD) && (Local_Dist != 0xFEFE))
-		{
-			Global_u16Distance = Local_Dist;
-			
-			/******Speed Handling********/
-			if(Global_u16Distance < 20)
+		{	
+			if(Local_Dist < 30)
 			{
-					Global_u8Speed = 0;
-					Global_u8BrakeStatus = 1;
+					My_Data.Global_u8BrakeStatus = 1;
 			}
-			else
+			else if (My_Data.Global_u8Direction != 'S')
 			{
-				Global_u8Speed = 80;
-				Global_u8BrakeStatus = 0;
+				My_Data.Global_u8BrakeStatus = 0;
 			}
-			/************************/
-			
 		}
-		vTaskDelay(100); 
+		vTaskDelay(10); 
 	}
 }
 
@@ -111,24 +137,37 @@ void US_GetDistanceT(void* pvparam)
 void CAN_SendDataT(void* pvparam)
 {
 	vTaskDelay(500);
-	Global_u8DataArr[0] = 5;
-	Global_u8DataArr[1] = 6;
-	Global_u8DataArr[2] = 7;
-	CAN_Transmit TConfig={STD_ID,DataFram,_3Byte_Data,CAN_DataID,Global_u8DataArr};
+	CAN_Transmit TConfig = {STD_ID,DataFram,_3Byte_Data,CAN_DataID,Global_u8DataArr};
 	while(1)
 	{
-//		Global_u8DataArr[0] = Global_u8Direction;
-//		Global_u8DataArr[1] = Global_u8Speed;
-//		Global_u8DataArr[2] = Global_u8BrakeStatus;
-			
-			CAN_enuTransmit(&TConfig);
-			Global_u8DataArr[0]++;
-			Global_u8DataArr[1]++; 
-			Global_u8DataArr[2]++;
-		  vTaskDelay(2000);
+		Global_u8DataArr[0] = My_Data.Global_u8Direction;
+		Global_u8DataArr[1] = My_Data.Global_u8Speed;
+		Global_u8DataArr[2] = My_Data.Global_u8BrakeStatus;
+		
+		CAN_enuTransmit(&TConfig);
+		vTaskDelay(1000);
 	} 
 }
 
+void CAN_RevieveDataT(void* pvparam)
+{
+	while(1)
+	{
+		if(CAN_enuRecieve(&Global_u8CANDataIndex) == CAN_NORecievedData)
+		{
+			
+		}
+		else
+		{
+			REC_Data.Global_u8Direction=   ARR_Recieved_Data[Global_u8CANDataIndex][0];
+			REC_Data.Global_u8Speed = 		 ARR_Recieved_Data[Global_u8CANDataIndex][1];
+			REC_Data.Global_u8BrakeStatus= ARR_Recieved_Data[Global_u8CANDataIndex][2];
+		
+		}
+		vTaskDelay(500);
+
+	}
+}
 
 
 
@@ -184,16 +223,17 @@ int main(void)
 	
 	/************* TASKS CREATION ***************/
 	xTaskHandle Motor_SetDirectionH;
-	xTaskCreate(Motor_SetDirectionT,(const signed char*)"Motor_SetDirectionT",200,NULL,5,&Motor_SetDirectionH);
+	xTaskCreate(Motor_SetDirectionT,NULL,configMINIMAL_STACK_SIZE,NULL,1,&Motor_SetDirectionH);
 	
 	xTaskHandle CAN_SendDataH;
-	xTaskCreate(CAN_SendDataT,(const signed char*)"CAN_SendDataT",200,NULL,5,&CAN_SendDataH);
-		
-	xTaskHandle BLE_GetDirectionH;
-	xTaskCreate(BLE_GetDirectionT,(const signed char*)"BLE_GetDirectionT",200,NULL,6,&BLE_GetDirectionH);
+	xTaskCreate(CAN_SendDataT,NULL,configMINIMAL_STACK_SIZE,NULL,1,&CAN_SendDataH);
+	
+	xTaskHandle CAN_RevieveDataH;
+	xTaskCreate(CAN_RevieveDataT,NULL,configMINIMAL_STACK_SIZE,NULL,1,&CAN_RevieveDataH);
+	
 	
 	xTaskHandle US_GetDistanceH;
-	xTaskCreate(US_GetDistanceT,(const signed char*)"US_GetDistanceT",200,NULL,7,&US_GetDistanceH);
+	xTaskCreate(US_GetDistanceT,NULL,configMINIMAL_STACK_SIZE,NULL,4,&US_GetDistanceH);
 
 	vTaskStartScheduler();
 }
