@@ -13,15 +13,15 @@
 #include "USART_config.h"
 #include "USART_private.h"
 
-u8 GlobalUSART1_u8RecievedValue[BUFFER_SIZE];
+u8 GlobalUSART1_u8RecievedValue[BUFFER1_SIZE];
 s16 GlobalUSART1_s16RecievedFront=-1;
 s16 GlobalUSART1_s16RecievedRear=-1;
 
-u8 GlobalUSART2_u8RecievedValue[BUFFER_SIZE];
+u8 GlobalUSART2_u8RecievedValue[BUFFER2_SIZE];
 s16 GlobalUSART2_s16RecievedFront=-1;
 s16 GlobalUSART2_s16RecievedRear=-1;
 
-u8 GlobalUSART3_u8RecievedValue[BUFFER_SIZE];
+u8 GlobalUSART3_u8RecievedValue[BUFFER3_SIZE];
 s16 GlobalUSART3_s16RecievedFront=-1;
 s16 GlobalUSART3_s16RecievedRear=-1;
 
