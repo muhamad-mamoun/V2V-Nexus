@@ -12,9 +12,9 @@
 
 typedef enum 
 {
-	USART1,
-	USART2,
-	USART3
+	USART1_Driver,
+	USART2_Driver,
+	USART3_Driver
 }USART_T;
 
 

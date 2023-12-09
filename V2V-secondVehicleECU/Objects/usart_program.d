@@ -1,8 +1,5 @@
 ./objects/usart_program.o: MCAL\UART\SOURCE\USART_program.c \
-  MCAL\UART\SOURCE\..\..\..\OTHERS\std_types.h \
-  MCAL\UART\SOURCE\..\..\..\OTHERS\common_macros.h \
-  RTE\_Target_1\..\..\MCAL\GPIO\INCLUDES\DIO_interface.h \
-  RTE\_Target_1\..\..\MCAL\RCC\INCLUDES\RCC_interface.h \
-  MCAL\UART\SOURCE\..\INCLUDES\USART_interface.h \
-  MCAL\UART\SOURCE\..\INCLUDES\USART_config.h \
-  MCAL\UART\SOURCE\..\INCLUDES\USART_private.h
+  OTHERS\std_types.h OTHERS\common_macros.h \
+  MCAL\GPIO\INCLUDES\DIO_interface.h MCAL\RCC\INCLUDES\RCC_interface.h \
+  MCAL\UART\INCLUDES\USART_interface.h MCAL\UART\INCLUDES\USART_config.h \
+  MCAL\UART\INCLUDES\USART_private.h

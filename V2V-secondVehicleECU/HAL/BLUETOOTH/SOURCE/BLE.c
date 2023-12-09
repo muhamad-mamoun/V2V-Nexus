@@ -8,14 +8,15 @@ Author      : Mohamed Khaled
 
 ***********************************************/
 /*************************************||INCLUDES||*****************************************/
-#include"../../../OTHERS/std_types.h"
-#include"../../../OTHERS/common_macros.h"
-#include "../../../MCAL/RCC/INCLUDES/RCC_interface.h"
-#include "../../../MCAL/NVIC/INCLUDES/NVIC_interface.h"
-#include "../../../MCAL/UART/INCLUDES/USART_interface.h"
-#include "../INCLUDES/BLE.h"
-#include "../INCLUDES/BLE_Cfg.h"
-#include "../INCLUDES/BLE_Prv.h"
+#include "std_types.h"
+#include "common_macros.h"
+#include "DIO_interface.h"
+#include "RCC_interface.h"
+#include "NVIC_interface.h"
+#include "USART_interface.h"
+#include "BLE.h"
+#include "BLE_Cfg.h"
+#include "BLE_Prv.h"
 
 /*
  *Function Name : HBLE_VInit 
@@ -25,10 +26,12 @@ Author      : Mohamed Khaled
  */
 void HBLE_VInit(void)
 {
-    MRCC_voidPerClock_State(APB2 ,IOPA_PERIPHERAL ,PClock_enable );
-    MRCC_voidPerClock_State(APB2 ,USART1_PERIPHERAL ,PClock_enable );
+	MRCC_voidPerClock_State(APB2 ,IOPA_PERIPHERAL ,PClock_enable );
+	MRCC_voidPerClock_State(APB2 ,USART1_PERIPHERAL ,PClock_enable );
+	MGPIO_voidSetPinDirection(GPIOA_driver , PIN9  ,  OUTPUT_SPEED_2MHZ_AFPP);
+	MGPIO_voidSetPinDirection(GPIOA_driver , PIN10  , INPUT_FLOATING);
 	MNVIC_voidEnableInterrupt(USART11);
-	MUSART_voidInit(USART1);
+	MUSART_voidInit(USART1_Driver);
 }
 
 /*
@@ -39,5 +42,5 @@ void HBLE_VInit(void)
  */
 void HBLE_VGetKey(pu8 ADD_pu8Key)
 {
-	MUSART_u8GetRecievedValue(USART1,ADD_pu8Key);
+	MUSART_u8GetRecievedValue(USART1_Driver,ADD_pu8Key);
 }

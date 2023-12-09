@@ -5,13 +5,13 @@
  *      Author: beshoy
  */
 
-#include "../../../OTHERS/std_types.h"
-#include "../../../OTHERS/common_macros.h"
-#include "../../MCAL/GPIO/INCLUDES/DIO_interface.h"
-#include "../../MCAL/RCC/INCLUDES/RCC_interface.h"
-#include "../INCLUDES/USART_interface.h"
-#include "../INCLUDES/USART_config.h"
-#include "../INCLUDES/USART_private.h"
+#include "std_types.h"
+#include "common_macros.h"
+#include "DIO_interface.h"
+#include "RCC_interface.h"
+#include "USART_interface.h"
+#include "USART_config.h"
+#include "USART_private.h"
 
 u8 GlobalUSART1_u8RecievedValue[BUFFER_SIZE];
 s16 GlobalUSART1_s16RecievedFront=-1;
@@ -30,7 +30,7 @@ static void (* USART1_CallBack)   (u8 data)=PTR_NULL;
 void MUSART_voidInit(USART_T USART_NUM)
 {
 	/*	Baudrate 	9600					*/
-	USART[USART_NUM] -> BRR = 0x341; /*MUSART_voidSetBaudrateRegister(Fclock, BUADRATE) ;*/
+	USART[USART_NUM] -> BRR = /*0x341;*/ MUSART_voidSetBaudrateRegister(Fclock, BUADRATE);
 	/*	UART EN , TX EN , RX EN 			*/
 	SET_BIT((USART[USART_NUM] -> CR[0]),RE);
 	SET_BIT((USART[USART_NUM] -> CR[0]),TE);
@@ -38,25 +38,25 @@ void MUSART_voidInit(USART_T USART_NUM)
 	USART[USART_NUM] -> SR = 0;
 	SET_BIT((USART[USART_NUM] -> CR[0]),RXNIE);
 	MUSART_voidEnableUSART_RecieveInterrupt(USART_NUM);
-	if(USART_NUM == USART1)
+	if(USART_NUM == USART1_Driver)
 	{
-		MGPIO_voidSetPinDirection(GPIOA , PIN9  , OUTPUT_SPEED_2MHZ_AFPP);
-		MGPIO_voidSetPinDirection(GPIOA , PIN10  , INPUT_FLOATING);
+		MGPIO_voidSetPinDirection(GPIOA_driver , PIN9  , OUTPUT_SPEED_2MHZ_AFPP);
+		MGPIO_voidSetPinDirection(GPIOA_driver , PIN10  , INPUT_FLOATING);
 	}
-	else if (USART_NUM == USART2)
+	else if (USART_NUM == USART2_Driver)
 	{
 		MRCC_voidPerClock_State(APB1 ,USART2_PERIPHERAL ,PClock_enable );
-		MGPIO_voidSetPinDirection(GPIOA , PIN2  , OUTPUT_SPEED_2MHZ_AFPP);
-		MGPIO_voidSetPinDirection(GPIOA , PIN3  , INPUT_FLOATING);
+		MGPIO_voidSetPinDirection(GPIOA_driver , PIN2  , OUTPUT_SPEED_2MHZ_AFPP);
+		MGPIO_voidSetPinDirection(GPIOA_driver , PIN3  , INPUT_FLOATING);
 	}
-	else if(USART_NUM == USART3)
+	else if(USART_NUM == USART3_Driver)
 	{
 		MRCC_voidPerClock_State(APB1 ,USART3_PERIPHERAL ,PClock_enable );
-		MGPIO_voidSetPinDirection(GPIOB , PIN10  , OUTPUT_SPEED_2MHZ_AFPP);
-		MGPIO_voidSetPinDirection(GPIOB , PIN11  , INPUT_FLOATING);
+		MGPIO_voidSetPinDirection(GPIOB_driver , PIN10  , OUTPUT_SPEED_2MHZ_AFPP);
+		MGPIO_voidSetPinDirection(GPIOB_driver , PIN11  , INPUT_FLOATING);
 	}
     SET_BIT((USART[USART_NUM] -> CR[0]),UE);
-    USART[0]->DR = 'F';
+    //USART[0]->DR = 'F';
 }
 u32 MUSART_voidSetBaudrateRegister(u32 Copy_u32FClock, u32 Copy_u32Baudrate)
 {
@@ -153,7 +153,7 @@ void MUSART_u8GetRecievedValue(USART_T USART_NUM, u8 *Ptr_u8RecievedChar)
 {
 	if(MUSART_u8IsRecieveBufferAvailable(USART_NUM)>0)
 	{
-	if(USART_NUM == USART1)
+	if(USART_NUM == USART1_Driver)
 	{
 		GlobalUSART1_s16RecievedRear=(GlobalUSART1_s16RecievedRear+1)%BUFFER_SIZE;
 		*Ptr_u8RecievedChar = GlobalUSART1_u8RecievedValue[GlobalUSART1_s16RecievedRear];
@@ -163,7 +163,7 @@ void MUSART_u8GetRecievedValue(USART_T USART_NUM, u8 *Ptr_u8RecievedChar)
 			GlobalUSART1_s16RecievedRear=-1;
 		}
 	}
-	else if(USART_NUM == USART2)
+	else if(USART_NUM == USART2_Driver)
 	{
 		GlobalUSART2_s16RecievedRear=(GlobalUSART2_s16RecievedRear+1)%BUFFER_SIZE;
 		*Ptr_u8RecievedChar = GlobalUSART2_u8RecievedValue[GlobalUSART2_s16RecievedRear];
@@ -173,7 +173,7 @@ void MUSART_u8GetRecievedValue(USART_T USART_NUM, u8 *Ptr_u8RecievedChar)
 			GlobalUSART2_s16RecievedRear=-1;
 		}
 	}
-	else if(USART_NUM == USART3)
+	else if(USART_NUM == USART3_Driver)
 	{
 		GlobalUSART3_s16RecievedRear=(GlobalUSART3_s16RecievedRear+1)%BUFFER_SIZE;
 		*Ptr_u8RecievedChar = GlobalUSART3_u8RecievedValue[GlobalUSART3_s16RecievedRear];
@@ -193,7 +193,7 @@ void MUSART_u8GetRecievedValue(USART_T USART_NUM, u8 *Ptr_u8RecievedChar)
 u16 MUSART_u8IsRecieveBufferAvailable(USART_T USART_NUM)
 {
 	u16 Buffer_count;
-	if(USART_NUM == USART1)
+	if(USART_NUM == USART1_Driver)
 	{
 		if(GlobalUSART1_s16RecievedFront>GlobalUSART1_s16RecievedRear)
 		{
@@ -212,7 +212,7 @@ u16 MUSART_u8IsRecieveBufferAvailable(USART_T USART_NUM)
 			Buffer_count = BUFFER_SIZE;
 		}
 	}
-	else if(USART_NUM == USART2)
+	else if(USART_NUM == USART2_Driver)
 	{
 		if(GlobalUSART2_s16RecievedFront>GlobalUSART2_s16RecievedRear)
 		{
@@ -231,7 +231,7 @@ u16 MUSART_u8IsRecieveBufferAvailable(USART_T USART_NUM)
 			Buffer_count = BUFFER_SIZE;
 		}
 	}
-	else if(USART_NUM == USART3)
+	else if(USART_NUM == USART3_Driver)
 	{
 		if(GlobalUSART3_s16RecievedFront>GlobalUSART3_s16RecievedRear)
 		{
@@ -287,7 +287,7 @@ void USART1_IRQHandler(void)
 {
 	if(GET_BIT(USART[0]->SR,RXNE) == 1)
 	{
-		if(MUSART_u8IsRecieveBufferAvailable(USART1) < BUFFER_SIZE)
+		if(MUSART_u8IsRecieveBufferAvailable(USART1_Driver) < BUFFER_SIZE)
 		{
 			GlobalUSART1_s16RecievedFront=(GlobalUSART1_s16RecievedFront+1)%BUFFER_SIZE;
 			GlobalUSART1_u8RecievedValue[GlobalUSART1_s16RecievedFront] = USART[0]->DR ;
@@ -300,7 +300,7 @@ void USART2_IRQHandler(void)
 {
 	if(GET_BIT(USART[1]->SR,RXNE) == 1)
 	{
-		if(MUSART_u8IsRecieveBufferAvailable(USART2) <BUFFER_SIZE)
+		if(MUSART_u8IsRecieveBufferAvailable(USART2_Driver) <BUFFER_SIZE)
 		{
 			GlobalUSART2_s16RecievedFront=(GlobalUSART2_s16RecievedFront+1)%BUFFER_SIZE;
 			GlobalUSART2_u8RecievedValue[GlobalUSART2_s16RecievedFront] = USART[1]->DR ;
@@ -311,7 +311,7 @@ void USART3_IRQHandler(void)
 {
 	if(GET_BIT(USART[2]->SR,RXNE) == 1)
 	{
-		if(MUSART_u8IsRecieveBufferAvailable(USART3) <BUFFER_SIZE)
+		if(MUSART_u8IsRecieveBufferAvailable(USART3_Driver) <BUFFER_SIZE)
 		{
 			GlobalUSART3_s16RecievedFront=(GlobalUSART3_s16RecievedFront+1)%BUFFER_SIZE;
 			GlobalUSART3_u8RecievedValue[GlobalUSART3_s16RecievedFront] = USART[2]->DR ;

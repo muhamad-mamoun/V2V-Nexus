@@ -1,10 +1,10 @@
 
 
-#include "../../../OTHERS/std_types.h"
-#include "../../../OTHERS/common_macros.h"
-#include "../INCLUDES/SPI_prv.h"
-#include "../INCLUDES/SPI_cfg.h"
-#include "../INCLUDES/SPI.h"
+#include "std_types.h"
+#include "common_macros.h"
+#include "SPI_prv.h"
+#include "SPI_cfg.h"
+#include "SPI.h"
 
 
 /*insert queue simply insert desired data to be sent in queue*/

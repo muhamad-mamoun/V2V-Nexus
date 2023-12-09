@@ -3,45 +3,329 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Tool Versions:</h2>
-IDE-Version: µVision V5.38.0.0
-Copyright (C) 2022 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: Muhamad Mamoun, Valeo, LIC=----
+IDE-Version: µVision V5.36.0.0
+Copyright (C) 2021 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: beshoy soliman, benha university, LIC=----
  
 Tool Versions:
-Toolchain:       MDK-Lite  Version: 5.38.0.0
+Toolchain:       MDK-Lite  Version: 5.36.0.0
 Toolchain Path:  C:\Keil_v5\ARM\ARMCLANG\Bin
-C Compiler:      ArmClang.exe V6.19
-Assembler:       Armasm.exe V6.19
-Linker/Locator:  ArmLink.exe V6.19
-Library Manager: ArmAr.exe V6.19
-Hex Converter:   FromElf.exe V6.19
-CPU DLL:         SARMCM3.DLL V5.38.0.0
-Dialog DLL:      DCM.DLL V1.17.5.0
-Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.1.0.0
-Dialog DLL:      TCM.DLL V1.56.4.0
+C Compiler:      ArmClang.exe V6.16
+Assembler:       Armasm.exe V6.16
+Linker/Locator:  ArmLink.exe V6.16
+Library Manager: ArmAr.exe V6.16
+Hex Converter:   FromElf.exe V6.16
+CPU DLL:         SARMCM3.DLL V5.36.0.0
+Dialog DLL:      DCM.DLL V1.17.3.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.9.0
+Dialog DLL:      TCM.DLL V1.53.0.0
  
 <h2>Project:</h2>
-D:\Content\NTI\Projects\Final Project\Second Vehicle\Second Vehicle.uvprojx
+D:\NTI\09 - Graduation Project\V2V-coreECU\V2V-secondVehicleECU\Second Vehicle.uvprojx
 Project File Date:  12/09/2023
 
 <h2>Output:</h2>
-*** Using Compiler 'V6.19', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
+*** Using Compiler 'V6.16', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Rebuild target 'Target 1'
-compiling PWM_program.c...
-compiling NVIC_program.c...
-compiling SPI.c...
 compiling DIO_PROGRAM.c...
-compiling BLE.c...
+compiling NVIC_program.c...
+compiling PWM_program.c...
 compiling RCC_program.c...
+compiling SPI.c...
 compiling USART_program.c...
+compiling BLE.c...
 compiling motor.c...
 compiling nrf24l01.c...
+APP/V2V-secondVehicle.c(16): warning: In file included from...
+C:/Users/bishoy18126/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include\FreeRTOS.h(59): warning: In file included from...
+./RTE/RTOS\FreeRTOSConfig.h(272): warning: 'xPortPendSVHandler' macro redefined [-Wmacro-redefined]
+#define xPortPendSVHandler                      PendSV_Handler
+        ^
+./RTE/RTOS\FreeRTOSConfig.h(251): note: previous definition is here
+#define xPortPendSVHandler pend_sv_handler
+        ^
+./RTE/RTOS\FreeRTOSConfig.h(273): warning: 'vPortSVCHandler' macro redefined [-Wmacro-redefined]
+#define vPortSVCHandler                         SVC_Handler
+        ^
+./RTE/RTOS\FreeRTOSConfig.h(250): note: previous definition is here
+#define vPortSVCHandler sv_call_handler
+        ^
+APP/V2V-secondVehicle.c(20): warning: In file included from...
+./OTHERS\common_macros.h(6): warning: 'SET_BIT' macro redefined [-Wmacro-redefined]
+#define SET_BIT(Reg,Bit)                                        (Reg|=(1<<Bit))
+        ^
+C:/Users/bishoy18126/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include\stm32f10x.h(8354): note: previous definition is here
+#define SET_BIT(REG, BIT)     ((REG) |= (BIT))
+        ^
+APP/V2V-secondVehicle.c(21): warning: In file included from...
+./OTHERS\std_types.h(5): warning: redefinition of typedef 's8' is a C11 feature [-Wtypedef-redefinition]
+typedef signed char                                             s8;
+                                                                ^
+C:/Users/bishoy18126/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include\stm32f10x.h(497): note: previous definition is here
+typedef int8_t  s8;
+                ^
+APP/V2V-secondVehicle.c(21): warning: In file included from...
+./OTHERS\std_types.h(6): warning: redefinition of typedef 'u8' is a C11 feature [-Wtypedef-redefinition]
+typedef unsigned char                                           u8;
+                                                                ^
+C:/Users/bishoy18126/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include\stm32f10x.h(513): note: previous definition is here
+typedef uint8_t  u8;
+                 ^
+APP/V2V-secondVehicle.c(21): warning: In file included from...
+./OTHERS\std_types.h(9): warning: redefinition of typedef 's16' is a C11 feature [-Wtypedef-redefinition]
+typedef signed short int                                        s16;
+                                                                ^
+C:/Users/bishoy18126/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include\stm32f10x.h(496): note: previous definition is here
+typedef int16_t s16;
+                ^
+APP/V2V-secondVehicle.c(21): warning: In file included from...
+./OTHERS\std_types.h(10): warning: redefinition of typedef 'u16' is a C11 feature [-Wtypedef-redefinition]
+typedef unsigned short int                                      u16;
+                                                                ^
+C:/Users/bishoy18126/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include\stm32f10x.h(512): note: previous definition is here
+typedef uint16_t u16;
+                 ^
+APP/V2V-secondVehicle.c(21): warning: In file included from...
+./OTHERS\std_types.h(11): warning: redefinition of typedef 's32' is a C11 feature [-Wtypedef-redefinition]
+typedef signed /*long*/ int                                             s32;
+                                                                        ^
+C:/Users/bishoy18126/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include\stm32f10x.h(495): note: previous definition is here
+typedef int32_t  s32;
+                 ^
+APP/V2V-secondVehicle.c(21): warning: In file included from...
+./OTHERS\std_types.h(12): warning: redefinition of typedef 'u32' is a C11 feature [-Wtypedef-redefinition]
+typedef unsigned /*long*/ int                                   u32;
+                                                                ^
+C:/Users/bishoy18126/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include\stm32f10x.h(511): note: previous definition is here
+typedef uint32_t  u32;
+                  ^
+APP/V2V-secondVehicle.c(21): warning: In file included from...
+./OTHERS\std_types.h(18): warning: redefinition of typedef 'vs8' is a C11 feature [-Wtypedef-redefinition]
+typedef volatile signed char                            vs8;
+                                                        ^
+C:/Users/bishoy18126/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include\stm32f10x.h(505): note: previous definition is here
+typedef __IO int8_t   vs8;
+                      ^
+APP/V2V-secondVehicle.c(21): warning: In file included from...
+./OTHERS\std_types.h(19): warning: redefinition of typedef 'vu8' is a C11 feature [-Wtypedef-redefinition]
+typedef volatile unsigned char                          vu8;
+                                                        ^
+C:/Users/bishoy18126/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include\stm32f10x.h(521): note: previous definition is here
+typedef __IO uint8_t  vu8;
+                      ^
+APP/V2V-secondVehicle.c(21): warning: In file included from...
+./OTHERS\std_types.h(20): warning: redefinition of typedef 'vs16' is a C11 feature [-Wtypedef-redefinition]
+typedef volatile signed short int                  vs16;
+                                                   ^
+C:/Users/bishoy18126/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include\stm32f10x.h(504): note: previous definition is here
+typedef __IO int16_t  vs16;
+                      ^
+APP/V2V-secondVehicle.c(21): warning: In file included from...
+./OTHERS\std_types.h(21): warning: redefinition of typedef 'vu16' is a C11 feature [-Wtypedef-redefinition]
+typedef volatile unsigned short int        vu16;
+                                           ^
+C:/Users/bishoy18126/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include\stm32f10x.h(520): note: previous definition is here
+typedef __IO uint16_t vu16;
+                      ^
+APP/V2V-secondVehicle.c(21): warning: In file included from...
+./OTHERS\std_types.h(22): warning: redefinition of typedef 'vs32' is a C11 feature [-Wtypedef-redefinition]
+typedef volatile signed int                        vs32;
+                                                   ^
+C:/Users/bishoy18126/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include\stm32f10x.h(503): note: previous definition is here
+typedef __IO int32_t  vs32;
+                      ^
+APP/V2V-secondVehicle.c(21): warning: In file included from...
+./OTHERS\std_types.h(23): warning: redefinition of typedef 'vu32' is a C11 feature [-Wtypedef-redefinition]
+typedef volatile unsigned int                      vu32;
+                                                   ^
+C:/Users/bishoy18126/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include\stm32f10x.h(519): note: previous definition is here
+typedef __IO uint32_t  vu32;
+                       ^
+15 warnings generated.
 compiling V2V-secondVehicle.c...
+C:/Users/bishoy18126/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/CMSIS/RTOS2/FreeRTOS/Source/ARM/clib_arm.c(26): warning: In file included from...
+C:/Users/bishoy18126/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include\FreeRTOS.h(59): warning: In file included from...
+./RTE/RTOS\FreeRTOSConfig.h(272): warning: 'xPortPendSVHandler' macro redefined [-Wmacro-redefined]
+#define xPortPendSVHandler                      PendSV_Handler
+        ^
+./RTE/RTOS\FreeRTOSConfig.h(251): note: previous definition is here
+#define xPortPendSVHandler pend_sv_handler
+        ^
+./RTE/RTOS\FreeRTOSConfig.h(273): warning: 'vPortSVCHandler' macro redefined [-Wmacro-redefined]
+#define vPortSVCHandler                         SVC_Handler
+        ^
+./RTE/RTOS\FreeRTOSConfig.h(250): note: previous definition is here
+#define vPortSVCHandler sv_call_handler
+        ^
+2 warnings generated.
+compiling clib_arm.c...
+C:/Users/bishoy18126/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/CMSIS/RTOS2/FreeRTOS/Source/cmsis_os1.c(28): warning: In file included from...
+C:/Users/bishoy18126/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/CMSIS/RTOS2/FreeRTOS/Include1\cmsis_os.h(126): warning: In file included from...
+C:/Users/bishoy18126/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include\FreeRTOS.h(59): warning: In file included from...
+./RTE/RTOS\FreeRTOSConfig.h(272): warning: 'xPortPendSVHandler' macro redefined [-Wmacro-redefined]
+#define xPortPendSVHandler                      PendSV_Handler
+        ^
+./RTE/RTOS\FreeRTOSConfig.h(251): note: previous definition is here
+#define xPortPendSVHandler pend_sv_handler
+        ^
+./RTE/RTOS\FreeRTOSConfig.h(273): warning: 'vPortSVCHandler' macro redefined [-Wmacro-redefined]
+#define vPortSVCHandler                         SVC_Handler
+        ^
+./RTE/RTOS\FreeRTOSConfig.h(250): note: previous definition is here
+#define vPortSVCHandler sv_call_handler
+        ^
+2 warnings generated.
+compiling cmsis_os1.c...
+compiling os_systick.c...
 assembling startup_stm32f10x_md.s...
 compiling system_stm32f10x.c...
+C:/Users/bishoy18126/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/CMSIS/RTOS2/FreeRTOS/Source/freertos_evr.c(23): warning: In file included from...
+C:/Users/bishoy18126/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include\FreeRTOS.h(59): warning: In file included from...
+./RTE/RTOS\FreeRTOSConfig.h(272): warning: 'xPortPendSVHandler' macro redefined [-Wmacro-redefined]
+#define xPortPendSVHandler                      PendSV_Handler
+        ^
+./RTE/RTOS\FreeRTOSConfig.h(251): note: previous definition is here
+#define xPortPendSVHandler pend_sv_handler
+        ^
+./RTE/RTOS\FreeRTOSConfig.h(273): warning: 'vPortSVCHandler' macro redefined [-Wmacro-redefined]
+#define vPortSVCHandler                         SVC_Handler
+        ^
+./RTE/RTOS\FreeRTOSConfig.h(250): note: previous definition is here
+#define vPortSVCHandler sv_call_handler
+        ^
+2 warnings generated.
+compiling freertos_evr.c...
+C:/Users/bishoy18126/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/CMSIS/RTOS2/FreeRTOS/Source/cmsis_os2.c(29): warning: In file included from...
+C:/Users/bishoy18126/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include\FreeRTOS.h(59): warning: In file included from...
+./RTE/RTOS\FreeRTOSConfig.h(272): warning: 'xPortPendSVHandler' macro redefined [-Wmacro-redefined]
+#define xPortPendSVHandler                      PendSV_Handler
+        ^
+./RTE/RTOS\FreeRTOSConfig.h(251): note: previous definition is here
+#define xPortPendSVHandler pend_sv_handler
+        ^
+./RTE/RTOS\FreeRTOSConfig.h(273): warning: 'vPortSVCHandler' macro redefined [-Wmacro-redefined]
+#define vPortSVCHandler                         SVC_Handler
+        ^
+./RTE/RTOS\FreeRTOSConfig.h(250): note: previous definition is here
+#define vPortSVCHandler sv_call_handler
+        ^
+2 warnings generated.
+compiling cmsis_os2.c...
+C:/Users/bishoy18126/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/event_groups.c(38): warning: In file included from...
+C:/Users/bishoy18126/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include\FreeRTOS.h(59): warning: In file included from...
+./RTE/RTOS\FreeRTOSConfig.h(272): warning: 'xPortPendSVHandler' macro redefined [-Wmacro-redefined]
+#define xPortPendSVHandler                      PendSV_Handler
+        ^
+./RTE/RTOS\FreeRTOSConfig.h(251): note: previous definition is here
+#define xPortPendSVHandler pend_sv_handler
+        ^
+./RTE/RTOS\FreeRTOSConfig.h(273): warning: 'vPortSVCHandler' macro redefined [-Wmacro-redefined]
+#define vPortSVCHandler                         SVC_Handler
+        ^
+./RTE/RTOS\FreeRTOSConfig.h(250): note: previous definition is here
+#define vPortSVCHandler sv_call_handler
+        ^
+2 warnings generated.
+compiling event_groups.c...
+C:/Users/bishoy18126/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/list.c(37): warning: In file included from...
+C:/Users/bishoy18126/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include\FreeRTOS.h(59): warning: In file included from...
+./RTE/RTOS\FreeRTOSConfig.h(272): warning: 'xPortPendSVHandler' macro redefined [-Wmacro-redefined]
+#define xPortPendSVHandler                      PendSV_Handler
+        ^
+./RTE/RTOS\FreeRTOSConfig.h(251): note: previous definition is here
+#define xPortPendSVHandler pend_sv_handler
+        ^
+./RTE/RTOS\FreeRTOSConfig.h(273): warning: 'vPortSVCHandler' macro redefined [-Wmacro-redefined]
+#define vPortSVCHandler                         SVC_Handler
+        ^
+./RTE/RTOS\FreeRTOSConfig.h(250): note: previous definition is here
+#define vPortSVCHandler sv_call_handler
+        ^
+2 warnings generated.
+compiling list.c...
+C:/Users/bishoy18126/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/portable/GCC/ARM_CM3/port.c(34): warning: In file included from...
+C:/Users/bishoy18126/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include\FreeRTOS.h(59): warning: In file included from...
+./RTE/RTOS\FreeRTOSConfig.h(272): warning: 'xPortPendSVHandler' macro redefined [-Wmacro-redefined]
+#define xPortPendSVHandler                      PendSV_Handler
+        ^
+./RTE/RTOS\FreeRTOSConfig.h(251): note: previous definition is here
+#define xPortPendSVHandler pend_sv_handler
+        ^
+./RTE/RTOS\FreeRTOSConfig.h(273): warning: 'vPortSVCHandler' macro redefined [-Wmacro-redefined]
+#define vPortSVCHandler                         SVC_Handler
+        ^
+./RTE/RTOS\FreeRTOSConfig.h(250): note: previous definition is here
+#define vPortSVCHandler sv_call_handler
+        ^
+2 warnings generated.
+compiling port.c...
+C:/Users/bishoy18126/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/portable/MemMang/heap_4.c(45): warning: In file included from...
+C:/Users/bishoy18126/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include\FreeRTOS.h(59): warning: In file included from...
+./RTE/RTOS\FreeRTOSConfig.h(272): warning: 'xPortPendSVHandler' macro redefined [-Wmacro-redefined]
+#define xPortPendSVHandler                      PendSV_Handler
+        ^
+./RTE/RTOS\FreeRTOSConfig.h(251): note: previous definition is here
+#define xPortPendSVHandler pend_sv_handler
+        ^
+./RTE/RTOS\FreeRTOSConfig.h(273): warning: 'vPortSVCHandler' macro redefined [-Wmacro-redefined]
+#define vPortSVCHandler                         SVC_Handler
+        ^
+./RTE/RTOS\FreeRTOSConfig.h(250): note: previous definition is here
+#define vPortSVCHandler sv_call_handler
+        ^
+2 warnings generated.
+compiling heap_4.c...
+C:/Users/bishoy18126/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/queue.c(37): warning: In file included from...
+C:/Users/bishoy18126/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include\FreeRTOS.h(59): warning: In file included from...
+./RTE/RTOS\FreeRTOSConfig.h(272): warning: 'xPortPendSVHandler' macro redefined [-Wmacro-redefined]
+#define xPortPendSVHandler                      PendSV_Handler
+        ^
+./RTE/RTOS\FreeRTOSConfig.h(251): note: previous definition is here
+#define xPortPendSVHandler pend_sv_handler
+        ^
+./RTE/RTOS\FreeRTOSConfig.h(273): warning: 'vPortSVCHandler' macro redefined [-Wmacro-redefined]
+#define vPortSVCHandler                         SVC_Handler
+        ^
+./RTE/RTOS\FreeRTOSConfig.h(250): note: previous definition is here
+#define vPortSVCHandler sv_call_handler
+        ^
+2 warnings generated.
+compiling queue.c...
+C:/Users/bishoy18126/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/timers.c(37): warning: In file included from...
+C:/Users/bishoy18126/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include\FreeRTOS.h(59): warning: In file included from...
+./RTE/RTOS\FreeRTOSConfig.h(272): warning: 'xPortPendSVHandler' macro redefined [-Wmacro-redefined]
+#define xPortPendSVHandler                      PendSV_Handler
+        ^
+./RTE/RTOS\FreeRTOSConfig.h(251): note: previous definition is here
+#define xPortPendSVHandler pend_sv_handler
+        ^
+./RTE/RTOS\FreeRTOSConfig.h(273): warning: 'vPortSVCHandler' macro redefined [-Wmacro-redefined]
+#define vPortSVCHandler                         SVC_Handler
+        ^
+./RTE/RTOS\FreeRTOSConfig.h(250): note: previous definition is here
+#define vPortSVCHandler sv_call_handler
+        ^
+2 warnings generated.
+compiling timers.c...
+C:/Users/bishoy18126/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/tasks.c(39): warning: In file included from...
+C:/Users/bishoy18126/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include\FreeRTOS.h(59): warning: In file included from...
+./RTE/RTOS\FreeRTOSConfig.h(272): warning: 'xPortPendSVHandler' macro redefined [-Wmacro-redefined]
+#define xPortPendSVHandler                      PendSV_Handler
+        ^
+./RTE/RTOS\FreeRTOSConfig.h(251): note: previous definition is here
+#define xPortPendSVHandler pend_sv_handler
+        ^
+./RTE/RTOS\FreeRTOSConfig.h(273): warning: 'vPortSVCHandler' macro redefined [-Wmacro-redefined]
+#define vPortSVCHandler                         SVC_Handler
+        ^
+./RTE/RTOS\FreeRTOSConfig.h(250): note: previous definition is here
+#define vPortSVCHandler sv_call_handler
+        ^
+2 warnings generated.
+compiling tasks.c...
 linking...
-Program Size: Code=5248 RO-data=268 RW-data=244 ZI-data=6136  
-".\Objects\Second Vehicle.axf" - 0 Error(s), 0 Warning(s).
+Program Size: Code=11396 RO-data=272 RW-data=240 ZI-data=17304  
+".\Objects\Second Vehicle.axf" - 0 Error(s), 37 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -49,7 +333,21 @@ Package Vendor: ARM
                 http://www.keil.com/pack/ARM.CMSIS.5.9.0.pack
                 ARM.CMSIS.5.9.0
                 CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: RTOS Version: 1.0.0
+   * Component: RTOS2 Version: 2.1.3
    * Component: CORE Version: 5.6.0
+
+Package Vendor: ARM
+                https://www.keil.com/pack/ARM.CMSIS-FreeRTOS.10.5.1.pack
+                ARM.CMSIS-FreeRTOS.10.5.1
+                Bundle of FreeRTOS for Cortex-M and Cortex-A
+   * Component: Config Variant: CMSIS RTOS2 Version: 10.5.1
+   * Component: Core Variant: Cortex-M Version: 10.5.1
+   * Component: Event Groups Version: 10.5.1
+   * Component: Heap Variant: Heap_4 Version: 10.5.1
+   * Component: Timers Version: 10.5.1
+   * Component: FreeRTOS Version: 10.5.1
+   * Component: FreeRTOS Variant: Cortex-M Version: 10.5.1
 
 Package Vendor: Keil
                 https://www.keil.com/pack/Keil.STM32F1xx_DFP.2.4.1.pack
@@ -58,21 +356,67 @@ Package Vendor: Keil
    * Component: Startup Version: 1.0.0
 
 <h2>Collection of Component include folders:</h2>
-  ./RTE/Device/STM32F103C8
-  ./RTE/_Target_1
-  C:/Users/Mamoun/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include
-  C:/Users/Mamoun/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include
+  .\RTE\Device\STM32F103C8
+  .\RTE\RTOS
+  .\RTE\_Target_1
+  C:\Users\bishoy18126\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\10.5.1\CMSIS\RTOS2\FreeRTOS\Include
+  C:\Users\bishoy18126\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\10.5.1\CMSIS\RTOS2\FreeRTOS\Include1
+  C:\Users\bishoy18126\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\include
+  C:\Users\bishoy18126\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\portable\GCC\ARM_CM3
+  C:\Users\bishoy18126\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include
+  C:\Users\bishoy18126\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\RTOS2\Include
+  C:\Users\bishoy18126\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include
 
 <h2>Collection of Component Files used:</h2>
 
+   * Component: ::CMSIS:RTOS:1.0.0 (API)
+
+   * Component: ::CMSIS:RTOS2:2.1.3 (API)
+      Include file:  CMSIS\RTOS2\Include\cmsis_os2.h
+
+   * Component: ARM.FreeRTOS::RTOS:Config:CMSIS RTOS2:10.5.1
+      Include file:  CMSIS\RTOS2\FreeRTOS\Config\ARMCM\FreeRTOSConfig.h
+
+   * Component: ARM.FreeRTOS::RTOS:Core:Cortex-M:10.5.1
+      Source file:   Source\list.c
+      Include file:  Source\include\FreeRTOS.h
+      Include file:  Source\include\queue.h
+      Include file:  Source\include\task.h
+      Include file:  Source\include\semphr.h
+      Source file:   Source\queue.c
+      Source file:   Source\tasks.c
+      Source file:   Source\portable\GCC\ARM_CM3\port.c
+      Source file:   CMSIS\RTOS2\FreeRTOS\Source\freertos_evr.c
+
+   * Component: ARM.FreeRTOS::RTOS:Event Groups:10.5.1
+      Source file:   Source\event_groups.c
+      Include file:  Source\include\event_groups.h
+
+   * Component: ARM.FreeRTOS::RTOS:Heap:Heap_4:10.5.1
+      Source file:   Source\portable\MemMang\heap_4.c
+
+   * Component: ARM.FreeRTOS::RTOS:Timers:10.5.1
+      Source file:   Source\timers.c
+      Include file:  Source\include\timers.h
+
    * Component: ARM::CMSIS:CORE:5.6.0
 
+   * Component: ARM::CMSIS:RTOS:FreeRTOS:10.5.1
+      Include file:  CMSIS\RTOS2\FreeRTOS\Include1\cmsis_os.h
+      Source file:   CMSIS\RTOS2\FreeRTOS\Source\cmsis_os1.c
+
+   * Component: ARM::CMSIS:RTOS2:FreeRTOS:Cortex-M:10.5.1
+      Source file:   CMSIS\RTOS2\FreeRTOS\Source\ARM\clib_arm.c
+      Source file:   CMSIS\RTOS2\FreeRTOS\Source\cmsis_os2.c
+      Include file:  CMSIS\RTOS2\FreeRTOS\Include\freertos_mpool.h
+      Source file:   CMSIS\RTOS2\FreeRTOS\Source\os_systick.c
+
    * Component: Keil::Device:Startup:1.0.0
-      Source file:   Device/Source/ARM/STM32F1xx_OPT.s
-      Source file:   Device/Source/system_stm32f10x.c
-      Source file:   Device/Source/ARM/startup_stm32f10x_md.s
-      Include file:  RTE_Driver/Config/RTE_Device.h
-Build Time Elapsed:  00:00:01
+      Source file:   Device\Source\ARM\startup_stm32f10x_md.s
+      Source file:   Device\Source\system_stm32f10x.c
+      Include file:  RTE_Driver\Config\RTE_Device.h
+      Source file:   Device\Source\ARM\STM32F1xx_OPT.s
+Build Time Elapsed:  00:00:06
 </pre>
 </body>
 </html>

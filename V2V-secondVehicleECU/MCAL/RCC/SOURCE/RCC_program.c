@@ -5,11 +5,11 @@
  *      Author: beshoy
  */
 
-#include"../../../OTHERS/std_types.h"
-#include"../../../OTHERS/common_macros.h"
-#include "../INCLUDES/RCC_interface.h"
-#include "../INCLUDES/RCC_private.h"
-#include "../INCLUDES/RCC_configuration.h"
+#include "std_types.h"
+#include "common_macros.h"
+#include "RCC_interface.h"
+#include "RCC_private.h"
+#include "RCC_configuration.h"
 
 void MRCC_voidInit(void)
 {

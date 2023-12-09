@@ -1,9 +1,9 @@
 
-#include"../../../OTHERS/std_types.h"
-#include"../../../OTHERS/common_macros.h"
-#include"../INCLUDES/NVIC_private.h"
-#include"../INCLUDES/NVIC_interface.h"
-#include"../INCLUDES/NVIC_config.h"
+#include "std_types.h"
+#include "common_macros.h"
+#include "NVIC_private.h"
+#include "NVIC_interface.h"
+#include "NVIC_config.h"
 
 void MNVIC_voidInit(void)
 {

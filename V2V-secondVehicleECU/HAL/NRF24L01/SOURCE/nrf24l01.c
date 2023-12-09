@@ -13,14 +13,14 @@ Description  : Source file for the NRF24L01 module driver.
                                                < Includes >
 =====================================================================================================================*/
 
-#include "../../../OTHERS/std_types.h"
-#include "../../../OTHERS/common_macros.h"
-#include "../../../MCAL/GPIO/INCLUDES/DIO_interface.h"
-#include "../../../MCAL/RCC/INCLUDES/RCC_interface.h"
-#include "../../../MCAL/SPI/INCLUDES/SPI.h"
-#include "../INCLUDES/nrf24l01_prv.h"
-#include "../INCLUDES/nrf24l01_cfg.h"
-#include "../INCLUDES/nrf24l01.h"
+#include "std_types.h"
+#include "common_macros.h"
+#include "DIO_interface.h"
+#include "RCC_interface.h"
+#include "SPI.h"
+#include "nrf24l01_prv.h"
+#include "nrf24l01_cfg.h"
+#include "nrf24l01.h"
 
 /*=====================================================================================================================
                                            < Global Variables >

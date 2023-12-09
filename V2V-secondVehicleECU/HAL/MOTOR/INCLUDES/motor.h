@@ -5,11 +5,11 @@
 
 /////////////////////////////////////////////////////channels and timers configurations ////////////////////////////////////////////////////////////////////////////////
 // Pins and ports configurations for H-bridge
-#define H_BRIDGE_INPUT1_PORT         GPIOB
+#define H_BRIDGE_INPUT1_PORT         GPIOB_driver
 #define H_BRIDGE_INPUT1_PIN    		 PIN0
 #define H_BRIDGE_INPUT2_PIN    		 PIN1
 
-#define H_BRIDGE_INPUT2_PORT         GPIOB
+#define H_BRIDGE_INPUT2_PORT         GPIOB_driver
 #define H_BRIDGE_INPUT3_PIN   		 PIN2
 #define H_BRIDGE_INPUT4_PIN    		 PIN3
 

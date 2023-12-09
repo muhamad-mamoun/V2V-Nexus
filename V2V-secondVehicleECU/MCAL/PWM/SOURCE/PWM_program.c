@@ -5,13 +5,13 @@
  *      Author: beshoy
  */
 
-#include"../../../OTHERS/std_types.h"
-#include"../../../OTHERS/common_macros.h"
-#include "../../RCC/INCLUDES/RCC_interface.h"
-#include "../../GPIO/INCLUDES/DIO_interface.h"
-#include "../INCLUDES/PWM_interface.h"
-#include "../INCLUDES/PWM_config.h"
-#include "../INCLUDES/PWM_private.h"
+#include "std_types.h"
+#include "common_macros.h"
+#include "RCC_interface.h"
+#include "DIO_interface.h"
+#include "PWM_interface.h"
+#include "PWM_config.h"
+#include "PWM_private.h"
 
 void MPWM_voidInit(TIM_T Timer, CH_T CHANNEL, u16 AutoReload_Val)
 {
@@ -31,15 +31,15 @@ void MPWM_voidInit(TIM_T Timer, CH_T CHANNEL, u16 AutoReload_Val)
 		case CH1:
 		if(Timer == TIMER2)
 		{
-			MGPIO_voidSetPinDirection(GPIOA , PIN0  , OUTPUT_SPEED_10MHZ_AFPP);
+			MGPIO_voidSetPinDirection(GPIOA_driver , PIN0  , OUTPUT_SPEED_10MHZ_AFPP);
 		}
 		else if(Timer == TIMER3)
 		{
-			MGPIO_voidSetPinDirection(GPIOA , PIN6  , OUTPUT_SPEED_10MHZ_AFPP);
+			MGPIO_voidSetPinDirection(GPIOA_driver , PIN6  , OUTPUT_SPEED_10MHZ_AFPP);
 		}
 		else if(Timer == TIMER4)
 		{
-			MGPIO_voidSetPinDirection(GPIOB , PIN6  , OUTPUT_SPEED_10MHZ_AFPP);
+			MGPIO_voidSetPinDirection(GPIOB_driver , PIN6  , OUTPUT_SPEED_10MHZ_AFPP);
 		}
 		else if(Timer == TIMER5)
 		{
@@ -56,15 +56,15 @@ void MPWM_voidInit(TIM_T Timer, CH_T CHANNEL, u16 AutoReload_Val)
 		case CH2:
 		if(Timer == TIMER2)
 		{
-			MGPIO_voidSetPinDirection(GPIOA , PIN1  , OUTPUT_SPEED_10MHZ_AFPP);
+			MGPIO_voidSetPinDirection(GPIOA_driver , PIN1  , OUTPUT_SPEED_10MHZ_AFPP);
 		}
 		else if(Timer == TIMER3)
 		{
-			MGPIO_voidSetPinDirection(GPIOA , PIN7  , OUTPUT_SPEED_10MHZ_AFPP);
+			MGPIO_voidSetPinDirection(GPIOA_driver , PIN7  , OUTPUT_SPEED_10MHZ_AFPP);
 		}
 		else if(Timer == TIMER4)
 		{
-			MGPIO_voidSetPinDirection(GPIOB , PIN7  , OUTPUT_SPEED_10MHZ_AFPP);
+			MGPIO_voidSetPinDirection(GPIOB_driver , PIN7  , OUTPUT_SPEED_10MHZ_AFPP);
 		}
 		else if(Timer == TIMER5)
 		{
@@ -80,15 +80,15 @@ void MPWM_voidInit(TIM_T Timer, CH_T CHANNEL, u16 AutoReload_Val)
 		case CH3:
 		if(Timer == TIMER2)
 		{
-			MGPIO_voidSetPinDirection(GPIOA , PIN2  , OUTPUT_SPEED_10MHZ_AFPP);
+			MGPIO_voidSetPinDirection(GPIOA_driver , PIN2  , OUTPUT_SPEED_10MHZ_AFPP);
 		}
 		else if(Timer == TIMER3)
 		{
-			MGPIO_voidSetPinDirection(GPIOB , PIN0  , OUTPUT_SPEED_10MHZ_AFPP);
+			MGPIO_voidSetPinDirection(GPIOB_driver , PIN0  , OUTPUT_SPEED_10MHZ_AFPP);
 		}
 		else if(Timer == TIMER4)
 		{
-			MGPIO_voidSetPinDirection(GPIOB , PIN8  , OUTPUT_SPEED_10MHZ_AFPP);
+			MGPIO_voidSetPinDirection(GPIOB_driver , PIN8  , OUTPUT_SPEED_10MHZ_AFPP);
 		}
 		else if(Timer == TIMER5)
 		{
@@ -104,19 +104,19 @@ void MPWM_voidInit(TIM_T Timer, CH_T CHANNEL, u16 AutoReload_Val)
 		case CH4:
 		if(Timer == TIMER2)
 		{
-			MGPIO_voidSetPinDirection(GPIOA , PIN3  , OUTPUT_SPEED_10MHZ_AFPP);
+			MGPIO_voidSetPinDirection(GPIOA_driver , PIN3  , OUTPUT_SPEED_10MHZ_AFPP);
 		}
 		else if(Timer == TIMER3)
 		{
-			MGPIO_voidSetPinDirection(GPIOB , PIN1  , OUTPUT_SPEED_10MHZ_AFPP);
+			MGPIO_voidSetPinDirection(GPIOB_driver , PIN1  , OUTPUT_SPEED_10MHZ_AFPP);
 		}
 		else if(Timer == TIMER4)
 		{
-			MGPIO_voidSetPinDirection(GPIOB , PIN9  , OUTPUT_SPEED_10MHZ_AFPP);
+			MGPIO_voidSetPinDirection(GPIOB_driver , PIN9  , OUTPUT_SPEED_10MHZ_AFPP);
 		}
 		else if(Timer == TIMER5)
 		{
-			MGPIO_voidSetPinDirection(GPIOA , PIN3  , OUTPUT_SPEED_10MHZ_AFPP);
+			MGPIO_voidSetPinDirection(GPIOA_driver , PIN3  , OUTPUT_SPEED_10MHZ_AFPP);
 		}
 		else
 		{

@@ -1,10 +1,10 @@
 
-#include "../../../OTHERS/std_types.h"
-#include "../../../OTHERS/common_macros.h"
-#include "../../../MCAL/RCC/INCLUDES/RCC_interface.h"
-#include "../../../MCAL/GPIO/INCLUDES/DIO_interface.h"
-#include "../../../MCAL/PWM/INCLUDES/PWM_interface.h"
-#include "../INCLUDES/motor.h"
+#include "std_types.h"
+#include "common_macros.h"
+#include "RCC_interface.h"
+#include "DIO_interface.h"
+#include "PWM_interface.h"
+#include "motor.h"
 
 
 DcMotor_State state;

@@ -17,9 +17,9 @@
 
 
           /* GPIO ports*/
-#define GPIOA  0
-#define GPIOB  1
-#define GPIOC  2
+#define GPIOA_driver  0
+#define GPIOB_driver  1
+#define GPIOC_driver  2
 
        /* GPIO PINS*/
 
