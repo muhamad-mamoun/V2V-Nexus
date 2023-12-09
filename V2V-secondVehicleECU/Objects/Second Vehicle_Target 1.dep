@@ -1,0 +1,115 @@
+Dependencies for Project 'Second Vehicle', Target 'Target 1': (DO NOT MODIFY !)
+CompilerVersion: 6190000::V6.19::ARMCLANG
+F (.\OTHERS\common_macros.h)(0x6564CC06)()
+F (.\OTHERS\std_types.h)(0x6574227B)()
+F (.\MCAL\GPIO\SOURCE\DIO_PROGRAM.c)(0x65743840)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -Wno-covered-switch-default -Wno-unreachable-code-break -I./RTE/Device/STM32F103C8-I./RTE/_Target_1-IC:/Users/Mamoun/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/Mamoun/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o ./objects/dio_program.o -MD)
+I (MCAL\GPIO\SOURCE\..\..\..\OTHERS\std_types.h)(0x6574227B)
+I (MCAL\GPIO\SOURCE\..\..\..\OTHERS\common_macros.h)(0x6564CC06)
+I (MCAL\GPIO\SOURCE\..\INCLUDES\DIO_config.h)(0x6564CC06)
+I (MCAL\GPIO\SOURCE\..\INCLUDES\DIO_interface.h)(0x65743915)
+I (MCAL\GPIO\SOURCE\..\INCLUDES\DIO_private.h)(0x6564CC06)
+F (.\MCAL\GPIO\INCLUDES\DIO_config.h)(0x6564CC06)()
+F (.\MCAL\GPIO\INCLUDES\DIO_interface.h)(0x65743915)()
+F (.\MCAL\GPIO\INCLUDES\DIO_private.h)(0x6564CC06)()
+F (.\MCAL\NVIC\SOURCE\NVIC_program.c)(0x65742DC0)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -Wno-covered-switch-default -Wno-unreachable-code-break -I./RTE/Device/STM32F103C8-I./RTE/_Target_1-IC:/Users/Mamoun/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/Mamoun/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o ./objects/nvic_program.o -MD)
+I (MCAL\NVIC\SOURCE\..\..\..\OTHERS\std_types.h)(0x6574227B)
+I (MCAL\NVIC\SOURCE\..\..\..\OTHERS\common_macros.h)(0x6564CC06)
+I (MCAL\NVIC\SOURCE\..\INCLUDES\NVIC_private.h)(0x6564CC06)
+I (MCAL\NVIC\SOURCE\..\INCLUDES\NVIC_interface.h)(0x6564CC06)
+I (MCAL\NVIC\SOURCE\..\INCLUDES\NVIC_config.h)(0x6564CC06)
+F (.\MCAL\NVIC\INCLUDES\NVIC_config.h)(0x6564CC06)()
+F (.\MCAL\NVIC\INCLUDES\NVIC_interface.h)(0x6564CC06)()
+F (.\MCAL\NVIC\INCLUDES\NVIC_private.h)(0x6564CC06)()
+F (.\MCAL\PWM\SOURCE\PWM_program.c)(0x657438B1)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -Wno-covered-switch-default -Wno-unreachable-code-break -I./RTE/Device/STM32F103C8-I./RTE/_Target_1-IC:/Users/Mamoun/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/Mamoun/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o ./objects/pwm_program.o -MD)
+I (MCAL\PWM\SOURCE\..\..\..\OTHERS\std_types.h)(0x6574227B)
+I (MCAL\PWM\SOURCE\..\..\..\OTHERS\common_macros.h)(0x6564CC06)
+I (MCAL\PWM\SOURCE\..\..\RCC\INCLUDES\RCC_interface.h)(0x657459DD)
+I (MCAL\PWM\SOURCE\..\..\GPIO\INCLUDES\DIO_interface.h)(0x65743915)
+I (MCAL\PWM\SOURCE\..\INCLUDES\PWM_interface.h)(0x6564CC06)
+I (MCAL\PWM\SOURCE\..\INCLUDES\PWM_config.h)(0x6564CC06)
+I (MCAL\PWM\SOURCE\..\INCLUDES\PWM_private.h)(0x6564CC06)
+F (.\MCAL\PWM\INCLUDES\PWM_config.h)(0x6564CC06)()
+F (.\MCAL\PWM\INCLUDES\PWM_interface.h)(0x6564CC06)()
+F (.\MCAL\PWM\INCLUDES\PWM_private.h)(0x6564CC06)()
+F (.\MCAL\RCC\SOURCE\RCC_program.c)(0x65743883)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -Wno-covered-switch-default -Wno-unreachable-code-break -I./RTE/Device/STM32F103C8-I./RTE/_Target_1-IC:/Users/Mamoun/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/Mamoun/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o ./objects/rcc_program.o -MD)
+I (MCAL\RCC\SOURCE\..\..\..\OTHERS\std_types.h)(0x6574227B)
+I (MCAL\RCC\SOURCE\..\..\..\OTHERS\common_macros.h)(0x6564CC06)
+I (MCAL\RCC\SOURCE\..\INCLUDES\RCC_interface.h)(0x657459DD)
+I (MCAL\RCC\SOURCE\..\INCLUDES\RCC_private.h)(0x6564CC06)
+I (MCAL\RCC\SOURCE\..\INCLUDES\RCC_configuration.h)(0x6564CC06)
+F (.\MCAL\RCC\INCLUDES\RCC_configuration.h)(0x6564CC06)()
+F (.\MCAL\RCC\INCLUDES\RCC_interface.h)(0x657459DD)()
+F (.\MCAL\RCC\INCLUDES\RCC_private.h)(0x6564CC06)()
+F (.\MCAL\SPI\SOURCE\SPI.c)(0x657424C8)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -Wno-covered-switch-default -Wno-unreachable-code-break -I./RTE/Device/STM32F103C8-I./RTE/_Target_1-IC:/Users/Mamoun/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/Mamoun/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o ./objects/spi.o -MD)
+I (MCAL\SPI\SOURCE\..\..\..\OTHERS\std_types.h)(0x6574227B)
+I (MCAL\SPI\SOURCE\..\..\..\OTHERS\common_macros.h)(0x6564CC06)
+I (MCAL\SPI\SOURCE\..\INCLUDES\SPI_prv.h)(0x656F3F1D)
+I (MCAL\SPI\SOURCE\..\INCLUDES\SPI_cfg.h)(0x6564E43D)
+I (MCAL\SPI\SOURCE\..\INCLUDES\SPI.h)(0x656EEF72)
+F (.\MCAL\SPI\INCLUDES\SPI.h)(0x656EEF72)()
+F (.\MCAL\SPI\INCLUDES\SPI_cfg.h)(0x6564E43D)()
+F (.\MCAL\SPI\INCLUDES\SPI_prv.h)(0x656F3F1D)()
+F (.\MCAL\UART\SOURCE\USART_program.c)(0x657468E1)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -Wno-covered-switch-default -Wno-unreachable-code-break -I./RTE/Device/STM32F103C8-I./RTE/_Target_1-IC:/Users/Mamoun/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/Mamoun/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o ./objects/usart_program.o -MD)
+I (MCAL\UART\SOURCE\..\..\..\OTHERS\std_types.h)(0x6574227B)
+I (MCAL\UART\SOURCE\..\..\..\OTHERS\common_macros.h)(0x6564CC06)
+I (RTE\_Target_1\..\..\MCAL\GPIO\INCLUDES\DIO_interface.h)(0x65743915)
+I (RTE\_Target_1\..\..\MCAL\RCC\INCLUDES\RCC_interface.h)(0x657459DD)
+I (MCAL\UART\SOURCE\..\INCLUDES\USART_interface.h)(0x6564CC06)
+I (MCAL\UART\SOURCE\..\INCLUDES\USART_config.h)(0x6564CC06)
+I (MCAL\UART\SOURCE\..\INCLUDES\USART_private.h)(0x657468D9)
+F (.\MCAL\UART\INCLUDES\USART_config.h)(0x6564CC06)()
+F (.\MCAL\UART\INCLUDES\USART_interface.h)(0x6564CC06)()
+F (.\MCAL\UART\INCLUDES\USART_private.h)(0x657468D9)()
+F (.\HAL\BLUETOOTH\SOURCE\BLE.c)(0x65745E1F)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -Wno-covered-switch-default -Wno-unreachable-code-break -I./RTE/Device/STM32F103C8-I./RTE/_Target_1-IC:/Users/Mamoun/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/Mamoun/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o ./objects/ble.o -MD)
+I (HAL\BLUETOOTH\SOURCE\..\..\..\OTHERS\std_types.h)(0x6574227B)
+I (HAL\BLUETOOTH\SOURCE\..\..\..\OTHERS\common_macros.h)(0x6564CC06)
+I (HAL\BLUETOOTH\SOURCE\..\..\..\MCAL\RCC\INCLUDES\RCC_interface.h)(0x657459DD)
+I (HAL\BLUETOOTH\SOURCE\..\..\..\MCAL\NVIC\INCLUDES\NVIC_interface.h)(0x6564CC06)
+I (HAL\BLUETOOTH\SOURCE\..\..\..\MCAL\UART\INCLUDES\USART_interface.h)(0x6564CC06)
+I (HAL\BLUETOOTH\SOURCE\..\INCLUDES\BLE.h)(0x65743175)
+I (HAL\BLUETOOTH\SOURCE\..\INCLUDES\BLE_Cfg.h)(0x65742CA5)
+I (HAL\BLUETOOTH\SOURCE\..\INCLUDES\BLE_Prv.h)(0x65743180)
+F (.\HAL\BLUETOOTH\INCLUDES\BLE.h)(0x65743175)()
+F (.\HAL\BLUETOOTH\INCLUDES\BLE_Cfg.h)(0x65742CA5)()
+F (.\HAL\BLUETOOTH\INCLUDES\BLE_Prv.h)(0x65743180)()
+F (.\HAL\MOTOR\SOURCE\motor.c)(0x65743870)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -Wno-covered-switch-default -Wno-unreachable-code-break -I./RTE/Device/STM32F103C8-I./RTE/_Target_1-IC:/Users/Mamoun/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/Mamoun/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o ./objects/motor.o -MD)
+I (HAL\MOTOR\SOURCE\..\..\..\OTHERS\std_types.h)(0x6574227B)
+I (HAL\MOTOR\SOURCE\..\..\..\OTHERS\common_macros.h)(0x6564CC06)
+I (HAL\MOTOR\SOURCE\..\..\..\MCAL\RCC\INCLUDES\RCC_interface.h)(0x657459DD)
+I (HAL\MOTOR\SOURCE\..\..\..\MCAL\GPIO\INCLUDES\DIO_interface.h)(0x65743915)
+I (HAL\MOTOR\SOURCE\..\..\..\MCAL\PWM\INCLUDES\PWM_interface.h)(0x6564CC06)
+I (HAL\MOTOR\SOURCE\..\INCLUDES\motor.h)(0x657436D5)
+F (.\HAL\MOTOR\INCLUDES\motor.h)(0x657436D5)()
+F (.\HAL\MOTOR\INCLUDES\motor_cfg.h)(0x6564CC05)()
+F (.\HAL\MOTOR\INCLUDES\motor_prv.h)(0x6564CC05)()
+F (.\HAL\NRF24L01\SOURCE\nrf24l01.c)(0x65742732)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -Wno-covered-switch-default -Wno-unreachable-code-break -I./RTE/Device/STM32F103C8-I./RTE/_Target_1-IC:/Users/Mamoun/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/Mamoun/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o ./objects/nrf24l01.o -MD)
+I (HAL\NRF24L01\SOURCE\..\..\..\OTHERS\std_types.h)(0x6574227B)
+I (HAL\NRF24L01\SOURCE\..\..\..\OTHERS\common_macros.h)(0x6564CC06)
+I (HAL\NRF24L01\SOURCE\..\..\..\MCAL\GPIO\INCLUDES\DIO_interface.h)(0x65743915)
+I (HAL\NRF24L01\SOURCE\..\..\..\MCAL\RCC\INCLUDES\RCC_interface.h)(0x657459DD)
+I (HAL\NRF24L01\SOURCE\..\..\..\MCAL\SPI\INCLUDES\SPI.h)(0x656EEF72)
+I (HAL\NRF24L01\SOURCE\..\INCLUDES\nrf24l01_prv.h)(0x656EF3F5)
+I (HAL\NRF24L01\SOURCE\..\INCLUDES\nrf24l01_cfg.h)(0x656EF3DE)
+I (HAL\NRF24L01\SOURCE\..\INCLUDES\nrf24l01.h)(0x656EF3CC)
+F (.\HAL\NRF24L01\INCLUDES\nrf24l01.h)(0x656EF3CC)()
+F (.\HAL\NRF24L01\INCLUDES\nrf24l01_cfg.h)(0x656EF3DE)()
+F (.\HAL\NRF24L01\INCLUDES\nrf24l01_prv.h)(0x656EF3F5)()
+F (.\APP\V2V-secondVehicle.c)(0x6574674F)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -Wno-covered-switch-default -Wno-unreachable-code-break -I./RTE/Device/STM32F103C8-I./RTE/_Target_1-IC:/Users/Mamoun/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/Mamoun/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o ./objects/v2v-secondvehicle.o -MD)
+I (APP\..\OTHERS\std_types.h)(0x6574227B)
+I (APP\..\OTHERS\common_macros.h)(0x6564CC06)
+I (APP\..\MCAL\RCC\INCLUDES\RCC_interface.h)(0x657459DD)
+I (APP\..\MCAL\GPIO\INCLUDES\DIO_interface.h)(0x65743915)
+I (APP\..\MCAL\UART\INCLUDES\USART_interface.h)(0x6564CC06)
+I (APP\..\HAL\BLUETOOTH\INCLUDES\BLE.h)(0x65743175)
+I (APP\..\HAL\MOTOR\INCLUDES\motor.h)(0x657436D5)
+F (RTE/Device/STM32F103C8/RTE_Device.h)(0x5FC0A44A)()
+F (RTE/Device/STM32F103C8/startup_stm32f10x_md.s)(0x61ADCDBE)(--target=arm-arm-none-eabi -mcpu=cortex-m3 -masm=auto  -Wa,armasm,--diag_suppress=A1950W -c-gdwarf-4 -Wa,armasm,--pd,"__EVAL SETA 1"-I./RTE/Device/STM32F103C8-I./RTE/_Target_1-IC:/Users/Mamoun/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/Mamoun/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include-Wa,armasm,--pd,"__UVISION_VERSION SETA 538" -Wa,armasm,--pd,"_RTE_ SETA 1" -Wa,armasm,--pd,"STM32F10X_MD SETA 1" -Wa,armasm,--pd,"_RTE_ SETA 1"-o ./objects/startup_stm32f10x_md.o)
+F (RTE/Device/STM32F103C8/system_stm32f10x.c)(0x61ADCDBE)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -Wno-covered-switch-default -Wno-unreachable-code-break -I./RTE/Device/STM32F103C8-I./RTE/_Target_1-IC:/Users/Mamoun/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/Mamoun/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o ./objects/system_stm32f10x.o -MD)
+I (C:\Users\Mamoun\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include\stm32f10x.h)(0x61ADCDBE)
+I (RTE\_Target_1\RTE_Components.h)(0x65741E84)
+I (C:\Users\Mamoun\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm3.h)(0x626F912E)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63889D68)
+I (C:\Users\Mamoun\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F912E)
+I (C:\Users\Mamoun\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F912E)
+I (C:\Users\Mamoun\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F912E)
+I (C:\Users\Mamoun\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include\system_stm32f10x.h)(0x61ADCDBE)
