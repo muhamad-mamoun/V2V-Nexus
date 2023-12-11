@@ -1,8 +1,8 @@
 /*
 =======================================================================================================================
-Author       : Mamoun & besho
+Author       : Mamoun & Besho
 Module       : 
-File Name    : V2V-coreECU.c
+File Name    : V2V-secondVehicle.c
 Date Created : Nov 15, 2023
 Description  : 
 =======================================================================================================================
@@ -13,37 +13,20 @@ Description  :
                                                < Includes >
 =====================================================================================================================*/
 
-#include "common_macros.h"
 #include "std_types.h"
+#include "common_macros.h"
+#include "V2V-secondVehicle.h"
 #include "RCC_interface.h"
-#include "NVIC_interface.h"
-#include "DIO_interface.h"
-#include "USART_interface.h"
-#include "BLE.h"
-#include "motor.h"
 #include "nrf24l01.h"
-#include "DIO_interface.h"
+#include "motor.h"
+#include "BLE.h"
 
 /*=====================================================================================================================
                                            < Global Variables >
 =====================================================================================================================*/
 
-typedef struct
-{
-	u8 direction;
-	u8 speed;
-	u8 brake_status;
-}V2V_vehicleData;
-
 V2V_vehicleData G_myVehicle = {'S',0,0};
 V2V_vehicleData G_secondVehicle = {'S',0,0};
-
-
-/*=====================================================================================================================
-                                      < Private Functions Prototypes >
-=====================================================================================================================*/
-
-
 
 /*=====================================================================================================================
                                           < Functions Definitions >
@@ -71,9 +54,9 @@ int main(void)
 			NRF24L01_checkReceiverBuffer(NRF24L01_DATA_PIPE_0,&LOC_receiverBufferStatus);
 		}while(LOC_receiverBufferStatus != NRF24L01_BUFFER_NOT_EMPTY);
 
+		NRF24L01_readData((pu8)&G_myVehicle,3);
 		MOTOR_setMotor(G_myVehicle.direction,G_myVehicle.speed);
 		LOC_receiverBufferStatus = NRF24L01_BUFFER_EMPTY;
-		NRF24L01_readData((pu8)&G_myVehicle,3);
 		NRF24L01_flushReceiverBuffer();
 	}
 }
