@@ -12,36 +12,38 @@ Description  :
 /*=====================================================================================================================
                                                < Includes >
 =====================================================================================================================*/
-/*FreeRTOS*/
-#include "FreeRTOS.h"
-#include "FreeRTOSConfig.h"
-#include "task.h"
 
 #include "common_macros.h"
 #include "std_types.h"
-
-
 #include "RCC_interface.h"
 #include "NVIC_interface.h"
 #include "DIO_interface.h"
 #include "USART_interface.h"
 #include "BLE.h"
 #include "motor.h"
-
+#include "nrf24l01.h"
+#include "DIO_interface.h"
 
 /*=====================================================================================================================
                                            < Global Variables >
 =====================================================================================================================*/
 
-u8 Global_u8Direction = 0xFF;
+typedef struct
+{
+	u8 direction;
+	u8 speed;
+	u8 brake_status;
+}V2V_vehicleData;
+
+V2V_vehicleData G_myVehicle = {'S',0,0};
+V2V_vehicleData G_secondVehicle = {'S',0,0};
+
 
 /*=====================================================================================================================
                                       < Private Functions Prototypes >
 =====================================================================================================================*/
 
-void Motor_SetDirectionT(void* pvParameter);
 
-void US_GetDistanceT(void* pvparam);
 
 /*=====================================================================================================================
                                           < Functions Definitions >
@@ -56,23 +58,22 @@ void US_GetDistanceT(void* pvparam);
  ====================================================================================================================*/
 int main(void)
 {
-		MRCC_voidInit();
-		HBLE_VInit();
-		xTaskHandle Motor_SetDirectionH;
-		xTaskCreate(Motor_SetDirectionT,NULL,configMINIMAL_STACK_SIZE,NULL,1,&Motor_SetDirectionH);
-		vTaskStartScheduler();
-    while(1)
-    {
-			
-    }
-}
-
-void Motor_SetDirectionT(void* pvParameter)
-{
-	while(1)
+	MRCC_voidInit();
+	DCmotor_Init();
+	NRF24L01_init();
+	NRF24L01_switchToReceiverMode(0X20,NRF24L01_DATA_PIPE_0);
+	NRF24L01_bufferStatusType LOC_receiverBufferStatus = NRF24L01_BUFFER_EMPTY;
+    
+	while (1)
 	{
-			HBLE_VGetKey(&Global_u8Direction) ;
-			vTaskDelay(50);
+		do
+		{
+			NRF24L01_checkReceiverBuffer(NRF24L01_DATA_PIPE_0,&LOC_receiverBufferStatus);
+		}while(LOC_receiverBufferStatus != NRF24L01_BUFFER_NOT_EMPTY);
+
+		MOTOR_setMotor(G_myVehicle.direction,G_myVehicle.speed);
+		LOC_receiverBufferStatus = NRF24L01_BUFFER_EMPTY;
+		NRF24L01_readData((pu8)&G_myVehicle,3);
+		NRF24L01_flushReceiverBuffer();
 	}
 }
-

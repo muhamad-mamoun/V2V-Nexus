@@ -11,7 +11,7 @@
 #define Fclock     8000000
 #define BUADRATE   9600
 
-#define BUFFER1_SIZE 200
+#define BUFFER1_SIZE 50
 #define BUFFER2_SIZE 2
 #define BUFFER3_SIZE 2
 

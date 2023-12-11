@@ -10,7 +10,7 @@
 #define Network_CH 0x20
 
 u8 CAN_DataIndex;
-u8 Global_NetworkDataArr[3];;
+u8 Global_NetworkDataArr[3];
 
 
 void CANSys_INIT()

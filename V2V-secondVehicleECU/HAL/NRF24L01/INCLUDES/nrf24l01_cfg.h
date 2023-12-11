@@ -23,7 +23,7 @@ Description  : Configuration file for the NRF24L01 module driver.
 #define NRF24L01_TRANSMITTER_ADDRESS                    0X22,0XE7,0XE7,0XE7,0XE7
 
 /* The 5-byte addresses of the 5 data pipes [write the LSB first and separate them with comma]. */
-#define NRF24L01_RECEIVER_PIPE0_ADDRESS                 0XE7,0XE7,0XE7,0XE7,0XE7
+#define NRF24L01_RECEIVER_PIPE0_ADDRESS                 0X22,0XE7,0XE7,0XE7,0XE7
 #define NRF24L01_RECEIVER_PIPE1_ADDRESS                 0X77,0X35,0XF0,0XD3,0XE7 /* The 4 MSBs MUST be equal. */
 #define NRF24L01_RECEIVER_PIPE2_ADDRESS                 0X77,0X35,0XF0,0XD3,0XE7 /* The 4 MSBs MUST be equal. */
 #define NRF24L01_RECEIVER_PIPE3_ADDRESS                 0X77,0X35,0XF0,0XD3,0XE7 /* The 4 MSBs MUST be equal. */

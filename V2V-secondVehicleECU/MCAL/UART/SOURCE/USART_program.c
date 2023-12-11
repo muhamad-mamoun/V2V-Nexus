@@ -155,7 +155,7 @@ void MUSART_u8GetRecievedValue(USART_T USART_NUM, u8 *Ptr_u8RecievedChar)
 	{
 	if(USART_NUM == USART1_Driver)
 	{
-		GlobalUSART1_s16RecievedRear=(GlobalUSART1_s16RecievedRear+1)%BUFFER_SIZE;
+		GlobalUSART1_s16RecievedRear=(GlobalUSART1_s16RecievedRear+1)%BUFFER1_SIZE;
 		*Ptr_u8RecievedChar = GlobalUSART1_u8RecievedValue[GlobalUSART1_s16RecievedRear];
 		if(GlobalUSART1_s16RecievedFront == GlobalUSART1_s16RecievedRear)
 		{
@@ -165,7 +165,7 @@ void MUSART_u8GetRecievedValue(USART_T USART_NUM, u8 *Ptr_u8RecievedChar)
 	}
 	else if(USART_NUM == USART2_Driver)
 	{
-		GlobalUSART2_s16RecievedRear=(GlobalUSART2_s16RecievedRear+1)%BUFFER_SIZE;
+		GlobalUSART2_s16RecievedRear=(GlobalUSART2_s16RecievedRear+1)%BUFFER2_SIZE;
 		*Ptr_u8RecievedChar = GlobalUSART2_u8RecievedValue[GlobalUSART2_s16RecievedRear];
 		if(GlobalUSART2_s16RecievedFront == GlobalUSART2_s16RecievedRear)
 		{
@@ -175,7 +175,7 @@ void MUSART_u8GetRecievedValue(USART_T USART_NUM, u8 *Ptr_u8RecievedChar)
 	}
 	else if(USART_NUM == USART3_Driver)
 	{
-		GlobalUSART3_s16RecievedRear=(GlobalUSART3_s16RecievedRear+1)%BUFFER_SIZE;
+		GlobalUSART3_s16RecievedRear=(GlobalUSART3_s16RecievedRear+1)%BUFFER3_SIZE;
 		*Ptr_u8RecievedChar = GlobalUSART3_u8RecievedValue[GlobalUSART3_s16RecievedRear];
 		if(GlobalUSART3_s16RecievedFront == GlobalUSART3_s16RecievedRear)
 		{
@@ -201,7 +201,7 @@ u16 MUSART_u8IsRecieveBufferAvailable(USART_T USART_NUM)
 		}
 		else if(GlobalUSART1_s16RecievedFront<GlobalUSART1_s16RecievedRear)
 		{
-			Buffer_count = (BUFFER_SIZE - GlobalUSART1_s16RecievedRear)+ GlobalUSART1_s16RecievedFront;
+			Buffer_count = (BUFFER1_SIZE - GlobalUSART1_s16RecievedRear)+ GlobalUSART1_s16RecievedFront;
 		}
 		else if (GlobalUSART1_s16RecievedFront== -1 && GlobalUSART1_s16RecievedRear == -1)
 		{
@@ -209,7 +209,7 @@ u16 MUSART_u8IsRecieveBufferAvailable(USART_T USART_NUM)
 		}
 		else 
 		{
-			Buffer_count = BUFFER_SIZE;
+			Buffer_count = BUFFER1_SIZE;
 		}
 	}
 	else if(USART_NUM == USART2_Driver)
@@ -220,7 +220,7 @@ u16 MUSART_u8IsRecieveBufferAvailable(USART_T USART_NUM)
 		}
 		else if(GlobalUSART2_s16RecievedFront<GlobalUSART2_s16RecievedRear)
 		{
-			Buffer_count = (BUFFER_SIZE - GlobalUSART2_s16RecievedRear)+ GlobalUSART2_s16RecievedFront;
+			Buffer_count = (BUFFER2_SIZE - GlobalUSART2_s16RecievedRear)+ GlobalUSART2_s16RecievedFront;
 		}
 		else if (GlobalUSART2_s16RecievedFront== -1 && GlobalUSART2_s16RecievedRear == -1)
 		{
@@ -228,7 +228,7 @@ u16 MUSART_u8IsRecieveBufferAvailable(USART_T USART_NUM)
 		}
 		else 
 		{
-			Buffer_count = BUFFER_SIZE;
+			Buffer_count = BUFFER2_SIZE;
 		}
 	}
 	else if(USART_NUM == USART3_Driver)
@@ -239,7 +239,7 @@ u16 MUSART_u8IsRecieveBufferAvailable(USART_T USART_NUM)
 		}
 		else if(GlobalUSART3_s16RecievedFront<GlobalUSART3_s16RecievedRear)
 		{
-			Buffer_count = (BUFFER_SIZE - GlobalUSART3_s16RecievedRear)+ GlobalUSART3_s16RecievedFront;
+			Buffer_count = (BUFFER3_SIZE - GlobalUSART3_s16RecievedRear)+ GlobalUSART3_s16RecievedFront;
 		}
 		else if (GlobalUSART3_s16RecievedFront== -1 && GlobalUSART3_s16RecievedRear == -1)
 		{
@@ -247,7 +247,7 @@ u16 MUSART_u8IsRecieveBufferAvailable(USART_T USART_NUM)
 		}
 		else 
 		{
-			Buffer_count = BUFFER_SIZE;
+			Buffer_count = BUFFER3_SIZE;
 		}
 	}
 	return Buffer_count;
@@ -287,9 +287,9 @@ void USART1_IRQHandler(void)
 {
 	if(GET_BIT(USART[0]->SR,RXNE) == 1)
 	{
-		if(MUSART_u8IsRecieveBufferAvailable(USART1_Driver) < BUFFER_SIZE)
+		if(MUSART_u8IsRecieveBufferAvailable(USART1_Driver) < BUFFER1_SIZE)
 		{
-			GlobalUSART1_s16RecievedFront=(GlobalUSART1_s16RecievedFront+1)%BUFFER_SIZE;
+			GlobalUSART1_s16RecievedFront=(GlobalUSART1_s16RecievedFront+1)%BUFFER1_SIZE;
 			GlobalUSART1_u8RecievedValue[GlobalUSART1_s16RecievedFront] = USART[0]->DR ;
 		}
 		// u8 returndata = USART[0]->DR ;
@@ -300,9 +300,9 @@ void USART2_IRQHandler(void)
 {
 	if(GET_BIT(USART[1]->SR,RXNE) == 1)
 	{
-		if(MUSART_u8IsRecieveBufferAvailable(USART2_Driver) <BUFFER_SIZE)
+		if(MUSART_u8IsRecieveBufferAvailable(USART2_Driver) <BUFFER2_SIZE)
 		{
-			GlobalUSART2_s16RecievedFront=(GlobalUSART2_s16RecievedFront+1)%BUFFER_SIZE;
+			GlobalUSART2_s16RecievedFront=(GlobalUSART2_s16RecievedFront+1)%BUFFER2_SIZE;
 			GlobalUSART2_u8RecievedValue[GlobalUSART2_s16RecievedFront] = USART[1]->DR ;
 		}
 	}
@@ -311,9 +311,9 @@ void USART3_IRQHandler(void)
 {
 	if(GET_BIT(USART[2]->SR,RXNE) == 1)
 	{
-		if(MUSART_u8IsRecieveBufferAvailable(USART3_Driver) <BUFFER_SIZE)
+		if(MUSART_u8IsRecieveBufferAvailable(USART3_Driver) <BUFFER3_SIZE)
 		{
-			GlobalUSART3_s16RecievedFront=(GlobalUSART3_s16RecievedFront+1)%BUFFER_SIZE;
+			GlobalUSART3_s16RecievedFront=(GlobalUSART3_s16RecievedFront+1)%BUFFER3_SIZE;
 			GlobalUSART3_u8RecievedValue[GlobalUSART3_s16RecievedFront] = USART[2]->DR ;
 		}
 	}

@@ -23,6 +23,7 @@ int main()
 	while (1)
 	{
 		NRF24L01_checkReceiverBuffer(NRF24L01_DATA_PIPE_0,&x);
+        
 		while(x == NRF24L01_BUFFER_EMPTY)
 		{
 			NRF24L01_checkReceiverBuffer(NRF24L01_DATA_PIPE_0,&x);

@@ -862,16 +862,16 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-       860          0          0          0          0       4893   dio_program.o
-       124          0          0          0          3       1124   main.o
-      1214          6          0         30         33       4411   nrf24l01.o
-       808          0          0          0          0       2644   rcc_program.o
-       406          0          0        202          4       3068   spi.o
-        64         26        236          0       1536        876   startup_stm32f10x_md.o
-       400          0          0          0          0       2904   system_stm32f10x.o
+       860          0          0          0          0       4916   dio_program.o
+       124          0          0          0          3       1147   main.o
+      1214          6          0         30         33       4434   nrf24l01.o
+       808          0          0          0          0       2667   rcc_program.o
+       406          0          0        202          4       3091   spi.o
+        64         26        236          0       1536        900   startup_stm32f10x_md.o
+       400          0          0          0          0       2929   system_stm32f10x.o
 
     ----------------------------------------------------------------------
-      3896         32        268        232       1576      19920   Object Totals
+      3896         32        268        232       1576      20084   Object Totals
          0          0         32          0          0          0   (incl. Generated)
         20          0          0          0          0          0   (incl. Padding)
 
@@ -920,8 +920,8 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      4176         48        268        232       1672      20296   Grand Totals
-      4176         48        268        232       1672      20296   ELF Image Totals
+      4176         48        268        232       1672      20460   Grand Totals
+      4176         48        268        232       1672      20460   ELF Image Totals
       4176         48        268        232          0          0   ROM Totals
 
 ==============================================================================

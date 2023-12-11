@@ -9,9 +9,9 @@
 #define H_BRIDGE_INPUT1_PIN    		 PIN0
 #define H_BRIDGE_INPUT2_PIN    		 PIN1
 
-#define H_BRIDGE_INPUT2_PORT         GPIOB_driver
-#define H_BRIDGE_INPUT3_PIN   		 PIN2
-#define H_BRIDGE_INPUT4_PIN    		 PIN3
+#define H_BRIDGE_INPUT2_PORT         GPIOA_driver
+#define H_BRIDGE_INPUT3_PIN   		 PIN0
+#define H_BRIDGE_INPUT4_PIN    		 PIN1
 
 // selection of channel and timer IDs for PWM init
 #define DCMOTOR_SELECT_TIMER         TIMER4
@@ -39,31 +39,34 @@ typedef enum
 pins and ports setting
 */
 void DCmotor_Init(void);
-/*
-setting DCmotor to move forward
-*/
-void DCmotor_frontMove(u8 dutyCycle);
-/*
-setting DCmotor to move backward
-*/
-void DCmotor_backMove(u8 dutyCycle);
-/*
-setting DCmotor to move right
-*/
-void DCmotor_rightMove(u8 dutyCycle);
-/*
-setting DCmotor to move left
-*/
-void DCmotor_leftMove(u8 dutyCycle);
-/*
-stop the DCmotor
-*/
-void DCmotor_stop(void);
+
+void MOTOR_setMotor(u8 a_direction, u8 a_speed);
+
+// /*
+// setting DCmotor to move forward
+// */
+// void DCmotor_frontMove(u8 dutyCycle);
+// /*
+// setting DCmotor to move backward
+// */
+// void DCmotor_backMove(u8 dutyCycle);
+// /*
+// setting DCmotor to move right
+// */
+// void DCmotor_rightMove(u8 dutyCycle);
+// /*
+// setting DCmotor to move left
+// */
+// void DCmotor_leftMove(u8 dutyCycle);
+// /*
+// stop the DCmotor
+// */
+// void DCmotor_stop(void);
 
 #endif /* DC_MOTOR_H_ */
-void DCmotor1_(void);
-void DCmotor2_(void);
-void DCmotor3_(void);
-void DCmotor4_(void);
+// void DCmotor1_(void);
+// void DCmotor2_(void);
+// void DCmotor3_(void);
+// void DCmotor4_(void);
 
 
