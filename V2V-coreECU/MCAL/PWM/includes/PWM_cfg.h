@@ -2,9 +2,9 @@
 #define PWM_CFG_H
 
 
-#define F_CLK      16000000UL
+#define F_CLK      8000000UL
 #define PRESCALLER 8
-#define ARR_VALUE  1000 
+#define ARR_VALUE  50000 
 
 /*
   PWM_MODE OPTIONS :

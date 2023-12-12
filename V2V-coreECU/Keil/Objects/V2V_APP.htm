@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\V2V_APP.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\V2V_APP.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6130100: Last Updated: Tue Dec 12 20:30:45 2023
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6130100: Last Updated: Tue Dec 12 23:23:12 2023
 <BR><P>
 <H3>Maximum Stack Usage =        224 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -721,7 +721,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_SetDirectionT
 </UL>
 
-<P><STRONG><a name="[84]"></a>EEPROM_READ_STRING</STRONG> (Thumb, 172 bytes, Stack size 40 bytes, eeprom.o(.text.EEPROM_READ_STRING))
+<P><STRONG><a name="[84]"></a>EEPROM_READ_STRING</STRONG> (Thumb, 168 bytes, Stack size 40 bytes, eeprom.o(.text.EEPROM_READ_STRING))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = EEPROM_READ_STRING &rArr; I2C_MASTER_init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_Stop
@@ -730,8 +730,7 @@ Global Symbols
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C1_Write_byte
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C1_Read_byte
 </UL>
-<BR>[Called By]<UL><LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EEPROM_WriteLogsT
-<LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Button_StateT
+<BR>[Called By]<UL><LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Button_StateT
 </UL>
 
 <P><STRONG><a name="[94]"></a>EEPROM_WRITE_STRING</STRONG> (Thumb, 152 bytes, Stack size 40 bytes, eeprom.o(.text.EEPROM_WRITE_STRING))
@@ -745,12 +744,11 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EEPROM_WriteLogsT
 </UL>
 
-<P><STRONG><a name="[5c]"></a>EEPROM_WriteLogsT</STRONG> (Thumb, 42 bytes, Stack size 0 bytes, main.o(.text.EEPROM_WriteLogsT))
+<P><STRONG><a name="[5c]"></a>EEPROM_WriteLogsT</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, main.o(.text.EEPROM_WriteLogsT))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = EEPROM_WriteLogsT &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EEPROM_WRITE_STRING
-<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EEPROM_READ_STRING
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(.text.main)
 </UL>
@@ -841,7 +839,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[92]"></a>I2C1_Read_byte</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, i2c.o(.text.I2C1_Read_byte))
+<P><STRONG><a name="[92]"></a>I2C1_Read_byte</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, i2c.o(.text.I2C1_Read_byte))
 <BR><BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EEPROM_READ_STRING
 </UL>
 

@@ -49,8 +49,10 @@ void EEPROM_WRITE_STRING(u8 address,u8 *string,u8 size)
 	vu32 loc_u32_timeOut = FALSE;
 	while (loc_u8_itrator < size)
 	{
-		EEPROM_WRITE_BYTE(address++,string[loc_u8_itrator++]);
+		EEPROM_WRITE_BYTE(address,string[loc_u8_itrator]);
 		for(loc_u32_timeOut = FALSE ; loc_u32_timeOut<10000;loc_u32_timeOut++);
+		address++;
+		loc_u8_itrator++;
 	}
 }
 void EEPROM_READ_BYTE(u8 address,u8 *byte)
@@ -69,8 +71,10 @@ void EEPROM_READ_STRING(u8 address,u8 *string,u8 size)
 	vu32 loc_u32_timeOut = FALSE;
 	while (loc_u8_itrator < size)
 	{
-		EEPROM_READ_BYTE(address++,string++);
+		EEPROM_READ_BYTE(address,string);
 		for(loc_u32_timeOut = FALSE ; loc_u32_timeOut<10000;loc_u32_timeOut++);
 		loc_u8_itrator++;
+		address++;
+		string++;
 	}
 }

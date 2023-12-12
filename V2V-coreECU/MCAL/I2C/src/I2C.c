@@ -109,6 +109,7 @@ void I2C1_Write_byte(u8 data)
 
 void I2C1_Read_byte(u8 *data)
 {
+	 while (!(I2Cx(I2C_1_BASE)->I2C_ISR & 0x00000004));
     *data = I2Cx(I2C_1_BASE)->I2C_RXDR;
 }
 

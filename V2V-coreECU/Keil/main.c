@@ -45,7 +45,7 @@
 
 
 
-u8 Global_u8LogsArr[NUM_OF_CHECK_LOGS];  //ARR to TEMP STORE LOGS
+u8 Global_u8LogsArr[NUM_OF_CHECK_LOGS] = {TRUE,FALSE};  //ARR to TEMP STORE LOGS
 u8 Global_readEEPROM[NUM_OF_CHECK_LOGS];  //ARR to TEMP STORE LOGS
 u8 Global_u8DataArr[3]; 	 							//TEMP ARR FOR CAN DATA
 
@@ -133,7 +133,6 @@ void EEPROM_WriteLogsT (void* pvparam) //TASK NOT CREATED YET
 	while (1)
 	{
 		EEPROM_WRITE_STRING(EEPROM_START_ADDRESS,Global_u8LogsArr,NUM_OF_CHECK_LOGS);
-		EEPROM_READ_STRING(EEPROM_START_ADDRESS,Global_readEEPROM,NUM_OF_CHECK_LOGS);
 		vTaskDelay(500);
 	}
 	
