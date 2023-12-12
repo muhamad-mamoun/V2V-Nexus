@@ -24,7 +24,7 @@
   ..\MCAL\GPIO\INCLUDES\gpio.h ..\MCAL\PWM\includes\PWM.h \
   ..\MCAL\UART\Includes\UART_interface.h ..\MCAL\ICU\INCLUDES\ICU.h \
   ..\MCAL\CAN\Include\Can.h ..\MCAL\GPIO\INCLUDES\gpio_prv.h \
-  ..\HAL\MOTOR\INCLUDES\motor.h \
+  ..\MCAL\NVIC\ Driver\Includes\NVIC.h ..\HAL\MOTOR\INCLUDES\motor.h \
   ..\HAL\MOTOR\INCLUDES\..\..\..\OTHERS\std_types.h \
   ..\HAL\MOTOR\INCLUDES\..\..\..\OTHERS\common_macros.h \
   ..\HAL\MOTOR\INCLUDES\..\..\..\MCAL\GPIO\INCLUDES\gpio.h \

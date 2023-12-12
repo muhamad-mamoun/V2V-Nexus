@@ -37,6 +37,7 @@ void RCC_voidInitSYSCLK(void);
 #define GPIOD_EN 20
 #define GPIOE_EN 21
 #define GPIOF_EN 22
+#define ADC_EN 28
 
 /******** APB2 ***********/
 #define USART1_EN 14    

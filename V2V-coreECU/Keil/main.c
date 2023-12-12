@@ -15,28 +15,51 @@
 #include "ICU.h"
 #include "Can.h"
 #include "gpio_prv.h"
+#include "NVIC.h"
 
 /*HAL*/
 #include "motor.h"
 #include "US.h"
 #include "BLE.h"
 
-volatile u16 Global_u16Distance;
+#define MAX_DISTANCE 50
+#define NUM_OF_CHECK_LOGS 2
+#define CAN_DataID 	0x200
 
-u8 Global_u8CANDataIndex;
+/************* LOGS *************/
+#define TEMP_OK 0x11
+#define TEMP_OVERHEAT 0x5A
+#define TEMP_NOTRESPONDING 0xFC
+
+#define US_OK 0x12
+//#define US_READINGERROR 0xD7
+#define US_NOTRESPONDING 0xFE
+
+#define TEMP_DATA_INDEX 0
+#define US_DATA_INDEX   1
+
+/*******************************/
+
+
+
+u8 Global_u8LogsArr[NUM_OF_CHECK_LOGS];  //ARR to TEMP STORE LOGS
+u8 Global_u8DataArr[3]; 	 							//TEMP ARR FOR CAN DATA
+
+volatile u16 Global_u16Distance; 				//FOR US
+
+
+
 typedef struct 
 {
 volatile u8 Global_u8Direction;
 volatile u8 Global_u8Speed;
-volatile u8  Global_u8BrakeStatus;
+volatile u8 Global_u8BrakeStatus;
 }Data_t;
 
-Data_t My_Data = {'S',60,0};
-Data_t REC_Data;
+Data_t My_Data = {'S',60,0}; //INIT VALS FOR CAR
+Data_t REC_Data; 						 //REC DATA FROM CAN [NOT USED YET]
 
-u8 Global_u8DataArr[3];
 
-#define CAN_DataID 	0x200
 
 void Motor_SetDirectionT(void* pvParameter)
 {
@@ -53,7 +76,7 @@ void Motor_SetDirectionT(void* pvParameter)
 				My_Data.Global_u8Speed-=20;
 			}
 		}
-		else if (Local_u8RecData == '+' )
+		else if (Local_u8RecData == '+')
 		{
 			if(My_Data.Global_u8Speed != 100)
 			{
@@ -64,52 +87,83 @@ void Motor_SetDirectionT(void* pvParameter)
 		{
 			My_Data.Global_u8Direction = Local_u8RecData;
 		}
-		
-		/*if(Local_u8PrevDirection != My_Data.Global_u8Direction  || My_Data.Global_u8BrakeStatus == 1 
-			           || Local_u8RecData == '+' || Local_u8RecData == '-')
-		{*/
-		//	Local_u8PrevDirection =  My_Data.Global_u8Direction;
-			switch(My_Data.Global_u8Direction)
-					{
-					case 'F':
-						if( My_Data.Global_u8BrakeStatus == 0)
-						{
-							DCmotor_frontMove(My_Data.Global_u8Speed);
-						}
-						else
-						{
-							DCmotor_stop();
-						}
-						break;
-					
-					case 'B':
-						DCmotor_backMove(My_Data.Global_u8Speed);
-						break;
-					
-					case 'R':
-						DCmotor_rightMove(40);
-						break;
-					
-					case 'L':
-						DCmotor_leftMove(40);
-						break;
-					
-					case 'S':
-						DCmotor_stop();
-						My_Data.Global_u8BrakeStatus = 1;
-						break;
-					}
-		/*}
-		else
+						/*MOTORS SET*/
+		switch(My_Data.Global_u8Direction)
 		{
-			
-		}*/
+		case 'F':
+			if( My_Data.Global_u8BrakeStatus == 0)
+			{
+				DCmotor_frontMove(My_Data.Global_u8Speed);
+			}
+			else
+			{
+				DCmotor_stop();
+			}
+			break;
 		
+		case 'B':
+			DCmotor_backMove(My_Data.Global_u8Speed);
+			break;
+		
+		case 'R':
+			DCmotor_rightMove(30);
+			break;
+		
+		case 'L':
+			DCmotor_leftMove(30);
+			break;
+		
+		case 'S':
+			DCmotor_stop();
+			My_Data.Global_u8BrakeStatus = 1;
+			break;
+		}
 		vTaskDelay(70);
 	}
 }
 
+void EEPROM_WriteLogsT (void* pvparam) //TASK NOT CREATED YET  
+{
+	/*TILL EEPROM DRIVER IS FINISHED*/
+	/*       
+	while (1)
+	{
+		EEPROM_Write(TEMP_DATA_INDEX,Global_u8LogsArr[TEMP_DATA_INDEX]);
+		EEPROM_Write(US_DATA_INDEX,Global_u8LogsArr[US_DATA_INDEX]);
+		vTaskDelay(500);
+	}
+	*/
+}
 
+void TEMP_GetTempT(void* pvparam)   //TASK NOT CREATED YET  
+{
+	/*TILL TEMP DRIVER IS FINISHED*/
+		/*
+				u8 Local_u8Temp;
+				u8 ret;
+				while (1)
+				{
+						ret = TEMP_Get(&Local_u8Temp);
+						if(ret == 1)
+							{
+									Global_u8LogsArr[TEMP_DATA_INDEX] = TEMP_NOTRESPONDING;
+							}
+						else
+							{
+								if (Local_u8Temp > 100)
+								{
+									Global_u8LogsArr[TEMP_DATA_INDEX] = TEMP_OVERHEAT;
+								}
+								else
+								{
+									Global_u8LogsArr[TEMP_DATA_INDEX] = TEMP_OK;
+								}
+							}
+							vTaskDelay(200);
+				}			
+		*/
+	/******************************/
+}
 void US_GetDistanceT(void* pvparam)
 {
 	static u16 Local_Dist;
@@ -120,7 +174,8 @@ void US_GetDistanceT(void* pvparam)
 		US_voidGetUSSensorDistanceTask(&Local_Dist);
 		if((Local_Dist != 0xDDDD) && (Local_Dist != 0xFEFE))
 		{	
-			if(Local_Dist < 30)
+			Global_u8LogsArr[US_DATA_INDEX] = US_OK;
+			if(Local_Dist < MAX_DISTANCE)
 			{
 					My_Data.Global_u8BrakeStatus = 1;
 			}
@@ -128,6 +183,10 @@ void US_GetDistanceT(void* pvparam)
 			{
 				My_Data.Global_u8BrakeStatus = 0;
 			}
+		}
+		else if (Local_Dist == 0xFEFE)
+		{
+			Global_u8LogsArr[US_DATA_INDEX] = US_NOTRESPONDING;
 		}
 		vTaskDelay(10); 
 	}
@@ -140,32 +199,67 @@ void CAN_SendDataT(void* pvparam)
 	CAN_Transmit TConfig = {STD_ID,DataFram,_3Byte_Data,CAN_DataID,Global_u8DataArr};
 	while(1)
 	{
+		
 		Global_u8DataArr[0] = My_Data.Global_u8Direction;
 		Global_u8DataArr[1] = My_Data.Global_u8Speed;
 		Global_u8DataArr[2] = My_Data.Global_u8BrakeStatus;
 		
 		CAN_enuTransmit(&TConfig);
+		
 		vTaskDelay(1000);
+		
 	} 
 }
 
 void CAN_RevieveDataT(void* pvparam)
 {
+	u8 CAN_u8DataIndex = 0;
 	while(1)
 	{
-		if(CAN_enuRecieve(&Global_u8CANDataIndex) == CAN_NORecievedData)
+		if(CAN_enuRecieve(&CAN_u8DataIndex) == CAN_NORecievedData)
 		{
 			
 		}
 		else
 		{
-			REC_Data.Global_u8Direction=   ARR_Recieved_Data[Global_u8CANDataIndex][0];
-			REC_Data.Global_u8Speed = 		 ARR_Recieved_Data[Global_u8CANDataIndex][1];
-			REC_Data.Global_u8BrakeStatus= ARR_Recieved_Data[Global_u8CANDataIndex][2];
-		
+			REC_Data.Global_u8Direction 	=  ARR_Recieved_Data[CAN_u8DataIndex][0];
+			REC_Data.Global_u8Speed 			=  ARR_Recieved_Data[CAN_u8DataIndex][1];
+			REC_Data.Global_u8BrakeStatus =  ARR_Recieved_Data[CAN_u8DataIndex][2];
 		}
 		vTaskDelay(500);
+	}
+}
 
+void Button_StateT(void* pvparam)
+{
+	GPIO_configurationsType LED = {GPIO_PORTA_ID,GPIO_PIN05_ID,GPIO_OUTPUT_PUSH_PULL_MODE,GPIO_MEDIUM_SPEED};
+	GPIO_configurationsType BUT = {GPIO_PORTC_ID,GPIO_PIN13_ID,GPIO_INPUT_PULLUP_MODE,GPIO_MEDIUM_SPEED};
+
+	GPIO_configurePin(&LED);
+	GPIO_configurePin(&BUT);
+	GPIO_pinStatusType state;
+	static u16 counter = 0;
+	while(1)
+	{
+		GPIO_readPin(GPIO_PORTC_ID,GPIO_PIN13_ID,&state);
+		if (counter == 15)
+		{
+			GPIO_writePin(GPIO_PORTA_ID,GPIO_PIN05_ID,GPIO_HIGH_PIN);
+			/*SWITCH TO MANAGEMENT MODE*/
+//			vTaskSuspendAll();
+//			MNVIC_VSystemReset();
+		  /***************************/
+			counter = 0;
+		}
+		if (state == GPIO_LOW_PIN)
+		{
+			counter++;
+		}
+		else
+		{
+			counter = 0;
+		}
+		vTaskDelay(200);
 	}
 }
 
@@ -224,6 +318,9 @@ int main(void)
 	/************* TASKS CREATION ***************/
 	xTaskHandle Motor_SetDirectionH;
 	xTaskCreate(Motor_SetDirectionT,NULL,configMINIMAL_STACK_SIZE,NULL,1,&Motor_SetDirectionH);
+	
+	xTaskHandle Button_StateH;
+	xTaskCreate(Button_StateT,NULL,configMINIMAL_STACK_SIZE,NULL,1,&Button_StateH);
 	
 	xTaskHandle CAN_SendDataH;
 	xTaskCreate(CAN_SendDataT,NULL,configMINIMAL_STACK_SIZE,NULL,1,&CAN_SendDataH);
