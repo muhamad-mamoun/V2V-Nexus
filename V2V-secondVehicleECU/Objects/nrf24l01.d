@@ -1,0 +1,5 @@
+./objects/nrf24l01.o: HAL\NRF24L01\SOURCE\nrf24l01.c OTHERS\std_types.h \
+  OTHERS\common_macros.h MCAL\GPIO\INCLUDES\DIO_interface.h \
+  MCAL\RCC\INCLUDES\RCC_interface.h MCAL\SPI\INCLUDES\SPI.h \
+  HAL\NRF24L01\INCLUDES\nrf24l01_prv.h \
+  HAL\NRF24L01\INCLUDES\nrf24l01_cfg.h HAL\NRF24L01\INCLUDES\nrf24l01.h

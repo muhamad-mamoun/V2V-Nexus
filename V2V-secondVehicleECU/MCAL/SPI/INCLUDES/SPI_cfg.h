@@ -1,0 +1,68 @@
+
+#ifndef SPI_CFG_H_
+#define SPI_CFG_H_
+
+/*
+    SPI1_DATA_SIZE OPTIONS:
+
+    1 - SPI_8BIT_DATA
+    2 - SPI_16BIT_DATA
+
+*/
+#define SPI1_DATA_SIZE      SPI_8BIT_DATA
+
+/*
+    SPI1_SS_MANAGE OPTIONS:
+
+    1 - HW_SLAVE_MANAGEMENT
+    2 - SW_SLAVE_MANAGEMENT
+    
+*/
+#define SPI1_SS_MANAGE      SW_SLAVE_MANAGEMENT
+
+/*
+    SPI1_DATA_ORDER OPTIONS:
+
+    1 - SPI_MSB_FIRST
+    2 - SPI_LSB_FIRST
+    
+*/
+#define SPI1_DATA_ORDER     SPI_MSB_FIRST
+
+/*
+    SPI1_PRESCALLER OPTIONS:
+
+    1 - SPI_FPCLK_DIVIDED_BY_2     
+    2 - SPI_FPCLK_DIVIDED_BY_4     
+    3 - SPI_FPCLK_DIVIDED_BY_8     
+    4 - SPI_FPCLK_DIVIDED_BY_16    
+    5 - SPI_FPCLK_DIVIDED_BY_32    
+    6 - SPI_FPCLK_DIVIDED_BY_64    
+    7 - SPI_FPCLK_DIVIDED_BY_128   
+    8 - SPI_FPCLK_DIVIDED_BY_256   
+    
+*/
+#define SPI1_PRESCALLER     SPI_FPCLK_DIVIDED_BY_16
+/*
+    SPI1_MASTER_SLAVE OPTIONS:
+
+    1 - SPI_MASTER     
+    2 - SPI_SLAVE       
+    
+*/
+#define SPI1_MASTER_SLAVE   SPI_MASTER
+
+/*
+    SPI1_CLOCK_MODE OPTIONS:
+
+    1 - SPI_MODE0   ---> POLARITY IDLE LOW  , PHASE READ,WRITE      
+    1 - SPI_MODE1   ---> POLARITY IDLE LOW  , PHASE WRITE,READ         
+    1 - SPI_MODE2   ---> POLARITY IDLE HIGH , PHASE READ,WRITE               
+    1 - SPI_MODE3   ---> POLARITY IDLE HIGH , PHASE WRITE,READ                      
+    
+*/
+#define SPI1_CLOCK_MODE     SPI_MODE0
+
+
+#endif /* SPI_CFG_H_ */
+
