@@ -21,6 +21,7 @@
 #include "motor.h"
 #include "US.h"
 #include "BLE.h"
+#include "eeprom.h"
 
 #define MAX_DISTANCE 50
 #define NUM_OF_CHECK_LOGS 2
@@ -38,11 +39,14 @@
 #define TEMP_DATA_INDEX 0
 #define US_DATA_INDEX   1
 
+#define EEPROM_START_ADDRESS   0x10
+
 /*******************************/
 
 
 
 u8 Global_u8LogsArr[NUM_OF_CHECK_LOGS];  //ARR to TEMP STORE LOGS
+u8 Global_readEEPROM[NUM_OF_CHECK_LOGS];  //ARR to TEMP STORE LOGS
 u8 Global_u8DataArr[3]; 	 							//TEMP ARR FOR CAN DATA
 
 volatile u16 Global_u16Distance; 				//FOR US
@@ -125,14 +129,14 @@ void Motor_SetDirectionT(void* pvParameter)
 void EEPROM_WriteLogsT (void* pvparam) //TASK NOT CREATED YET  
 {
 	/*TILL EEPROM DRIVER IS FINISHED*/
-	/*       
+	      
 	while (1)
 	{
-		EEPROM_Write(TEMP_DATA_INDEX,Global_u8LogsArr[TEMP_DATA_INDEX]);
-		EEPROM_Write(US_DATA_INDEX,Global_u8LogsArr[US_DATA_INDEX]);
+		EEPROM_WRITE_STRING(EEPROM_START_ADDRESS,Global_u8LogsArr,NUM_OF_CHECK_LOGS);
+		EEPROM_READ_STRING(EEPROM_START_ADDRESS,Global_readEEPROM,NUM_OF_CHECK_LOGS);
 		vTaskDelay(500);
 	}
-	*/
+	
 }
 
 void TEMP_GetTempT(void* pvparam)   //TASK NOT CREATED YET  
@@ -249,6 +253,7 @@ void Button_StateT(void* pvparam)
 //			vTaskSuspendAll();
 //			MNVIC_VSystemReset();
 		  /***************************/
+			EEPROM_READ_STRING(EEPROM_START_ADDRESS,Global_readEEPROM,NUM_OF_CHECK_LOGS);
 			counter = 0;
 		}
 		if (state == GPIO_LOW_PIN)
@@ -314,6 +319,7 @@ int main(void)
 	DCmotor_Init();
 	US_voidInit();
 	HBLE_VInit();
+	EEPROM_init();
 	
 	/************* TASKS CREATION ***************/
 	xTaskHandle Motor_SetDirectionH;
@@ -331,6 +337,9 @@ int main(void)
 	
 	xTaskHandle US_GetDistanceH;
 	xTaskCreate(US_GetDistanceT,NULL,configMINIMAL_STACK_SIZE,NULL,4,&US_GetDistanceH);
+	
+	xTaskHandle EEPROM_WriteLogsTH;
+	xTaskCreate(EEPROM_WriteLogsT,NULL,configMINIMAL_STACK_SIZE,NULL,1,&EEPROM_WriteLogsTH);
 
 	vTaskStartScheduler();
 }

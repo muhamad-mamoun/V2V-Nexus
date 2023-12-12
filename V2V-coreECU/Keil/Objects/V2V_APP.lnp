@@ -12,6 +12,8 @@
 ".\objects\us.o"
 ".\objects\ble.o"
 ".\objects\can.o"
+".\objects\eeprom.o"
+".\objects\i2c.o"
 ".\objects\clib_arm.o"
 ".\objects\cmsis_os2.o"
 ".\objects\os_systick.o"
