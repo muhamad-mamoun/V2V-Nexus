@@ -10,8 +10,9 @@
 
 #include"std_types.h"
 #include"common_macros.h"
+#include"gpio.h"
 
-#define POLLING              1
+#define POLLING  1
 
 /* Check if a specific bit is cleared in any register and return true if yes */
 #define BIT_IS_CLEAR(REG,BIT) (!(REG & (1<<BIT)))
@@ -19,7 +20,9 @@
 #define ADC_INPUT_CHANNEL_PORT   GPIO_PORTA_ID
 #define ADC_INPUT_CHANNEL_PIN    GPIO_PIN00_ID
 
-GPIO_configurationsType input_channel = {ADC_INPUT_CHANNEL_PORT,ADC_INPUT_CHANNEL_PIN,GPIO_ANALOG_MODE,GPIO_LOW_SPEED};
+
+#define ADC_MAXIMUM_VALUE    65565
+#define ADC_REF_VOLT_VALUE   3.3
 
 typedef enum
 {
@@ -67,12 +70,12 @@ typedef struct
 	dataAllignment_config    allignment;
 	dataResolution_config    resolution;
 	smplTime_config          samplingTime;
-}ADC_confic;
+}ADC_config;
 
 
 
 
-void ADC_Init(ADC_confic *ADC_config_ptr);
+void ADC_Init(ADC_config *ADC_config_ptr);
 
 // Start ADC conversion
 void ADC_StartConversion(void);
