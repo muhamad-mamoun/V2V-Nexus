@@ -6,7 +6,8 @@
 #include "PWM_cfg.h"
 #include "PWM.h"
 
-GPIO_configurationsType test  =  {GPIO_PORTA_ID,GPIO_PIN00_ID,GPIO_ALTERNATE_PUSH_PULL_MODE,GPIO_HIGH_SPEED};
+GPIO_configurationsType PA0  =  {GPIO_PORTA_ID,GPIO_PIN00_ID,GPIO_ALTERNATE_PUSH_PULL_MODE,GPIO_HIGH_SPEED};
+GPIO_configurationsType PB6  =  {GPIO_PORTB_ID,GPIO_PIN06_ID,GPIO_ALTERNATE_PUSH_PULL_MODE,GPIO_HIGH_SPEED};
 
 /*
   NAME         : PWM_enu_Init
@@ -39,11 +40,9 @@ PWM_enu_Error_t PWM_enu_Init(PWM_enu_TIMx_t Copy_enu_TIMx,PWM_enu_Channelx_t Cop
 	}
 	else
 	{
-		// ENABLE PERIPHERAL CLOCK
-		RCC_voidEnablePeripheral(APB1_BUS,Copy_enu_TIMx);
 		
 		// ENABLE the auto-reload preload register
-		SET_BIT_BAND(&REG(Timx_BASE[Copy_enu_TIMx],TIMx_CCR1),ARPE);
+		SET_BIT_BAND(&REG(Timx_BASE[Copy_enu_TIMx],TIMx_CR1),ARPE);
 		
 		 
 		// Edge Aligned Selection
@@ -68,7 +67,7 @@ PWM_enu_Error_t PWM_enu_Init(PWM_enu_TIMx_t Copy_enu_TIMx,PWM_enu_Channelx_t Cop
 				// CASE TIM2 
 				if ( Copy_enu_TIMx == TIM_2)
 				{
-					GPIO_configurePin(&test);
+					GPIO_configurePin(&PA0);
 					// Configure PIN and Send Alternate function corresponding to pin.
 					GPIO_setPinFuction(GPIO_PORTA_ID, GPIO_PIN00_ID,GPIO_AF01);
 					
@@ -82,6 +81,7 @@ PWM_enu_Error_t PWM_enu_Init(PWM_enu_TIMx_t Copy_enu_TIMx,PWM_enu_Channelx_t Cop
 				// CASE TIM4
 				else if ( Copy_enu_TIMx == TIM_4)
 				{
+					GPIO_configurePin(&PB6);
 					// Configure PIN and Send Alternate function corresponding to pin.
 					GPIO_setPinFuction(GPIO_PORTB_ID, GPIO_PIN06_ID,GPIO_AF02);
 				}
@@ -108,8 +108,7 @@ PWM_enu_Error_t PWM_enu_Init(PWM_enu_TIMx_t Copy_enu_TIMx,PWM_enu_Channelx_t Cop
 				// CASE TIM2 
 				if ( Copy_enu_TIMx == TIM_2)
 				{
-					// Configure PIN and Send Alternate function corresponding to pin.
-					GPIO_setPinFuction(GPIO_PORTB_ID, GPIO_PIN03_ID,GPIO_AF01);
+					
 				}
 				// CASE TIM3 
 				else if ( Copy_enu_TIMx == TIM_3)
@@ -145,8 +144,9 @@ PWM_enu_Error_t PWM_enu_Init(PWM_enu_TIMx_t Copy_enu_TIMx,PWM_enu_Channelx_t Cop
 				// CASE TIM2 
 				if ( Copy_enu_TIMx == TIM_2)
 				{
+					//GPIO_configurePin(&PA2);
 					// Configure PIN and Send Alternate function corresponding to pin.
-					GPIO_setPinFuction(GPIO_PORTB_ID, GPIO_PIN10_ID,GPIO_AF01);
+					GPIO_setPinFuction(GPIO_PORTA_ID, GPIO_PIN02_ID,GPIO_AF01);
 				}
 				// CASE TIM3
 				else if ( Copy_enu_TIMx == TIM_3)
@@ -279,21 +279,21 @@ PWM_enu_Error_t PWM_enu_SetDutyCycle(PWM_enu_TIMx_t Copy_enu_TIMx,PWM_enu_Channe
 			case CHANNEL_2:
 			{
 				// SET CCRx With Duty Cycle % of ARR VALUE
-				REG(Timx_BASE[Copy_enu_TIMx],TIMx_CCR2) = (ARR_VALUE/100)*Copy_DutyCycle;
+				REG(Timx_BASE[Copy_enu_TIMx],TIMx_CCR2) = (ARR_VALUE/DUTY_MAX)*Copy_DutyCycle;
 				break;
 			}
 			// CASE CHANNEL 3
 			case CHANNEL_3:
 			{
 				// SET CCRx With Duty Cycle % of ARR VALUE
-				REG(Timx_BASE[Copy_enu_TIMx],TIMx_CCR3) = (ARR_VALUE/100)*Copy_DutyCycle;
+				REG(Timx_BASE[Copy_enu_TIMx],TIMx_CCR3) = (ARR_VALUE/DUTY_MAX)*Copy_DutyCycle;
 				break;
 			}
 			// CASE CHANNEL 4
 			case CHANNEL_4:
 			{
 				// SET CCRx With Duty Cycle % of ARR VALUE
-				REG(Timx_BASE[Copy_enu_TIMx],TIMx_CCR4) = (ARR_VALUE/100)*Copy_DutyCycle;
+				REG(Timx_BASE[Copy_enu_TIMx],TIMx_CCR4) = (ARR_VALUE/DUTY_MAX)*Copy_DutyCycle;
 				break;
 			}
 			default:break;

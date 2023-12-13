@@ -25,10 +25,10 @@ typedef enum
 
 
 I2C_enu_Error_t I2C_init(I2C_enu_index_t Copy_enu_I2C_index);
-void I2C_MASTER_init(u8 Address_Size,u16 SlaveAddress,u8 WriteOrRead,u8 bytes);
+void I2C_MASTER_init(I2C_enu_index_t Copy_enu_I2C_index,u8 Address_Size,u16 SlaveAddress,u8 WriteOrRead,u8 bytes);
 I2C_enu_Error_t I2C_Start(I2C_enu_index_t Copy_enu_I2C_index);
 I2C_enu_Error_t I2C_Stop(I2C_enu_index_t Copy_enu_I2C_index);
-void I2C1_Write_byte(u8 data);
-void I2C1_Read_byte(u8 *data);
+void I2C1_Write_byte(I2C_enu_index_t Copy_enu_I2C_index,u8 data);
+void I2C1_Read_byte(I2C_enu_index_t Copy_enu_I2C_index,u8 *data);
 
 #endif

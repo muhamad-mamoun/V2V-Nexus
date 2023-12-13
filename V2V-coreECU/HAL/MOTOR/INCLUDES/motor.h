@@ -18,8 +18,10 @@
 #define H_BRIDGE_INPUT4_PIN    			GPIO_PIN03_ID
 
 // selection of channel and timer IDs for PWM init
-#define DCMOTOR_SELECT_TIMER          TIM_2
-#define DCMOTOR_SELECT_CHANNEL        CHANNEL_1
+#define DCMOTOR_SELECT_TIMER           TIM_2
+#define DCMOTOR_SELECT_TIMER2          TIM_4
+#define DCMOTOR_SELECT_CHANNEL1        CHANNEL_1
+
 
 // macro to drive dutycycle to zero
 #define DCMOTOR_STOP                   0

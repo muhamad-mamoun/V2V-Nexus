@@ -73,26 +73,23 @@ void Motor_SetDirectionT(void* pvParameter)
 	while(1)
 	{
 		HBLE_VGetKey(&Local_u8RecData);
-		if (Local_u8RecData == '-' )
+		if (Local_u8RecData == '-' && My_Data.Global_u8Speed != 0)
 		{
-			if(My_Data.Global_u8Speed != 0)
-			{
 				My_Data.Global_u8Speed-=20;
-			}
 		}
-		else if (Local_u8RecData == '+')
+		else if (Local_u8RecData == '+' && My_Data.Global_u8Speed != 100)
 		{
-			if(My_Data.Global_u8Speed != 100)
-			{
 				My_Data.Global_u8Speed+=20;
-			}
 		}
 		else if (Local_u8RecData != NO_REC_KEY)
 		{
 			My_Data.Global_u8Direction = Local_u8RecData;
 		}
 						/*MOTORS SET*/
-		switch(My_Data.Global_u8Direction)
+		if (REC_Data.Global_u8BrakeStatus != My_Data.Global_u8BrakeStatus || REC_Data.Global_u8Direction != My_Data.Global_u8Direction
+			   || REC_Data.Global_u8Speed != My_Data.Global_u8Speed)
+		{
+			switch(My_Data.Global_u8Direction)
 		{
 		case 'F':
 			if( My_Data.Global_u8BrakeStatus == 0)
@@ -121,6 +118,9 @@ void Motor_SetDirectionT(void* pvParameter)
 			DCmotor_stop();
 			My_Data.Global_u8BrakeStatus = 1;
 			break;
+		}
+    REC_Data = My_Data;
+			
 		}
 		vTaskDelay(70);
 	}
@@ -306,8 +306,10 @@ int main(void)
 	RCC_voidEnablePeripheral(AHB_BUS,GPIOA_EN);
 	RCC_voidEnablePeripheral(AHB_BUS,GPIOB_EN);
 	RCC_voidEnablePeripheral(AHB_BUS,GPIOC_EN);
+	RCC_voidEnablePeripheral(AHB_BUS,GPIOD_EN);
 	RCC_voidEnablePeripheral(APB1_BUS,TIM2_EN);
 	RCC_voidEnablePeripheral(APB1_BUS,TIM3_EN);
+	RCC_voidEnablePeripheral(APB1_BUS,TIM4_EN);
 	RCC_voidEnablePeripheral(APB2_BUS,USART1_EN);
 	RCC_voidEnablePeripheral(APB1_BUS,CAN_EN);
 	
