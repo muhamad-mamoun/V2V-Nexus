@@ -22,16 +22,122 @@ Dialog DLL:      TCM.DLL V1.36.5.0
  
 <h2>Project:</h2>
 D:\Automotive4month\GP\V2V-project\V2V-coreECU\Keil\V2V_APP.uvprojx
-Project File Date:  12/13/2023
+Project File Date:  12/14/2023
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.13.1', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Build target 'Target 1'
-compiling motor.c...
+main.c(7): warning: In file included from...
+../OTHERS\common_macros.h(6): warning: 'SET_BIT' macro redefined [-Wmacro-redefined]
+#define SET_BIT(Reg,Bit)                                        (Reg|=(1<<Bit))
+        ^
+C:/Users/sharb/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include\stm32f3xx.h(191): note: previous definition is here
+#define SET_BIT(REG, BIT)     ((REG) |= (BIT))
+        ^
+main.c(17): warning: In file included from...
+../MCAL/GPIO/INCLUDES\gpio_prv.h(45): warning: 'GPIOA' macro redefined [-Wmacro-redefined]
+#define GPIOA                              ((volatile GPIOx_registersType*)(0X48000000))
+        ^
+C:/Users/sharb/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f303xe.h(979): note: previous definition is here
+#define GPIOA               ((GPIO_TypeDef *) GPIOA_BASE)
+        ^
+main.c(17): warning: In file included from...
+../MCAL/GPIO/INCLUDES\gpio_prv.h(46): warning: 'GPIOB' macro redefined [-Wmacro-redefined]
+#define GPIOB                              ((volatile GPIOx_registersType*)(0X48000400))
+        ^
+C:/Users/sharb/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f303xe.h(980): note: previous definition is here
+#define GPIOB               ((GPIO_TypeDef *) GPIOB_BASE)
+        ^
+main.c(17): warning: In file included from...
+../MCAL/GPIO/INCLUDES\gpio_prv.h(47): warning: 'GPIOC' macro redefined [-Wmacro-redefined]
+#define GPIOC                              ((volatile GPIOx_registersType*)(0X48000800))
+        ^
+C:/Users/sharb/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f303xe.h(981): note: previous definition is here
+#define GPIOC               ((GPIO_TypeDef *) GPIOC_BASE)
+        ^
+main.c(17): warning: In file included from...
+../MCAL/GPIO/INCLUDES\gpio_prv.h(48): warning: 'GPIOD' macro redefined [-Wmacro-redefined]
+#define GPIOD                              ((volatile GPIOx_registersType*)(0X48000C00))
+        ^
+C:/Users/sharb/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f303xe.h(982): note: previous definition is here
+#define GPIOD               ((GPIO_TypeDef *) GPIOD_BASE)
+        ^
+main.c(17): warning: In file included from...
+../MCAL/GPIO/INCLUDES\gpio_prv.h(49): warning: 'GPIOE' macro redefined [-Wmacro-redefined]
+#define GPIOE                              ((volatile GPIOx_registersType*)(0X48001000))
+        ^
+C:/Users/sharb/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f303xe.h(983): note: previous definition is here
+#define GPIOE               ((GPIO_TypeDef *) GPIOE_BASE)
+        ^
+main.c(17): warning: In file included from...
+../MCAL/GPIO/INCLUDES\gpio_prv.h(50): warning: 'GPIOF' macro redefined [-Wmacro-redefined]
+#define GPIOF                              ((volatile GPIOx_registersType*)(0X48001400))
+        ^
+C:/Users/sharb/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f303xe.h(984): note: previous definition is here
+#define GPIOF               ((GPIO_TypeDef *) GPIOF_BASE)
+        ^
+main.c(17): warning: In file included from...
+../MCAL/GPIO/INCLUDES\gpio_prv.h(51): warning: 'GPIOG' macro redefined [-Wmacro-redefined]
+#define GPIOG                              ((volatile GPIOx_registersType*)(0X48001800))
+        ^
+C:/Users/sharb/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f303xe.h(985): note: previous definition is here
+#define GPIOG               ((GPIO_TypeDef *) GPIOG_BASE)
+        ^
+main.c(17): warning: In file included from...
+../MCAL/GPIO/INCLUDES\gpio_prv.h(52): warning: 'GPIOH' macro redefined [-Wmacro-redefined]
+#define GPIOH                              ((volatile GPIOx_registersType*)(0X48001C00))
+        ^
+C:/Users/sharb/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f303xe.h(986): note: previous definition is here
+#define GPIOH               ((GPIO_TypeDef *) GPIOH_BASE)
+        ^
+main.c(255): warning: passing 'char [28]' to parameter of type 'pu8' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+                        HBLE_VSendReport("WELCOME TO MANAGMENT MODE\r\n");
+                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../HAL/Bluetooth/Includes\BLE.h(37): note: passing argument to parameter 'records' here
+void HBLE_VSendReport(pu8 records);
+                          ^
+main.c(256): warning: passing 'char [20]' to parameter of type 'pu8' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+                        HBLE_VSendReport("MOTOR TEMP STATUS \t");
+                                         ^~~~~~~~~~~~~~~~~~~~~~
+../HAL/Bluetooth/Includes\BLE.h(37): note: passing argument to parameter 'records' here
+void HBLE_VSendReport(pu8 records);
+                          ^
+main.c(259): warning: passing 'char [9]' to parameter of type 'pu8' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+                                HBLE_VSendReport("NOT OK\r\t");
+                                                 ^~~~~~~~~~~~
+../HAL/Bluetooth/Includes\BLE.h(37): note: passing argument to parameter 'records' here
+void HBLE_VSendReport(pu8 records);
+                          ^
+main.c(263): warning: passing 'char [9]' to parameter of type 'pu8' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+                                HBLE_VSendReport("NORMAL\r\n");
+                                                 ^~~~~~~~~~~~
+../HAL/Bluetooth/Includes\BLE.h(37): note: passing argument to parameter 'records' here
+void HBLE_VSendReport(pu8 records);
+                          ^
+main.c(265): warning: passing 'char [20]' to parameter of type 'pu8' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+                        HBLE_VSendReport("ULTRASONIC STATUS \t");
+                                         ^~~~~~~~~~~~~~~~~~~~~~
+../HAL/Bluetooth/Includes\BLE.h(37): note: passing argument to parameter 'records' here
+void HBLE_VSendReport(pu8 records);
+                          ^
+main.c(268): warning: passing 'char [9]' to parameter of type 'pu8' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+                                HBLE_VSendReport("NOT OK\r\t");
+                                                 ^~~~~~~~~~~~
+../HAL/Bluetooth/Includes\BLE.h(37): note: passing argument to parameter 'records' here
+void HBLE_VSendReport(pu8 records);
+                          ^
+main.c(272): warning: passing 'char [9]' to parameter of type 'pu8' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+                                HBLE_VSendReport("NORMAL\r\n");
+                                                 ^~~~~~~~~~~~
+../HAL/Bluetooth/Includes\BLE.h(37): note: passing argument to parameter 'records' here
+void HBLE_VSendReport(pu8 records);
+                          ^
+16 warnings generated.
+compiling main.c...
 linking...
-Program Size: Code=24072 RO-data=512 RW-data=80 ZI-data=13136  
+Program Size: Code=23824 RO-data=556 RW-data=112 ZI-data=13136  
 FromELF: creating hex file...
-".\Objects\V2V_APP.axf" - 0 Error(s), 0 Warning(s).
+".\Objects\V2V_APP.axf" - 0 Error(s), 16 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -78,40 +184,40 @@ Package Vendor: Keil
       Include file:  CMSIS\RTOS2\FreeRTOS\Config\ARMCM\FreeRTOSConfig.h
 
    * Component: ARM.FreeRTOS::RTOS:Core:Cortex-M:10.5.1
-      Include file:  Source\include\queue.h
-      Include file:  Source\include\semphr.h
-      Source file:   Source\list.c
-      Include file:  Source\include\task.h
-      Source file:   Source\queue.c
       Include file:  Source\include\FreeRTOS.h
+      Include file:  Source\include\semphr.h
+      Include file:  Source\include\task.h
+      Source file:   Source\list.c
+      Include file:  Source\include\queue.h
+      Source file:   Source\queue.c
       Source file:   Source\tasks.c
       Source file:   Source\portable\GCC\ARM_CM4F\port.c
       Source file:   CMSIS\RTOS2\FreeRTOS\Source\freertos_evr.c
 
    * Component: ARM.FreeRTOS::RTOS:Event Groups:10.5.1
-      Source file:   Source\event_groups.c
       Include file:  Source\include\event_groups.h
+      Source file:   Source\event_groups.c
 
    * Component: ARM.FreeRTOS::RTOS:Heap:Heap_4:10.5.1
       Source file:   Source\portable\MemMang\heap_4.c
 
    * Component: ARM.FreeRTOS::RTOS:Timers:10.5.1
-      Include file:  Source\include\timers.h
       Source file:   Source\timers.c
+      Include file:  Source\include\timers.h
 
    * Component: ARM::CMSIS:CORE:5.6.0
 
    * Component: ARM::CMSIS:RTOS2:FreeRTOS:Cortex-M:10.5.1
-      Include file:  CMSIS\RTOS2\FreeRTOS\Include\freertos_mpool.h
-      Source file:   CMSIS\RTOS2\FreeRTOS\Source\cmsis_os2.c
-      Source file:   CMSIS\RTOS2\FreeRTOS\Source\ARM\clib_arm.c
       Source file:   CMSIS\RTOS2\FreeRTOS\Source\os_systick.c
+      Source file:   CMSIS\RTOS2\FreeRTOS\Source\cmsis_os2.c
+      Include file:  CMSIS\RTOS2\FreeRTOS\Include\freertos_mpool.h
+      Source file:   CMSIS\RTOS2\FreeRTOS\Source\ARM\clib_arm.c
 
    * Component: Keil.Standalone::Device:Startup:1.11.3
+      Include file:  Drivers\CMSIS\Device\ST\STM32F3xx\Include\stm32f3xx.h
+      Source file:   MDK\Device\Source\ARM\STM32F3xx_OPT.s
       Source file:   Drivers\CMSIS\Device\ST\STM32F3xx\Source\Templates\arm\startup_stm32f303xe.s
       Source file:   Drivers\CMSIS\Device\ST\STM32F3xx\Source\Templates\system_stm32f3xx.c
-      Source file:   MDK\Device\Source\ARM\STM32F3xx_OPT.s
-      Include file:  Drivers\CMSIS\Device\ST\STM32F3xx\Include\stm32f3xx.h
 Build Time Elapsed:  00:00:01
 </pre>
 </body>

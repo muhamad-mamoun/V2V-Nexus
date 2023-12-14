@@ -22,6 +22,9 @@ u8 G_Key=NO_REC_KEY;
 
 GPIO_configurationsType UART_PIN_TX = {GPIO_PORTC_ID,GPIO_PIN04_ID,GPIO_ALTERNATE_PUSH_PULL_MODE,GPIO_MEDIUM_SPEED};
 GPIO_configurationsType UART_PIN_RX = {GPIO_PORTC_ID,GPIO_PIN05_ID,GPIO_ALTERNATE_PUSH_PULL_MODE,GPIO_MEDIUM_SPEED};
+
+GPIO_configurationsType UART_PIN_TX1 = {GPIO_PORTB_ID,GPIO_PIN10_ID,GPIO_ALTERNATE_PUSH_PULL_MODE,GPIO_MEDIUM_SPEED};
+GPIO_configurationsType UART_PIN_RX1 = {GPIO_PORTB_ID,GPIO_PIN11_ID,GPIO_ALTERNATE_PUSH_PULL_MODE,GPIO_MEDIUM_SPEED};
 /*
  *Function Name : HBLE_VInit 
  *Description   : Initialization Function Define UART Call Back Function 
@@ -31,6 +34,7 @@ GPIO_configurationsType UART_PIN_RX = {GPIO_PORTC_ID,GPIO_PIN05_ID,GPIO_ALTERNAT
  
  MUARTConfig  UART = 
  {
+	 FALSE,
 	 OneStart_8Data,
    OV_16 , 
    Parity_Disabled,
@@ -38,6 +42,19 @@ GPIO_configurationsType UART_PIN_RX = {GPIO_PORTC_ID,GPIO_PIN05_ID,GPIO_ALTERNAT
 	 OneStopBit , 
 	 9600 , 
 	 Interrupt_Enable_RX_Only, 
+    	 
+ };
+ 
+ MUARTConfig  UART1 = 
+ {
+	 2,
+	 OneStart_8Data,
+   OV_16 , 
+   Parity_Disabled,
+	 LSB , 
+	 OneStopBit , 
+	 9600 , 
+   Interrupt_Disable, 
     	 
  };
  
@@ -52,10 +69,15 @@ void HBLE_VInit(void)
 	GPIO_configurePin(&UART_PIN_RX);
 	GPIO_setPinFuction(GPIO_PORTC_ID,GPIO_PIN04_ID, GPIO_AF07);
 	GPIO_setPinFuction(GPIO_PORTC_ID,GPIO_PIN05_ID, GPIO_AF07);
+	GPIO_configurePin(&UART_PIN_TX1);
+	GPIO_configurePin(&UART_PIN_RX1);
+	GPIO_setPinFuction(GPIO_PORTB_ID,GPIO_PIN10_ID, GPIO_AF07);
+	GPIO_setPinFuction(GPIO_PORTB_ID,GPIO_PIN11_ID, GPIO_AF07);
 	MUSART_voidInit(&UART);
+	MUSART_voidInit(&UART1);
 	
 	//send HBLE_VGetChar to the UART Call Back Function 
-	MUSART1_VidSetCallBack(HBLE_VGetChar);
+	MUSART1_VidSetCallBack(FALSE,HBLE_VGetChar);
 	MNVIC_EnuEnablePerInterrupt(NVIC_REG1,NVIC_REGx_INT5);
 }
 
@@ -84,11 +106,11 @@ void HBLE_VGetKey(pu8 ADD_pu8Key)
 }
 
 
-/*
- *Function Name : HBLE_VGetChar
- *Description   : Function to Call when UART Handler Triggered 
- *Parameters    : None 
- *Return Type   : None
- */
+
+
+void HBLE_VSendReport(pu8 records)
+{
+	MUSART1_VidSendStringSynch (2, records);
+}
 
 

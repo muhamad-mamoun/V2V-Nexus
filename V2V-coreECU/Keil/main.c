@@ -60,8 +60,8 @@ volatile u8 Global_u8Speed;
 volatile u8 Global_u8BrakeStatus;
 }Data_t;
 
-Data_t My_Data = {'S',60,0}; //INIT VALS FOR CAR
-Data_t REC_Data; 						 //REC DATA FROM CAN [NOT USED YET]
+Data_t My_Data  = {'S',60,0}; //INIT VALS FOR CAR
+Data_t REC_Data = {'Z',100,1}; 						 //REC DATA FROM CAN [NOT USED YET]
 
 
 
@@ -69,7 +69,6 @@ void Motor_SetDirectionT(void* pvParameter)
 {
 	vTaskDelay(500);
 	u8 Local_u8RecData = 0;
-	u8 Local_u8PrevDirection = 0;
 	while(1)
 	{
 		HBLE_VGetKey(&Local_u8RecData);
@@ -122,14 +121,14 @@ void Motor_SetDirectionT(void* pvParameter)
     REC_Data = My_Data;
 			
 		}
-		vTaskDelay(70);
+		vTaskDelay(100);
 	}
 }
 
 void EEPROM_WriteLogsT (void* pvparam) //TASK NOT CREATED YET  
 {
 	/*TILL EEPROM DRIVER IS FINISHED*/
-	      
+	vTaskDelay(500);
 	while (1)
 	{
 		EEPROM_WRITE_STRING(EEPROM_START_ADDRESS,Global_u8LogsArr,NUM_OF_CHECK_LOGS);
@@ -253,6 +252,25 @@ void Button_StateT(void* pvparam)
 //			MNVIC_VSystemReset();
 		  /***************************/
 			EEPROM_READ_STRING(EEPROM_START_ADDRESS,Global_readEEPROM,NUM_OF_CHECK_LOGS);
+			HBLE_VSendReport("WELCOME TO MANAGMENT MODE\r\n");
+			HBLE_VSendReport("MOTOR TEMP STATUS \t");
+			if (Global_readEEPROM[TEMP_DATA_INDEX] == FALSE)
+			{
+				HBLE_VSendReport("NOT OK\r\t");
+			}
+			else
+			{
+				HBLE_VSendReport("NORMAL\r\n");
+			}
+			HBLE_VSendReport("ULTRASONIC STATUS \t");
+			if (Global_readEEPROM[US_DATA_INDEX] == FALSE)
+			{
+				HBLE_VSendReport("NOT OK\r\t");
+			}
+			else
+			{
+				HBLE_VSendReport("NORMAL\r\n");
+			}
 			counter = 0;
 		}
 		if (state == GPIO_LOW_PIN)
@@ -311,6 +329,7 @@ int main(void)
 	RCC_voidEnablePeripheral(APB1_BUS,TIM3_EN);
 	RCC_voidEnablePeripheral(APB1_BUS,TIM4_EN);
 	RCC_voidEnablePeripheral(APB2_BUS,USART1_EN);
+	RCC_voidEnablePeripheral(APB1_BUS,USART3_EN);
 	RCC_voidEnablePeripheral(APB1_BUS,CAN_EN);
 	
 	/************* MCAL INITS *****************/

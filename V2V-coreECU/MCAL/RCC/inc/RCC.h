@@ -51,7 +51,7 @@ void RCC_voidInitSYSCLK(void);
 #define I2C1_EN 21
 #define I2C2_EN 22
 #define I2C3_EN 30
-
+#define USART3_EN 18
 
 void RCC_voidEnablePeripheral(u8 Copy_u8Bus, u8 Copy_u8Peripheral);
 
