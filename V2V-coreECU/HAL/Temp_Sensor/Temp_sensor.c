@@ -4,8 +4,8 @@
  *  Created on: Dec 9, 2023
  *      Author: Ahmed Dwidar
  */
-#include"ADC.h"
-#include"Temp_sensor.h"
+#include "ADC.h"
+#include "Temp_sensor.h"
 
 u16 TEMP_Get(void)
 {
