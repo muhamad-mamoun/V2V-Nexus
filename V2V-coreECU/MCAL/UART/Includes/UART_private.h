@@ -4,7 +4,9 @@
 
 #include "Std_types.h"
 
-
+#define UART_1_BASE     0x40013800
+#define UART_2_BASE     0x40004400
+#define UART_3_BASE     0x40004800 
 
 typedef struct 
 {
@@ -21,7 +23,7 @@ typedef struct
     volatile u32 TDR   ;
 }USART_t ; 
 
-#define MUSART ((volatile USART_t *)0x40013800 )
+#define MUSART(BASE) ((volatile USART_t *)BASE )
 	
 
 #endif

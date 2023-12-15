@@ -34,5 +34,8 @@ void HBLE_VInit(void);
 void HBLE_VGetKey(pu8 ADD_pu8Key);
 
 
+void HBLE_VSendReport(pu8 records);
+
+
 
 #endif //end Guard

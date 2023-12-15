@@ -38,10 +38,10 @@ void DCmotor_Init(void)
 void DCmotor_frontMove(u8 dutyCycle)
 {
 	
+	MOTOR_SET_SPEED(dutyCycle);
 	GPIO_writePin(H_BRIDGE_INPUT1_PORT,H_BRIDGE_INPUT3_PIN,GPIO_HIGH_PIN);
 	GPIO_writePin(H_BRIDGE_INPUT1_PORT,H_BRIDGE_INPUT1_PIN,GPIO_HIGH_PIN);
 
-	MOTOR_SET_SPEED(dutyCycle);
 	/*ganb ymen wra*/
 	GPIO_writePin(H_BRIDGE_INPUT2_PORT,H_BRIDGE_INPUT2_PIN,GPIO_LOW_PIN);
 	GPIO_writePin(H_BRIDGE_INPUT2_PORT,H_BRIDGE_INPUT4_PIN,GPIO_LOW_PIN);
@@ -135,7 +135,7 @@ void DCmotor4_(void)
 
 static void MOTOR_SET_SPEED(u8 speed)
 {
-	PWM_enu_SetDutyCycle(DCMOTOR_SELECT_TIMER,DCMOTOR_SELECT_CHANNEL1,speed);
+	
 	if (speed > FALSE)
 	{
 		PWM_enu_SetDutyCycle(DCMOTOR_SELECT_TIMER2,DCMOTOR_SELECT_CHANNEL1,speed-5);
@@ -144,5 +144,6 @@ static void MOTOR_SET_SPEED(u8 speed)
 	{
 		PWM_enu_SetDutyCycle(DCMOTOR_SELECT_TIMER2,DCMOTOR_SELECT_CHANNEL1,speed);
 	}
+	PWM_enu_SetDutyCycle(DCMOTOR_SELECT_TIMER,DCMOTOR_SELECT_CHANNEL1,speed);
 	
 }

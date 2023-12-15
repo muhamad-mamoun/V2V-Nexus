@@ -6,6 +6,7 @@
 
 typedef struct 
 {
+	  volatile u8 UART_Index          ;
     volatile u8 WordLength          ;
     /*UART Sampling*/
     volatile u8 OverSampling        ; 
@@ -141,7 +142,7 @@ UART_tenuErrorStatus MUSART_voidInit(MUARTConfig *Add_CnfgStruct);
   ******************************************************************************
   */
 
-void MUSART1_VidSendCharSync ( u8 Copy_u8Char);
+void MUSART1_VidSendCharSync (u8 UART_INDEX, u8 Copy_u8Char);
 
 /**
   ******************************************************************************
@@ -150,7 +151,7 @@ void MUSART1_VidSendCharSync ( u8 Copy_u8Char);
   * retval  None
   ******************************************************************************
   */
-void MUSART1_VidSendStringSynch ( u8 * Copy_ptrString );
+void MUSART1_VidSendStringSynch (u8 UART_INDEX, u8 * Copy_ptrString );
 
 /**
   ******************************************************************************
@@ -161,11 +162,11 @@ void MUSART1_VidSendStringSynch ( u8 * Copy_ptrString );
   *             - ErrorReceieving: Error occurred during the receiving process.
   ******************************************************************************
   */
-UART_tenuErrorStatus MUSART1_u8RecCharSynch (u32* pData) ;
+UART_tenuErrorStatus MUSART1_u8RecCharSynch (u8 UART_INDEX,u32* pData) ;
 
 
 
-void MUSART1_VidSetCallBack( void (*ptr) (u32)) ; 
+void MUSART1_VidSetCallBack(u8 UART_INDEX, void (*ptr) (u32)) ; 
 
 
 #endif
