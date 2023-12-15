@@ -16,6 +16,7 @@ Description  :
 #include "std_types.h"
 #include "common_macros.h"
 #include "V2V-secondVehicle.h"
+#include "DIO_interface.h"     /* For debugging. */
 #include "RCC_interface.h"
 #include "nrf24l01.h"
 #include "motor.h"
@@ -43,6 +44,8 @@ int main(void)
 {
 	MRCC_voidInit();
 	DCmotor_Init();
+    MRCC_voidPerClock_State(APB2,IOPC_PERIPHERAL,PClock_enable);
+    MGPIO_voidSetPinDirection(GPIOC_driver,PIN13,OUTPUT_SPEED_10MHZ_PP);
 	NRF24L01_init();
 	NRF24L01_switchToReceiverMode(0X20,NRF24L01_DATA_PIPE_0);
 	NRF24L01_bufferStatusType LOC_receiverBufferStatus = NRF24L01_BUFFER_EMPTY;
@@ -54,8 +57,20 @@ int main(void)
 			NRF24L01_checkReceiverBuffer(NRF24L01_DATA_PIPE_0,&LOC_receiverBufferStatus);
 		}while(LOC_receiverBufferStatus != NRF24L01_BUFFER_NOT_EMPTY);
 
+        MGPIO_voidTglPin(GPIOC_driver,PIN13);     /* For debugging. */
 		NRF24L01_readData((pu8)&G_myVehicle,3);
-		MOTOR_setMotor(G_myVehicle.direction,G_myVehicle.speed);
+
+        if (G_myVehicle.brake_status == TRUE )
+        {
+            G_myVehicle.speed = FALSE;
+        }
+
+        else if (G_myVehicle.speed > FALSE)
+        {
+            G_myVehicle.speed-=8;
+        }
+		
+		MOTOR_setMotor(G_myVehicle.direction,(G_myVehicle.speed + 10));
 		LOC_receiverBufferStatus = NRF24L01_BUFFER_EMPTY;
 		NRF24L01_flushReceiverBuffer();
 	}

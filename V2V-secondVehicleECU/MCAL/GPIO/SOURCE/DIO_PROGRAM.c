@@ -178,3 +178,21 @@ void MGPIO_voidSetPortValue      (u8 copy_u8PORT , u16 copy_u16Value)
 					 break;
 	}
 }
+
+
+void MGPIO_voidTglPin      (u8 copy_u8PORT , u8 copy_u8PIN)
+{
+
+	switch(copy_u8PORT)
+	{
+	   case GPIOA_driver :  TGL_BIT(GPIOA_ODR ,copy_u8PIN );
+		             break ;
+
+	   case GPIOB_driver :  TGL_BIT(GPIOB_ODR ,copy_u8PIN );
+	                 break ;
+
+	   case GPIOC_driver :  TGL_BIT(GPIOC_ODR ,copy_u8PIN );
+	                 break ;
+	}
+
+}

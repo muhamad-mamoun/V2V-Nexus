@@ -96,6 +96,7 @@ void MGPIO_voidSetPinValue    (u8 copy_u8PORT , u8 copy_u8PIN  , u8 copy_u8Value
 u8   MGPIO_u8GetPinValue      (u8 copy_u8PORT , u8 copy_u8PIN );
 void MGPIO_voidSetPortDirection  (u8 copy_u8PORT , u32 copy_u32Mode);
 void MGPIO_voidSetPortValue      (u8 copy_u8PORT , u16 copy_u16Value);
+void MGPIO_voidTglPin      (u8 copy_u8PORT , u8 copy_u8PIN);
 
 
 
