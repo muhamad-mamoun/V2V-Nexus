@@ -255,29 +255,30 @@ void Button_StateT(void* pvparam)
 				GPIO_writePin(GPIO_PORTA_ID,GPIO_PIN05_ID,GPIO_HIGH_PIN);
 				Suspend_MyTasks();
 				EEPROM_READ_STRING(EEPROM_START_ADDRESS,Global_readEEPROM,NUM_OF_CHECK_LOGS);
-				HBLE_VSendReport("WELCOME TO MANAGMENT MODE\r\n");
-				HBLE_VSendReport("MOTOR TEMP STATUS \t");
+				HBLE_VSendReport("WELCOME TO MANAGMENT MODE\r\n\n");
+                
+				HBLE_VSendReport("MOTOR TEMP STATUS      ");
 				if (Global_readEEPROM[TEMP_DATA_INDEX] == TEMP_OVERHEAT)
 				{
-					HBLE_VSendReport("TEMP_OVERHEAT \r\t");
+					HBLE_VSendReport("TEMP_OVERHEAT");
 				}
 				else if (Global_readEEPROM[TEMP_DATA_INDEX] == TEMP_NOTRESPONDING)
 				{
-					HBLE_VSendReport("SENSOR_NOTRESPONDING \r\t");
+					HBLE_VSendReport("SENSOR_NOTRESPONDING");
 				}
 				else
 				{
-					HBLE_VSendReport("NORMAL\r\n");
+					HBLE_VSendReport("NORMAL");
 				}
 				
-				HBLE_VSendReport("ULTRASONIC STATUS \t");
+				HBLE_VSendReport("\nULTRASONIC STATUS      ");
 				if (Global_readEEPROM[US_DATA_INDEX] == US_NOTRESPONDING)
 				{
-					HBLE_VSendReport("US_NOTRESPONDING\r\t");
+					HBLE_VSendReport("US_NOTRESPONDING");
 				}
 				else
 				{
-					HBLE_VSendReport("NORMAL\r\n");
+					HBLE_VSendReport("NORMAL");
 				}			
 			}	
 			else

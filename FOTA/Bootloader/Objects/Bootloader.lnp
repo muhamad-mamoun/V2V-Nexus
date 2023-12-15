@@ -1,0 +1,13 @@
+--cpu=Cortex-M4.fp.sp
+".\objects\fpec_program.o"
+".\objects\gpio.o"
+".\objects\nvic.o"
+".\objects\rcc.o"
+".\objects\stk_program.o"
+".\objects\usart.o"
+".\objects\main.o"
+".\objects\parse.o"
+--strict --scatter ".\Linker Script\STM32F303RETX_FLASH.ld"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\Bootloader.map" -o .\Objects\Bootloader.axf
