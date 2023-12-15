@@ -1,11 +1,11 @@
 Dependencies for Project 'V2V_APP', Target 'Target 1': (DO NOT MODIFY !)
 CompilerVersion: 6130001::V6.13.1::.\ARMCLANG
-F (.\main.c)(0x657BCEDA)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-covered-switch-default -Wno-unreachable-code-break -I ../OTHERS -I ../MCAL/RCC/inc -I ../MCAL/GPIO/INCLUDES -I "../MCAL/NVIC Driver/Includes" -I ../MCAL/PWM/includes -I ../MCAL/UART/Includes -I ../MCAL/ICU/INCLUDES -I ../MCAL/EXTI/Inludes -I ../HAL/MOTOR/INCLUDES -I ../HAL/Bluetooth/Includes -I ../HAL/US/Includes -I ../MCAL/CAN/Include -I ../MCAL/I2C/inc -I ../HAL/EEPROM/inc -I ../MCAL/ADC -I ../HAL/Temp_Sensor-I./RTE/RTOS-I./RTE/_Target_1-IC:/Users/sharb/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/CMSIS/RTOS2/FreeRTOS/Include-IC:/Users/sharb/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include-IC:/Users/sharb/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/portable/GCC/ARM_CM4F-IC:/Users/sharb/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/sharb/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/RTOS2/Include-IC:/Users/sharb/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F303xE-o ./objects/main.o -MD)
+F (.\main.c)(0x657BD42A)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-covered-switch-default -Wno-unreachable-code-break -I ../OTHERS -I ../MCAL/RCC/inc -I ../MCAL/GPIO/INCLUDES -I "../MCAL/NVIC Driver/Includes" -I ../MCAL/PWM/includes -I ../MCAL/UART/Includes -I ../MCAL/ICU/INCLUDES -I ../MCAL/EXTI/Inludes -I ../HAL/MOTOR/INCLUDES -I ../HAL/Bluetooth/Includes -I ../HAL/US/Includes -I ../MCAL/CAN/Include -I ../MCAL/I2C/inc -I ../HAL/EEPROM/inc -I ../MCAL/ADC -I ../HAL/Temp_Sensor-I./RTE/RTOS-I./RTE/_Target_1-IC:/Users/sharb/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/CMSIS/RTOS2/FreeRTOS/Include-IC:/Users/sharb/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include-IC:/Users/sharb/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/portable/GCC/ARM_CM4F-IC:/Users/sharb/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/sharb/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/RTOS2/Include-IC:/Users/sharb/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F303xE-o ./objects/main.o -MD)
 I (C:\Users\sharb\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\include\FreeRTOS.h)(0x63870880)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x5DB385E0)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x5DB385E0)
 I (RTE\RTOS\FreeRTOSConfig.h)(0x657878CE)
-I (RTE\_Target_1\RTE_Components.h)(0x65789C4A)
+I (RTE\_Target_1\RTE_Components.h)(0x657BD2D8)
 I (C:\Users\sharb\AppData\Local\Arm\Packs\Keil\STM32F3xx_DFP\2.2.2\Drivers\CMSIS\Device\ST\STM32F3xx\Include\stm32f3xx.h)(0x60FBC418)
 I (C:\Users\sharb\AppData\Local\Arm\Packs\Keil\STM32F3xx_DFP\2.2.2\Drivers\CMSIS\Device\ST\STM32F3xx\Include\stm32f303xe.h)(0x60FBC418)
 I (C:\Users\sharb\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F912E)
@@ -191,7 +191,7 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x5DB385E0)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x5DB385E0)
 I (C:\Users\sharb\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\include\FreeRTOS.h)(0x63870880)
 I (RTE\RTOS\FreeRTOSConfig.h)(0x657878CE)
-I (RTE\_Target_1\RTE_Components.h)(0x65789C4A)
+I (RTE\_Target_1\RTE_Components.h)(0x657BD2D8)
 I (C:\Users\sharb\AppData\Local\Arm\Packs\Keil\STM32F3xx_DFP\2.2.2\Drivers\CMSIS\Device\ST\STM32F3xx\Include\stm32f3xx.h)(0x60FBC418)
 I (C:\Users\sharb\AppData\Local\Arm\Packs\Keil\STM32F3xx_DFP\2.2.2\Drivers\CMSIS\Device\ST\STM32F3xx\Include\stm32f303xe.h)(0x60FBC418)
 I (C:\Users\sharb\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F912E)
@@ -221,7 +221,7 @@ I (C:\Users\sharb\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cms
 I (C:\Users\sharb\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\RTOS2\Include\os_tick.h)(0x626F912E)
 I (C:\Users\sharb\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\include\FreeRTOS.h)(0x63870880)
 I (RTE\RTOS\FreeRTOSConfig.h)(0x657878CE)
-I (RTE\_Target_1\RTE_Components.h)(0x65789C4A)
+I (RTE\_Target_1\RTE_Components.h)(0x657BD2D8)
 I (C:\Users\sharb\AppData\Local\Arm\Packs\Keil\STM32F3xx_DFP\2.2.2\Drivers\CMSIS\Device\ST\STM32F3xx\Include\stm32f3xx.h)(0x60FBC418)
 I (C:\Users\sharb\AppData\Local\Arm\Packs\Keil\STM32F3xx_DFP\2.2.2\Drivers\CMSIS\Device\ST\STM32F3xx\Include\stm32f303xe.h)(0x60FBC418)
 I (C:\Users\sharb\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F912E)
@@ -245,7 +245,7 @@ I (C:\Users\sharb\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\10.5.1\CMSIS\RTOS2\
 F (C:\Users\sharb\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\10.5.1\CMSIS\RTOS2\FreeRTOS\Source\os_systick.c)(0x63870880)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-covered-switch-default -Wno-unreachable-code-break -I ../OTHERS -I ../MCAL/RCC/inc -I ../MCAL/GPIO/INCLUDES -I "../MCAL/NVIC Driver/Includes" -I ../MCAL/PWM/includes -I ../MCAL/UART/Includes -I ../MCAL/ICU/INCLUDES -I ../MCAL/EXTI/Inludes -I ../HAL/MOTOR/INCLUDES -I ../HAL/Bluetooth/Includes -I ../HAL/US/Includes -I ../MCAL/CAN/Include -I ../MCAL/I2C/inc -I ../HAL/EEPROM/inc -I ../MCAL/ADC -I ../HAL/Temp_Sensor-I./RTE/RTOS-I./RTE/_Target_1-IC:/Users/sharb/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/CMSIS/RTOS2/FreeRTOS/Include-IC:/Users/sharb/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/include-IC:/Users/sharb/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/10.5.1/Source/portable/GCC/ARM_CM4F-IC:/Users/sharb/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/sharb/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/RTOS2/Include-IC:/Users/sharb/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F303xE-o ./objects/os_systick.o -MD)
 I (C:\Users\sharb\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\RTOS2\Include\os_tick.h)(0x626F912E)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x5DB385E0)
-I (RTE\_Target_1\RTE_Components.h)(0x65789C4A)
+I (RTE\_Target_1\RTE_Components.h)(0x657BD2D8)
 I (C:\Users\sharb\AppData\Local\Arm\Packs\Keil\STM32F3xx_DFP\2.2.2\Drivers\CMSIS\Device\ST\STM32F3xx\Include\stm32f3xx.h)(0x60FBC418)
 I (C:\Users\sharb\AppData\Local\Arm\Packs\Keil\STM32F3xx_DFP\2.2.2\Drivers\CMSIS\Device\ST\STM32F3xx\Include\stm32f303xe.h)(0x60FBC418)
 I (C:\Users\sharb\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F912E)
@@ -270,7 +270,7 @@ I (C:\Users\sharb\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\inclu
 I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x5DB385E0)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x5DB385E0)
 I (RTE\RTOS\FreeRTOSConfig.h)(0x657878CE)
-I (RTE\_Target_1\RTE_Components.h)(0x65789C4A)
+I (RTE\_Target_1\RTE_Components.h)(0x657BD2D8)
 I (C:\Users\sharb\AppData\Local\Arm\Packs\Keil\STM32F3xx_DFP\2.2.2\Drivers\CMSIS\Device\ST\STM32F3xx\Include\stm32f3xx.h)(0x60FBC418)
 I (C:\Users\sharb\AppData\Local\Arm\Packs\Keil\STM32F3xx_DFP\2.2.2\Drivers\CMSIS\Device\ST\STM32F3xx\Include\stm32f303xe.h)(0x60FBC418)
 I (C:\Users\sharb\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F912E)
@@ -299,7 +299,7 @@ I (C:\Users\sharb\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\inclu
 I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x5DB385E0)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x5DB385E0)
 I (RTE\RTOS\FreeRTOSConfig.h)(0x657878CE)
-I (RTE\_Target_1\RTE_Components.h)(0x65789C4A)
+I (RTE\_Target_1\RTE_Components.h)(0x657BD2D8)
 I (C:\Users\sharb\AppData\Local\Arm\Packs\Keil\STM32F3xx_DFP\2.2.2\Drivers\CMSIS\Device\ST\STM32F3xx\Include\stm32f3xx.h)(0x60FBC418)
 I (C:\Users\sharb\AppData\Local\Arm\Packs\Keil\STM32F3xx_DFP\2.2.2\Drivers\CMSIS\Device\ST\STM32F3xx\Include\stm32f303xe.h)(0x60FBC418)
 I (C:\Users\sharb\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F912E)
@@ -325,7 +325,7 @@ I (C:\Users\sharb\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\inclu
 I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x5DB385E0)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x5DB385E0)
 I (RTE\RTOS\FreeRTOSConfig.h)(0x657878CE)
-I (RTE\_Target_1\RTE_Components.h)(0x65789C4A)
+I (RTE\_Target_1\RTE_Components.h)(0x657BD2D8)
 I (C:\Users\sharb\AppData\Local\Arm\Packs\Keil\STM32F3xx_DFP\2.2.2\Drivers\CMSIS\Device\ST\STM32F3xx\Include\stm32f3xx.h)(0x60FBC418)
 I (C:\Users\sharb\AppData\Local\Arm\Packs\Keil\STM32F3xx_DFP\2.2.2\Drivers\CMSIS\Device\ST\STM32F3xx\Include\stm32f303xe.h)(0x60FBC418)
 I (C:\Users\sharb\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F912E)
@@ -347,7 +347,7 @@ I (C:\Users\sharb\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\inclu
 I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x5DB385E0)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x5DB385E0)
 I (RTE\RTOS\FreeRTOSConfig.h)(0x657878CE)
-I (RTE\_Target_1\RTE_Components.h)(0x65789C4A)
+I (RTE\_Target_1\RTE_Components.h)(0x657BD2D8)
 I (C:\Users\sharb\AppData\Local\Arm\Packs\Keil\STM32F3xx_DFP\2.2.2\Drivers\CMSIS\Device\ST\STM32F3xx\Include\stm32f3xx.h)(0x60FBC418)
 I (C:\Users\sharb\AppData\Local\Arm\Packs\Keil\STM32F3xx_DFP\2.2.2\Drivers\CMSIS\Device\ST\STM32F3xx\Include\stm32f303xe.h)(0x60FBC418)
 I (C:\Users\sharb\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F912E)
@@ -372,7 +372,7 @@ I (C:\Users\sharb\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\inclu
 I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x5DB385E0)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x5DB385E0)
 I (RTE\RTOS\FreeRTOSConfig.h)(0x657878CE)
-I (RTE\_Target_1\RTE_Components.h)(0x65789C4A)
+I (RTE\_Target_1\RTE_Components.h)(0x657BD2D8)
 I (C:\Users\sharb\AppData\Local\Arm\Packs\Keil\STM32F3xx_DFP\2.2.2\Drivers\CMSIS\Device\ST\STM32F3xx\Include\stm32f3xx.h)(0x60FBC418)
 I (C:\Users\sharb\AppData\Local\Arm\Packs\Keil\STM32F3xx_DFP\2.2.2\Drivers\CMSIS\Device\ST\STM32F3xx\Include\stm32f303xe.h)(0x60FBC418)
 I (C:\Users\sharb\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F912E)
@@ -396,7 +396,7 @@ I (C:\Users\sharb\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\inclu
 I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x5DB385E0)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x5DB385E0)
 I (RTE\RTOS\FreeRTOSConfig.h)(0x657878CE)
-I (RTE\_Target_1\RTE_Components.h)(0x65789C4A)
+I (RTE\_Target_1\RTE_Components.h)(0x657BD2D8)
 I (C:\Users\sharb\AppData\Local\Arm\Packs\Keil\STM32F3xx_DFP\2.2.2\Drivers\CMSIS\Device\ST\STM32F3xx\Include\stm32f3xx.h)(0x60FBC418)
 I (C:\Users\sharb\AppData\Local\Arm\Packs\Keil\STM32F3xx_DFP\2.2.2\Drivers\CMSIS\Device\ST\STM32F3xx\Include\stm32f303xe.h)(0x60FBC418)
 I (C:\Users\sharb\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F912E)
@@ -421,7 +421,7 @@ I (C:\Users\sharb\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\inclu
 I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x5DB385E0)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x5DB385E0)
 I (RTE\RTOS\FreeRTOSConfig.h)(0x657878CE)
-I (RTE\_Target_1\RTE_Components.h)(0x65789C4A)
+I (RTE\_Target_1\RTE_Components.h)(0x657BD2D8)
 I (C:\Users\sharb\AppData\Local\Arm\Packs\Keil\STM32F3xx_DFP\2.2.2\Drivers\CMSIS\Device\ST\STM32F3xx\Include\stm32f3xx.h)(0x60FBC418)
 I (C:\Users\sharb\AppData\Local\Arm\Packs\Keil\STM32F3xx_DFP\2.2.2\Drivers\CMSIS\Device\ST\STM32F3xx\Include\stm32f303xe.h)(0x60FBC418)
 I (C:\Users\sharb\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F912E)
@@ -446,7 +446,7 @@ I (C:\Users\sharb\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\inclu
 I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x5DB385E0)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x5DB385E0)
 I (RTE\RTOS\FreeRTOSConfig.h)(0x657878CE)
-I (RTE\_Target_1\RTE_Components.h)(0x65789C4A)
+I (RTE\_Target_1\RTE_Components.h)(0x657BD2D8)
 I (C:\Users\sharb\AppData\Local\Arm\Packs\Keil\STM32F3xx_DFP\2.2.2\Drivers\CMSIS\Device\ST\STM32F3xx\Include\stm32f3xx.h)(0x60FBC418)
 I (C:\Users\sharb\AppData\Local\Arm\Packs\Keil\STM32F3xx_DFP\2.2.2\Drivers\CMSIS\Device\ST\STM32F3xx\Include\stm32f303xe.h)(0x60FBC418)
 I (C:\Users\sharb\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F912E)
