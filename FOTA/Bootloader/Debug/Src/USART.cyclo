@@ -1,0 +1,8 @@
+../Src/USART.c:40:22:MUSART_voidInit	18
+../Src/USART.c:214:6:MUSART1_VidSendCharSync	2
+../Src/USART.c:234:6:MUSART1_VidSendStringSynch	2
+../Src/USART.c:257:22:MUSART1_u8RecCharSynch	4
+../Src/USART.c:295:6:MUSART1_VidSetCallBack	4
+../Src/USART.c:322:6:USART1_IRQHandler	1
+../Src/USART.c:332:6:USART2_IRQHandler	1
+../Src/USART.c:342:6:USART3_IRQHandler	1

@@ -1,0 +1,4 @@
+../Src/Parse.c:10:4:AsciToHex	3
+../Src/Parse.c:27:6:ParseData	2
+../Src/Parse.c:62:6:ParseUpperAddress	1
+../Src/Parse.c:77:6:Parser_voidParseRecord	3
