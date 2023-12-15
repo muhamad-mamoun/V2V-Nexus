@@ -20,7 +20,7 @@
 // macro to drive dutycycle to zero
 #define DCMOTOR_STOP                 0
 
-#define DCMOTOR_MAX_SPEED              1000
+#define DCMOTOR_MAX_SPEED              50000
 
 
 /*motor states at the beginning and during run time*/

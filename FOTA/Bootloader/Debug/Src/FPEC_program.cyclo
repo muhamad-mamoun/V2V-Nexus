@@ -1,0 +1,3 @@
+../Src/FPEC_program.c:8:6:FPEC_voidEraseAppArea	1
+../Src/FPEC_program.c:18:6:FPEC_voidFlashPageErase	4
+../Src/FPEC_program.c:47:6:FPEC_voidFlashWrite	5
