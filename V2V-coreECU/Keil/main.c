@@ -33,7 +33,6 @@
 #define TEMP_NOTRESPONDING 0xFC
 
 #define US_OK 0x12
-//#define US_READINGERROR 0xD7
 #define US_NOTRESPONDING 0xFE
 
 #define TEMP_DATA_INDEX 0
@@ -45,9 +44,9 @@
 
 
 
-u8 Global_u8LogsArr[NUM_OF_CHECK_LOGS] = {TRUE,FALSE};  //ARR to TEMP STORE LOGS
+u8 Global_u8LogsArr[NUM_OF_CHECK_LOGS] = {TEMP_OK,US_OK};  //ARR to TEMP STORE LOGS
 u8 Global_readEEPROM[NUM_OF_CHECK_LOGS];  //ARR to TEMP STORE LOGS
-u8 Global_u8DataArr[3]; 	 							//TEMP ARR FOR CAN DATA
+u8 Global_u8DataArr[3]; 	 							  //TEMP ARR FOR CAN DATA
 
 volatile u16 Global_u16Distance; 				//FOR US
 
@@ -213,25 +212,28 @@ void CAN_SendDataT(void* pvparam)
 	} 
 }
 
-void CAN_RevieveDataT(void* pvparam)
+u8 Global_u8ManagmentMode = 0;
+	xTaskHandle Motor_SetDirectionH;
+	xTaskHandle Button_StateH;
+	xTaskHandle CAN_SendDataH;
+	xTaskHandle US_GetDistanceH;
+	xTaskHandle EEPROM_WriteLogsTH;
+
+void Suspend_MyTasks()
 {
-	u8 CAN_u8DataIndex = 0;
-	while(1)
-	{
-		if(CAN_enuRecieve(&CAN_u8DataIndex) == CAN_NORecievedData)
-		{
-			
-		}
-		else
-		{
-			REC_Data.Global_u8Direction 	=  ARR_Recieved_Data[CAN_u8DataIndex][0];
-			REC_Data.Global_u8Speed 			=  ARR_Recieved_Data[CAN_u8DataIndex][1];
-			REC_Data.Global_u8BrakeStatus =  ARR_Recieved_Data[CAN_u8DataIndex][2];
-		}
-		vTaskDelay(500);
-	}
+	vTaskSuspend(Motor_SetDirectionH);
+	vTaskSuspend(CAN_SendDataH);
+	vTaskSuspend(US_GetDistanceH);
+	vTaskSuspend(EEPROM_WriteLogsTH);
 }
 
+void Resume_MyTasks()
+{
+	vTaskResume(Motor_SetDirectionH);
+	vTaskResume(CAN_SendDataH);
+	vTaskResume(US_GetDistanceH);
+	vTaskResume(EEPROM_WriteLogsTH);
+}
 void Button_StateT(void* pvparam)
 {
 	GPIO_configurationsType LED = {GPIO_PORTA_ID,GPIO_PIN05_ID,GPIO_OUTPUT_PUSH_PULL_MODE,GPIO_MEDIUM_SPEED};
@@ -246,33 +248,47 @@ void Button_StateT(void* pvparam)
 		GPIO_readPin(GPIO_PORTC_ID,GPIO_PIN13_ID,&state);
 		if (counter == 15)
 		{
-			GPIO_writePin(GPIO_PORTA_ID,GPIO_PIN05_ID,GPIO_HIGH_PIN);
-			/*SWITCH TO MANAGEMENT MODE*/
-//			vTaskSuspendAll();
-//			MNVIC_VSystemReset();
-		  /***************************/
-			EEPROM_READ_STRING(EEPROM_START_ADDRESS,Global_readEEPROM,NUM_OF_CHECK_LOGS);
-			HBLE_VSendReport("WELCOME TO MANAGMENT MODE\r\n");
-			HBLE_VSendReport("MOTOR TEMP STATUS \t");
-			if (Global_readEEPROM[TEMP_DATA_INDEX] == FALSE)
+			if (Global_u8ManagmentMode == 0)
 			{
-				HBLE_VSendReport("NOT OK\r\t");
-			}
+					/*SWITCH TO MANAGEMENT MODE*/
+				Global_u8ManagmentMode = 1;
+				GPIO_writePin(GPIO_PORTA_ID,GPIO_PIN05_ID,GPIO_HIGH_PIN);
+				Suspend_MyTasks();
+				EEPROM_READ_STRING(EEPROM_START_ADDRESS,Global_readEEPROM,NUM_OF_CHECK_LOGS);
+				HBLE_VSendReport("WELCOME TO MANAGMENT MODE\r\n");
+				HBLE_VSendReport("MOTOR TEMP STATUS \t");
+				if (Global_readEEPROM[TEMP_DATA_INDEX] == TEMP_OVERHEAT)
+				{
+					HBLE_VSendReport("TEMP_OVERHEAT \r\t");
+				}
+				else if (Global_readEEPROM[TEMP_DATA_INDEX] == TEMP_NOTRESPONDING)
+				{
+					HBLE_VSendReport("SENSOR_NOTRESPONDING \r\t");
+				}
+				else
+				{
+					HBLE_VSendReport("NORMAL\r\n");
+				}
+				
+				HBLE_VSendReport("ULTRASONIC STATUS \t");
+				if (Global_readEEPROM[US_DATA_INDEX] == US_NOTRESPONDING)
+				{
+					HBLE_VSendReport("US_NOTRESPONDING\r\t");
+				}
+				else
+				{
+					HBLE_VSendReport("NORMAL\r\n");
+				}			
+			}	
 			else
 			{
-				HBLE_VSendReport("NORMAL\r\n");
-			}
-			HBLE_VSendReport("ULTRASONIC STATUS \t");
-			if (Global_readEEPROM[US_DATA_INDEX] == FALSE)
-			{
-				HBLE_VSendReport("NOT OK\r\t");
-			}
-			else
-			{
-				HBLE_VSendReport("NORMAL\r\n");
+				Global_u8ManagmentMode = 0;
+				GPIO_writePin(GPIO_PORTA_ID,GPIO_PIN05_ID,GPIO_LOW_PIN);
+				Resume_MyTasks();
 			}
 			counter = 0;
 		}
+
 		if (state == GPIO_LOW_PIN)
 		{
 			counter++;
@@ -318,6 +334,10 @@ void CAN_voidSysInit()
 	CAN_enuInit(&BasicCFG);
 }
 
+
+
+
+
 int main(void)
 {	
 	/************* RCC INITS******************/
@@ -342,23 +362,14 @@ int main(void)
 	EEPROM_init();
 	
 	/************* TASKS CREATION ***************/
-	xTaskHandle Motor_SetDirectionH;
 	xTaskCreate(Motor_SetDirectionT,NULL,configMINIMAL_STACK_SIZE,NULL,1,&Motor_SetDirectionH);
 	
-	xTaskHandle Button_StateH;
 	xTaskCreate(Button_StateT,NULL,configMINIMAL_STACK_SIZE,NULL,1,&Button_StateH);
 	
-	xTaskHandle CAN_SendDataH;
 	xTaskCreate(CAN_SendDataT,NULL,configMINIMAL_STACK_SIZE,NULL,1,&CAN_SendDataH);
-	
-	xTaskHandle CAN_RevieveDataH;
-	xTaskCreate(CAN_RevieveDataT,NULL,configMINIMAL_STACK_SIZE,NULL,1,&CAN_RevieveDataH);
-	
-	
-	xTaskHandle US_GetDistanceH;
+		
 	xTaskCreate(US_GetDistanceT,NULL,configMINIMAL_STACK_SIZE,NULL,4,&US_GetDistanceH);
 	
-	xTaskHandle EEPROM_WriteLogsTH;
 	xTaskCreate(EEPROM_WriteLogsT,NULL,configMINIMAL_STACK_SIZE,NULL,1,&EEPROM_WriteLogsTH);
 
 	vTaskStartScheduler();

@@ -77,7 +77,3 @@ void ADC_setCallBack(void(*loc_ADCClbk_ptr)(void))
 	ADCClbk_ptr = loc_ADCClbk_ptr;
 }
 
-int main()
-{
-
-}

@@ -14,6 +14,8 @@
 ".\objects\can.o"
 ".\objects\eeprom.o"
 ".\objects\i2c.o"
+".\objects\adc.o"
+".\objects\temp_sensor.o"
 ".\objects\clib_arm.o"
 ".\objects\cmsis_os2.o"
 ".\objects\os_systick.o"

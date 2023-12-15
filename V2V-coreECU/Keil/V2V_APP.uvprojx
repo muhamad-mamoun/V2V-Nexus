@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\OTHERS;..\MCAL\RCC\inc;..\MCAL\GPIO\INCLUDES;..\MCAL\NVIC Driver\Includes;..\MCAL\PWM\includes;..\MCAL\UART\Includes;..\MCAL\ICU\INCLUDES;..\MCAL\EXTI\Inludes;..\HAL\MOTOR\INCLUDES;..\HAL\Bluetooth\Includes;..\HAL\US\Includes;..\MCAL\CAN\Include;..\MCAL\I2C\inc;..\HAL\EEPROM\inc</IncludePath>
+              <IncludePath>..\OTHERS;..\MCAL\RCC\inc;..\MCAL\GPIO\INCLUDES;..\MCAL\NVIC Driver\Includes;..\MCAL\PWM\includes;..\MCAL\UART\Includes;..\MCAL\ICU\INCLUDES;..\MCAL\EXTI\Inludes;..\HAL\MOTOR\INCLUDES;..\HAL\Bluetooth\Includes;..\HAL\US\Includes;..\MCAL\CAN\Include;..\MCAL\I2C\inc;..\HAL\EEPROM\inc;..\MCAL\ADC;..\HAL\Temp_Sensor</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -631,6 +631,36 @@
               <FileName>I2C.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\MCAL\I2C\src\I2C.c</FilePath>
+            </File>
+            <File>
+              <FileName>ADC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\MCAL\ADC\ADC.c</FilePath>
+            </File>
+            <File>
+              <FileName>ADC.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\MCAL\ADC\ADC.h</FilePath>
+            </File>
+            <File>
+              <FileName>ADC_cfg.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\MCAL\ADC\ADC_cfg.h</FilePath>
+            </File>
+            <File>
+              <FileName>ADC_prv.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\MCAL\ADC\ADC_prv.h</FilePath>
+            </File>
+            <File>
+              <FileName>Temp_sensor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HAL\Temp_Sensor\Temp_sensor.c</FilePath>
+            </File>
+            <File>
+              <FileName>Temp_sensor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\HAL\Temp_Sensor\Temp_sensor.h</FilePath>
             </File>
           </Files>
         </Group>
