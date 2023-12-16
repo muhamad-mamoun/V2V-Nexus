@@ -252,27 +252,14 @@ void MUSART1_VidSendStringSynch (u8 UART_INDEX, u8 * Copy_ptrString )
   */
 UART_tenuErrorStatus MUSART1_u8RecCharSynch (u8 UART_INDEX,u32* pData)
 {
- 
 	UART_tenuErrorStatus ErrorStatus = UART_EOk ; 
-	u32 LOC_TimeOut = 0 ;
 
     /*Clear Flag By Software..*/
    // SET_BIT(MUSART->RQR ,3);
 
-	while((GET_BIT (MUSART(arr_Bases[UART_INDEX])->ISR,5) == 0) && ( LOC_TimeOut < THRESHOLD_VALUE ) )
-	{
-		LOC_TimeOut++;
-	}
-	if( LOC_TimeOut >= THRESHOLD_VALUE )
-	{
-      ErrorStatus = ErrorReceieving ; 
-  }
-	else
-	{
-		*pData = MUSART(arr_Bases[UART_INDEX]) -> RDR;
-	}
-
-		return ErrorStatus;
+	while((GET_BIT (MUSART(arr_Bases[UART_INDEX])->ISR,5) == 0));
+	*pData = MUSART(arr_Bases[UART_INDEX]) -> RDR;
+	return ErrorStatus;
 
 }
 

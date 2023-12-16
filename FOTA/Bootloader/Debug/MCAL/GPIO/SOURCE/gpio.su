@@ -1,0 +1,9 @@
+../MCAL/GPIO/SOURCE/gpio.c:32:6:GPIO_init	184	static
+../MCAL/GPIO/SOURCE/gpio.c:68:22:GPIO_configurePin	64	static
+../MCAL/GPIO/SOURCE/gpio.c:146:22:GPIO_writePin	64	static
+../MCAL/GPIO/SOURCE/gpio.c:182:22:GPIO_writePort	64	static
+../MCAL/GPIO/SOURCE/gpio.c:211:22:GPIO_readPin	64	static
+../MCAL/GPIO/SOURCE/gpio.c:248:22:GPIO_readPort	64	static
+../MCAL/GPIO/SOURCE/gpio.c:280:22:GPIO_togglePin	64	static
+../MCAL/GPIO/SOURCE/gpio.c:314:22:GPIO_setPinFuction	64	static
+../MCAL/GPIO/SOURCE/gpio.c:356:22:GPIO_lockPin	64	static

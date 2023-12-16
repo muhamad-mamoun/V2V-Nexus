@@ -1,0 +1,9 @@
+../MCAL/GPIO/SOURCE/gpio.c:32:6:GPIO_init	3
+../MCAL/GPIO/SOURCE/gpio.c:68:22:GPIO_configurePin	11
+../MCAL/GPIO/SOURCE/gpio.c:146:22:GPIO_writePin	5
+../MCAL/GPIO/SOURCE/gpio.c:182:22:GPIO_writePort	2
+../MCAL/GPIO/SOURCE/gpio.c:211:22:GPIO_readPin	4
+../MCAL/GPIO/SOURCE/gpio.c:248:22:GPIO_readPort	3
+../MCAL/GPIO/SOURCE/gpio.c:280:22:GPIO_togglePin	3
+../MCAL/GPIO/SOURCE/gpio.c:314:22:GPIO_setPinFuction	5
+../MCAL/GPIO/SOURCE/gpio.c:356:22:GPIO_lockPin	3

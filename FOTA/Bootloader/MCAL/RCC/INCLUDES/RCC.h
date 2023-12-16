@@ -19,7 +19,7 @@
 #define SYSCLK_HSI 1
 #define SYSCLK_PLL 2   //NOT IMPLEMENTED YET
 
-#define SYS_CLK SYSCLK_HSE
+#define SYS_CLK SYSCLK_HSI
 
 void RCC_voidInitSYSCLK(void);
 

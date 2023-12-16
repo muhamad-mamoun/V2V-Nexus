@@ -1,0 +1,8 @@
+../MCAL/SYSTICK/SOURCE/STK_program.c:14:6:MSTK_voidInit	4	static
+../MCAL/SYSTICK/SOURCE/STK_program.c:26:6:MSTK_voidSetBusyWait	16	static
+../MCAL/SYSTICK/SOURCE/STK_program.c:44:6:MSTK_voidSetIntervalSingle	16	static
+../MCAL/SYSTICK/SOURCE/STK_program.c:67:6:MSTK_voidSetIntervalPeriodic	16	static
+../MCAL/SYSTICK/SOURCE/STK_program.c:85:6:MSTK_voidStopInterval	4	static
+../MCAL/SYSTICK/SOURCE/STK_program.c:96:6:MSTK_u32GetElapsedTime	16	static
+../MCAL/SYSTICK/SOURCE/STK_program.c:105:6:MSTK_u32GetRemainingTime	16	static
+../MCAL/SYSTICK/SOURCE/STK_program.c:114:6:SysTick_Handler	16	static

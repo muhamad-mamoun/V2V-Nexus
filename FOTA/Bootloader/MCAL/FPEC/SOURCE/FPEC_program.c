@@ -8,7 +8,7 @@ void FPEC_voidEraseAppArea(void)
 {
 	u8 i;
 	
-	for (i=6;i<512;i++)
+	for (i=6;i<255;i++)
 	{
 		FPEC_voidFlashPageErase(i);
 	}
