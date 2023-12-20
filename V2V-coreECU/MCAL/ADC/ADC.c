@@ -18,10 +18,10 @@ void ADC_Init(ADC_config *ADC_config_ptr)
 	// enable clock to ADC1
 	RCC_voidEnablePeripheral(AHB_BUS,ADC_EN);
 	RCC_voidEnablePeripheral(AHB_BUS,GPIOA_EN);
-	ADC2 ->CCR |= (1<<17);
-
+	ADC2 ->CCR |= (1<<17); ///////////////
+	ADC2 ->CCR |= (1<<22);  //VREFINT
 	GPIO_configurePin(&input_channel);
-	ADC1->CR = (ADC_config_ptr ->refVolt<<28);
+//	ADC1->CR = (ADC_config_ptr ->refVolt<<28);
 		for(int i = 0; i<100000;i++){}
 	ADC1->SMPR1 = (ADC_config_ptr ->samplingTime<<3);
 
@@ -60,8 +60,7 @@ void ADC_GetConversionState(u8 *convStateP )
 
 u8 ADC_ReadData(u16* convertedData)
 {
-      while(BIT_IS_CLEAR(ADC1->ISR,3)){}
-
+  while(BIT_IS_CLEAR(ADC1->ISR,2)){}
 	if(GET_BIT(ADC1->ISR,3) == 1)
 	{
 		*convertedData = ADC1 ->DR; // store the data converted

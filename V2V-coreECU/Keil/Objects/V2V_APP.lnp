@@ -29,7 +29,6 @@
 ".\objects\queue.o"
 ".\objects\tasks.o"
 ".\objects\timers.o"
---strict --scatter "..\..\FOTA\Bootloader\STM32F303RETX_FLASH.ld"
---summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--ro-base 0x08000000 --entry 0x08000000 --rw-base 0x20000000 --entry Reset_Handler --first __Vectors --strict --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
 --list ".\Listings\V2V_APP.map" -o .\Objects\V2V_APP.axf
