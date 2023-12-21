@@ -138,12 +138,15 @@ static void MOTOR_SET_SPEED(u8 speed)
 	
 	if (speed > FALSE)
 	{
-		PWM_enu_SetDutyCycle(DCMOTOR_SELECT_TIMER2,DCMOTOR_SELECT_CHANNEL1,speed-5);
+		PWM_enu_SetDutyCycle(DCMOTOR_SELECT_TIMER2,DCMOTOR_SELECT_CHANNEL1,speed-4);
 	}
 	else
 	{
 		PWM_enu_SetDutyCycle(DCMOTOR_SELECT_TIMER2,DCMOTOR_SELECT_CHANNEL1,speed);
 	}
+    
+    
+    
 	PWM_enu_SetDutyCycle(DCMOTOR_SELECT_TIMER,DCMOTOR_SELECT_CHANNEL1,speed);
 	
 }
