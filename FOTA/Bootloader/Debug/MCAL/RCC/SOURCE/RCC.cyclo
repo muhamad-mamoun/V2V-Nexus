@@ -1,3 +1,0 @@
-../MCAL/RCC/SOURCE/RCC.c:13:6:RCC_voidInitSYSCLK	4
-../MCAL/RCC/SOURCE/RCC.c:52:6:RCC_voidEnablePeripheral	5
-../MCAL/RCC/SOURCE/RCC.c:68:6:RCC_voidDisablePeripheral	5

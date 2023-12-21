@@ -1,3 +1,0 @@
-../MCAL/FPEC/SOURCE/FPEC_program.c:7:6:FPEC_voidEraseAppArea	2
-../MCAL/FPEC/SOURCE/FPEC_program.c:17:6:FPEC_voidFlashPageErase	4
-../MCAL/FPEC/SOURCE/FPEC_program.c:46:6:FPEC_voidFlashWrite	5

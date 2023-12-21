@@ -1,4 +1,0 @@
-../APP/main.c:26:6:BL_jumpFunc	1
-../APP/main.c:37:6:BL_eraseReceiveBuffer	2
-../APP/main.c:46:6:BL_initSystem	1
-../APP/main.c:79:5:main	5
