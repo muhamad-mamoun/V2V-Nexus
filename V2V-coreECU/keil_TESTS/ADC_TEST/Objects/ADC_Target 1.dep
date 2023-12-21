@@ -1,50 +1,0 @@
-Dependencies for Project 'ADC', Target 'Target 1': (DO NOT MODIFY !)
-CompilerVersion: 6190000::V6.19::ARMCLANG
-F (.\main.c)(0x6575BD7F)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -Wno-covered-switch-default -Wno-unreachable-code-break -I ../../MCAL/GPIO/INCLUDES -I ../../MCAL/RCC/inc -I ../../OTHERS -I ../../MCAL/ADC-I./RTE/_Target_1-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/CAIRO/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F303xE -D_RTE_-o ./objects/main.o -MD)
-I (..\..\OTHERS\common_macros.h)(0x656309A2)
-I (..\..\OTHERS\std_types.h)(0x656309A2)
-I (..\..\MCAL\RCC\inc\RCC.h)(0x657586C1)
-I (..\..\MCAL\GPIO\INCLUDES\gpio.h)(0x657583EE)
-I (..\..\MCAL\ADC\ADC.h)(0x65758793)
-F (..\..\MCAL\GPIO\SOURCE\gpio.c)(0x6575834A)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -Wno-covered-switch-default -Wno-unreachable-code-break -I ../../MCAL/GPIO/INCLUDES -I ../../MCAL/RCC/inc -I ../../OTHERS -I ../../MCAL/ADC-I./RTE/_Target_1-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/CAIRO/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F303xE -D_RTE_-o ./objects/gpio.o -MD)
-I (..\..\MCAL\GPIO\SOURCE\..\..\..\OTHERS\std_types.h)(0x656309A2)
-I (..\..\MCAL\GPIO\SOURCE\..\..\..\OTHERS\common_macros.h)(0x656309A2)
-I (..\..\MCAL\GPIO\SOURCE\..\INCLUDES\gpio_prv.h)(0x656309A2)
-I (..\..\MCAL\GPIO\SOURCE\..\INCLUDES\gpio_cfg.h)(0x656309A2)
-I (..\..\MCAL\GPIO\SOURCE\..\INCLUDES\gpio.h)(0x657583EE)
-I (..\..\OTHERS\std_types.h)(0x656309A2)
-F (..\..\MCAL\GPIO\INCLUDES\gpio.h)(0x657583EE)()
-F (..\..\MCAL\GPIO\INCLUDES\gpio_cfg.h)(0x656309A2)()
-F (..\..\MCAL\GPIO\INCLUDES\gpio_prv.h)(0x656309A2)()
-F (..\..\MCAL\RCC\inc\RCC.h)(0x657586C1)()
-F (..\..\MCAL\RCC\inc\RCC_prv.h)(0x656309A2)()
-F (..\..\MCAL\RCC\src\RCC.c)(0x656309A2)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -Wno-covered-switch-default -Wno-unreachable-code-break -I ../../MCAL/GPIO/INCLUDES -I ../../MCAL/RCC/inc -I ../../OTHERS -I ../../MCAL/ADC-I./RTE/_Target_1-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/CAIRO/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F303xE -D_RTE_-o ./objects/rcc.o -MD)
-I (..\..\OTHERS\std_types.h)(0x656309A2)
-I (..\..\OTHERS\common_macros.h)(0x656309A2)
-I (..\..\MCAL\RCC\inc\RCC_prv.h)(0x656309A2)
-I (..\..\MCAL\RCC\inc\RCC.h)(0x657586C1)
-F (..\..\MCAL\ADC\ADC.c)(0x6575BFE4)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -Wno-covered-switch-default -Wno-unreachable-code-break -I ../../MCAL/GPIO/INCLUDES -I ../../MCAL/RCC/inc -I ../../OTHERS -I ../../MCAL/ADC-I./RTE/_Target_1-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/CAIRO/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F303xE -D_RTE_-o ./objects/adc.o -MD)
-I (..\..\MCAL\ADC\ADC_prv.h)(0x65758F7A)
-I (..\..\MCAL\GPIO\INCLUDES\gpio.h)(0x657583EE)
-I (..\..\OTHERS\std_types.h)(0x656309A2)
-I (..\..\MCAL\GPIO\INCLUDES\gpio_cfg.h)(0x656309A2)
-I (..\..\MCAL\GPIO\INCLUDES\gpio_prv.h)(0x656309A2)
-I (..\..\MCAL\ADC\ADC.h)(0x65758793)
-I (..\..\OTHERS\common_macros.h)(0x656309A2)
-I (..\..\MCAL\RCC\inc\RCC.h)(0x657586C1)
-F (..\..\MCAL\ADC\ADC.h)(0x65758793)()
-F (..\..\MCAL\ADC\ADC_cfg.h)(0x65757DB1)()
-F (..\..\MCAL\ADC\ADC_prv.h)(0x65758F7A)()
-F (..\..\OTHERS\common_macros.h)(0x656309A2)()
-F (..\..\OTHERS\std_types.h)(0x656309A2)()
-F (RTE/Device/STM32F303RETx/startup_stm32f303xe.s)(0x60FBC418)(--target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -masm=auto  -Wa,armasm,--diag_suppress=A1950W -c-gdwarf-4 -Wa,armasm,--pd,"__EVAL SETA 1"-I./RTE/_Target_1-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/CAIRO/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include-Wa,armasm,--pd,"__UVISION_VERSION SETA 538" -Wa,armasm,--pd,"_RTE_ SETA 1" -Wa,armasm,--pd,"STM32F303xE SETA 1" -Wa,armasm,--pd,"_RTE_ SETA 1"-o ./objects/startup_stm32f303xe.o)
-F (RTE/Device/STM32F303RETx/system_stm32f3xx.c)(0x60FBC418)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -Wno-covered-switch-default -Wno-unreachable-code-break -I ../../MCAL/GPIO/INCLUDES -I ../../MCAL/RCC/inc -I ../../OTHERS -I ../../MCAL/ADC-I./RTE/_Target_1-IC:/Users/CAIRO/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/CAIRO/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F303xE -D_RTE_-o ./objects/system_stm32f3xx.o -MD)
-I (C:\Users\CAIRO\AppData\Local\Arm\Packs\Keil\STM32F3xx_DFP\2.2.2\Drivers\CMSIS\Device\ST\STM32F3xx\Include\stm32f3xx.h)(0x60FBC418)
-I (C:\Users\CAIRO\AppData\Local\Arm\Packs\Keil\STM32F3xx_DFP\2.2.2\Drivers\CMSIS\Device\ST\STM32F3xx\Include\stm32f303xe.h)(0x60FBC418)
-I (C:\Users\CAIRO\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F912E)
-I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63889D68)
-I (C:\Users\CAIRO\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F912E)
-I (C:\Users\CAIRO\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F912E)
-I (C:\Users\CAIRO\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F912E)
-I (C:\Users\CAIRO\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x626F912E)
-I (C:\Users\CAIRO\AppData\Local\Arm\Packs\Keil\STM32F3xx_DFP\2.2.2\Drivers\CMSIS\Device\ST\STM32F3xx\Include\system_stm32f3xx.h)(0x60FBC418)
