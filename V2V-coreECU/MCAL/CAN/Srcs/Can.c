@@ -38,15 +38,6 @@ Error_status CAN_enuInit(const CAN_ConfigType* Config_Ptr)
 		ErrorStatus=CAN_NullPointerError;
 	}
 	
-	//GPIO _ INIt
-//	RCC_voidEnablePeripheral(AHB_BUS,GPIOB_EN);
-//	GPIO_configurationsType CAN_GPIOConfig={GPIO_PORTB_ID,GPIO_PIN09_ID,GPIO_ALTERNATE_PUSH_PULL_MODE,GPIO_HIGH_SPEED};
-//	GPIO_configurePin(&CAN_GPIOConfig);
-//  GPIOB->AFRH |=(GPIO_AF09<<0);
-//	GPIO_configurationsType CAN_GPIOConfig1={GPIO_PORTB_ID,GPIO_PIN08_ID,GPIO_ALTERNATE_PUSH_PULL_MODE,GPIO_HIGH_SPEED};
-//	GPIO_configurePin(&CAN_GPIOConfig1);
-//  GPIOB->AFRH |=(GPIO_AF09<<4);
-//	RCC_voidEnablePeripheral(APB1_BUS,CAN_EN);
 	//Init Mode In
 	CAN_REG->CAN_MCR.INRQ=SET;
 	//wait untill Init mode flag raise
