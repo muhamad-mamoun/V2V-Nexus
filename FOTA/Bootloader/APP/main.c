@@ -81,7 +81,7 @@ int main(void)
 	u8 Local_u8RecStatus;
 
 	BL_initSystem();
-	MSTK_voidSetIntervalSingle(40000000,BL_jumpFunc);
+	MSTK_voidSetIntervalSingle(15000000,BL_jumpFunc);
 
 	while(u8TimeOutFlag == 0)
 	{
@@ -110,7 +110,7 @@ int main(void)
 				u8RecCounter++;
 			}
 
-			MSTK_voidSetIntervalSingle(40000000,BL_jumpFunc);
+			MSTK_voidSetIntervalSingle(15000000,BL_jumpFunc);
 		}
 
 		else

@@ -1,9 +1,0 @@
-{
-    "files.associations": {
-        "std_types.h": "c",
-        "common_macros.h": "c",
-        "rcc_interface.h": "c",
-        "motor.h": "c",
-        "pwm_private.h": "c"
-    }
-}

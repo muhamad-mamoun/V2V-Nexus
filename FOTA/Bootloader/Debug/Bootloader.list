@@ -576,7 +576,7 @@ int main(void)
 
 	BL_initSystem();
  80004da:	f7ff ffa3 	bl	8000424 <BL_initSystem>
-	MSTK_voidSetIntervalSingle(40000000,BL_jumpFunc);
+	MSTK_voidSetIntervalSingle(15000000,BL_jumpFunc);
  80004de:	4924      	ldr	r1, [pc, #144]	; (8000570 <main+0x9c>)
  80004e0:	4824      	ldr	r0, [pc, #144]	; (8000574 <main+0xa0>)
  80004e2:	f000 fb4d 	bl	8000b80 <MSTK_voidSetIntervalSingle>
@@ -656,7 +656,7 @@ int main(void)
  8000550:	701a      	strb	r2, [r3, #0]
 			}
 
-			MSTK_voidSetIntervalSingle(40000000,BL_jumpFunc);
+			MSTK_voidSetIntervalSingle(15000000,BL_jumpFunc);
  8000552:	4907      	ldr	r1, [pc, #28]	; (8000570 <main+0x9c>)
  8000554:	4807      	ldr	r0, [pc, #28]	; (8000574 <main+0xa0>)
  8000556:	f000 fb13 	bl	8000b80 <MSTK_voidSetIntervalSingle>
@@ -679,7 +679,7 @@ int main(void)
  800056c:	bd80      	pop	{r7, pc}
  800056e:	bf00      	nop
  8000570:	080003b9 	.word	0x080003b9
- 8000574:	02625a00 	.word	0x02625a00
+ 8000574:	00e4e1c0 	.word	0x00e4e1c0
  8000578:	2000015c 	.word	0x2000015c
  800057c:	200000f8 	.word	0x200000f8
  8000580:	20000004 	.word	0x20000004
